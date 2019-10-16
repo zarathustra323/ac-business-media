@@ -1,0 +1,24 @@
+{
+  "name": "@base-cms-websites/ac-business-media",
+  "description": "Websites for AC Business Media",
+  "repository": "https://github.com/base-cms-websites/ac-business-media.git",
+  "author": "Brandon Krigbaum <brandonbk@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "root": true,
+  "workspaces": [
+    "packages/*",
+    "sites/*"
+  ],
+  "scripts": {
+    "compile": "lerna run compile",
+    "lint": "lerna run lint",
+    "lint:css": "lerna run lint:css",
+    "lint:js": "lerna run lint:js",
+    "test": "lerna run test"
+  },
+  "devDependencies": {
+    "@base-cms/marko-compiler": "^1.0.0-beta.1",
+    "lerna": "^3.16.4"
+  }
+}
