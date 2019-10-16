@@ -2,31 +2,31 @@ const navigation = require('./navigation');
 
 module.exports = {
   navigation,
-  company: 'Endeavor Business Media, LLC',
+  company: 'AC Business Media, LLC',
   logos: {
     navbar: {
-      src: 'https://img.laserfocusworld.com/files/base/pennwell/lfw/logo.png?h=45',
+      src: 'https://base.imgix.net/files/base/acbm/gip/image/static/logo/site_logo.png?h=45',
       srcset: [
-        'https://img.laserfocusworld.com/files/base/pennwell/lfw/logo.png?h=90 2x',
+        'https://base.imgix.net/files/base/acbm/gip/image/static/logo/site_logo.png?h=90 2x',
       ],
     },
     footer: {
-      src: 'https://img.laserfocusworld.com/files/base/pennwell/lfw/logo.png?h=60',
+      src: 'https://base.imgix.net/files/base/acbm/gip/image/static/logo/site_logo.png?h=60',
       srcset: [
-        'https://img.laserfocusworld.com/files/base/pennwell/lfw/logo.png?h=120 2x',
+        'https://base.imgix.net/files/base/acbm/gip/image/static/logo/site_logo.png?h=120 2x',
       ],
     },
   },
   socialMediaLinks: [
-    { provider: 'linkedin', href: 'https://www.linkedin.com/groups/2896249/', target: '_blank' },
-    { provider: 'twitter', href: 'https://twitter.com/LaserFocusWorld', target: '_blank' },
-    { provider: 'facebook', href: 'https://www.facebook.com/pages/Laser-Focus-World/126899915297', target: '_blank' },
+    { provider: 'linkedin', href: 'https://www.linkedin.com/groups/3916625/profile', target: '_blank' },
+    { provider: 'twitter', href: 'https://twitter.com/greenindpros', target: '_blank' },
+    { provider: 'facebook', href: 'https://www.facebook.com/GreenIndustryPros', target: '_blank' },
   ],
   gtm: {
-    containerId: 'GTM-MFCT2LV',
+    containerId: 'GTM-5PXVKG4',
   },
   wufoo: {
-    userName: 'cygnuscorporate',
+    userName: '<NOT SET>',
   },
   magazines: {
     description: '',
@@ -34,17 +34,17 @@ module.exports = {
   contactUs: {
     branding: {
       bgColor: '#164f77',
-      logo: 'https://img.laserfocusworld.com/files/base/pennwell/lfw/logo.png?h=60',
+      logo: 'https://base.imgix.net/files/base/acbm/gip/image/static/logo/site_logo.png?h=60',
     },
-    to: 'juliac@pennwell.com',
+    to: 'nraether@acbusinessmedia.com',
   },
   inquiry: {
     enabled: true,
     directSend: true,
-    sendTo: 'juliac@pennwell.com',
-    sendFrom: 'LaserFocusWorld.com <noreply@baseplatform.io>',
+    sendTo: 'nraether@acbusinessmedia.com',
+    sendFrom: 'GreenIndustryPros.com <noreply@baseplatform.io>',
     sendBcc: 'emailactivity@cygnus.com',
-    logo: 'https://img.laserfocusworld.com/files/base/pennwell/lfw/logo.png?h=60',
+    logo: 'https://base.imgix.net/files/base/acbm/gip/image/static/logo/site_logo.png?h=60',
     bgColor: '#164f77',
   },
 };

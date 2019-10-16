@@ -1,3 +1,3 @@
 module.exports = {
-  siteName: 'Laser Focus World',
+  siteName: 'Green Industry Pros',
 };
