@@ -5,8 +5,7 @@ $ const { aliases } = input;
 $ const nodes = getAsArray(input, "nodes");
 
 <if(nodes.length)>
-  <website-content-card-deck-flow nodes=nodes.slice(0, 10) aliases=aliases native-x=input.nativeX />
-  <default-theme-column-list-flow nodes=nodes.slice(10)>
+  <default-theme-column-list-flow nodes=nodes reverse=true>
     <@column>
       <marko-web-gam-define-display-ad ...GAM.getAdUnit({ name: "load-more", size: [300, 600], aliases }) modifiers=["in-card"] />
     </@column>
