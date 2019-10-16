@@ -15,8 +15,8 @@
     "test": "yarn lint && yarn compile && yarn build"
   },
   "dependencies": {
-    "@base-cms-websites/package-common": "^0.0.5",
-    "@base-cms-websites/package-inquiry": "^1.0.0-alpha.5",
+    "@base-cms-websites/package-common": "^1.0.0-alpha.0",
+    "@base-cms-websites/package-inquiry": "^1.0.0-alpha.0",
     "@base-cms/marko-web": "^1.0.0-beta.3",
     "@base-cms/marko-web-gam": "^1.0.0-beta.2",
     "@base-cms/marko-web-gcse": "^1.0.0-beta.2",
