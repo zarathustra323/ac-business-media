@@ -1,3 +1,1 @@
-module.exports = {
-  siteName: 'Green Industry Pros',
-};
+module.exports = {};
