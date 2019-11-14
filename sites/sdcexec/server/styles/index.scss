@@ -21,6 +21,9 @@ $theme-site-header-breakpoints: (
 // Theme start!
 @import url("https://fonts.googleapis.com/css?family=Arimo:400,400i,700&display=swap");
 
+$black:           #000 !default;
+$body-color:      $black !default;
+
 // Marko Web Settings
 $marko-web-document-container-max-width: 1048px !default;
 $marko-web-document-container-gutter: 10px !default;
@@ -34,7 +37,7 @@ $theme-font-family-page-title: $theme-font-family-sans-serif !default;
 
 // General
 $body-bg: #fff !default;
-$breadcrumb-divider: ">" !default;
+$breadcrumb-divider: "|" !default;
 $font-weight-bold: 700 !default;
 $grid-gutter-width: 20px !default;
 
@@ -43,10 +46,10 @@ $enable-shadows: false !default;
 $enable-rounded: false !default;
 
 // General Heading Defaults
-$theme-heading-font-weight: 700 !default;
+$theme-heading-font-weight: $font-weight-bold !default;
 
 // Page Wrapper
-$theme-page-title-font-weight: 700 !default;
+$theme-page-title-font-weight: $font-weight-bold !default;
 $theme-page-title-font-size: 24px !default;
 $theme-page-title-font-size-sm: 20px !default;
 $theme-page-title-line-height: 1.2 !default;
@@ -58,6 +61,21 @@ $theme-page-deck-font-size-sm: 16px !default;
 $theme-page-deck-line-height: 1.5 !default;
 $theme-page-deck-line-height-sm: 1.5 !default;
 
+// Breadcrumbs
+$theme-breadcrumbs-font-size: 14px !default;
+$theme-breadcrumbs-font-weight: $font-weight-bold !default;
+
+// Content Published Date
+$theme-content-published-date-font-size: 14px !default;
+$theme-content-published-date-line-height: 1.2 !default;
+
+// Content Attribution
+$theme-content-attribution-font-size: 14px !default;
+$theme-content-attribution-prefix-spacer-content: none !default;
+$theme-content-attribution-prefix-font-weight: 400 !default;
+$theme-content-attribution-line-height: 1.2 !default;
+
+
 @import "../../node_modules/@base-cms/marko-web-gam/scss/fixed-ad-bottom";
 @import "../../node_modules/@base-cms/marko-web-theme-default/scss/theme";
 // @todo this should be remove once contact us is in core
@@ -65,6 +83,54 @@ $theme-page-deck-line-height-sm: 1.5 !default;
 @import "../../node_modules/@ac-business-media/package-common/scss/directory";
 @import "../../node_modules/@ac-business-media/package-inquiry/scss/index";
 
-body {
-  -webkit-font-smoothing: antialiased;
+.ad-container {
+  margin-top: $theme-ad-margin;
+}
+.page-wrapper {
+  &__deck,
+  &__title {
+    $max: 920px;
+    // ensure readable line length is not too long.
+    padding-right: ($marko-web-document-container-max-width - ($marko-web-document-container-gutter * 2) - ($marko-web-page-wrapper-padding * 2)) - $max;
+    @media (max-width: 920px) {
+      padding-right: 0;
+    }
+  }
+
+  &__section {
+    padding-bottom: $grid-gutter-width;
+    margin-bottom: $grid-gutter-width;
+    border-bottom: 2px solid #ebebeb;
+  }
+}
+
+.page-dates {
+  display: flex;
+}
+
+.page-attribution {
+  display: flex;
+
+  &__content-authors {
+    &::before {
+      content: "By";
+    }
+  }
+  a {
+    color: $body-color;
+  }
+
+  div:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.page-attribution-wrapper {
+  display: flex;
+}
+
+.page-dates + .page-attribution {
+  padding-left: .5rem;
+  margin-left: .5rem;
+  border-left: 1px solid #000;
 }
