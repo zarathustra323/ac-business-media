@@ -72,6 +72,7 @@ $ const displayPublishedDate = ["event", "webinar", "contact"].includes(type) ? 
                 <marko-web-content-embed-code block-name=blockName obj=content />
               </if>
               <else-if(displayPrimaryImage)>
+                <!-- @todo ensure newest version of marko-web is added -->
                 <marko-web-page-image
                   obj=content.primaryImage
                   modifiers=["fluid-16by9"]

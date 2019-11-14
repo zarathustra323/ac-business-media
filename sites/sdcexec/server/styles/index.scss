@@ -79,6 +79,16 @@ $theme-page-deck-font-size-sm: 18px !default;
 $theme-page-deck-line-height: 1.5 !default;
 $theme-page-deck-line-height-sm: 1.5 !default;
 
+$marko-web-page-image-margin: 20px;
+
+// Media Caption/Credit
+$theme-media-footer-padding-y: 5px !default;
+
+$theme-media-caption-color: #9e9e9e !default;
+$theme-media-caption-font-size: 11px !default;
+$theme-media-credit-color: #9e9e9e !default;
+$theme-media-credit-font-size: 11px !default;
+
 // Breadcrumbs
 $theme-breadcrumbs-font-size: 14px !default;
 $theme-breadcrumbs-font-weight: $font-weight-bold !default;
@@ -138,6 +148,10 @@ $theme-content-attribution-line-height: 1.2 !default;
     padding-bottom: $grid-gutter-width;
     margin-bottom: $grid-gutter-width + 5px;
     border-bottom: 2px solid #ebebeb;
+  }
+
+  .col > :last-child {
+    margin-bottom: $marko-web-page-image-margin;
   }
 }
 
@@ -202,5 +216,15 @@ $theme-content-attribution-line-height: 1.2 !default;
         }
       }
     }
+  }
+
+  &__image-caption,
+  &__image-credit {
+    text-align: right;
+  }
+
+  // @todo keep in skin
+  > :last-child:not(#{ $self }__wrapper) {
+    border-bottom: none;
   }
 }
