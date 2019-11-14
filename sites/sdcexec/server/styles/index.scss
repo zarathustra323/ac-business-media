@@ -23,6 +23,7 @@ $theme-site-header-breakpoints: (
 
 $black:           #000 !default;
 $body-color:      $black !default;
+$block-spacer:    1.25rem !default;
 
 // Marko Web Settings
 $marko-web-document-container-max-width: 1048px !default;
@@ -66,6 +67,44 @@ $theme-site-navbar-secondary-link-active-decoration: none !default;
 // General Heading Defaults
 $theme-heading-font-weight: $font-weight-bold !default;
 
+$theme-heading-large-font-size:       22px !default;
+$theme-heading-large-font-size-sm:    22px !default;
+$theme-heading-large-line-height:     1.3 !default;
+$theme-heading-large-line-height-sm:  1.3 !default;
+
+$theme-heading-h4-font-size:          20px !default;
+$theme-heading-h4-font-size-sm:       20px !default;
+$theme-heading-h4-line-height:        1.3 !default;
+$theme-heading-h4-line-height-sm:     1.3 !default;
+
+$theme-heading-h5-font-size:          18px !default;
+$theme-heading-h5-font-size-sm:       18px !default;
+$theme-heading-h5-line-height:        1.3 !default;
+$theme-heading-h5-line-height-sm:     1.3 !default;
+
+$theme-heading-h6-font-size:          16px !default;
+$theme-heading-h6-font-size-sm:       16px !default;
+$theme-heading-h6-line-height:        1.3 !default;
+$theme-heading-h6-line-height-sm:     1.3 !default;
+
+// Content Headings
+$theme-content-heading-large-margin-bottom:     1rem !default;
+$theme-content-heading-large-margin-bottom-sm:  1rem !default;
+
+$theme-content-heading-h4-margin-bottom:        1rem !default;
+$theme-content-heading-h4-margin-bottom-sm:     1rem !default;
+
+$theme-content-heading-h5-margin-bottom:        1rem !default;
+$theme-content-heading-h5-margin-bottom-sm:     1rem !default;
+
+$theme-content-heading-h6-margin-bottom:        1rem !default;
+$theme-content-heading-h6-margin-bottom-sm:     1rem !default;
+
+// Content Paragraphs
+$theme-content-paragraph-margin-bottom: 1.25rem !default;
+$theme-content-paragraph-margin-bottom-sm: 1.25rem !default;
+
+
 // Page Wrapper
 $theme-page-title-font-weight: $font-weight-bold !default;
 $theme-page-title-font-size: 24px !default;
@@ -102,6 +141,13 @@ $theme-content-attribution-font-size: 14px !default;
 $theme-content-attribution-prefix-spacer-content: none !default;
 $theme-content-attribution-prefix-font-weight: 400 !default;
 $theme-content-attribution-line-height: 1.2 !default;
+
+// Content Body
+$theme-page-body-font-size-sm: 16px !default;
+$theme-page-body-font-size: 16px !default;
+$theme-page-body-font-weight: 400 !default;
+$theme-page-body-line-height-sm: 1.8 !default;
+$theme-page-body-line-height: 1.8 !default;
 
 
 @import "../../node_modules/@base-cms/marko-web-gam/scss/fixed-ad-bottom";
@@ -172,6 +218,10 @@ $theme-content-attribution-line-height: 1.2 !default;
   div:last-child {
     margin-bottom: 0;
   }
+
+  &:empty {
+    display: none;
+  }
 }
 
 .page-attribution-wrapper {
@@ -224,9 +274,5 @@ $theme-content-attribution-line-height: 1.2 !default;
   // @todo keep in skin
   > :last-child:not(#{ $self }__wrapper) {
     border-bottom: none;
-  }
-
-  &--primary {
-    margin-bottom: 1.25rem !important; //stylelint-disable-line declaration-no-important
   }
 }
