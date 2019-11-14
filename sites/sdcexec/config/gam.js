@@ -1,6 +1,6 @@
 const GAMConfiguration = require('@base-cms/marko-web-gam/config');
 
-const config = new GAMConfiguration('21772951814', { basePath: 'Green-Industry-Pros' });
+const config = new GAMConfiguration('21772951814', { basePath: 'SDCExec' });
 
 config
   .setTemplate('LB', {
@@ -15,13 +15,13 @@ config
 
 config
   .setAliasAdUnits('default', [
-    { name: 'lb1', templateName: 'LB', path: 'GIP_BS' },
-    { name: 'lb2', templateName: 'LB', path: 'GIP_BS' },
-    { name: 'rail1', templateName: 'CONTENT', path: 'GIP_MR' },
-    { name: 'rail2', templateName: 'CONTENT', path: 'GIP_MR' },
-    { name: 'load-more', templateName: 'CONTENT', path: 'GIP_HP' },
-    { name: 'reskin', path: 'GIP_Reskin' },
-    { name: 'wa', path: 'GIP_WA' },
+    { name: 'lb1', templateName: 'LB', path: 'SDC_BS' },
+    { name: 'lb2', templateName: 'LB', path: 'SDC_BS' },
+    { name: 'rail1', templateName: 'CONTENT', path: 'SDC_MR' },
+    { name: 'rail2', templateName: 'CONTENT', path: 'SDC_MR' },
+    { name: 'load-more', templateName: 'CONTENT', path: 'SDC_HP' },
+    { name: 'reskin', path: 'SDC_Reskin' },
+    { name: 'wa', path: 'SDC_WA' },
   ]);
 
 module.exports = config;
