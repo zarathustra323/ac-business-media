@@ -157,7 +157,7 @@ $theme-card-header-color: $black !default;
 $theme-card-header-font-size: 24px !default;
 $theme-card-header-font-weight: $font-weight-bold !default;
 $theme-card-header-letter-spacing: normal !default;
-$theme-card-header-background-color: none !default;
+$theme-card-header-background-color: transparent !default;
 $theme-card-header-border: none !default;
 
 // Item / Node
@@ -356,8 +356,8 @@ $theme-item-footer-font-size: 12px !default;
 }
 
 .node-list {
+  $self: &;
   &__header {
-    padding-top: $block-spacer;
     padding-right: 0;
     padding-bottom: 0;
     padding-left: 0;
@@ -379,10 +379,11 @@ $theme-item-footer-font-size: 12px !default;
     padding-bottom: 20px;
   }
 
-  &__node {
-    &:first-child {
-      padding-top: $marko-web-node-list-padding;
-      @include marko-web-node-list-border($property: border-top);
+  &--flush-y {
+    #{ $self } {
+      &__header:first-child {
+        padding-top: $block-spacer;
+      }
     }
   }
 }
