@@ -18,9 +18,53 @@ $theme-site-header-breakpoints: (
   small-text-secondary: 1062px
 );
 
+// Theme start!
+@import url("https://fonts.googleapis.com/css?family=Arimo:400,400i,700&display=swap");
+
+// Marko Web Settings
+$marko-web-document-container-max-width: 1048px !default;
+$marko-web-document-container-gutter: 10px !default;
+$marko-web-page-padding: 0 !default;
+$marko-web-page-wrapper-padding: $marko-web-document-container-gutter !default;
+
+// Fonts (reset all to Arimo, including serif font)
+$theme-font-family-sans-serif: "Arimo", sans-serif !default;
+$theme-font-family-serif: "Arimo", sans-serif !default;
+$theme-font-family-page-title: $theme-font-family-sans-serif !default;
+
+// General
+$body-bg: #fff !default;
+$breadcrumb-divider: ">" !default;
+$font-weight-bold: 700 !default;
+$grid-gutter-width: 20px !default;
+
+// Settings
+$enable-shadows: false !default;
+$enable-rounded: false !default;
+
+// General Heading Defaults
+$theme-heading-font-weight: 700 !default;
+
+// Page Wrapper
+$theme-page-title-font-weight: 700 !default;
+$theme-page-title-font-size: 24px !default;
+$theme-page-title-font-size-sm: 20px !default;
+$theme-page-title-line-height: 1.2 !default;
+$theme-page-title-line-height-sm: 1.2 !default;
+
+$theme-page-deck-color: #000 !default;
+$theme-page-deck-font-size: 18px !default;
+$theme-page-deck-font-size-sm: 16px !default;
+$theme-page-deck-line-height: 1.5 !default;
+$theme-page-deck-line-height-sm: 1.5 !default;
+
 @import "../../node_modules/@base-cms/marko-web-gam/scss/fixed-ad-bottom";
-@import "../../node_modules/@base-cms/marko-web-theme-default/skins/orion/skin";
+@import "../../node_modules/@base-cms/marko-web-theme-default/scss/theme";
 // @todo this should be remove once contact us is in core
 @import "../../node_modules/@ac-business-media/package-common/scss/contact-us-form";
 @import "../../node_modules/@ac-business-media/package-common/scss/directory";
 @import "../../node_modules/@ac-business-media/package-inquiry/scss/index";
+
+body {
+  -webkit-font-smoothing: antialiased;
+}
