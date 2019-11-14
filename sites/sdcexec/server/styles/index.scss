@@ -1,4 +1,4 @@
-$primary: #86bc3a;
+$primary: #e7212d;
 $secondary: #495057;
 $light: #e9ecef;
 $dark: #212529;
@@ -8,14 +8,14 @@ $theme-site-navbar-secondary-bg-color: #222;
 $theme-site-navbar-primary-bg-color: #222;
 
 $theme-site-navbar-logo-height: 45px;
-$theme-site-navbar-logo-height-sm: 25px;
+$theme-site-navbar-logo-height-sm: 30px;
 
 $theme-site-header-breakpoints: (
-  hide-primary: 832px,
+  hide-primary: 900px,
   hide-secondary: 906px,
-  small-logo: 1015px,
-  small-text-primary: 932px,
-  small-text-secondary: 1105px
+  small-logo: 970px,
+  small-text-primary: 1005px,
+  small-text-secondary: 1062px
 );
 
 @import "../../node_modules/@base-cms/marko-web-gam/scss/fixed-ad-bottom";
