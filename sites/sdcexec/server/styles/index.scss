@@ -333,6 +333,14 @@ $theme-item-footer-font-size: 12px !default;
   }
 }
 
+.page-contents {
+  &__content-body {
+    ul {
+      padding-left: $grid-gutter-width;
+    }
+  }
+}
+
 .page-rail {
   > :first-child {
     margin-top: 0;
