@@ -4,18 +4,18 @@ $light: #e9ecef;
 $dark: #212529;
 $info: #6c757d;
 
-$theme-site-navbar-secondary-bg-color: #222;
-$theme-site-navbar-primary-bg-color: #222;
+$theme-site-navbar-secondary-bg-color: #212121;
+$theme-site-navbar-primary-bg-color: #000;
 
 $theme-site-navbar-logo-height: 45px;
 $theme-site-navbar-logo-height-sm: 30px;
 
 $theme-site-header-breakpoints: (
-  hide-primary: 900px,
-  hide-secondary: 906px,
-  small-logo: 970px,
-  small-text-primary: 1005px,
-  small-text-secondary: 1062px
+  hide-primary: 854px,
+  hide-secondary: 950px,
+  small-logo: 0,
+  small-text-primary: 0,
+  small-text-secondary: 0
 );
 
 // Theme start!
@@ -44,6 +44,18 @@ $grid-gutter-width: 20px !default;
 // Settings
 $enable-shadows: false !default;
 $enable-rounded: false !default;
+
+// Navbar
+$theme-site-navbar-primary-font-size: 15px !default;
+$theme-site-navbar-primary-font-size-sm: 15px !default;
+$theme-site-navbar-primary-line-height: 1.6 !default;
+$theme-site-navbar-primary-line-height-sm: 1.6 !default;
+
+$theme-site-navbar-secondary-font-size: 13px !default;
+$theme-site-navbar-secondary-font-size-sm: 13px !default;
+$theme-site-navbar-secondary-line-height: 1.6 !default;
+$theme-site-navbar-secondary-line-height-sm: 1.6 !default;
+$theme-site-navbar-secondary-padding-y: 5px !default;
 
 // General Heading Defaults
 $theme-heading-font-weight: $font-weight-bold !default;
@@ -86,6 +98,13 @@ $theme-content-attribution-line-height: 1.2 !default;
 .ad-container {
   margin-top: $theme-ad-margin;
 }
+
+.site-navbar {
+  &__items {
+    text-transform: none;
+  }
+}
+
 .page-wrapper {
   &__deck,
   &__title {
@@ -99,7 +118,7 @@ $theme-content-attribution-line-height: 1.2 !default;
 
   &__section {
     padding-bottom: $grid-gutter-width;
-    margin-bottom: $grid-gutter-width;
+    margin-bottom: $grid-gutter-width + 5px;
     border-bottom: 2px solid #ebebeb;
   }
 }
