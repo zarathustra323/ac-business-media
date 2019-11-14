@@ -262,6 +262,10 @@ $theme-item-footer-font-size: 12px !default;
     padding-bottom: $grid-gutter-width;
     margin-bottom: $grid-gutter-width + 5px;
     border-bottom: 2px solid #ebebeb;
+
+    &--card-deck {
+      padding-bottom: 0;
+    }
   }
 }
 

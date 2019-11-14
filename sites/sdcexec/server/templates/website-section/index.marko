@@ -52,7 +52,7 @@ $ const { id, alias, name, pageNode } = data;
           </div>
         </@section>
 
-        <@section>
+        <@section modifiers=["card-deck"]>
           <marko-web-query|{ nodes }|
             name="website-optioned-content"
             params={ sectionId: id, optionName: "Pinned", limit: 3, skip: 6, requiresImage: true, queryFragment }
