@@ -167,6 +167,17 @@ $theme-item-title-font-weight: $font-weight-bold !default;
 $theme-item-title-line-height: 1.4 !default;
 $theme-item-title-line-height-sm: 1.4 !default;
 
+$theme-item-title-large-font-size: 20px;
+$theme-item-title-large-font-size-sm: 20px;
+$theme-item-title-large-line-height: 1.4 !default;
+$theme-item-title-large-line-height-sm: 1.4 !default;
+
+$theme-item-description-font-size: 14px !default;
+$theme-item-description-font-size-sm: 14px !default;
+$theme-item-description-line-height: 1.5 !default;
+$theme-item-description-line-height-sm: 1.5 !default;
+$theme-item-description-max-lines: 3 !default;
+
 $theme-item-footer-font-size: 12px !default;
 
 @import "../../node_modules/@base-cms/marko-web-gam/scss/fixed-ad-bottom";
@@ -177,8 +188,6 @@ $theme-item-footer-font-size: 12px !default;
 @import "../../node_modules/@ac-business-media/package-inquiry/scss/index";
 
 .ad-container {
-  margin-top: $theme-ad-margin;
-
   &--left {
     text-align: left;
   }
@@ -229,6 +238,8 @@ $theme-item-footer-font-size: 12px !default;
 }
 
 .page-wrapper {
+  padding-top: $block-spacer;
+  padding-bottom: $block-spacer;
   &__deck,
   &__title {
     $max: 920px;
@@ -238,6 +249,10 @@ $theme-item-footer-font-size: 12px !default;
 
     @media (max-width: 920px) {
       padding-right: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
     }
   }
 
@@ -385,5 +400,14 @@ $theme-item-footer-font-size: 12px !default;
         padding-top: $block-spacer;
       }
     }
+  }
+}
+
+.hero-flow {
+  &__hero {
+    margin-bottom: 0;
+  }
+  &__list {
+    margin-bottom: 0;
   }
 }
