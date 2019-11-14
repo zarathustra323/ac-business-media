@@ -31,15 +31,18 @@ $ const { id, alias, name, pageNode } = data;
     <marko-web-resolve-page|{ data: section, resolved }| node=pageNode>
       <marko-web-page-wrapper>
         <@section>
+          <marko-web-node-list collapsible=false>
+            <@header tag="h1" modifiers=["website-section-title", section.alias]>
+              <marko-web-website-section-name tag=null obj=section />
+            </@header>
+          </marko-web-node-list>
           <div class="row">
             <div class="col">
               <marko-web-query|{ nodes }|
                 name="website-optioned-content"
                 params={ sectionId: id, optionName: "Pinned", limit: 6, requiresImage: true, queryFragment }
               >
-                <website-content-hero-flow nodes=nodes>
-                  <@native-x index=4 name="default" aliases=[alias] />
-                </website-content-hero-flow>
+                <website-content-hero-flow nodes=nodes />
               </marko-web-query>
             </div>
           </div>
@@ -77,6 +80,17 @@ $ const { id, alias, name, pageNode } = data;
             <div class="col">
               <marko-web-gam-display-ad id="gpt-ad-lb2" />
             </div>
+          </div>
+        </@section>
+
+        <@section>
+          <div class="row">
+            <div class="col-lg-8">
+
+            </div>
+            <aside class="col-lg-4 page-rail">
+
+            </aside>
           </div>
         </@section>
       </marko-web-page-wrapper>

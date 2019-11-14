@@ -18,6 +18,17 @@ $theme-site-header-breakpoints: (
   small-text-secondary: 0
 );
 
+// Site Section Colors
+$website-section-colors: (
+  warehousing: #4b6e94,
+  transportation: #d14b2b,
+  sourcing-procurement: #2c8bad,
+  risk-compliance: #d8222a,
+  software-technology: #40bddb,
+  sustainability: #9cb52b,
+  "3pl-4pl": #cea14c,
+);
+
 // Theme start!
 @import url("https://fonts.googleapis.com/css?family=Arimo:400,400i,700&display=swap");
 
@@ -237,6 +248,29 @@ $theme-item-footer-font-size: 12px !default;
       }
     }
   }
+
+  // &--primary {
+  //   #{ $self } {
+  //     &__link--active[href*="warehousing"] {
+  //       color: red;
+  //     }
+  //   }
+  // }
+
+  &--primary {
+    @each $section, $color in $website-section-colors {
+      #{ $self } {
+        &__link--active[href*="#{$section}"] {
+          color: $color;
+        }
+      }
+      // &--#{$section} {
+      //   &::before {
+      //     background: $color;
+      //   }
+      // }
+    }
+  }
 }
 
 .page-wrapper {
@@ -406,6 +440,22 @@ $theme-item-footer-font-size: 12px !default;
     &--padding-y {
       padding-top: $block-spacer;
       padding-bottom: $block-spacer;
+    }
+
+    &--website-section-title {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      font-size: 26px;
+      font-weight: $font-weight-bold;
+      line-height: 1.3;
+    }
+
+    @each $section, $color in $website-section-colors {
+      &--#{$section} {
+        &::before {
+          background: $color;
+        }
+      }
     }
   }
 
