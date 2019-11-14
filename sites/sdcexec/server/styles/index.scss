@@ -366,6 +366,7 @@ $theme-item-footer-font-size: 12px !default;
 
 .node {
   &__title {
+    padding-bottom: 18px;
     &--small {
       font-size: 14px;
     }
@@ -375,7 +376,7 @@ $theme-item-footer-font-size: 12px !default;
     justify-content: flex-start;
   }
 
-  &__footer-left + &__footer-right {
+  &__footer-left:not(:empty) + &__footer-right {
     margin-left: .25rem;
   }
 }
@@ -409,6 +410,13 @@ $theme-item-footer-font-size: 12px !default;
       &__header:first-child {
         padding-top: $block-spacer;
       }
+
+      &__node:first-child {
+        @include media-breakpoint-down(md) {
+          padding-top: $block-spacer;
+          @include marko-web-node-list-border(border-top);
+        }
+      }
     }
   }
 }
@@ -416,8 +424,31 @@ $theme-item-footer-font-size: 12px !default;
 .hero-flow {
   &__hero {
     margin-bottom: 0;
+    @include media-breakpoint-down(md) {
+      margin-bottom: $block-spacer;
+
+    }
   }
   &__list {
     margin-bottom: 0;
+    @include media-breakpoint-down(md) {
+      // margin-bottom: $block-spacer;
+    }
+  }
+}
+
+.card-deck-flow {
+  $self: &;
+  &--3-cols {
+    #{ $self } {
+      &__node {
+        @include media-breakpoint-up(md) {
+          @include make-col(4);
+        }
+        @include media-breakpoint-up(lg) {
+          @include make-col(4);
+        }
+      }
+    }
   }
 }
