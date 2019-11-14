@@ -1,5 +1,5 @@
-const contactUsHandler = require('@base-cms-websites/package-common/contact-us');
-const loadInquiry = require('@base-cms-websites/package-inquiry/load-from-config');
+const contactUsHandler = require('@ac-business-media/package-common/contact-us');
+const loadInquiry = require('@ac-business-media/package-inquiry/load-from-config');
 const home = require('./home');
 const content = require('./content');
 const dynamicPages = require('./dynamic-page');
