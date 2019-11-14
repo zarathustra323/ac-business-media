@@ -1,8 +1,8 @@
 {
-  "name": "@ac-business-media/greenindustrypros",
+  "name": "@ac-business-media/sdcexec",
   "version": "1.0.0-alpha.1",
   "author": "Brandon Krigbaum <brandonbk@gmail.com>",
-  "repository": "https://github.com/base-cms-websites/ac-business-media/tree/master/sites/greenindustrypros",
+  "repository": "https://github.com/base-cms-websites/ac-business-media/tree/master/sites/sdcexec",
   "license": "MIT",
   "private": true,
   "scripts": {
