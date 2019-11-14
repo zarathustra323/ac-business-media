@@ -288,3 +288,9 @@ $theme-page-body-line-height: 1.8 !default;
     border-bottom: none;
   }
 }
+
+.page-rail {
+  > :first-child {
+    margin-top: 0;
+  }
+}
