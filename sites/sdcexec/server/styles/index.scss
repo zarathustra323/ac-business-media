@@ -79,7 +79,7 @@ $theme-page-deck-font-size-sm: 18px !default;
 $theme-page-deck-line-height: 1.5 !default;
 $theme-page-deck-line-height-sm: 1.5 !default;
 
-$marko-web-page-image-margin: 20px;
+$marko-web-page-image-margin: 1.25rem !default;
 
 // Media Caption/Credit
 $theme-media-footer-padding-y: 5px !default;
@@ -139,6 +139,8 @@ $theme-content-attribution-line-height: 1.2 !default;
     $max: 920px;
     // ensure readable line length is not too long.
     padding-right: ($marko-web-document-container-max-width - ($marko-web-document-container-gutter * 2) - ($marko-web-page-wrapper-padding * 2)) - $max;
+    margin-bottom: 1.25rem;
+
     @media (max-width: 920px) {
       padding-right: 0;
     }
@@ -148,10 +150,6 @@ $theme-content-attribution-line-height: 1.2 !default;
     padding-bottom: $grid-gutter-width;
     margin-bottom: $grid-gutter-width + 5px;
     border-bottom: 2px solid #ebebeb;
-  }
-
-  .col > :last-child {
-    margin-bottom: $marko-web-page-image-margin;
   }
 }
 
@@ -226,5 +224,9 @@ $theme-content-attribution-line-height: 1.2 !default;
   // @todo keep in skin
   > :last-child:not(#{ $self }__wrapper) {
     border-bottom: none;
+  }
+
+  &--primary {
+    margin-bottom: 1.25rem !important; //stylelint-disable-line declaration-no-important
   }
 }
