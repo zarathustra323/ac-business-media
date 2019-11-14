@@ -5,7 +5,11 @@ $ const nodes = getAsArray(input, "nodes");
 $ const nativeX = getAsObject(input, "nativeX");
 $ const innerJustified = input.innerJustified != null ? input.innerJustified : true;
 
-<marko-web-node-list inner-justified=innerJustified class=input.class>
+<marko-web-node-list
+  inner-justified=innerJustified
+  class=input.class
+  flush-x=true
+>
   <if(input.header)>
     <@header ...input.header />
   </if>
@@ -22,7 +26,6 @@ $ const innerJustified = input.innerJustified != null ? input.innerJustified : t
           node=nxNode
           attrs=containerAttrs
           link-attrs=linkAttrs
-          image-position="left"
         />
       </marko-web-native-x-render>
     </@slot>

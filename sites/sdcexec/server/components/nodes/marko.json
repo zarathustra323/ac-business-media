@@ -2,6 +2,7 @@
   "<website-content-list-node>": {
     "template": "./content-list.marko",
     "<image>": {},
+    "<title>": {},
     "@node": "object",
     "@display-image": {
       "type": "boolean",
@@ -12,6 +13,8 @@
       "type": "boolean",
       "default-value": false
     },
+    "@with-section": "boolean",
+    "@with-attribution": "boolean",
     "@attrs": "object",
     "@link-attrs": "object"
   },

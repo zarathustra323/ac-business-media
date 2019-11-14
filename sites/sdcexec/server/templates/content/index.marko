@@ -83,15 +83,9 @@ $ const displayPublishedDate = ["event", "webinar", "contact"].includes(type) ? 
           </div>
           <div class="row">
             <default-theme-page-contents|{ blockName }| class="col-lg-8 mb-3 mb-lg-0">
-              <!-- <if(content.embedCode)>
-                <marko-web-content-embed-code block-name=blockName obj=content />
-              </if>
-              <else-if(displayPrimaryImage)>
-                <marko-web-page-image width=500 obj=content.primaryImage />
-              </else-if>
-              <else-if(type === "contact")>
+              <if(type === "contact")>
                 <marko-web-page-image width=300 fluid=false obj=content.primaryImage />
-              </else-if> -->
+              </if>
               <default-theme-content-contact-details obj=content />
               <marko-web-content-body block-name=blockName obj=content />
               <marko-web-content-sidebars block-name=blockName obj=content />
@@ -113,8 +107,8 @@ $ const displayPublishedDate = ["event", "webinar", "contact"].includes(type) ? 
               </if>
             </default-theme-page-contents>
             <aside class="col-lg-4 page-rail">
-              <marko-web-gam-display-ad id="gpt-ad-rail1" modifiers=["right"] />
-              <marko-web-gam-display-ad id="gpt-ad-rail2" modifiers=["right"] />
+              <marko-web-gam-display-ad id="gpt-ad-rail1" modifiers=["left"] />
+
               <marko-web-resolve-page|{ data: content }| node=pageNode>
                 $ const aliases = hierarchyAliases(content.primarySection);
                 <website-related-content-block
@@ -127,6 +121,8 @@ $ const displayPublishedDate = ["event", "webinar", "contact"].includes(type) ? 
                   <@native-x index=4 name="default" aliases=aliases />
                 </website-related-content-block>
               </marko-web-resolve-page>
+
+              <marko-web-gam-display-ad id="gpt-ad-rail2" modifiers=["left"] />
             </aside>
           </div>
         </@section>

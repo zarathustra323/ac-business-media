@@ -8,10 +8,17 @@ $ const {
 
 <marko-web-query|{ nodes }|
   name="related-published-content"
-  params={ contentId: id, limit: 10, queryFragment }
+  params={ contentId: id, limit: 5, queryFragment }
 >
-  <website-content-list-flow nodes=nodes inner-justified=false>
+  <website-content-list-flow
+    nodes=nodes
+    inner-justified=false
+  >
     <@header>Related</@header>
+    <@node title-modifiers=["small"]>
+      <@image use-placeholder=false />
+      <@title modifiers=["small"] />
+    </@node>
   </website-content-list-flow>
 </marko-web-query>
 <if(!['contact', 'company'].includes(type))>
@@ -21,6 +28,10 @@ $ const {
   >
     <website-content-list-flow nodes=nodes inner-justified=false native-x=input.nativeX>
       <@header>Latest in ${sectionName}</@header>
+      <@node title-modifiers=["small"]>
+        <@image use-placeholder=false />
+        <@title modifiers=["small"] />
+      </@node>
     </website-content-list-flow>
   </marko-web-query>
 </if>

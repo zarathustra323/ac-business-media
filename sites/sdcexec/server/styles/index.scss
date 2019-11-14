@@ -30,6 +30,7 @@ $marko-web-document-container-max-width: 1010px !default;
 $marko-web-document-container-gutter: 10px !default;
 $marko-web-page-padding: 0 !default;
 $marko-web-page-wrapper-padding: $marko-web-document-container-gutter !default;
+$marko-web-node-list-padding: 15px !default;
 
 // Fonts (reset all to Arimo, including serif font)
 $theme-font-family-sans-serif: "Arimo", sans-serif !default;
@@ -150,6 +151,23 @@ $theme-page-body-font-weight: 400 !default;
 $theme-page-body-line-height-sm: 1.8 !default;
 $theme-page-body-line-height: 1.8 !default;
 
+// Card / Node List Header
+$theme-card-header-text-transform: none !default;
+$theme-card-header-color: $black !default;
+$theme-card-header-font-size: 24px !default;
+$theme-card-header-font-weight: $font-weight-bold !default;
+$theme-card-header-letter-spacing: normal !default;
+$theme-card-header-background-color: none !default;
+$theme-card-header-border: none !default;
+
+// Item / Node
+$theme-item-title-font-size: 18px !default;
+$theme-item-title-font-size-sm: 18px !default;
+$theme-item-title-font-weight: $font-weight-bold !default;
+$theme-item-title-line-height: 1.4 !default;
+$theme-item-title-line-height-sm: 1.4 !default;
+
+$theme-item-footer-font-size: 12px !default;
 
 @import "../../node_modules/@base-cms/marko-web-gam/scss/fixed-ad-bottom";
 @import "../../node_modules/@base-cms/marko-web-theme-default/scss/theme";
@@ -160,6 +178,10 @@ $theme-page-body-line-height: 1.8 !default;
 
 .ad-container {
   margin-top: $theme-ad-margin;
+
+  &--left {
+    text-align: left;
+  }
 
   &--right {
     text-align: right;
@@ -292,5 +314,45 @@ $theme-page-body-line-height: 1.8 !default;
 .page-rail {
   > :first-child {
     margin-top: 0;
+  }
+}
+
+.node {
+  &__title {
+    &--small {
+      font-size: 14px;
+    }
+  }
+}
+
+.node-list {
+  &__header {
+    padding-top: $block-spacer;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    line-height: 1.3;
+
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 40px;
+      height: 4px;
+      content: "";
+      background: #000;
+    }
+  }
+
+  &__nodes {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  &__node {
+    &:first-child {
+      padding-top: $marko-web-node-list-padding;
+      @include marko-web-node-list-border($property: border-top);
+    }
   }
 }

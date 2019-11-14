@@ -17,7 +17,8 @@
       "@aliases": "array"
     },
     "<node>": {
-      "<image>": {}
+      "<image>": {},
+      "<title>": {}
     },
     "@nodes": "array",
     "@display-image": {
