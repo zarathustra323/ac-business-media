@@ -67,7 +67,7 @@ $ const displayPublishedDate = ["event", "webinar", "contact"].includes(type) ? 
         </@section>
         <@section>
           <div class="row">
-            <div class="col">
+            <default-theme-page-contents|{ blockName }| class="col mb-block">
               <if(content.embedCode)>
                 <marko-web-content-embed-code block-name=blockName obj=content />
               </if>
@@ -75,11 +75,11 @@ $ const displayPublishedDate = ["event", "webinar", "contact"].includes(type) ? 
                 <!-- @todo ensure newest version of marko-web is added -->
                 <marko-web-page-image
                   obj=content.primaryImage
-                  modifiers=["fluid-16by9", "primary"]
+                  modifiers=["fluid-16by9"]
                   options={ w: 512, h: 288, fit: 'crop' }
                 />
               </else-if>
-            </div>
+            </default-theme-page-contents>
           </div>
           <div class="row">
             <default-theme-page-contents|{ blockName }| class="col-lg-8 mb-3 mb-lg-0">
@@ -133,7 +133,7 @@ $ const displayPublishedDate = ["event", "webinar", "contact"].includes(type) ? 
       </marko-web-page-wrapper>
     </marko-web-resolve-page>
   </@page>
-  <@below-page>
+  <!-- <@below-page>
     <marko-web-resolve-page|{ resolved, data: content }| node=pageNode>
       $ const section = resolved.getAsObject("primarySection");
       $ const aliases = hierarchyAliases(section);
@@ -149,11 +149,11 @@ $ const displayPublishedDate = ["event", "webinar", "contact"].includes(type) ? 
         <@native-x index=0 name="default" aliases=aliases />
       </website-content-load-more-block>
     </marko-web-resolve-page>
-  </@below-page>
-  <@foot>
+  </@below-page> -->
+  <!-- <@foot>
     <marko-web-resolve-page|{ data: content }| node=pageNode>
       $ const aliases = hierarchyAliases(content.primarySection);
       <marko-web-gam-fixed-ad-bottom ...GAM.getAdUnit({ name: "lb2", aliases }) refresh-interval=0 />
     </marko-web-resolve-page>
-  </@foot>
+  </@foot> -->
 </marko-web-content-page-layout>
