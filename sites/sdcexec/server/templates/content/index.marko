@@ -37,11 +37,12 @@ $ const displayPublishedDate = ["event", "webinar", "contact"].includes(type) ? 
     <marko-web-gam-display-ad id="gpt-ad-lb1" modifiers=["top-of-page"] />
     <marko-web-resolve-page|{ data: content, resolved }| node=pageNode>
       $ const section = resolved.getAsObject("primarySection");
+      $ const aliases = hierarchyAliases(section);
       <marko-web-page-wrapper>
         <@section>
           <div class="row">
             <div class="col">
-              <default-theme-website-section-breadcrumbs section=content.primarySection />
+              <default-theme-website-section-breadcrumbs section=section />
               <marko-web-content-name tag="h1" class="page-wrapper__title" obj=content />
               <marko-web-content-teaser tag="p" class="page-wrapper__deck" obj=content />
 
@@ -109,18 +110,15 @@ $ const displayPublishedDate = ["event", "webinar", "contact"].includes(type) ? 
             <aside class="col-lg-4 page-rail">
               <marko-web-gam-display-ad id="gpt-ad-rail1" with-wrapper=true />
 
-              <marko-web-resolve-page|{ data: content }| node=pageNode>
-                $ const aliases = hierarchyAliases(content.primarySection);
-                <website-related-content-block
-                  id=id
-                  type=type
-                  section-id=section.id
-                  section-name=section.name
-                  query-fragment=queryFragment
-                >
-                  <@native-x index=4 name="default" aliases=aliases />
-                </website-related-content-block>
-              </marko-web-resolve-page>
+              <website-related-content-block
+                id=id
+                type=type
+                section-id=section.id
+                section-name=section.name
+                query-fragment=queryFragment
+              >
+                <@native-x index=4 name="default" aliases=aliases />
+              </website-related-content-block>
 
               <marko-web-gam-display-ad id="gpt-ad-rail2" with-wrapper=true />
             </aside>
