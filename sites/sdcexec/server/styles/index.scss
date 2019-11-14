@@ -160,6 +160,10 @@ $theme-page-body-line-height: 1.8 !default;
 
 .ad-container {
   margin-top: $theme-ad-margin;
+
+  &--right {
+    text-align: right;
+  }
 }
 
 .site-navbar {
