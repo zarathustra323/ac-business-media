@@ -60,11 +60,11 @@ fragment WebsiteContentListFragment on Content {
     publicEmail
   }
   ... on ContentWebinar {
-    starts
+    startDate
   }
   ... on ContentEvent {
-    starts
-    ends
+    startDate
+    endDate
   }
 }
 
