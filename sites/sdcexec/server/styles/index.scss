@@ -178,6 +178,8 @@ $theme-item-description-line-height: 1.5 !default;
 $theme-item-description-line-height-sm: 1.5 !default;
 $theme-item-description-max-lines: 3 !default;
 
+$theme-item-header-font-size: 12px !default;
+
 $theme-item-footer-font-size: 12px !default;
 
 @import "../../node_modules/@base-cms/marko-web-gam/scss/fixed-ad-bottom";
@@ -367,6 +369,14 @@ $theme-item-footer-font-size: 12px !default;
     &--small {
       font-size: 14px;
     }
+  }
+
+  &__footer {
+    justify-content: flex-start;
+  }
+
+  &__footer-left + &__footer-right {
+    margin-left: .25rem;
   }
 }
 
