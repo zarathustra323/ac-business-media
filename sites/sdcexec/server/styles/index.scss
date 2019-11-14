@@ -402,11 +402,16 @@ $theme-item-footer-font-size: 12px !default;
       content: "";
       background: #000;
     }
+
+    &--padding-y {
+      padding-top: $block-spacer;
+      padding-bottom: $block-spacer;
+    }
   }
 
   &__nodes {
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: $block-spacer;
+    padding-bottom: $block-spacer;
   }
 
   &--flush-y {

@@ -57,6 +57,9 @@ $ const { id, alias, name, pageNode } = data;
             name="website-optioned-content"
             params={ sectionId: id, optionName: "Pinned", limit: 3, skip: 6, requiresImage: true, queryFragment }
           >
+            <marko-web-node-list collapsible=false>
+              <@header modifiers=["padding-y"]>Editor's Picks</@header>
+            </marko-web-node-list>
             <default-theme-card-deck-flow cols=3 nodes=nodes>
               <@slot|{ node, index }|>
                 <website-content-card-node
