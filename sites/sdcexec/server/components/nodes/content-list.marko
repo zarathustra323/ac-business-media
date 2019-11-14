@@ -30,7 +30,7 @@ $ const { linkAttrs } = input;
       alt=primaryImage.alt
       is-logo=primaryImage.isLogo
       fluid=false
-      link={ href: content.canonicalPath, attrs: linkAttrs }
+      link={ href: content.siteContext.path, attrs: linkAttrs }
     />
   </if>
   <@body>
