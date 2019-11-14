@@ -186,6 +186,28 @@ $theme-item-footer-font-size: 12px !default;
   &--right {
     text-align: right;
   }
+
+  &__wrapper {
+    position: relative;
+    padding-top: 15px;
+    padding-bottom: 20px;
+    border-top: 2px solid #ebebeb;
+    border-bottom: 2px solid #ebebeb;
+
+    &::before {
+      position: absolute;
+      top: auto;
+      right: 0;
+      bottom: 5px;
+      left: auto;
+      font-size: 8px;
+      line-height: 1;
+      color: #a3a3a3;
+      text-align: right;
+      text-transform: uppercase;
+      content: "Advertisement";
+    }
+  }
 }
 
 .site-navbar {
