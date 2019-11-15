@@ -19,8 +19,10 @@ $ const displayPublishedDate = ["event", "webinar", "contact"].includes(type) ? 
       $ const aliases = hierarchyAliases(content.primarySection);
       $ const adSlots = {
         "gpt-ad-lb1":   GAM.getAdUnit({ name: "lb1", aliases }),
+        "gpt-ad-lb2":   GAM.getAdUnit({ name: "lb1", aliases }),
         "gpt-ad-rail1": GAM.getAdUnit({ name: "rail1", aliases, size: [300, 250] }),
         "gpt-ad-rail2": GAM.getAdUnit({ name: "rail2", aliases, size: [300, 600] }),
+        "gpt-ad-rail3": GAM.getAdUnit({ name: "rail1", aliases, size: [300, 250] }),
       }
        <marko-web-gam-slots slots=adSlots />
     </marko-web-resolve-page>
@@ -115,7 +117,7 @@ $ const displayPublishedDate = ["event", "webinar", "contact"].includes(type) ? 
               </if>
             </default-theme-page-contents>
             <aside class="col-lg-4 page-rail">
-              <marko-web-gam-display-ad id="gpt-ad-rail1" with-wrapper=true />
+              <marko-web-gam-display-ad id="gpt-ad-rail1" modifiers=["left"] />
 
               <website-related-content-block
                 id=id
@@ -123,38 +125,70 @@ $ const displayPublishedDate = ["event", "webinar", "contact"].includes(type) ? 
                 section-id=section.id
                 section-name=section.name
                 query-fragment=queryFragment
-              >
-                <@native-x index=4 name="default" aliases=aliases />
-              </website-related-content-block>
+              />
 
-              <marko-web-gam-display-ad id="gpt-ad-rail2" with-wrapper=true modifiers=["sticky-top"] />
+              <marko-web-gam-display-ad id="gpt-ad-rail2" modifiers=["sticky-top", "left"] />
             </aside>
           </div>
         </@section>
+
+        <@section modifiers=["card-deck"]>
+          <marko-web-query|{ nodes }|
+            name="website-optioned-content"
+            params={ sectionId: section.id, optionName: "Pinned", limit: 3, requiresImage: true, queryFragment }
+          >
+            <marko-web-node-list collapsible=false>
+              <@header modifiers=["padding-y"]>Editor's Picks</@header>
+            </marko-web-node-list>
+            <default-theme-card-deck-flow cols=3 nodes=nodes>
+              <@slot|{ node, index }|>
+                <website-content-card-node
+                  image-width=340
+                  node=node
+                />
+              </@slot>
+            </default-theme-card-deck-flow>
+          </marko-web-query>
+        </@section>
+
+        <@section>
+          <div class="row">
+            <div class="col">
+              <marko-web-gam-display-ad id="gpt-ad-lb2" />
+            </div>
+          </div>
+        </@section>
+
+        <@section>
+          <div class="row">
+            <div class="col-lg-8">
+              <marko-web-query|{ nodes }|
+                name="website-scheduled-content"
+                params={ sectionId: section.id, limit: 6, skip: 8, requiresImage: true, queryFragment }
+              >
+                <website-content-list-flow
+                  nodes=nodes
+                  inner-justified=false
+                  modifiers=["padding-large"]
+                >
+                  <@header>Latest</@header>
+                  <@node image-position="left" with-attribution=true with-teaser=true>
+                    <@image use-placeholder=false ar="16:9" width=288 />
+                  </@node>
+                </website-content-list-flow>
+              </marko-web-query>
+            </div>
+            <aside class="col-lg-4 page-rail">
+              <marko-web-node-list collapsible=false>
+                <@header modifiers=["padding-y"]>Follow Us</@header>
+              </marko-web-node-list>
+
+              <marko-web-gam-display-ad id="gpt-ad-rail3" modifiers=["sticky-top"] />
+            </aside>
+          </div>
+        </@section>
+
       </marko-web-page-wrapper>
     </marko-web-resolve-page>
   </@page>
-  <!-- <@below-page>
-    <marko-web-resolve-page|{ resolved, data: content }| node=pageNode>
-      $ const section = resolved.getAsObject("primarySection");
-      $ const aliases = hierarchyAliases(section);
-      <website-content-load-more-block
-        id=id
-        type=type
-        name=content.name
-        aliases=aliases
-        section-id=section.id
-        section-name=section.name
-        section-skip=5
-      >
-        <@native-x index=0 name="default" aliases=aliases />
-      </website-content-load-more-block>
-    </marko-web-resolve-page>
-  </@below-page> -->
-  <!-- <@foot>
-    <marko-web-resolve-page|{ data: content }| node=pageNode>
-      $ const aliases = hierarchyAliases(content.primarySection);
-      <marko-web-gam-fixed-ad-bottom ...GAM.getAdUnit({ name: "lb2", aliases }) refresh-interval=0 />
-    </marko-web-resolve-page>
-  </@foot> -->
 </marko-web-content-page-layout>
