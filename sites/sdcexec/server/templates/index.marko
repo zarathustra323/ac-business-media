@@ -13,64 +13,169 @@ $ const { id, alias, name, pageNode } = data;
     <marko-web-resolve-page|{ data: section }| node=pageNode>
       $ const aliases = hierarchyAliases(section);
       $ const adSlots = {
-          "gpt-ad-lb1":   GAM.getAdUnit({ name: "lb1", aliases }),
-          "gpt-ad-rail1": GAM.getAdUnit({ name: "rail1", aliases, size: [300, 250] }),
-          "gpt-ad-rail2": GAM.getAdUnit({ name: "rail2", aliases, size: [300, 600] }),
-        }
-       <marko-web-gam-slots slots=adSlots />
+        "gpt-ad-lb1":   GAM.getAdUnit({ name: "lb1", aliases }),
+        "gpt-ad-lb2":   GAM.getAdUnit({ name: "lb1", aliases }),
+        "gpt-ad-lb3":   GAM.getAdUnit({ name: "lb1", aliases }),
+        "gpt-ad-rail1": GAM.getAdUnit({ name: "rail1", aliases, size: [300, 250] }),
+        "gpt-ad-rail2": GAM.getAdUnit({ name: "rail2", aliases, size: [300, 600] }),
+      }
+      <marko-web-gam-slots slots=adSlots />
     </marko-web-resolve-page>
   </@head>
-  <@above-container>
+  <!-- <@above-container>
     <marko-web-resolve-page|{ data: section }| node=pageNode>
       $ const aliases = hierarchyAliases(section);
       <marko-web-gam-out-of-page-ad ...GAM.getAdUnit({ name: "wa", aliases }) />
       <marko-web-gam-out-of-page-ad ...GAM.getAdUnit({ name: "reskin", aliases }) />
     </marko-web-resolve-page>
-  </@above-container>
+  </@above-container> -->
   <@page>
+    <marko-web-resolve-page|{ data: section, resolved }| node=pageNode>
+      <marko-web-page-wrapper>
+        <@section>
+          <div class="row">
+            <div class="col">
+              <marko-web-query|{ nodes }|
+                name="website-optioned-content"
+                params={ sectionId: id, optionName: "Pinned", excludeContentTypes: ["Company"], limit: 6, requiresImage: true, queryFragment }
+              >
+                <website-content-hero-flow nodes=nodes />
+              </marko-web-query>
+            </div>
+          </div>
+        </@section>
 
-    <marko-web-query|{ nodes }|
-      name="all-published-content"
-      params={ limit: 5, requiresImage: true, contentTypes: ["Article"], queryFragment }
-    >
-      <website-content-hero-flow nodes=nodes />
-    </marko-web-query>
+        <@section>
+          <div class="row">
+            <div class="col">
+              <marko-web-gam-display-ad id="gpt-ad-lb1" />
+            </div>
+          </div>
+        </@section>
 
-    <marko-web-gam-display-ad id="gpt-ad-lb1" modifiers=["top-of-page"] />
+        <@section modifiers=["card-deck"]>
+          <marko-web-query|{ nodes }|
+            name="website-optioned-content"
+            params={ sectionId: id, optionName: "Pinned", excludeContentTypes: ["Company"], limit: 3, skip: 6, requiresImage: true, queryFragment }
+          >
+            <marko-web-node-list collapsible=false>
+              <@header modifiers=["padding-y"]>Editor's Picks</@header>
+            </marko-web-node-list>
+            <default-theme-card-deck-flow cols=3 nodes=nodes>
+              <@slot|{ node, index }|>
+                <website-content-card-node
+                  image-width=340
+                  node=node
+                />
+              </@slot>
+            </default-theme-card-deck-flow>
+          </marko-web-query>
+        </@section>
 
-    <marko-web-query|{ nodes }|
-      name="all-published-content"
-      params={ limit: 3, skip: 5, requiresImage: true, contentTypes: ["Article"], queryFragment }
-    >
-      <default-theme-card-deck-flow cols=3 nodes=nodes>
-        <@slot|{ node, index }|>
-          <website-content-card-node
-            image-width=340
-            node=node
-          />
-        </@slot>
-      </default-theme-card-deck-flow>
-    </marko-web-query>
+        <@section>
+          <div class="row">
+            <div class="col">
+              <marko-web-gam-display-ad id="gpt-ad-lb2" />
+            </div>
+          </div>
+        </@section>
 
+        <@section>
+          <div class="row">
+            <div class="col-lg-8">
+              <marko-web-query|{ nodes }|
+                name="all-published-content"
+                params={ excludeContentTypes: ["Company", "Contact"], limit: 6, requiresImage: true, queryFragment }
+              >
+                <website-content-list-flow
+                  nodes=nodes
+                  inner-justified=false
+                  modifiers=["padding-large"]
+                >
+                  <@header>Latest</@header>
+                  <@node image-position="left" with-attribution=true with-teaser=true>
+                    <@image use-placeholder=false ar="16:9" width=288 />
+                  </@node>
+                </website-content-list-flow>
+              </marko-web-query>
+            </div>
+            <aside class="col-lg-4 page-rail">
+              <marko-web-node-list collapsible=false>
+                <@header modifiers=["padding-y"]>Follow Us</@header>
+              </marko-web-node-list>
+
+              <marko-web-gam-display-ad id="gpt-ad-rail1" modifiers=["sticky-top"] />
+            </aside>
+          </div>
+        </@section>
+
+        <@section>
+          <div class="row">
+            <div class="col">
+              <marko-web-query|{ nodes }|
+                name="all-published-content"
+                params={ contentTypes: ["Video"], limit: 6, requiresImage: true, queryFragment }
+              >
+                <marko-web-node-list collapsible=false>
+                  <@header modifiers=["padding-y"]>Featured Videos</@header>
+                </marko-web-node-list>
+                <website-content-hero-flow nodes=nodes>
+                  <@list inner-justified=false />
+                </website-content-hero-flow>
+              </marko-web-query>
+            </div>
+          </div>
+        </@section>
+
+        <@section>
+          <div class="row">
+            <div class="col">
+              <marko-web-gam-display-ad id="gpt-ad-lb3" />
+            </div>
+          </div>
+        </@section>
+
+        <@section modifiers=["infinite-scroll"]>
+          <div class="row">
+            <div class="col-lg-8">
+              <marko-web-query|{ nodes }|
+                name="all-published-content"
+                params={ sectionId: id, excludeContentTypes: ["Company", "Contact"], limit: 10, skip: 6, requiresImage: true, queryFragment }
+              >
+                <website-content-list-flow
+                  nodes=nodes
+                  inner-justified=false
+                  modifiers=["padding-large"]
+                >
+                  <@node image-position="left" with-attribution=true with-teaser=true>
+                    <@image use-placeholder=false ar="16:9" width=288 />
+                  </@node>
+                </website-content-list-flow>
+              </marko-web-query>
+            </div>
+
+            <aside class="col-lg-4 page-rail">
+              <marko-web-query|{ nodes }|
+                name="all-published-content"
+                params={ excludeContentTypes: ["Contact", "Company"], limit: 6, queryFragment }
+              >
+                <website-content-list-flow
+                  nodes=nodes
+                  inner-justified=false
+                >
+                  <@header>Most Read</@header>
+                  <@node display-image=false with-dates=false>
+                    <@image use-placeholder=false />
+                    <@title modifiers=["small"] />
+                  </@node>
+                </website-content-list-flow>
+              </marko-web-query>
+
+              <marko-web-gam-display-ad id="gpt-ad-rail2" modifiers=["sticky-top"] />
+            </aside>
+          </div>
+        </@section>
+      </marko-web-page-wrapper>
+    </marko-web-resolve-page>
   </@page>
-  <@below-page>
-    <marko-web-resolve-page|{ data: section }| node=pageNode>
-      $ const aliases = hierarchyAliases(section);
-      <marko-web-load-more
-        component-name="content-load-more-flow"
-        component-input={ aliases }
-        fragment-name="content-list"
-        query-name="all-published-content"
-        query-params={ limit: 10, skip: 18, contentTypes: ["Article"] }
-        max-pages=2
-        page-input={ for: "website-section", id }
-      />
-    </marko-web-resolve-page>
-  </@below-page>
-  <@foot>
-    <marko-web-resolve-page|{ data: section }| node=pageNode>
-      $ const aliases = hierarchyAliases(section);
-      <marko-web-gam-fixed-ad-bottom ...GAM.getAdUnit({ name: "lb2", aliases }) refresh-interval=0 />
-    </marko-web-resolve-page>
-  </@foot>
 </marko-web-website-section-page-layout>
