@@ -209,6 +209,11 @@ $theme-item-footer-font-size: 12px !default;
     text-align: right;
   }
 
+  &--sticky-top {
+    position: sticky;
+    top: calc(95px + #{$block-spacer});
+  }
+
   &__wrapper {
     position: relative;
     padding-top: 15px;
