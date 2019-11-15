@@ -114,16 +114,18 @@ $ const { id, alias, name, pageNode } = data;
         </@section>
 
         <@section>
-          <marko-web-node-list collapsible=false>
-            <@header modifiers=["padding-y"]>Featured Videos</@header>
-          </marko-web-node-list>
           <div class="row">
             <div class="col">
               <marko-web-query|{ nodes }|
-                name="all-published-content"
-                params={ contentTypes: ["Video"], limit: 5, requiresImage: true, queryFragment }
+                name="website-scheduled-content"
+                params={ includeContentTypes: ["Video"], sectionId: section.id, limit: 6, requiresImage: true, queryFragment }
               >
-                <website-content-hero-flow nodes=nodes />
+                <marko-web-node-list collapsible=false>
+                  <@header modifiers=["padding-y"]>Featured Videos</@header>
+                </marko-web-node-list>
+                <website-content-hero-flow nodes=nodes>
+                  <@list inner-justified=false />
+                </website-content-hero-flow>
               </marko-web-query>
             </div>
           </div>
