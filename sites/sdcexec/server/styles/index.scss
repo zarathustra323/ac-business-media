@@ -464,6 +464,15 @@ $theme-item-footer-font-size: 12px !default;
     padding-bottom: $block-spacer;
   }
 
+  &--padding-large {
+    #{ $self } {
+      &__node {
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+    }
+  }
+
   &--flush-y {
     #{ $self } {
       &__header:first-child {
