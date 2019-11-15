@@ -3,7 +3,11 @@
     <website-content-card-node node=node image-width=600 title-modifiers=["large"] />
   </@hero>
   <@list|{ nodes }|>
-    <website-content-list-flow nodes=nodes native-x=input.nativeX>
+    <website-content-list-flow
+      nodes=nodes
+      native-x=input.nativeX
+      ...input.list
+    >
       <@node>
         <@image use-placeholder=false />
         <@title modifiers=["small"] />
