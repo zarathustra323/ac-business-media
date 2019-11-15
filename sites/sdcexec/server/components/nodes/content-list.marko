@@ -11,6 +11,7 @@ $ const imagePosition = defaultValue(input.imagePosition, "right");
 $ const withTeaser = defaultValue(input.withTeaser, false);
 $ const withSection = defaultValue(input.withSection, false);
 $ const withAttribution = defaultValue(input.withAttribution, false);
+$ const withDates = defaultValue(input.withDates, true);
 
 $ const { linkAttrs } = input;
 
@@ -47,15 +48,19 @@ $ const { linkAttrs } = input;
     <@text modifiers=["teaser"] show=(withTeaser && content.teaser)>
       <marko-web-content-teaser tag=null obj=content link={ attrs: linkAttrs } />
     </@text>
-    <@footer>
-      <if(withAttribution)>
-        <@left>
-          <attribution content=content />
-        </@left>
-      </if>
-      <@right|{ blockName }|>
-        <dates block-name=blockName content=content />
-      </@right>
-    </@footer>
+    <if(withAttribution || withDates)>
+      <@footer>
+        <if(withAttribution)>
+          <@left>
+            <attribution content=content />
+          </@left>
+        </if>
+        <if(withDates)>
+          <@right|{ blockName }|>
+            <dates block-name=blockName content=content />
+          </@right>
+        </if>
+      </@footer>
+    </if>
   </@body>
 </marko-web-node>

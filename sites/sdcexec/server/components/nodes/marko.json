@@ -15,6 +15,7 @@
     },
     "@with-section": "boolean",
     "@with-attribution": "boolean",
+    "@with-dates": "boolean",
     "@attrs": "object",
     "@link-attrs": "object"
   },
