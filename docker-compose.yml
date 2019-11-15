@@ -23,11 +23,11 @@ x-env-defaults: &env
   SENDGRID_DEV_TO: developer@endeavorb2b.com
   YARN_CACHE_FOLDER: /.yarn-cache
 
-x-env-caprica: &env-caprica-staging
-  GRAPHQL_URI: ${GRAPHQL_URI-https://caprica.graphql-staging.base-cms.io}
-  OEMBED_URI: ${OEMBED_URI-https://caprica.oembed-staging.base-cms.io}
-  RSS_URI: ${RSS_URI-https://caprica.rss-staging.base-cms.io}
-  SITEMAPS_URI: ${SITEMAPS_URI-https://caprica.sitemaps-staging.base-cms.io}
+x-env-caprica: &env-caprica
+  GRAPHQL_URI: ${GRAPHQL_URI-https://caprica.graphql.base-cms.io}
+  OEMBED_URI: ${OEMBED_URI-https://caprica.oembed.base-cms.io}
+  RSS_URI: ${RSS_URI-https://caprica.rss.base-cms.io}
+  SITEMAPS_URI: ${SITEMAPS_URI-https://caprica.sitemaps.base-cms.io}
 
 x-env-development: &env-development
   GRAPHQL_URI: ${GRAPHQL_URI-http://host.docker.internal:10002}
@@ -63,7 +63,7 @@ services:
     working_dir: /root/sites/greenindustrypros
     environment:
       <<: *env
-      <<: *env-caprica-staging
+      <<: *env-caprica
       PORT: 80
       EXPOSED_PORT: 9710
       LIVERELOAD_PORT: 19710
@@ -72,3 +72,19 @@ services:
     ports:
       - "9710:80"
       - "19710:19710"
+
+  sdcexec:
+    <<: *node
+    <<: *site-cmd
+    working_dir: /root/sites/sdcexec
+    environment:
+      <<: *env
+      <<: *env-caprica
+      PORT: 80
+      EXPOSED_PORT: 9711
+      LIVERELOAD_PORT: 19711
+      TENANT_KEY: acbm_sdce
+      SITE_ID: 53c960451784f8066eb2c8a4
+    ports:
+      - "9711:80"
+      - "19711:19711"
