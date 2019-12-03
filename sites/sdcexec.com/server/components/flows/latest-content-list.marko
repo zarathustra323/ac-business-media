@@ -2,6 +2,7 @@ import { getAsArray, getAsObject } from "@base-cms/object-path";
 import defaultValue from "@base-cms/marko-core/utils/default-value";
 
 $ const nodes = getAsArray(input, "nodes");
+$ const header = defaultValue(input.header, "Latest");
 $ const withHeader = defaultValue(input.withHeader, false);
 $ const adunit = getAsObject(input, "adunit");
 
@@ -15,7 +16,7 @@ $ const adunit = getAsObject(input, "adunit");
   modifiers=["padding-large", ...getAsArray(input, "modifiers")]
 >
   <if(withHeader)>
-    <@header>Latest</@header>
+    <@header>${header}</@header>
   </if>
   <@node image-position="left" with-attribution=true with-teaser=true>
     <@image use-placeholder=false ar="16:9" width=288 />

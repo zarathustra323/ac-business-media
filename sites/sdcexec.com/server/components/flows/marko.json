@@ -3,6 +3,7 @@
     "template": "./latest-content-list.marko",
     "<adunit>": {},
     "@nodes": "array",
+    "@header": "string",
     "@with-header": "boolean",
     "@modifiers": "array"
   },
