@@ -331,36 +331,7 @@ $theme-item-footer-font-size: 12px !default;
 }
 
 .page-image {
-  // @todo the $ar calculations can be moved once added to core.
   $self: &;
-  @each $ar in $marko-web-node-image-aspect-ratios {
-    $x: nth($ar, 1);
-    $y: nth($ar, 2);
-
-    &--fluid-#{$x}by#{$y} {
-      #{ $self } {
-        &__wrapper {
-          @include marko-web-node-fluid-image($x, $y);
-        }
-        &__image {
-          @include marko-web-node-fluid-image-item();
-        }
-      }
-    }
-    // Add the inverse ratios (16by9 becomes 9by16, 4by3 becomes 3by4, etc)
-    @if $x != $y {
-      &--fluid-#{$y}by#{$x} {
-        #{ $self } {
-          &__wrapper {
-            @include marko-web-node-fluid-image($x, $y);
-          }
-          &__image {
-            @include marko-web-node-fluid-image-item();
-          }
-        }
-      }
-    }
-  }
 
   &__image-caption,
   &__image-credit {
@@ -465,6 +436,14 @@ $theme-item-footer-font-size: 12px !default;
     }
   }
 
+  &--infinite-scroll {
+    #{ $self } {
+      &__node:first-child {
+        @include marko-web-node-list-border(border-top);
+      }
+    }
+  }
+
   &--flush-y {
     #{ $self } {
       &__header:first-child {
@@ -507,5 +486,13 @@ $theme-item-footer-font-size: 12px !default;
         }
       }
     }
+  }
+}
+
+.magazine-publication-card-block {
+  &__header,
+  &__body {
+    padding-right: 0;
+    padding-left: 0;
   }
 }

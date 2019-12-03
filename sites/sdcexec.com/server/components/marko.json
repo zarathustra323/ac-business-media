@@ -18,5 +18,9 @@
   },
   "<website-inquiry-form>": {
     "template": "./inquiry-form.marko"
+  },
+  "<website-fixed-ad-bottom>": {
+    "template": "./fixed-ad-bottom.marko",
+    "@aliases": "array"
   }
 }
