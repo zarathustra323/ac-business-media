@@ -182,7 +182,7 @@ $ const displayPublishedDate = ["event", "webinar", "contact"].includes(type) ? 
                   name="website-scheduled-content"
                   params={ sectionId: section.id, limit: 12, skip: 20, requiresImage: true }
                 />
-                <@page for="content" id=id />
+                <@page for="content" id=id type=type />
                 <@adunit ...GAM.getAdUnit({ name: "infinite-interstitial", aliases }) />
               </website-latest-content-load-more-block>
             </div>
