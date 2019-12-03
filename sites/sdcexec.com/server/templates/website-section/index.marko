@@ -183,7 +183,7 @@ $ const adSlots = ({ aliases }) => ({
   <@foot>
     <marko-web-resolve-page|{ data: section }| node=pageNode>
       $ const aliases = hierarchyAliases(section);
-      <marko-web-gam-fixed-ad-bottom ...GAM.getAdUnit({ name: "lb2", aliases }) refresh-interval=15 scroll-offset=100 />
+      <website-fixed-ad-bottom aliases=hierarchyAliases(section) />
     </marko-web-resolve-page>
   </@foot>
 </marko-web-website-section-page-layout>

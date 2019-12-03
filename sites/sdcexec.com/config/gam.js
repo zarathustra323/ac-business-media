@@ -11,7 +11,7 @@ config
       { viewport: [320, 0], size: [[300, 50], [320, 50], [300, 100]] },
     ],
   })
-  .setTemplate('LB2', {
+  .setTemplate('LB-STICKY-BOTTOM', {
     size: [[320, 50], [300, 50]],
     sizeMapping: [
       { viewport: [576, 0], size: [] },
@@ -37,7 +37,7 @@ config
 config
   .setAliasAdUnits('default', [
     { name: 'lb1', templateName: 'LB', path: 'SDC_BS' },
-    { name: 'lb2', templateName: 'LB2', path: 'SDC_BS' },
+    { name: 'lb-sticky-bottom', templateName: 'LB-STICKY-BOTTOM', path: 'SDC_BS' },
     { name: 'rail1', templateName: 'CONTENT', path: 'SDC_MR' },
     { name: 'rail2', templateName: 'CONTENT', path: 'SDC_MR' },
     { name: 'infinite-rail', templateName: 'INFINITE-RAIL', path: 'SDC_MR' },
