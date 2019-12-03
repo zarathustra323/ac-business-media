@@ -76,25 +76,20 @@ $ const displayPublishedDate = ["event", "webinar", "contact"].includes(type) ? 
         </@section>
         <@section>
           <div class="row">
-            <default-theme-page-contents|{ blockName }| class="col mb-block">
+            <default-theme-page-contents|{ blockName }| class="col-lg-8 mb-3 mb-lg-0">
               <if(content.embedCode)>
                 <marko-web-content-embed-code block-name=blockName obj=content />
               </if>
               <else-if(displayPrimaryImage)>
-                <!-- @todo ensure newest version of marko-web is added -->
                 <marko-web-page-image
                   obj=content.primaryImage
                   modifiers=["fluid-16by9"]
                   options={ w: 512, h: 288, fit: 'crop' }
                 />
               </else-if>
-            </default-theme-page-contents>
-          </div>
-          <div class="row">
-            <default-theme-page-contents|{ blockName }| class="col-lg-8 mb-3 mb-lg-0">
-              <if(type === "contact")>
+              <else-if(type === "contact")>
                 <marko-web-page-image width=300 fluid=false obj=content.primaryImage />
-              </if>
+              </else-if>
               <default-theme-content-contact-details obj=content />
               <marko-web-content-body block-name=blockName obj=content />
               <marko-web-content-sidebars block-name=blockName obj=content />
