@@ -131,21 +131,24 @@ $ const adSlots = ({ aliases }) => ({
 
         <@section modifiers=["infinite-scroll"]>
           <div class="row">
-            <div class="col-lg-8">
+            <div class="col-lg-8 infinite-scroll-target">
               <marko-web-query|{ nodes }|
                 name="website-scheduled-content"
                 params={ sectionId: id, limit: 10, skip: 15, requiresImage: true, queryFragment }
               >
-                <website-content-list-flow
-                  nodes=nodes
-                  inner-justified=false
-                  modifiers=["padding-large"]
-                >
-                  <@node image-position="left" with-attribution=true with-teaser=true>
-                    <@image use-placeholder=false ar="16:9" width=288 />
-                  </@node>
-                </website-content-list-flow>
+                <website-latest-content-list-flow nodes=nodes with-header=false />
               </marko-web-query>
+
+              <marko-web-load-more
+                append-to=".infinite-scroll-target"
+                expand=500
+                component-name="latest-content-list-flow"
+                component-input={ withHeader: false, modifiers: ["infinite-scroll"] }
+                fragment-name="content-list"
+                query-name="website-scheduled-content"
+                query-params={ sectionId: id, limit: 10, skip: 25, requiresImage: true }
+                page-input={ for: "website-section", id }
+              />
             </div>
 
             <aside class="col-lg-4 page-rail">

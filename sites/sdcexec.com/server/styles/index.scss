@@ -436,6 +436,14 @@ $theme-item-footer-font-size: 12px !default;
     }
   }
 
+  &--infinite-scroll {
+    #{ $self } {
+      &__node:first-child {
+        @include marko-web-node-list-border(border-top);
+      }
+    }
+  }
+
   &--flush-y {
     #{ $self } {
       &__header:first-child {
