@@ -1,5 +1,6 @@
 const newrelic = require('newrelic');
 const { startServer } = require('@base-cms/marko-web');
+const cleanResponse = require('@base-cms/marko-core/middleware/clean-marko-response');
 const { version } = require('./package.json');
 const routes = require('./server/routes');
 const siteConfig = require('./config/site');
@@ -19,6 +20,10 @@ module.exports = startServer({
   components,
   fragments,
   version,
-  onStart: app => app.set('trust proxy', 'loopback, linklocal, uniquelocal'),
+  onStart: (app) => {
+    app.set('trust proxy', 'loopback, linklocal, uniquelocal');
+    // Clean all response bodies.
+    app.use(cleanResponse());
+  },
   onAsyncBlockError: e => newrelic.noticeError(e),
 }).then(() => log('Website started!')).catch(e => setImmediate(() => { throw e; }));
