@@ -9,6 +9,7 @@ $ const page = getAsObject(input, "page");
   component-name="latest-content-list-flow"
   component-input={ withHeader: false, modifiers: ["infinite-scroll"] }
   fragment-name="content-list"
+  max-pages=input.maxPages
   query-name=query.name
   query-params=query.params
   page-input=page

@@ -2,7 +2,8 @@
   "<website-latest-content-load-more-block>": {
     "template": "./latest-content-load-more.marko",
     "<query>": {},
-    "<page>": {}
+    "<page>": {},
+    "@max-pages": "number"
   },
   "<website-related-content-block>": {
     "template": "./related-content.marko",
