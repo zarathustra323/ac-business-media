@@ -3,6 +3,7 @@
     "template": "./latest-content-load-more.marko",
     "<query>": {},
     "<page>": {},
+    "<adunit>": {},
     "@max-pages": "number"
   },
   "<website-related-content-block>": {

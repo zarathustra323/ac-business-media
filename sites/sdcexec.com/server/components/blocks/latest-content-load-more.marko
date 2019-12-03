@@ -7,7 +7,11 @@ $ const page = getAsObject(input, "page");
   append-to=".infinite-scroll-target"
   expand=500
   component-name="latest-content-list-flow"
-  component-input={ withHeader: false, modifiers: ["infinite-scroll"] }
+  component-input={
+    withHeader: false,
+    modifiers: ["infinite-scroll"],
+    adunit: input.adunit,
+  }
   fragment-name="content-list"
   max-pages=input.maxPages
   query-name=query.name

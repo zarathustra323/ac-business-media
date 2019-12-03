@@ -1,6 +1,7 @@
 {
   "<website-latest-content-list-flow>": {
     "template": "./latest-content-list.marko",
+    "<adunit>": {},
     "@nodes": "array",
     "@with-header": "boolean",
     "@modifiers": "array"

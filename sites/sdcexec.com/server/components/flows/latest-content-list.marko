@@ -1,8 +1,13 @@
-import { getAsArray } from "@base-cms/object-path";
+import { getAsArray, getAsObject } from "@base-cms/object-path";
 import defaultValue from "@base-cms/marko-core/utils/default-value";
 
 $ const nodes = getAsArray(input, "nodes");
 $ const withHeader = defaultValue(input.withHeader, false);
+$ const adunit = getAsObject(input, "adunit");
+
+<if(adunit.path)>
+  <marko-web-gam-define-display-ad ...adunit class="mb-block" />
+</if>
 
 <website-content-list-flow
   nodes=nodes
