@@ -24,6 +24,9 @@ $ const adSlots = ({ aliases }) => ({
     </marko-web-resolve-page>
   </@head>
   <@page>
+    <!-- Refresh sticky, right-rail infinite scroll ad -->
+    <marko-web-gam-refresh-ad on="load-more-in-view" slot-id="gpt-ad-rail-infinite" />
+
     <marko-web-resolve-page|{ data: section, resolved }| node=pageNode>
       $ const aliases = hierarchyAliases(section);
       <marko-web-page-wrapper>
@@ -130,7 +133,7 @@ $ const adSlots = ({ aliases }) => ({
             <div class="col-lg-8 infinite-scroll-target">
               <marko-web-query|{ nodes }|
                 name="all-published-content"
-                params={ excludeContentTypes: ["Company", "Contact"], limit: 10, skip: 6, requiresImage: true, queryFragment }
+                params={ excludeContentTypes: ["Company", "Contact"], limit: 12, skip: 6, requiresImage: true, queryFragment }
               >
                 <website-content-list-flow
                   nodes=nodes
@@ -146,7 +149,7 @@ $ const adSlots = ({ aliases }) => ({
               <website-latest-content-load-more-block max-pages=1>
                 <@query
                   name="all-published-content"
-                  params={ excludeContentTypes: ["Company", "Contact"], limit: 10, skip: 16, requiresImage: true }
+                  params={ excludeContentTypes: ["Company", "Contact"], limit: 12, skip: 18, requiresImage: true }
                 />
                 <@page for="website-section" id=id />
                 <@adunit ...GAM.getAdUnit({ name: "infinite-interstitial", aliases }) />
