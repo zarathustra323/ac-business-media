@@ -4,33 +4,78 @@ cache: yarn
 
 stages:
   - name: test
-  - name: notify_start
+
+  - name: production-started
+    if: tag =~ /^v\d+\.\d+\.\d+$/
+  - name: production
+    if: tag =~ /^v\d+\.\d+\.\d+$/
+  - name: production-finished
+    if: tag =~ /^v\d+\.\d+\.\d+$/
+
+  - name: staging-started
     if: tag is present
-  - name: deploy
+  - name: staging
     if: tag is present
-  - name: notify
+  - name: staging-finished
     if: tag is present
 
 jobs:
   include:
     - stage: test
-      env:
-        - NODE_ENV=test
+      env: [NODE_ENV=test]
 
-    - stage: notify_start
-      script: deploy/notify-start.sh
+    - stage: production-started
+      name: Deployment Started
+      script: npx @base-cms/website-deployment-tool notify-started
       install: skip
+      env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-gxsr7]
 
-    - stage: notify
-      script: deploy/notify.sh
+    - stage: staging-started
+      name: Deployment Started
+      script: npx @base-cms/website-deployment-tool notify-started
       install: skip
+      env: [ENVIRONMENT=staging RANCHER_CLUSTERID=c-rc5kp]
 
-    - stage: deploy
-      name: Green Industry Pros
-      script: deploy/index.js greenindustrypros caprica
-      install: skip
+    #############################
+    ### vvv ADD SITES HERE vvv ##
+    #############################
 
-    - stage: deploy
-      name: Supply and Demand Chain Executive
-      script: deploy/index.js sdcexec caprica
+    - stage: production
+      name: greenindustrypros.com
+      script: npx @base-cms/website-deployment-tool deploy greenindustrypros.com caprica
       install: skip
+      env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-gxsr7]
+
+    - stage: staging
+      name: greenindustrypros.com
+      script: npx @base-cms/website-deployment-tool deploy greenindustrypros.com caprica
+      install: skip
+      env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-rc5kp]
+
+    - stage: production
+      name: sdcexec.com
+      script: npx @base-cms/website-deployment-tool deploy sdcexec.com caprica
+      install: skip
+      env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-gxsr7]
+
+    - stage: staging
+      name: sdcexec.com
+      script: npx @base-cms/website-deployment-tool deploy sdcexec.com caprica
+      install: skip
+      env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-rc5kp]
+
+    #############################
+    ### ^^^ ADD SITES HERE ^^^ ##
+    #############################
+
+    - stage: production-finished
+      name: Deployment Finished
+      script: npx @base-cms/website-deployment-tool notify-finished
+      install: skip
+      env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-gxsr7]
+
+    - stage: staging-finished
+      name: Deployment Finished
+      script: npx @base-cms/website-deployment-tool notify-finished
+      install: skip
+      env: [ENVIRONMENT=staging RANCHER_CLUSTERID=c-rc5kp]
