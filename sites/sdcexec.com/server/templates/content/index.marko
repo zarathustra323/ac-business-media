@@ -11,7 +11,7 @@ $ const adSlots = ({ aliases }) => ({
   "gpt-ad-lb2":   GAM.getAdUnit({ name: "lb1", aliases }),
   "gpt-ad-rail1": GAM.getAdUnit({ name: "rail1", aliases, size: [300, 250] }),
   "gpt-ad-rail2": GAM.getAdUnit({ name: "rail2", aliases, size: [300, 600] }),
-  "gpt-ad-rail3": GAM.getAdUnit({ name: "rail1", aliases, size: [300, 250] }),
+  "gpt-ad-rail-infinite": GAM.getAdUnit({ name: "infinite-rail", aliases }),
 });
 $ const displayPrimaryImage = ["whitepaper", "media-gallery", "contact"].includes(type) ? false : true;
 $ const displayPublishedDate = ["event", "webinar", "contact"].includes(type) ? false : true;
@@ -174,12 +174,13 @@ $ const displayPublishedDate = ["event", "webinar", "contact"].includes(type) ? 
                 <website-latest-content-list-flow nodes=nodes with-header=true />
               </marko-web-query>
 
-              <website-latest-content-load-more-block>
+              <website-latest-content-load-more-block max-pages=4>
                 <@query
                   name="website-scheduled-content"
                   params={ sectionId: section.id, limit: 10, skip: 14, requiresImage: true }
                 />
                 <@page for="content" id=id />
+                <@adunit ...GAM.getAdUnit({ name: "infinite-interstitial", aliases }) />
               </website-latest-content-load-more-block>
             </div>
             <aside class="col-lg-4 page-rail">
@@ -188,7 +189,7 @@ $ const displayPublishedDate = ["event", "webinar", "contact"].includes(type) ? 
               </marko-web-node-list>
 
               <marko-web-gam-display-ad
-                id="gpt-ad-rail3"
+                id="gpt-ad-rail-infinite"
                 modifiers=["sticky-top"]
                 slots=adSlots({ aliases })
               />
