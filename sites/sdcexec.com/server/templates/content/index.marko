@@ -13,8 +13,8 @@ $ const adSlots = ({ aliases }) => ({
   "gpt-ad-rail2": GAM.getAdUnit({ name: "rail2", aliases, size: [300, 600] }),
   "gpt-ad-rail-infinite": GAM.getAdUnit({ name: "infinite-rail", aliases }),
 });
-$ const displayPrimaryImage = ["whitepaper", "media-gallery", "contact"].includes(type) ? false : true;
-$ const displayPublishedDate = ["event", "webinar", "contact"].includes(type) ? false : true;
+$ const displayPrimaryImage = ["whitepaper", "media-gallery"].includes(type) ? false : true;
+$ const displayPublishedDate = ["event", "webinar"].includes(type) ? false : true;
 
 <marko-web-content-page-layout id=id type=type>
   <@head>
@@ -62,9 +62,7 @@ $ const displayPublishedDate = ["event", "webinar", "contact"].includes(type) ? 
                     <marko-web-content-published block-name=blockName obj=content />
                   </if>
                 </default-theme-page-dates>
-                <if(content.type !== "contact")>
-                  <default-theme-content-attribution obj=content />
-                </if>
+                <default-theme-content-attribution obj=content />
               </div>
             </div>
           </div>
@@ -92,9 +90,6 @@ $ const displayPublishedDate = ["event", "webinar", "contact"].includes(type) ? 
                     options={ w: 512, h: 288, fit: 'crop' }
                   />
                 </else>
-              </else-if>
-              <else-if(type === "contact")>
-                <marko-web-page-image width=300 fluid=false obj=content.primaryImage />
               </else-if>
               <default-theme-content-contact-details obj=content />
               <marko-web-content-body block-name=blockName obj=content />
