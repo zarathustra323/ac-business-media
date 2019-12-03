@@ -1,0 +1,18 @@
+import { getAsArray } from "@base-cms/object-path";
+import defaultValue from "@base-cms/marko-core/utils/default-value";
+
+$ const nodes = getAsArray(input, "nodes");
+$ const withHeader = defaultValue(input.withHeader, false);
+
+<website-content-list-flow
+  nodes=nodes
+  inner-justified=false
+  modifiers=["padding-large", ...getAsArray(input, "modifiers")]
+>
+  <if(withHeader)>
+    <@header>Latest</@header>
+  </if>
+  <@node image-position="left" with-attribution=true with-teaser=true>
+    <@image use-placeholder=false ar="16:9" width=288 />
+  </@node>
+</website-content-list-flow>
