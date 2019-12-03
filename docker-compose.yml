@@ -57,10 +57,10 @@ services:
     environment:
       <<: *env
 
-  greenindustrypros:
+  greenindustrypros.com:
     <<: *node
     <<: *site-cmd
-    working_dir: /root/sites/greenindustrypros
+    working_dir: /root/sites/greenindustrypros.com
     environment:
       <<: *env
       <<: *env-caprica
@@ -73,10 +73,10 @@ services:
       - "9710:80"
       - "19710:19710"
 
-  sdcexec:
+  sdcexec.com:
     <<: *node
     <<: *site-cmd
-    working_dir: /root/sites/sdcexec
+    working_dir: /root/sites/sdcexec.com
     environment:
       <<: *env
       <<: *env-caprica
