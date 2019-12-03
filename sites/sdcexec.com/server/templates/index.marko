@@ -10,7 +10,7 @@ $ const adSlots = ({ aliases }) => ({
   "gpt-ad-lb2":   GAM.getAdUnit({ name: "lb1", aliases }),
   "gpt-ad-lb3":   GAM.getAdUnit({ name: "lb1", aliases }),
   "gpt-ad-rail1": GAM.getAdUnit({ name: "rail1", aliases, size: [300, 250] }),
-  "gpt-ad-rail2": GAM.getAdUnit({ name: "rail2", aliases, size: [300, 600] }),
+  "gpt-ad-rail-infinite": GAM.getAdUnit({ name: "infinite-rail", aliases }),
 });
 
 <marko-web-website-section-page-layout id=id alias=alias name=name>
@@ -149,6 +149,7 @@ $ const adSlots = ({ aliases }) => ({
                   params={ excludeContentTypes: ["Company", "Contact"], limit: 10, skip: 16, requiresImage: true }
                 />
                 <@page for="website-section" id=id />
+                <@adunit ...GAM.getAdUnit({ name: "infinite-interstitial", aliases }) />
               </website-latest-content-load-more-block>
             </div>
 
@@ -170,7 +171,7 @@ $ const adSlots = ({ aliases }) => ({
               </marko-web-query>
 
               <marko-web-gam-display-ad
-                id="gpt-ad-rail2"
+                id="gpt-ad-rail-infinite"
                 modifiers=["sticky-top"]
                 slots=adSlots({ aliases })
               />
