@@ -86,16 +86,7 @@ $ const adSlots = ({ aliases }) => ({
                 name="website-scheduled-content"
                 params={ sectionId: id, limit: 6, skip: 9, requiresImage: true, queryFragment }
               >
-                <website-content-list-flow
-                  nodes=nodes
-                  inner-justified=false
-                  modifiers=["padding-large"]
-                >
-                  <@header>Latest</@header>
-                  <@node image-position="left" with-attribution=true with-teaser=true>
-                    <@image use-placeholder=false ar="16:9" width=288 />
-                  </@node>
-                </website-content-list-flow>
+                <website-latest-content-list-flow nodes=nodes with-header=true />
               </marko-web-query>
             </div>
             <aside class="col-lg-4 page-rail">
