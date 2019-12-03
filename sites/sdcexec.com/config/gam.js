@@ -11,12 +11,19 @@ config
       { viewport: [320, 0], size: [[300, 50], [320, 50], [300, 100]] },
     ],
   })
+  .setTemplate('LB2', {
+    size: [[320, 50], [300, 50]],
+    sizeMapping: [
+      { viewport: [576, 0], size: [] },
+      { viewport: [320, 0], size: [[300, 50], [320, 50]] },
+    ],
+  })
   .setTemplate('CONTENT', { size: [[300, 250], [300, 600]] });
 
 config
   .setAliasAdUnits('default', [
     { name: 'lb1', templateName: 'LB', path: 'SDC_BS' },
-    { name: 'lb2', templateName: 'LB', path: 'SDC_BS' },
+    { name: 'lb2', templateName: 'LB2', path: 'SDC_BS' },
     { name: 'rail1', templateName: 'CONTENT', path: 'SDC_MR' },
     { name: 'rail2', templateName: 'CONTENT', path: 'SDC_MR' },
     { name: 'load-more', templateName: 'CONTENT', path: 'SDC_HP' },

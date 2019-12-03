@@ -27,14 +27,6 @@ $ const displayPublishedDate = ["event", "webinar", "contact"].includes(type) ? 
       <marko-web-gam-slots slots=adSlots({ aliases }) />
     </marko-web-resolve-page>
   </@head>
-  <!-- @todo the reskin is currently pushing the page donw -->
-  <!-- <@above-container>
-    <marko-web-resolve-page|{ data: content }| node=pageNode>
-      $ const aliases = hierarchyAliases(content.primarySection);
-      <marko-web-gam-out-of-page-ad ...GAM.getAdUnit({ name: "wa", aliases }) />
-      <marko-web-gam-out-of-page-ad ...GAM.getAdUnit({ name: "reskin", aliases }) />
-    </marko-web-resolve-page>
-  </@above-container> -->
   <@page>
     <marko-web-resolve-page|{ data: content, resolved }| node=pageNode>
       $ const section = resolved.getAsObject("primarySection");
@@ -197,4 +189,10 @@ $ const displayPublishedDate = ["event", "webinar", "contact"].includes(type) ? 
       </marko-web-page-wrapper>
     </marko-web-resolve-page>
   </@page>
+  <@foot>
+    <marko-web-resolve-page|{ data: section }| node=pageNode>
+      $ const aliases = hierarchyAliases(section);
+      <marko-web-gam-fixed-ad-bottom ...GAM.getAdUnit({ name: "lb2", aliases }) refresh-interval=15 scroll-offset=100 />
+    </marko-web-resolve-page>
+  </@foot>
 </marko-web-content-page-layout>

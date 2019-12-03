@@ -23,13 +23,6 @@ $ const adSlots = ({ aliases }) => ({
       <marko-web-gam-slots slots=adSlots({ aliases }) />
     </marko-web-resolve-page>
   </@head>
-  <!-- <@above-container>
-    <marko-web-resolve-page|{ data: section }| node=pageNode>
-      $ const aliases = hierarchyAliases(section);
-      <marko-web-gam-out-of-page-ad ...GAM.getAdUnit({ name: "wa", aliases }) />
-      <marko-web-gam-out-of-page-ad ...GAM.getAdUnit({ name: "reskin", aliases }) />
-    </marko-web-resolve-page>
-  </@above-container> -->
   <@page>
     <marko-web-resolve-page|{ data: section, resolved }| node=pageNode>
       $ const aliases = hierarchyAliases(section);
@@ -188,4 +181,10 @@ $ const adSlots = ({ aliases }) => ({
       </marko-web-page-wrapper>
     </marko-web-resolve-page>
   </@page>
+  <@foot>
+    <marko-web-resolve-page|{ data: section }| node=pageNode>
+      $ const aliases = hierarchyAliases(section);
+      <marko-web-gam-fixed-ad-bottom ...GAM.getAdUnit({ name: "lb2", aliases }) refresh-interval=15 scroll-offset=100 />
+    </marko-web-resolve-page>
+  </@foot>
 </marko-web-website-section-page-layout>
