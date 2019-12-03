@@ -254,14 +254,6 @@ $theme-item-footer-font-size: 12px !default;
     }
   }
 
-  // &--primary {
-  //   #{ $self } {
-  //     &__link--active[href*="warehousing"] {
-  //       color: red;
-  //     }
-  //   }
-  // }
-
   &--primary {
     @each $section, $color in $website-section-colors {
       #{ $self } {
@@ -269,11 +261,6 @@ $theme-item-footer-font-size: 12px !default;
           color: $color;
         }
       }
-      // &--#{$section} {
-      //   &::before {
-      //     background: $color;
-      //   }
-      // }
     }
   }
 }
@@ -504,9 +491,6 @@ $theme-item-footer-font-size: 12px !default;
   }
   &__list {
     margin-bottom: 0;
-    @include media-breakpoint-down(md) {
-      // margin-bottom: $block-spacer;
-    }
   }
 }
 
