@@ -19,8 +19,8 @@ module.exports = {
   },
   footer: {
     items: [
-      { href: '/page/legal-notice', label: 'Legal Notice', target: '_blank' },
-      { href: '/page/privacy-policy', label: 'Privacy Policy', target: '_blank' },
+      { href: '/page/legal-notice', label: 'Legal Notice' },
+      { href: '/page/privacy-policy', label: 'Privacy Policy' },
     ],
   },
   menu: [
@@ -38,8 +38,8 @@ module.exports = {
     {
       label: 'User Tools',
       items: [
-        { href: '/page/legal-notice', label: 'Legal Notice', target: '_blank' },
-        { href: '/page/privacy-policy', label: 'Privacy Policy', target: '_blank' },
+        { href: '/page/legal-notice', label: 'Legal Notice' },
+        { href: '/page/privacy-policy', label: 'Privacy Policy' },
       ],
     },
   ],
