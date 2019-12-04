@@ -1,6 +1,5 @@
 import { getAsObject } from "@base-cms/object-path";
 import contentListFragment from "../../graphql/fragments/content-list";
-import GAM from "../../../config/gam";
 
 $ const { id, pageNode } = data;
 
@@ -12,11 +11,6 @@ $ const { id, pageNode } = data;
   </@head>
   <@page>
     <marko-web-page-wrapper class="mb-block">
-      <@section>
-        <marko-web-gam-define-display-ad
-          ...GAM.getAdUnit({ name: "lb1" })
-        />
-      </@section>
       <@section>
         <div class="row">
           <div class="col">
