@@ -31,9 +31,18 @@ $ const { id, alias, name, pageNode } = data;
   <@below-page>
     <marko-web-query|{ nodes }|
       name="all-published-content"
-      params={ excludeContentTypes: ["Company", "Contact", "Page"], limit: 14, queryFragment }
+      params={ excludeContentTypes: ["Company", "Contact", "Page"], limit: 12, queryFragment }
     >
       <website-content-card-deck-flow nodes=nodes />
     </marko-web-query>
+
+    <marko-web-load-more
+      max-pages=0
+      component-name="content-card-deck-flow"
+      fragment-name="content-list"
+      query-name="all-published-content"
+      query-params={ excludeContentTypes: ["Company", "Contact", "Page"], limit: 12, skip: 12, queryFragment  }
+      page-input={ for: "section", id }
+    />
   </@below-page>
 </marko-web-website-section-page-layout>

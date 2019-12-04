@@ -1,13 +1,13 @@
-$primary: #e7212d;
-$secondary: #495057;
-$light: #e9ecef;
-$dark: #212529;
-$info: #6c757d;
-
 $tan-dark: #3e3b37;
 $tan-normal: #706d69;
 $tan-light: #dfded4;
 $tan-lighter: #eaeae3;
+
+$primary: $tan-dark;
+$secondary: #495057;
+$light: #e9ecef;
+$dark: #212529;
+$info: #6c757d;
 
 $theme-site-navbar-secondary-bg-color: $tan-dark;
 $theme-site-navbar-primary-bg-color: #000;
@@ -455,6 +455,10 @@ body {
   }
 }
 
+.load-more-trigger {
+  margin-bottom: $block-spacer;
+}
+
 .node-list {
   $self: &;
   &__header {
@@ -527,35 +531,6 @@ body {
         @include media-breakpoint-down(md) {
           padding-top: $block-spacer;
           @include marko-web-node-list-border(border-top);
-        }
-      }
-    }
-  }
-}
-
-.hero-flow {
-  &__hero {
-    margin-bottom: 0;
-    @include media-breakpoint-down(md) {
-      margin-bottom: $block-spacer;
-
-    }
-  }
-  &__list {
-    margin-bottom: 0;
-  }
-}
-
-.card-deck-flow {
-  $self: &;
-  &--3-cols {
-    #{ $self } {
-      &__node {
-        @include media-breakpoint-up(md) {
-          @include make-col(4);
-        }
-        @include media-breakpoint-up(lg) {
-          @include make-col(4);
         }
       }
     }
