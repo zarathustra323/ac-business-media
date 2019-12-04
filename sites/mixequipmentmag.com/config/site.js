@@ -2,7 +2,7 @@ const navigation = require('./navigation');
 
 module.exports = {
   navigation,
-  company: 'Astec Industries, Inc.',
+  company: 'Astec Industries, Inc',
   logos: {
     navbar: {
       src: 'https://base.imgix.net/files/base/acbm/mixequipmentmag/image/static/mix-equipment-logo.svg?h=45',
