@@ -19,7 +19,7 @@ $ const { id, alias, name, pageNode } = data;
               <marko-web-website-section-name tag=null obj=section />
             </@header>
           </marko-web-node-list>
-          <div class="row">
+          <!-- <div class="row">
             <div class="col">
               <marko-web-query|{ nodes }|
                 name="website-optioned-content"
@@ -28,10 +28,10 @@ $ const { id, alias, name, pageNode } = data;
                 <website-content-hero-flow nodes=nodes />
               </marko-web-query>
             </div>
-          </div>
+          </div> -->
         </@section>
 
-        <@section modifiers=["card-deck"]>
+        <!-- <@section modifiers=["card-deck"]>
           <marko-web-query|{ nodes }|
             name="website-optioned-content"
             params={ sectionId: id, optionName: "Pinned", limit: 3, skip: 6, queryFragment }
@@ -40,11 +40,8 @@ $ const { id, alias, name, pageNode } = data;
               <@header modifiers=["padding-y"]>Editor's Picks</@header>
             </marko-web-node-list>
             <default-theme-card-deck-flow cols=3 nodes=nodes>
-              <@slot|{ node, index }|>
-                <website-content-card-node
-                  image-width=340
-                  node=node
-                />
+              <@slot|{ node }|>
+                <website-content-card-node node=node />
               </@slot>
             </default-theme-card-deck-flow>
           </marko-web-query>
@@ -123,7 +120,7 @@ $ const { id, alias, name, pageNode } = data;
               </marko-web-query>
             </aside>
           </div>
-        </@section>
+        </@section> -->
       </marko-web-page-wrapper>
     </marko-web-resolve-page>
   </@page>

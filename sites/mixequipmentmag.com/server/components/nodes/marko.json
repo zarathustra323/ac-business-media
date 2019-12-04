@@ -21,23 +21,14 @@
   },
   "<website-content-card-node>": {
     "template": "./content-card.marko",
-    "@node": "object",
-    "@title-modifiers": "array",
-    "@image-width": {
-      "type": "number",
-      "default-value": 300
-    },
-    "@display-image": {
-      "type": "boolean",
-      "default-value": true
-    },
-    "@with-teaser": {
-      "type": "boolean",
-      "default-value": true
-    },
-    "@attrs": "object",
-    "@link-attrs": "object"
+    "@node": "object"
   },
+
+  "<website-content-hero-card-node>": {
+    "template": "./content-hero-card.marko",
+    "@node": "object"
+  },
+
   "<website-magazine-latest-issue-node>": {
     "template": "./magazine-latest-issue.marko",
     "@node": "object",

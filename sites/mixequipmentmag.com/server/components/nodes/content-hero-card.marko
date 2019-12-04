@@ -9,7 +9,6 @@ $ const primarySection = getAsObject(content, "primarySection");
   image-position="top"
   card=true
   full-height=true
-  attrs=input.attrs
   modifiers=["section-tag", `section-tag-${primarySection.alias}`]
 >
   <@image
@@ -17,29 +16,25 @@ $ const primarySection = getAsObject(content, "primarySection");
     alt=primaryImage.alt
     is-logo=primaryImage.isLogo
     fluid=true
-    ar="16:9"
-    width=340
+    ar="21:9"
+    width=600
     link={ href: content.siteContext.path }
-  />
+    gradient=true
+  >
+    <@body>
+      <@title tag="h5" modifiers=["large"]>
+        <marko-web-content-short-name tag=null obj=content link=true />
+      </@title>
+      <@text modifiers=["teaser", "hero-teaser"] show=(content.teaser)>
+        <marko-web-content-teaser tag=null obj=content link=true />
+      </@text>
+    </@body>
+  </@image>
   <@body>
     <@header>
       <@left>
         <marko-web-website-section-name obj=primarySection link=true />
       </@left>
     </@header>
-    <@title tag="h5">
-      <marko-web-content-short-name tag=null obj=content link=true />
-    </@title>
-    <@text modifiers=["teaser"] show=(content.teaser)>
-      <marko-web-content-teaser tag=null obj=content link=true />
-    </@text>
-    <@footer>
-      <@left>
-        <attribution content=content />
-      </@left>
-      <@right|{ blockName }|>
-        <dates block-name=blockName content=content />
-      </@right>
-    </@footer>
   </@body>
 </marko-web-node>

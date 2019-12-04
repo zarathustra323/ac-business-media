@@ -13,17 +13,10 @@ fragment WebsiteContentListFragment on Content {
   }
   published
   publishedDate(input: { format: "MMM Do, YYYY" })
-  company {
-    id
-    type
-    name
-    siteContext {
-      path
-    }
-  }
   primarySection {
     id
     name
+    alias
     fullName
     canonicalPath
   }
@@ -32,9 +25,6 @@ fragment WebsiteContentListFragment on Content {
     src
     alt
     isLogo
-  }
-  userRegistration {
-    isRequired
   }
   ... on Authorable {
     authors {
