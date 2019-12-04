@@ -1,5 +1,6 @@
 $tan-dark: #3e3b37;
 $tan-normal: #706d69;
+$tan-secondary: #e4e3da;
 $tan-light: #dfded4;
 $tan-lighter: #eaeae3;
 
@@ -86,6 +87,7 @@ $theme-site-navbar-secondary-link-hover-decoration: none !default;
 $theme-site-navbar-secondary-link-active-decoration: none !default;
 
 // General Heading Defaults
+$theme-heading-font-family: $font-roboto-condensed !default;
 $theme-heading-font-weight: $font-weight-bold !default;
 
 $theme-heading-large-font-size:       22px !default;
@@ -128,27 +130,29 @@ $theme-content-paragraph-margin-bottom-sm: 1.25rem !default;
 
 // Page Wrapper
 $theme-page-title-font-weight: $font-weight-bold !default;
-$theme-page-title-font-size: 24px !default;
+$theme-page-title-color: $tan-light !default;
+$theme-page-title-font-size: 40px !default;
 $theme-page-title-font-size-sm: 24px !default;
 $theme-page-title-line-height: 1.2 !default;
 $theme-page-title-line-height-sm: 1.2 !default;
 
-$theme-page-deck-color: #000 !default;
+$theme-page-deck-color: $tan-secondary !default;
 $theme-page-deck-font-size: 18px !default;
 $theme-page-deck-font-size-sm: 18px !default;
-$theme-page-deck-line-height: 1.5 !default;
-$theme-page-deck-line-height-sm: 1.5 !default;
+$theme-page-deck-line-height: 1.4 !default;
+$theme-page-deck-line-height-sm: 1.4 !default;
 
 $marko-web-page-image-margin: 1.25rem !default;
 
 // Media Caption/Credit
-$theme-media-footer-padding-y: 5px !default;
-$theme-media-footer-line-height: 1.2 !default;
+$theme-media-footer-padding-y: 12px !default;
+$theme-media-footer-padding-x: 12px !default;
+$theme-media-footer-line-height: 1.5 !default;
 
-$theme-media-caption-color: #9e9e9e !default;
-$theme-media-caption-font-size: 11px !default;
-$theme-media-credit-color: #9e9e9e !default;
-$theme-media-credit-font-size: 11px !default;
+$theme-media-caption-color: $tan-dark !default;
+$theme-media-caption-font-size: 13px !default;
+$theme-media-credit-color: $tan-dark !default;
+$theme-media-credit-font-size: 13px !default;
 
 // Breadcrumbs
 $theme-breadcrumbs-font-size: 14px !default;
@@ -165,11 +169,15 @@ $theme-content-attribution-prefix-font-weight: 400 !default;
 $theme-content-attribution-line-height: 1.2 !default;
 
 // Content Body
+$theme-page-body-color: $tan-dark !default;
 $theme-page-body-font-size-sm: 16px !default;
 $theme-page-body-font-size: 16px !default;
 $theme-page-body-font-weight: 400 !default;
 $theme-page-body-line-height-sm: 1.8 !default;
 $theme-page-body-line-height: 1.8 !default;
+
+// Content Page Dates
+$theme-content-published-date-color: $tan-light;
 
 // Card / Node List Header
 $theme-card-background-color: $tan-lighter !default;
@@ -240,24 +248,56 @@ body {
   }
 }
 
+.content-header {
+  &__left {
+    padding-right: 0;
+  }
+
+  &__title-wrapper {
+    width: 100%;
+    height: 100%;
+    padding: 24px;
+    background-color: $tan-dark;
+
+    @each $section, $color in $website-section-colors {
+      &--#{$section} {
+        background-color: $color;
+      }
+    }
+  }
+
+  &__right {
+    padding-left: 0;
+  }
+
+  &__media-wrapper {
+    width: 100%;
+    height: 100%;
+    background-color: $tan-secondary;
+  }
+
+  &__website-section-name {
+    display: inline-block;
+    padding-right: 8px;
+    padding-left: 8px;
+    margin-bottom: map-get($spacers, block);
+    font-family: $font-roboto-condensed;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: 1px solid $tan-light;
+
+    a {
+      color: $tan-light;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+}
+
 .page-wrapper {
   padding: 0;
   background-color: $tan-lighter;
-  &__deck,
-  &__title {
-    $max: 920px;
-    // ensure readable line length is not too long.
-    padding-right: ($marko-web-document-container-max-width - ($marko-web-document-container-gutter * 2) - ($marko-web-page-wrapper-padding * 2)) - $max;
-    margin-bottom: 1.25rem;
-
-    @media (max-width: 920px) {
-      padding-right: 0;
-    }
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
 
   &__section {
     padding: $marko-web-page-wrapper-padding;
@@ -265,6 +305,14 @@ body {
 
     &--no-padding {
       padding: 0;
+    }
+
+    &--content-page {
+      max-width: 884px;
+      padding-top: 40px;
+      padding-bottom: 40px;
+      margin-right: auto;
+      margin-left: auto;
     }
 
     &--no-bottom-spacer {

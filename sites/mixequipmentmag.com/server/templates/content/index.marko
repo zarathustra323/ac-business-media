@@ -19,55 +19,54 @@ $ const displayPublishedDate = ["event", "webinar"].includes(type) ? false : tru
       $ const section = resolved.getAsObject("primarySection");
       $ const aliases = hierarchyAliases(section);
       <marko-web-page-wrapper class="mb-block">
-        <@section modifiers=["no-bottom-spacer"]>
-          <div class="row">
-            <div class="col">
-              <marko-web-content-name tag="h1" class="page-wrapper__title" obj=content />
-              <marko-web-content-teaser tag="p" class="page-wrapper__deck" obj=content />
+        <@section modifiers=["no-padding"]>
+          <div class="row content-header">
 
-              <div class="page-attribution-wrapper">
-                <default-theme-page-dates|{ blockName }|>
-                  <if(content.type === "event")>
-                    <marko-web-content-start-date block-name=blockName obj=content />
-                    <marko-web-content-end-date block-name=blockName obj=content />
-                  </if>
-                  <if(content.type === "webinar")>
-                    <marko-web-content-start-date block-name=blockName obj=content />
-                  </if>
-                  <if(displayPublishedDate)>
-                    <marko-web-content-published block-name=blockName obj=content />
-                  </if>
-                </default-theme-page-dates>
-                <default-theme-content-attribution obj=content />
+            <div class="col-md-6 content-header__left">
+              <div class=`content-header__title-wrapper content-header__title-wrapper--${section.alias}`>
+                <marko-web-content-name tag="h1" class="page-wrapper__title" obj=content />
+                <marko-web-content-teaser tag="p" class="page-wrapper__deck" obj=content />
+
+                <marko-web-website-section-name tag="span" obj=section block-name="content-header" link=true />
+
+                <div class="page-attribution-wrapper">
+                  <default-theme-page-dates|{ blockName }|>
+                    <if(content.type === "event")>
+                      <marko-web-content-start-date block-name=blockName obj=content />
+                      <marko-web-content-end-date block-name=blockName obj=content />
+                    </if>
+                    <if(content.type === "webinar")>
+                      <marko-web-content-start-date block-name=blockName obj=content />
+                    </if>
+                    <if(displayPublishedDate)>
+                      <marko-web-content-published block-name=blockName obj=content />
+                    </if>
+                  </default-theme-page-dates>
+                  <default-theme-content-attribution obj=content />
+                </div>
               </div>
             </div>
-          </div>
-        </@section>
-        <@section>
-          <div class="row">
-            <default-theme-page-contents|{ blockName }| class="col">
-              <if(content.embedCode)>
-                <marko-web-content-embed-code block-name=blockName obj=content />
-              </if>
-              <else-if(displayPrimaryImage)>
-                $ const isLogo = get(content, "primaryImage.isLogo");
-                <if(isLogo)>
-                  <marko-web-page-image
-                    obj=content.primaryImage
-                    modifiers=["primary-image-inline"]
-                    fluid=false
-                    width=250
-                  />
+
+             <div class="col-md-6 content-header__right">
+              <div class="content-header__media-wrapper">
+                <if(content.embedCode)>
+                  <marko-web-content-embed-code block-name=blockName obj=content />
                 </if>
-                <else>
+                <else-if(displayPrimaryImage)>
                   <marko-web-page-image
                     obj=content.primaryImage
                     modifiers=["fluid-16by9"]
                     options={ w: 512, h: 288, fit: 'crop' }
                   />
-                </else>
-              </else-if>
-              <default-theme-content-contact-details obj=content />
+                </else-if>
+              </div>
+            </div>
+          </div>
+        </@section>
+
+        <@section modifiers=["content-page"]>
+          <div class="row">
+            <default-theme-page-contents|{ blockName }| class="col">
               <marko-web-content-body block-name=blockName obj=content />
               <marko-web-content-sidebars block-name=blockName obj=content />
               <if(type === "document")>
