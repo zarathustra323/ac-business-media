@@ -193,8 +193,8 @@ $theme-item-title-link-hover-decoration: none !default;
 
 $theme-item-title-large-font-size: 54px;
 $theme-item-title-large-font-size-sm: 28px;
-$theme-item-title-large-line-height: 1 !default;
-$theme-item-title-large-line-height-sm: 1 !default;
+$theme-item-title-large-line-height: 1.15 !default;
+$theme-item-title-large-line-height-sm: 1.15 !default;
 
 $theme-item-description-font-size: 16px !default;
 $theme-item-description-font-size-sm: 16px !default;
@@ -241,6 +241,7 @@ body {
 }
 
 .page-wrapper {
+  padding: 0;
   background-color: $tan-lighter;
   &__deck,
   &__title {
@@ -259,7 +260,16 @@ body {
   }
 
   &__section {
+    padding: $marko-web-page-wrapper-padding;
     margin-bottom: $grid-gutter-width;
+
+    &--no-padding {
+      padding: 0;
+    }
+
+    &--no-bottom-spacer {
+      margin-bottom: 0;
+    }
 
     &--card-deck {
       padding-bottom: 0;
@@ -368,6 +378,7 @@ body {
   }
 
   &--hero-card {
+    padding-top: 0;
     @include media-breakpoint-down($theme-responsive-text-breakpoint) {
       padding: 0;
     }
@@ -376,25 +387,24 @@ body {
       &__contents--body {
         max-width: 700px;
         padding-right: $block-spacer;
+        padding-bottom: $block-spacer;
         padding-left: $block-spacer;
         @include media-breakpoint-down($theme-responsive-text-breakpoint) {
           padding-right: 0;
+          padding-bottom: $block-spacer / 2;
           padding-left: 0;
           font-size: 16px;
         }
       }
-    }
-  }
 
-  &__text {
-    &--hero-teaser {
-      margin-bottom: $block-spacer !important; // stylelint-disable-line
-      font-size: 20px;
-      font-weight: 400;
-      line-height: 1.2;
+      &__text--teaser {
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 1.2;
 
-      @include media-breakpoint-down($theme-responsive-text-breakpoint) {
-        font-size: 16px;
+        @include media-breakpoint-down($theme-responsive-text-breakpoint) {
+          font-size: 16px;
+        }
       }
     }
   }
@@ -469,7 +479,7 @@ body {
     }
 
     &--website-section-title {
-      padding: $marko-web-node-list-padding / 2;
+      padding-top: $block-spacer / 2;
       font-family: $font-roboto-condensed;
       font-size: 26px;
       font-weight: $font-weight-bold;
