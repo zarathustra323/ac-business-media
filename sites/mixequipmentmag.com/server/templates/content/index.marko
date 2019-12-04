@@ -1,18 +1,10 @@
 import hierarchyAliases from "@base-cms/marko-web/utils/hierarchy-aliases";
 import { getAsObject, get } from "@base-cms/object-path";
 import queryFragment from "../../graphql/fragments/content-list";
-import GAM from "../../../config/gam";
 
 $ const { site } = out.global;
 $ const { id, type, pageNode } = data;
 
-$ const adSlots = ({ aliases }) => ({
-  "gpt-ad-lb1":   GAM.getAdUnit({ name: "lb1", aliases }),
-  "gpt-ad-lb2":   GAM.getAdUnit({ name: "lb1", aliases }),
-  "gpt-ad-rail1": GAM.getAdUnit({ name: "rail1", aliases, size: [300, 250] }),
-  "gpt-ad-rail2": GAM.getAdUnit({ name: "rail2", aliases, size: [300, 600] }),
-  "gpt-ad-rail-infinite": GAM.getAdUnit({ name: "infinite-rail", aliases }),
-});
 $ const displayPrimaryImage = ["whitepaper", "media-gallery"].includes(type) ? false : true;
 $ const displayPublishedDate = ["event", "webinar"].includes(type) ? false : true;
 
@@ -21,27 +13,12 @@ $ const displayPublishedDate = ["event", "webinar"].includes(type) ? false : tru
     <marko-web-gtm-content-context|{ context }| id=id>
       <marko-web-gtm-push data=context />
     </marko-web-gtm-content-context>
-    <marko-web-gam-targeting key-values={ cont_id: id, cont_type: type } />
-    <marko-web-resolve-page|{ data: content }| node=pageNode>
-      $ const aliases = hierarchyAliases(content.primarySection);
-      <marko-web-gam-slots slots=adSlots({ aliases }) />
-    </marko-web-resolve-page>
   </@head>
   <@page>
-    <!-- Refresh sticky, right-rail infinite scroll ad -->
-    <marko-web-gam-refresh-ad on="load-more-in-view" slot-id="gpt-ad-rail-infinite" />
-
     <marko-web-resolve-page|{ data: content, resolved }| node=pageNode>
       $ const section = resolved.getAsObject("primarySection");
       $ const aliases = hierarchyAliases(section);
       <marko-web-page-wrapper>
-        <@section>
-          <div class="row">
-            <div class="col">
-              <marko-web-gam-display-ad id="gpt-ad-lb1" slots=adSlots({ aliases }) />
-            </div>
-          </div>
-        </@section>
         <@section>
           <div class="row">
             <div class="col">
@@ -112,24 +89,12 @@ $ const displayPublishedDate = ["event", "webinar"].includes(type) ? false : tru
               </if>
             </default-theme-page-contents>
             <aside class="col-lg-4 page-rail">
-              <marko-web-gam-display-ad
-                id="gpt-ad-rail1"
-                modifiers=["left"]
-                slots=adSlots({ aliases })
-              />
-
               <website-related-content-block
                 id=id
                 type=type
                 section-id=section.id
                 section-name=section.name
                 query-fragment=queryFragment
-              />
-
-              <marko-web-gam-display-ad
-                id="gpt-ad-rail2"
-                modifiers=["sticky-top", "left"]
-                slots=adSlots({ aliases })
               />
             </aside>
           </div>
@@ -156,14 +121,6 @@ $ const displayPublishedDate = ["event", "webinar"].includes(type) ? false : tru
 
         <@section>
           <div class="row">
-            <div class="col">
-              <marko-web-gam-display-ad id="gpt-ad-lb2" slots=adSlots({ aliases }) />
-            </div>
-          </div>
-        </@section>
-
-        <@section>
-          <div class="row">
             <div class="col-lg-8 infinite-scroll-target">
               <marko-web-query|{ nodes }|
                 name="website-scheduled-content"
@@ -178,19 +135,12 @@ $ const displayPublishedDate = ["event", "webinar"].includes(type) ? false : tru
                   params={ sectionId: section.id, limit: 12, skip: 20, requiresImage: true }
                 />
                 <@page for="content" id=id type=type />
-                <@adunit ...GAM.getAdUnit({ name: "infinite-interstitial", aliases }) />
               </website-latest-content-load-more-block>
             </div>
             <aside class="col-lg-4 page-rail">
               <marko-web-node-list collapsible=false>
                 <@header modifiers=["padding-y"]>Follow Us</@header>
               </marko-web-node-list>
-
-              <marko-web-gam-display-ad
-                id="gpt-ad-rail-infinite"
-                modifiers=["sticky-top"]
-                slots=adSlots({ aliases })
-              />
             </aside>
           </div>
         </@section>
@@ -198,10 +148,4 @@ $ const displayPublishedDate = ["event", "webinar"].includes(type) ? false : tru
       </marko-web-page-wrapper>
     </marko-web-resolve-page>
   </@page>
-  <@foot>
-    <marko-web-resolve-page|{ data: section }| node=pageNode>
-      $ const aliases = hierarchyAliases(section);
-      <website-fixed-ad-bottom aliases=hierarchyAliases(section) />
-    </marko-web-resolve-page>
-  </@foot>
 </marko-web-content-page-layout>
