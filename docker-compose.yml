@@ -88,3 +88,19 @@ services:
     ports:
       - "9711:80"
       - "19711:19711"
+
+  mixequipmentmag.com:
+    <<: *node
+    <<: *site-cmd
+    working_dir: /root/sites/mixequipmentmag.com
+    environment:
+      <<: *env
+      <<: *env-caprica
+      PORT: 80
+      EXPOSED_PORT: 9712
+      LIVERELOAD_PORT: 19712
+      TENANT_KEY: acbm_mixequipmentmag
+      SITE_ID: 5de563de8f2d172b008b4598
+    ports:
+      - "9712:80"
+      - "19712:19712"
