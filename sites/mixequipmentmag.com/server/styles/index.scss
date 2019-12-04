@@ -16,8 +16,8 @@ $theme-site-navbar-logo-height: 45px;
 $theme-site-navbar-logo-height-sm: 30px;
 
 $theme-site-header-breakpoints: (
-  hide-primary: 854px,
-  hide-secondary: 950px,
+  hide-primary: 540px,
+  hide-secondary: 0,
   small-logo: 0,
   small-text-primary: 0,
   small-text-secondary: 0
@@ -46,6 +46,7 @@ $marko-web-document-container-gutter: 12px !default;
 $marko-web-page-padding: 0 !default;
 $marko-web-page-wrapper-padding: $marko-web-document-container-gutter !default;
 $marko-web-node-list-padding: 24px !default;
+$marko-web-node-overlay-image-gradient: linear-gradient(rgba(0, 0, 0, 0) 5%, rgba(0, 0, 0, .71) 73%);
 
 // Fonts (reset all to Roboto, including serif font)
 $font-roboto: "Roboto", sans-serif !default;
@@ -188,11 +189,12 @@ $theme-item-title-font-size-sm: 18px !default;
 $theme-item-title-font-weight: $font-weight-bold !default;
 $theme-item-title-line-height: 1.4 !default;
 $theme-item-title-line-height-sm: 1.4 !default;
+$theme-item-title-link-hover-decoration: none !default;
 
-$theme-item-title-large-font-size: 28px;
+$theme-item-title-large-font-size: 54px;
 $theme-item-title-large-font-size-sm: 28px;
-$theme-item-title-large-line-height: 1.25 !default;
-$theme-item-title-large-line-height-sm: 1.25 !default;
+$theme-item-title-large-line-height: 1 !default;
+$theme-item-title-large-line-height-sm: 1 !default;
 
 $theme-item-description-font-size: 16px !default;
 $theme-item-description-font-size-sm: 16px !default;
@@ -365,12 +367,35 @@ body {
     }
   }
 
+  &--hero-card {
+    @include media-breakpoint-down($theme-responsive-text-breakpoint) {
+      padding: 0;
+    }
+
+    #{ $self } {
+      &__contents--body {
+        max-width: 700px;
+        padding-right: $block-spacer;
+        padding-left: $block-spacer;
+        @include media-breakpoint-down($theme-responsive-text-breakpoint) {
+          padding-right: 0;
+          padding-left: 0;
+          font-size: 16px;
+        }
+      }
+    }
+  }
+
   &__text {
     &--hero-teaser {
-      max-width: 80%;
-      margin-bottom: 12px !important; // stylelint-disable-line
-      font-size: 17px;
+      margin-bottom: $block-spacer !important; // stylelint-disable-line
+      font-size: 20px;
       font-weight: 400;
+      line-height: 1.2;
+
+      @include media-breakpoint-down($theme-responsive-text-breakpoint) {
+        font-size: 16px;
+      }
     }
   }
 
@@ -444,8 +469,8 @@ body {
     }
 
     &--website-section-title {
-      padding-top: 10px;
-      padding-bottom: 10px;
+      padding: $marko-web-node-list-padding / 2;
+      font-family: $font-roboto-condensed;
       font-size: 26px;
       font-weight: $font-weight-bold;
       line-height: 1.3;
