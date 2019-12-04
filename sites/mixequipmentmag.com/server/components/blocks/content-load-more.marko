@@ -2,7 +2,6 @@ $ const {
   id,
   type,
   name,
-  aliases,
   sectionId,
   sectionName,
   sectionSkip
@@ -12,7 +11,6 @@ $ const {
   <marko-web-load-more
     header=`More from ${name}`
     component-name="content-load-more-flow"
-    component-input={ aliases }
     fragment-name="content-list"
     query-name="all-author-content"
     query-params={ contactId: id }
@@ -23,7 +21,6 @@ $ const {
   <marko-web-load-more
     header=`More from ${name}`
     component-name="content-load-more-flow"
-    component-input={ aliases }
     fragment-name="content-list"
     query-name="all-company-content"
     query-params={ companyId: id }
@@ -34,7 +31,6 @@ $ const {
   <marko-web-load-more
     header=`More in ${sectionName}`
     component-name="content-load-more-flow"
-    component-input={ aliases, nativeX: input.nativeX }
     fragment-name="content-list"
     query-name="website-scheduled-content"
     query-params={ sectionId, excludeContentIds: [id], limit: 14, skip: sectionSkip }

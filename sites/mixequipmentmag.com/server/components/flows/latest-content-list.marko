@@ -4,11 +4,6 @@ import defaultValue from "@base-cms/marko-core/utils/default-value";
 $ const nodes = getAsArray(input, "nodes");
 $ const header = defaultValue(input.header, "Latest");
 $ const withHeader = defaultValue(input.withHeader, false);
-$ const adunit = getAsObject(input, "adunit");
-
-<if(adunit.path)>
-  <marko-web-gam-define-display-ad ...adunit class="mb-block" />
-</if>
 
 <website-content-list-flow
   nodes=nodes

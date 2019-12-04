@@ -26,7 +26,7 @@ $ const {
     name="website-scheduled-content"
     params={ sectionId, excludeContentIds: [id], limit: 5, queryFragment }
   >
-    <website-content-list-flow nodes=nodes inner-justified=false native-x=input.nativeX>
+    <website-content-list-flow nodes=nodes inner-justified=false>
       <@header>Latest in ${sectionName}</@header>
       <@node>
         <@image use-placeholder=false />

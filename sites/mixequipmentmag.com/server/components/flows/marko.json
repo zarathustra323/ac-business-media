@@ -1,7 +1,6 @@
 {
   "<website-latest-content-list-flow>": {
     "template": "./latest-content-list.marko",
-    "<adunit>": {},
     "@nodes": "array",
     "@header": "string",
     "@with-header": "boolean",
@@ -10,21 +9,11 @@
   "<website-content-hero-flow>": {
     "template": "./content-hero.marko",
     "<list>": {},
-    "<native-x>": {
-      "@index": "number",
-      "@name": "string",
-      "@aliases": "array"
-    },
     "@nodes": "array"
   },
   "<website-content-list-flow>": {
     "template": "./content-list.marko",
     "<header>": {},
-    "<native-x>": {
-      "@index": "number",
-      "@name": "string",
-      "@aliases": "array"
-    },
     "<node>": {
       "<image>": {},
       "<title>": {}
@@ -47,23 +36,11 @@
   },
   "<website-content-load-more-flow>": {
     "template": "./content-load-more.marko",
-    "<native-x>": {
-      "@index": "number",
-      "@name": "string",
-      "@aliases": "array"
-    },
-    "@nodes": "array",
-    "@aliases": "array"
+    "@nodes": "array"
   },
   "<website-content-card-deck-flow>": {
     "template": "./content-card-deck.marko",
-    "<native-x>": {
-      "@index": "number",
-      "@name": "string",
-      "@aliases": "array"
-    },
-    "@nodes": "array",
-    "@aliases": "array"
+    "@nodes": "array"
   },
   "<website-magazine-issue-archive-flow>": {
     "template": "./magazine-issue-archive.marko",
