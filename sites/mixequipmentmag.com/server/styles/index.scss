@@ -193,12 +193,9 @@ $theme-item-header-font-size: 12px !default;
 
 $theme-item-footer-font-size: 12px !default;
 
-@import "../../node_modules/@base-cms/marko-web-gam/scss/fixed-ad-bottom";
 @import "../../node_modules/@base-cms/marko-web-theme-default/scss/theme";
 // @todo this should be remove once contact us is in core
 @import "../../node_modules/@ac-business-media/package-common/scss/contact-us-form";
-@import "../../node_modules/@ac-business-media/package-common/scss/directory";
-@import "../../node_modules/@ac-business-media/package-inquiry/scss/index";
 
 .ad-container {
   &--left {
