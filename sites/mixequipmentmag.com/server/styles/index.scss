@@ -4,7 +4,12 @@ $light: #e9ecef;
 $dark: #212529;
 $info: #6c757d;
 
-$theme-site-navbar-secondary-bg-color: #3e3b37;
+$tan-dark: #3e3b37;
+$tan-normal: #706d69;
+$tan-light: #dfded4;
+$tan-lighter: #eaeae3;
+
+$theme-site-navbar-secondary-bg-color: $tan-dark;
 $theme-site-navbar-primary-bg-color: #000;
 
 $theme-site-navbar-logo-height: 45px;
@@ -32,15 +37,15 @@ $website-section-colors: (
 @import url("https://fonts.googleapis.com/css?family=Roboto+Condensed:400,400i,700|Roboto:300,400&display=swap");
 
 $black:           #000 !default;
-$body-color:      $black !default;
-$block-spacer:    1.25rem !default;
+$body-color:      $tan-normal !default;
+$block-spacer:    24px !default;
 
 // Marko Web Settings
 $marko-web-document-container-max-width: 1200px !default;
-$marko-web-document-container-gutter: 20px !default;
+$marko-web-document-container-gutter: 12px !default;
 $marko-web-page-padding: 0 !default;
 $marko-web-page-wrapper-padding: $marko-web-document-container-gutter !default;
-$marko-web-node-list-padding: 20px !default;
+$marko-web-node-list-padding: 24px !default;
 
 // Fonts (reset all to Roboto, including serif font)
 $font-roboto: "Roboto", sans-serif !default;
@@ -51,10 +56,10 @@ $theme-font-family-serif: $font-roboto !default;
 $theme-font-family-page-title: $font-roboto-condensed !default;
 
 // General
-$body-bg: #dfded4 !default;
+$body-bg: $tan-light !default;
 $breadcrumb-divider: "|" !default;
 $font-weight-bold: 700 !default;
-$grid-gutter-width: 20px !default;
+$grid-gutter-width: 24px !default;
 
 // Settings
 $enable-shadows: false !default;
@@ -62,16 +67,16 @@ $enable-rounded: false !default;
 
 // Navbar
 $theme-site-navbar-primary-font-family: $font-roboto-condensed !default;
-$theme-site-navbar-primary-font-size: 16px !default;
-$theme-site-navbar-primary-font-size-sm: 16px !default;
+$theme-site-navbar-primary-font-size: 17px !default;
+$theme-site-navbar-primary-font-size-sm: 17px !default;
 $theme-site-navbar-primary-line-height: 1.6 !default;
 $theme-site-navbar-primary-line-height-sm: 1.6 !default;
 
 $theme-site-navbar-primary-link-hover-decoration: none !default;
 $theme-site-navbar-primary-link-active-decoration: none !default;
 
-$theme-site-navbar-secondary-font-size: 13px !default;
-$theme-site-navbar-secondary-font-size-sm: 13px !default;
+$theme-site-navbar-secondary-font-size: 14px !default;
+$theme-site-navbar-secondary-font-size-sm: 14px !default;
 $theme-site-navbar-secondary-line-height: 1.6 !default;
 $theme-site-navbar-secondary-line-height-sm: 1.6 !default;
 $theme-site-navbar-secondary-padding-y: 5px !default;
@@ -166,6 +171,8 @@ $theme-page-body-line-height-sm: 1.8 !default;
 $theme-page-body-line-height: 1.8 !default;
 
 // Card / Node List Header
+$theme-card-background-color: $tan-lighter !default;
+
 $theme-card-header-text-transform: none !default;
 $theme-card-header-color: $black !default;
 $theme-card-header-font-size: 24px !default;
@@ -175,30 +182,37 @@ $theme-card-header-background-color: transparent !default;
 $theme-card-header-border: none !default;
 
 // Item / Node
+$theme-item-title-font-family: $font-roboto-condensed !default;
 $theme-item-title-font-size: 18px !default;
 $theme-item-title-font-size-sm: 18px !default;
 $theme-item-title-font-weight: $font-weight-bold !default;
 $theme-item-title-line-height: 1.4 !default;
 $theme-item-title-line-height-sm: 1.4 !default;
 
-$theme-item-title-large-font-size: 22px;
-$theme-item-title-large-font-size-sm: 22px;
-$theme-item-title-large-line-height: 1.4 !default;
-$theme-item-title-large-line-height-sm: 1.4 !default;
+$theme-item-title-large-font-size: 28px;
+$theme-item-title-large-font-size-sm: 28px;
+$theme-item-title-large-line-height: 1.25 !default;
+$theme-item-title-large-line-height-sm: 1.25 !default;
 
-$theme-item-description-font-size: 14px !default;
-$theme-item-description-font-size-sm: 14px !default;
-$theme-item-description-line-height: 1.5 !default;
-$theme-item-description-line-height-sm: 1.5 !default;
+$theme-item-description-font-size: 16px !default;
+$theme-item-description-font-size-sm: 16px !default;
+$theme-item-description-font-weight: 300 !default;
+$theme-item-description-line-height: 1.75 !default;
+$theme-item-description-line-height-sm: 1.75 !default;
 $theme-item-description-max-lines: 3 !default;
 
 $theme-item-header-font-size: 12px !default;
 
+$theme-item-footer-color: $tan-dark !default;
 $theme-item-footer-font-size: 12px !default;
 
 @import "../../node_modules/@base-cms/marko-web-theme-default/scss/theme";
 // @todo this should be remove once contact us is in core
 @import "../../node_modules/@ac-business-media/package-common/scss/contact-us-form";
+
+body {
+  -webkit-font-smoothing: antialiased;
+}
 
 .site-navbar {
   $self: &;
@@ -208,9 +222,7 @@ $theme-item-footer-font-size: 12px !default;
     #{ $self } {
       &__link {
         font-weight: 700;
-        &--active {
-          font-weight: 700;
-        }
+        letter-spacing: .2px;
       }
     }
   }
@@ -227,8 +239,7 @@ $theme-item-footer-font-size: 12px !default;
 }
 
 .page-wrapper {
-  padding-top: $block-spacer;
-  padding-bottom: $block-spacer;
+  background-color: $tan-lighter;
   &__deck,
   &__title {
     $max: 920px;
@@ -246,9 +257,7 @@ $theme-item-footer-font-size: 12px !default;
   }
 
   &__section {
-    padding-bottom: $grid-gutter-width;
-    margin-bottom: $grid-gutter-width + 5px;
-    border-bottom: 2px solid #ebebeb;
+    margin-bottom: $grid-gutter-width;
 
     &--card-deck {
       padding-bottom: 0;
@@ -327,8 +336,9 @@ $theme-item-footer-font-size: 12px !default;
 }
 
 .node {
+  $self: &;
+
   &__title {
-    padding-bottom: 18px;
     &--small {
       font-size: 14px;
     }
@@ -340,6 +350,73 @@ $theme-item-footer-font-size: 12px !default;
 
   &__footer-left:not(:empty) + &__footer-right {
     margin-left: .25rem;
+  }
+
+
+  &__body {
+    &--overlay {
+      color: $tan-light;
+      a {
+        color: $tan-light;
+        &:hover {
+          color: $tan-light;
+        }
+      }
+    }
+  }
+
+  &__text {
+    &--hero-teaser {
+      max-width: 80%;
+      margin-bottom: 12px !important; // stylelint-disable-line
+      font-size: 17px;
+      font-weight: 400;
+    }
+  }
+
+  &--section-tag {
+    #{ $self } {
+      &__image-wrapper + #{ $self }__body {
+        z-index: 1;
+        margin-top: -12px;
+      }
+
+      &__header + #{ $self }__contents {
+        margin-top: 12px;
+      }
+
+      &__header {
+        width: 80%;
+        padding-right: 8px;
+        padding-left: 8px;
+        font-family: $font-roboto-condensed;
+        font-size: 16px;
+        font-weight: $font-weight-bold;
+        line-height: 1.5;
+        color: $tan-light;
+        text-transform: uppercase;
+        background-color: $tan-dark;
+
+        // stylelint-disable selector-max-compound-selectors
+        a {
+          color: $tan-light;
+          &:hover {
+            color: $tan-light;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+
+  @each $section, $color in $website-section-colors {
+    &--section-tag-#{$section} {
+      #{ $self } {
+        &__header {
+          background-color: $color;
+        }
+      }
+    }
   }
 }
 
