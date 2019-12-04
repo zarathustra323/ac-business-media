@@ -5,15 +5,15 @@ module.exports = {
   company: 'Astec Industries, Inc.',
   logos: {
     navbar: {
-      src: 'https://img.sdcexec.com/files/base/acbm/sdce/image/static/logo/site_logo_og.png?h=45',
+      src: 'https://base.imgix.net/files/base/acbm/mixequipmentmag/image/static/mix-equipment-logo.svg?h=45',
       srcset: [
-        'https://img.sdcexec.com/files/base/acbm/sdce/image/static/logo/site_logo_og.png?h=90 2x',
+        'https://base.imgix.net/files/base/acbm/mixequipmentmag/image/static/mix-equipment-logo.svg?h=90 2x',
       ],
     },
     footer: {
-      src: 'https://img.sdcexec.com/files/base/acbm/sdce/image/static/logo/site_logo_og.png?h=60',
+      src: 'https://base.imgix.net/files/base/acbm/mixequipmentmag/image/static/mix-equipment-logo.svg?h=60',
       srcset: [
-        'https://img.sdcexec.com/files/base/acbm/sdce/image/static/logo/site_logo_og.png?h=120 2x',
+        'https://base.imgix.net/files/base/acbm/mixequipmentmag/image/static/mix-equipment-logo.svg?h=120 2x',
       ],
     },
   },
@@ -23,7 +23,7 @@ module.exports = {
   contactUs: {
     branding: {
       bgColor: '#ec131c',
-      logo: 'https://img.sdcexec.com/files/base/acbm/sdce/image/static/logo/site_logo_og.png?h=60',
+      logo: 'https://base.imgix.net/files/base/acbm/mixequipmentmag/image/static/mix-equipment-logo.svg?h=60',
     },
     to: 'nraether@acbusinessmedia.com',
   },
