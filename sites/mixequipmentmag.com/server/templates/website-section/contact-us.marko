@@ -1,6 +1,5 @@
 import hierarchyAliases from "@base-cms/marko-web/utils/hierarchy-aliases";
 import queryFragment from "../../graphql/fragments/content-contact-us";
-import GAM from "../../../config/gam";
 
 $ const { id, alias, name, pageNode } = data;
 
@@ -15,11 +14,6 @@ $ const { id, alias, name, pageNode } = data;
   <@page>
     <marko-web-resolve-page|{ data: section }| node=pageNode>
       <marko-web-page-wrapper>
-        <@section>
-          <marko-web-gam-define-display-ad
-            ...GAM.getAdUnit({ name: "lb1" })
-          />
-        </@section>
         <@section>
           <div class="row">
             <div class="col">
