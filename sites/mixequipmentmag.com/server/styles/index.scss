@@ -4,7 +4,7 @@ $light: #e9ecef;
 $dark: #212529;
 $info: #6c757d;
 
-$theme-site-navbar-secondary-bg-color: #212121;
+$theme-site-navbar-secondary-bg-color: #3e3b37;
 $theme-site-navbar-primary-bg-color: #000;
 
 $theme-site-navbar-logo-height: 45px;
@@ -20,36 +20,38 @@ $theme-site-header-breakpoints: (
 
 // Site Section Colors
 $website-section-colors: (
-  warehousing: #4b6e94,
-  transportation: #d14b2b,
-  sourcing-procurement: #2c8bad,
-  risk-compliance: #d8222a,
-  software-technology: #40bddb,
-  sustainability: #9cb52b,
-  "3pl-4pl": #cea14c,
+  news:#8b572a,
+  equipment: #bd3924,
+  paving: #f08021,
+  operations: #721612,
+  people: #7c8b5b,
+  recycling: #5b848b,
 );
 
 // Theme start!
-@import url("https://fonts.googleapis.com/css?family=Arimo:400,400i,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Roboto+Condensed:400,400i,700|Roboto:300,400&display=swap");
 
 $black:           #000 !default;
 $body-color:      $black !default;
 $block-spacer:    1.25rem !default;
 
 // Marko Web Settings
-$marko-web-document-container-max-width: 1010px !default;
-$marko-web-document-container-gutter: 10px !default;
+$marko-web-document-container-max-width: 1200px !default;
+$marko-web-document-container-gutter: 20px !default;
 $marko-web-page-padding: 0 !default;
 $marko-web-page-wrapper-padding: $marko-web-document-container-gutter !default;
-$marko-web-node-list-padding: 15px !default;
+$marko-web-node-list-padding: 20px !default;
 
-// Fonts (reset all to Arimo, including serif font)
-$theme-font-family-sans-serif: "Arimo", sans-serif !default;
-$theme-font-family-serif: "Arimo", sans-serif !default;
-$theme-font-family-page-title: $theme-font-family-sans-serif !default;
+// Fonts (reset all to Roboto, including serif font)
+$font-roboto: "Roboto", sans-serif !default;
+$font-roboto-condensed: "Roboto Condensed", sans-serif !default;
+
+$theme-font-family-sans-serif: $font-roboto !default;
+$theme-font-family-serif: $font-roboto !default;
+$theme-font-family-page-title: $font-roboto-condensed !default;
 
 // General
-$body-bg: #fff !default;
+$body-bg: #dfded4 !default;
 $breadcrumb-divider: "|" !default;
 $font-weight-bold: 700 !default;
 $grid-gutter-width: 20px !default;
@@ -59,8 +61,9 @@ $enable-shadows: false !default;
 $enable-rounded: false !default;
 
 // Navbar
-$theme-site-navbar-primary-font-size: 15px !default;
-$theme-site-navbar-primary-font-size-sm: 15px !default;
+$theme-site-navbar-primary-font-family: $font-roboto-condensed !default;
+$theme-site-navbar-primary-font-size: 16px !default;
+$theme-site-navbar-primary-font-size-sm: 16px !default;
 $theme-site-navbar-primary-line-height: 1.6 !default;
 $theme-site-navbar-primary-line-height-sm: 1.6 !default;
 
@@ -197,53 +200,14 @@ $theme-item-footer-font-size: 12px !default;
 // @todo this should be remove once contact us is in core
 @import "../../node_modules/@ac-business-media/package-common/scss/contact-us-form";
 
-.ad-container {
-  &--left {
-    text-align: left;
-  }
-
-  &--right {
-    text-align: right;
-  }
-
-  &--sticky-top {
-    position: sticky;
-    top: calc(95px + #{$block-spacer});
-  }
-
-  &__wrapper {
-    position: relative;
-    padding-top: 15px;
-    padding-bottom: 20px;
-    border-top: 2px solid #ebebeb;
-    border-bottom: 2px solid #ebebeb;
-
-    &::before {
-      position: absolute;
-      top: auto;
-      right: 0;
-      bottom: 5px;
-      left: auto;
-      font-size: 8px;
-      line-height: 1;
-      color: #a3a3a3;
-      text-align: right;
-      text-transform: uppercase;
-      content: "Advertisement";
-    }
-  }
-}
-
 .site-navbar {
   $self: &;
-  &__items {
-    text-transform: none;
-  }
 
   &--primary,
   &--secondary {
     #{ $self } {
       &__link {
+        font-weight: 700;
         &--active {
           font-weight: 700;
         }
