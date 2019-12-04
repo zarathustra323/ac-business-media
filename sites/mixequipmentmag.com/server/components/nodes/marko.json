@@ -1,0 +1,11 @@
+{
+  "<website-content-card-node>": {
+    "template": "./content-card.marko",
+    "@node": "object"
+  },
+
+  "<website-content-hero-card-node>": {
+    "template": "./content-hero-card.marko",
+    "@node": "object"
+  }
+}

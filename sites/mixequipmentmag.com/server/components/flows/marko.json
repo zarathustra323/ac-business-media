@@ -1,0 +1,6 @@
+{
+  "<website-content-card-deck-flow>": {
+    "template": "./content-card-deck.marko",
+    "@nodes": "array"
+  }
+}

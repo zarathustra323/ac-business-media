@@ -64,6 +64,18 @@ jobs:
       install: skip
       env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-rc5kp]
 
+    - stage: production
+      name: mixequipmentmag.com
+      script: npx @base-cms/website-deployment-tool deploy mixequipmentmag.com caprica
+      install: skip
+      env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-gxsr7]
+
+    - stage: staging
+      name: mixequipmentmag.com
+      script: npx @base-cms/website-deployment-tool deploy mixequipmentmag.com caprica
+      install: skip
+      env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-rc5kp]
+
     #############################
     ### ^^^ ADD SITES HERE ^^^ ##
     #############################
