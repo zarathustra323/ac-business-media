@@ -5,5 +5,5 @@ User-agent: *
 Disallow: /
 Disallow: /__load-more
 
-Sitemap: https://www.sdcexec.com/sitemap.xml
-Sitemap: https://www.sdcexec.com/sitemap-google-news.xml
+Sitemap: https://www.mixequipmentmag.com/sitemap.xml
+Sitemap: https://www.mixequipmentmag.com/sitemap-google-news.xml
