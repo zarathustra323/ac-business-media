@@ -2,5 +2,18 @@
   "<website-content-card-deck-flow>": {
     "template": "./content-card-deck.marko",
     "@nodes": "array"
+  },
+  "<website-magazine-issue-archive-flow>": {
+    "template": "./magazine-issue-archive.marko",
+    "@nodes": "array",
+    "@flush": {
+      "type": "boolean",
+      "default-value": false
+    },
+    "@with-title": {
+      "type": "boolean",
+      "default-value": true
+    },
+    "@modifiers": "array"
   }
 }
