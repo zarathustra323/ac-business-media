@@ -319,6 +319,10 @@ body {
       margin-bottom: 0;
     }
 
+    &--no-bottom-padding {
+      padding-bottom: 0;
+    }
+
     &--card-deck {
       padding-bottom: 0;
     }
@@ -426,7 +430,6 @@ body {
   }
 
   &--hero-card {
-    padding-top: 0;
     @include media-breakpoint-down($theme-responsive-text-breakpoint) {
       padding: 0;
     }

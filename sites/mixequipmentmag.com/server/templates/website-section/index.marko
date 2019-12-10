@@ -10,8 +10,8 @@ $ const { id, alias, name, pageNode } = data;
   </@head>
   <@page>
     <marko-web-resolve-page|{ data: section }| node=pageNode>
-      <marko-web-page-wrapper class="mb-block">
-        <@section modifiers=["no-bottom-spacer"]>
+      <marko-web-page-wrapper class="my-block">
+        <@section modifiers=["no-bottom-spacer", "no-bottom-padding"]>
           <marko-web-node-list collapsible=false>
             <@header tag="h1" modifiers=["website-section-title", section.alias]>
               <marko-web-website-section-name tag=null obj=section />
