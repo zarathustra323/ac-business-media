@@ -11,6 +11,7 @@ module.exports = {
   },
   secondary: {
     items: [
+      { href: '/magazine', label: 'Magazine' },
     ],
   },
   tertiary: {
@@ -33,6 +34,12 @@ module.exports = {
         { href: '/paving', label: 'Paving' },
         { href: '/people', label: 'People' },
         { href: '/recycling', label: 'Recycling' },
+      ],
+    },
+    {
+      label: 'Resources',
+      items: [
+        { href: '/magazine', label: 'Magazine' },
       ],
     },
     {
