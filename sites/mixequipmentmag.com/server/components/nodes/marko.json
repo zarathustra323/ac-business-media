@@ -7,6 +7,26 @@
     "template": "./content-hero-card.marko",
     "@node": "object"
   },
+  "<website-content-list-node>": {
+    "template": "./content-list.marko",
+    "<image>": {},
+    "<title>": {},
+    "@node": "object",
+    "@display-image": {
+      "type": "boolean",
+      "default-value": true
+    },
+    "@image-position": "string",
+    "@with-teaser": {
+      "type": "boolean",
+      "default-value": false
+    },
+    "@with-section": "boolean",
+    "@with-attribution": "boolean",
+    "@with-dates": "boolean",
+    "@attrs": "object",
+    "@link-attrs": "object"
+  },
   "<website-magazine-latest-issue-node>": {
     "template": "./magazine-latest-issue.marko",
     "@node": "object",

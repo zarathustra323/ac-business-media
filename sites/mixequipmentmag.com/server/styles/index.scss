@@ -46,8 +46,10 @@ $marko-web-document-container-max-width: 1200px !default;
 $marko-web-document-container-gutter: 12px !default;
 $marko-web-page-padding: 0 !default;
 $marko-web-page-wrapper-padding: $marko-web-document-container-gutter !default;
-$marko-web-node-list-padding: 24px !default;
+$marko-web-node-list-padding: 0 !default;
 $marko-web-node-overlay-image-gradient: linear-gradient(rgba(0, 0, 0, 0) 5%, rgba(0, 0, 0, .71) 73%);
+
+$marko-web-node-bg-color: $tan-lighter !default;
 
 // Fonts (reset all to Roboto, including serif font)
 $font-roboto: "Roboto", sans-serif !default;
@@ -548,11 +550,6 @@ body {
         }
       }
     }
-  }
-
-  &__nodes {
-    padding-top: $block-spacer;
-    padding-bottom: $block-spacer;
   }
 
   &--padding-large {
