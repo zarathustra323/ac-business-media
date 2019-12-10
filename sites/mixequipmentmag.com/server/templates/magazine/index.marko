@@ -19,16 +19,6 @@ $ const description = site.get("magazines.description");
           </@header>
         </marko-web-node-list>
       </@section>
-
-      <@section>
-        <div class="row">
-          <div class="col">
-            <if(description)>
-              <p class="page-wrapper__deck">${description}</p>
-            </if>
-          </div>
-        </div>
-      </@section>
       <@section>
         <website-magazine-publications-block />
       </@section>
