@@ -8,18 +8,13 @@ $ const { id, alias, pageNode } = data;
   </@head>
   <@page>
     <marko-web-resolve-page|{ data: page }| node=pageNode>
-      <marko-web-page-wrapper>
-        <@section>
-          <div class="row">
-            <div class="col">
-              <default-theme-breadcrumbs-with-home>
-                <@item>${page.name}</@item>
-              </default-theme-breadcrumbs-with-home>
-              <div class="page-wrapper__title">
-                ${page.name}
-              </div>
-            </div>
-          </div>
+      <marko-web-page-wrapper class="my-block">
+        <@section modifiers=["no-bottom-spacer"]>
+          <marko-web-node-list collapsible=false>
+            <@header tag="h1" modifiers=["website-section-title"]>
+              ${page.name}
+            </@header>
+          </marko-web-node-list>
         </@section>
         <@section>
           <div class="row">
