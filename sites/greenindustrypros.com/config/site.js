@@ -23,7 +23,7 @@ module.exports = {
     { provider: 'facebook', href: 'https://www.facebook.com/GreenIndustryPros', target: '_blank' },
   ],
   gtm: {
-    containerId: 'GTM-5PXVKG4',
+    containerId: 'GTM-T2K6NQQ',
   },
   wufoo: {
     userName: '<NOT SET>',

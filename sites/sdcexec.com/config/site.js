@@ -23,7 +23,7 @@ module.exports = {
     { provider: 'linkedin', href: 'https://www.linkedin.com/company/supply-demand-chain-executive/', target: '_blank' },
   ],
   gtm: {
-    containerId: 'GTM-5VGVG9C',
+    containerId: 'GTM-KK6K97N',
   },
   wufoo: {
     userName: '<NOT SET>',
