@@ -1,6 +1,8 @@
 const navigation = require('./navigation');
+const gam = require('./gam');
 
 module.exports = {
+  gam,
   navigation,
   company: 'AC Business Media, LLC',
   logos: {
