@@ -19,6 +19,8 @@ config
     ],
   })
   .setTemplate('CONTENT', { size: [[300, 250], [300, 600]] })
+  .setTemplate('RAIL1', { size: [[300, 250]] })
+  .setTemplate('RAIL2', { size: [[300, 600]] })
   .setTemplate('INFINITE-RAIL', {
     size: [[300, 250], [300, 600]],
     sizeMapping: [
@@ -38,8 +40,8 @@ config
   .setAliasAdUnits('default', [
     { name: 'lb1', templateName: 'LB', path: 'SDC_BS' },
     { name: 'lb-sticky-bottom', templateName: 'LB-STICKY-BOTTOM', path: 'SDC_BS' },
-    { name: 'rail1', templateName: 'CONTENT', path: 'SDC_MR' },
-    { name: 'rail2', templateName: 'CONTENT', path: 'SDC_MR' },
+    { name: 'rail1', templateName: 'RAIL1', path: 'SDC_MR' },
+    { name: 'rail2', templateName: 'RAIL2', path: 'SDC_MR' },
     { name: 'infinite-rail', templateName: 'INFINITE-RAIL', path: 'SDC_MR' },
     { name: 'infinite-interstitial', templateName: 'INFINITE-INTERSTITIAL', path: 'SDC_MR' },
     { name: 'load-more', templateName: 'CONTENT', path: 'SDC_HP' },

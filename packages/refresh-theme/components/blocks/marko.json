@@ -20,5 +20,18 @@
     "template": "./editors-picks.marko",
     "@section-id": "number",
     "@skip": "number"
+  },
+  "<refresh-theme-related-content-block>": {
+    "template": "./related-content.marko",
+    "<native-x>": {
+      "@index": "number",
+      "@name": "string",
+      "@aliases": "array"
+    },
+    "@id": "number",
+    "@type": "string",
+    "@section-id": "number",
+    "@section-name": "string",
+    "@query-fragment": "object"
   }
 }
