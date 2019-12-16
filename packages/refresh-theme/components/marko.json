@@ -15,5 +15,9 @@
     },
     "<below-container>": {},
     "<foot>": {}
+  },
+  "<refresh-theme-fixed-ad-bottom>": {
+    "template": "./fixed-ad-bottom.marko",
+    "@aliases": "array"
   }
 }

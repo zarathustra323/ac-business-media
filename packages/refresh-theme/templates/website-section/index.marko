@@ -147,8 +147,7 @@ $ const adSlots = ({ aliases }) => ({
   </@page>
   <@foot>
     <marko-web-resolve-page|{ data: section }| node=pageNode>
-      $ const aliases = hierarchyAliases(section);
-      <website-fixed-ad-bottom aliases=hierarchyAliases(section) />
+      <refresh-theme-fixed-ad-bottom aliases=hierarchyAliases(section) />
     </marko-web-resolve-page>
   </@foot>
 </marko-web-website-section-page-layout>
