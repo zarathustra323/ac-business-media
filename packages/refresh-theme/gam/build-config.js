@@ -25,7 +25,8 @@ module.exports = ({
         { viewport: [320, 0], size: [[300, 50], [320, 50]] },
       ],
     })
-    .setTemplate('CONTENT', { size: [[300, 250], [300, 600]] })
+    .setTemplate('RAIL1', { size: [[300, 250]] })
+    .setTemplate('RAIL2', { size: [[300, 600]] })
     .setTemplate('INFINITE-RAIL', {
       size: [[300, 250], [300, 600]],
       sizeMapping: [
@@ -44,11 +45,11 @@ module.exports = ({
   const templates = {
     lb1: 'LB',
     'lb-sticky-bottom': 'LB-STICKY-BOTTOM',
-    rail1: 'CONTENT',
-    rail2: 'CONTENT',
+    rail1: 'RAIL1',
+    rail2: 'RAIL2',
     'infinite-rail': 'INFINITE-RAIL',
     'infinite-interstitial': 'INFINITE-INTERSTITIAL',
-    'load-more': 'CONTENT',
+    'load-more': 'RAIL1',
     reskin: undefined,
     wa: undefined,
   };
