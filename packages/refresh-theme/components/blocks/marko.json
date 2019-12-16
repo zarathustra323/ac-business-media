@@ -11,5 +11,9 @@
   },
   "<refresh-theme-most-read-block>": {
     "template": "./most-read.marko"
+  },
+  "<refresh-theme-featured-videos-block>": {
+    "template": "./featured-videos.marko",
+    "@section-id": "number"
   }
 }
