@@ -12,5 +12,22 @@
     "@modifiers": "array",
     "@attrs": "object",
     "@link-attrs": "object"
+  },
+  "<refresh-theme-content-list-node>": {
+    "template": "./content-list.marko",
+    "<image>": {},
+    "<title>": {},
+    "@node": "object",
+    "@display-image": "boolean",
+    "@image-position": "string",
+
+    "@with-teaser": "boolean",
+    "@with-section": "boolean",
+    "@with-attribution": "boolean",
+    "@with-dates": "boolean",
+
+    "@modifiers": "array",
+    "@attrs": "object",
+    "@link-attrs": "object"
   }
 }

@@ -8,5 +8,22 @@
       "@aliases": "array"
     },
     "@nodes": "array"
+  },
+  "<refresh-theme-content-list-flow>": {
+    "template": "./content-list.marko",
+    "<header>": {},
+    "<node>": {
+      "<image>": {},
+      "<title>": {}
+    },
+    "<native-x>": {
+      "@index": "number",
+      "@name": "string",
+      "@aliases": "array"
+    },
+    "@nodes": "array",
+    "@inner-justified": "boolean",
+    "@class": "string",
+    "@modifiers": "array"
   }
 }
