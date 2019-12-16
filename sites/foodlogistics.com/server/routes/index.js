@@ -1,4 +1,5 @@
 const content = require('./content');
+const dynamicPages = require('./dynamic-page');
 const home = require('./home');
 const magazine = require('./magazine');
 const search = require('./search');
@@ -10,6 +11,9 @@ module.exports = (app) => {
 
   // Magazine Pages
   magazine(app);
+
+  // Dynamic Pages
+  dynamicPages(app);
 
   // Content Pages
   content(app);
