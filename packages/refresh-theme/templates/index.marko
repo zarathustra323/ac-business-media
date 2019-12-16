@@ -104,6 +104,24 @@ $ const adSlots = ({ aliases }) => ({
             </aside>
           </div>
         </@section>
+
+         <@section>
+          <div class="row">
+            <div class="col">
+              <marko-web-query|{ nodes }|
+                name="all-published-content"
+                params={ contentTypes: ["Video"], limit: 6, requiresImage: true, queryFragment }
+              >
+                <marko-web-node-list collapsible=false>
+                  <@header modifiers=["padding-y"]>Featured Videos</@header>
+                </marko-web-node-list>
+                <refresh-theme-content-hero-flow nodes=nodes>
+                  <@list inner-justified=false />
+                </refresh-theme-content-hero-flow>
+              </marko-web-query>
+            </div>
+          </div>
+        </@section>
       </marko-web-page-wrapper>
     </marko-web-resolve-page>
   </@page>
