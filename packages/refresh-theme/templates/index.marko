@@ -30,7 +30,7 @@ $ const adSlots = ({ aliases }) => ({
   </@head>
   <@page>
     <!-- Refresh sticky, right-rail infinite scroll ad -->
-    <!-- <marko-web-gam-refresh-ad on="load-more-in-view" slot-id="gpt-ad-rail-infinite" /> -->
+    <marko-web-gam-refresh-ad on="load-more-in-view" slot-id="gpt-ad-rail-infinite" />
 
     <marko-web-resolve-page|{ data: section, resolved }| node=pageNode>
       $ const aliases = hierarchyAliases(section);
