@@ -1,0 +1,9 @@
+{
+  "<refresh-theme-latest-content-load-more-block>": {
+    "template": "./latest-content-load-more.marko",
+    "<query>": {},
+    "<page>": {},
+    "<adunit>": {},
+    "@max-pages": "number"
+  }
+}

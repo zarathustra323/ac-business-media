@@ -150,14 +150,14 @@ $ const adSlots = ({ aliases }) => ({
                 </refresh-theme-content-list-flow>
               </marko-web-query>
 
-              <!-- <website-latest-content-load-more-block max-pages=1>
+              <refresh-theme-latest-content-load-more-block max-pages=1>
                 <@query
                   name="all-published-content"
                   params={ excludeContentTypes: ["Company", "Contact"], limit: 12, skip: 18, requiresImage: true }
                 />
                 <@page for="website-section" id=id />
                 <@adunit ...GAM.getAdUnit({ name: "infinite-interstitial", aliases }) />
-              </website-latest-content-load-more-block> -->
+              </refresh-theme-latest-content-load-more-block>
             </div>
 
             <aside class="col-lg-4 page-rail">

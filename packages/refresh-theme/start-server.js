@@ -5,7 +5,7 @@ const cleanResponse = require('@base-cms/marko-core/middleware/clean-marko-respo
 const buildGAMConfig = require('./gam/build-config');
 
 const document = require('./components/document');
-// const components = require('./components');
+const components = require('./components');
 const fragments = require('./fragments');
 
 module.exports = (options = {}) => {
@@ -14,7 +14,7 @@ module.exports = (options = {}) => {
   return startServer({
     ...options,
     document: options.document || document,
-    // components: options.components || components,
+    components: options.components || components,
     fragments: options.fragments || fragments,
     onStart: async (app) => {
       if (typeof onStart === 'function') await onStart(app);
