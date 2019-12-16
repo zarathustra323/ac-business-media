@@ -25,5 +25,13 @@
     "@inner-justified": "boolean",
     "@class": "string",
     "@modifiers": "array"
+  },
+  "<refresh-theme-latest-content-list-flow>": {
+    "template": "./latest-content-list.marko",
+    "<adunit>": {},
+    "@nodes": "array",
+    "@header": "string",
+    "@with-header": "boolean",
+    "@modifiers": "array"
   }
 }
