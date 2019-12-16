@@ -15,5 +15,10 @@
   "<refresh-theme-featured-videos-block>": {
     "template": "./featured-videos.marko",
     "@section-id": "number"
+  },
+  "<refresh-theme-editors-picks-block>": {
+    "template": "./editors-picks.marko",
+    "@section-id": "number",
+    "@skip": "number"
   }
 }

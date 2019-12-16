@@ -57,21 +57,7 @@ $ const adSlots = ({ aliases }) => ({
         </@section>
 
         <@section modifiers=["card-deck"]>
-          <marko-web-query|{ nodes }|
-            name="website-optioned-content"
-            params={ sectionId: id, optionName: "Pinned", excludeContentTypes: ["Company"], limit: 3, skip: 6, requiresImage: true, queryFragment }
-          >
-            <marko-web-node-list collapsible=false>
-              <@header modifiers=["padding-y"]>Editor's Picks</@header>
-            </marko-web-node-list>
-            <default-theme-card-deck-flow cols=3 nodes=nodes>
-              <@slot|{ node, index }|>
-                <refresh-theme-content-card-node node=node>
-                  <@image width=340 />
-                </refresh-theme-content-card-node>
-              </@slot>
-            </default-theme-card-deck-flow>
-          </marko-web-query>
+          <refresh-theme-editors-picks-block section-id=id skip=6 />
         </@section>
 
         <@section>
