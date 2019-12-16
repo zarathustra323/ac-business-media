@@ -15,6 +15,7 @@ $ const adSlots = ({ aliases }) => ({
   "gpt-ad-lb2": GAM.getAdUnit({ name: "lb1", aliases }),
   "gpt-ad-lb3": GAM.getAdUnit({ name: "lb1", aliases }),
   "gpt-ad-rail1": GAM.getAdUnit({ name: "rail1", aliases }),
+  "gpt-ad-rail-infinite": GAM.getAdUnit({ name: "infinite-rail", aliases }),
 });
 
 <marko-web-website-section-page-layout id=id alias=alias name=name>
@@ -120,6 +121,68 @@ $ const adSlots = ({ aliases }) => ({
                 </refresh-theme-content-hero-flow>
               </marko-web-query>
             </div>
+          </div>
+        </@section>
+
+        <@section>
+          <div class="row">
+            <div class="col">
+              <marko-web-gam-display-ad id="gpt-ad-lb3" slots=adSlots({ aliases }) />
+            </div>
+          </div>
+        </@section>
+
+        <@section>
+          <div class="row">
+            <div class="col-lg-8 infinite-scroll-target">
+              <marko-web-query|{ nodes }|
+                name="all-published-content"
+                params={ excludeContentTypes: ["Company", "Contact"], limit: 12, skip: 6, requiresImage: true, queryFragment }
+              >
+                <refresh-theme-content-list-flow
+                  nodes=nodes
+                  inner-justified=false
+                  modifiers=["padding-large"]
+                >
+                  <@node image-position="left" with-attribution=true with-teaser=true>
+                    <@image use-placeholder=false ar="16:9" width=288 />
+                  </@node>
+                </refresh-theme-content-list-flow>
+              </marko-web-query>
+
+              <!-- <website-latest-content-load-more-block max-pages=1>
+                <@query
+                  name="all-published-content"
+                  params={ excludeContentTypes: ["Company", "Contact"], limit: 12, skip: 18, requiresImage: true }
+                />
+                <@page for="website-section" id=id />
+                <@adunit ...GAM.getAdUnit({ name: "infinite-interstitial", aliases }) />
+              </website-latest-content-load-more-block> -->
+            </div>
+
+            <aside class="col-lg-4 page-rail">
+              <marko-web-query|{ nodes }|
+                name="all-published-content"
+                params={ excludeContentTypes: ["Contact", "Company"], limit: 6, queryFragment }
+              >
+                <refresh-theme-content-list-flow
+                  nodes=nodes
+                  inner-justified=false
+                >
+                  <@header>Most Read</@header>
+                  <@node display-image=false with-dates=false>
+                    <@image use-placeholder=false />
+                    <@title modifiers=["small"] />
+                  </@node>
+                </refresh-theme-content-list-flow>
+              </marko-web-query>
+
+              <marko-web-gam-display-ad
+                id="gpt-ad-rail-infinite"
+                modifiers=["sticky-top"]
+                slots=adSlots({ aliases })
+              />
+            </aside>
           </div>
         </@section>
       </marko-web-page-wrapper>
