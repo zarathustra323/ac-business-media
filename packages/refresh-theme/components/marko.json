@@ -3,7 +3,7 @@
     "./flows/marko.json",
     "./nodes/marko.json"
   ],
-  "<vivify-shared-document>": {
+  "<refresh-theme-document>": {
     "template": "./document.marko",
     "<head>": {},
     "<above-container>": {},

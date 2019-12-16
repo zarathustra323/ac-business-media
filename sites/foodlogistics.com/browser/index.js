@@ -1,6 +1,6 @@
 import Browser from '@base-cms/marko-web/browser';
-import VivifyShared from '@ac-business-media/vivify-shared/browser';
+import RefreshThemeShared from '@ac-business-media/refresh-theme/browser';
 
-VivifyShared(Browser);
+RefreshThemeShared(Browser);
 
 export default Browser;

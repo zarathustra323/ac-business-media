@@ -1,12 +1,12 @@
 <default-theme-hero-flow nodes=input.nodes>
   <@hero|{ node }|>
-    <vivify-shared-content-card-node node=node>
+    <refresh-theme-content-card-node node=node>
       <@image width=600 />
       <@title modifiers=["large"] />
-    </vivify-shared-content-card-node>
+    </refresh-theme-content-card-node>
   </@hero>
   <!-- <@list|{ nodes }|>
-    <vivify-shared-content-list-flow
+    <refresh-theme-content-list-flow
       nodes=nodes
       native-x=input.nativeX
       ...input.list
@@ -15,6 +15,6 @@
         <@image use-placeholder=false />
         <@title modifiers=["small"] />
       </@node>
-    </vivify-shared-content-list-flow>
+    </refresh-theme-content-list-flow>
   </@list> -->
 </default-theme-hero-flow>

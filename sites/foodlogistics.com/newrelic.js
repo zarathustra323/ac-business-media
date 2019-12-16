@@ -1,1 +1,1 @@
-module.exports = require('@ac-business-media/vivify-shared/newrelic');
+module.exports = require('@ac-business-media/refresh-theme/newrelic');

@@ -1,4 +1,4 @@
-const startServer = require('@ac-business-media/vivify-shared/start-server');
+const startServer = require('@ac-business-media/refresh-theme/start-server');
 
 const routes = require('./server/routes');
 const siteConfig = require('./config/site');

@@ -1,5 +1,5 @@
 {
-  "<vivify-shared-content-hero-flow>": {
+  "<refresh-theme-content-hero-flow>": {
     "template": "./content-hero.marko",
     "<list>": {},
     "<native-x>": {

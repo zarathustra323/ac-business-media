@@ -1,5 +1,5 @@
 {
-  "<vivify-shared-content-card-node>": {
+  "<refresh-theme-content-card-node>": {
     "template": "./content-card.marko",
     "<image>": {},
     "<title>": {},
