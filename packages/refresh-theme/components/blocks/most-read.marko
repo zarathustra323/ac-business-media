@@ -1,0 +1,17 @@
+import queryFragment from "../../graphql/fragments/most-read-block";
+
+<marko-web-query|{ nodes }|
+  name="all-published-content"
+  params={ excludeContentTypes: ["Contact", "Company"], limit: 6, queryFragment }
+>
+  <refresh-theme-content-list-flow
+    nodes=nodes
+    inner-justified=false
+  >
+    <@header>Most Read</@header>
+    <@node display-image=false with-dates=false>
+      <@image use-placeholder=false />
+      <@title modifiers=["small"] />
+    </@node>
+  </refresh-theme-content-list-flow>
+</marko-web-query>

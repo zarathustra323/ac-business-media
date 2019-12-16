@@ -5,5 +5,11 @@
     "<page>": {},
     "<adunit>": {},
     "@max-pages": "number"
+  },
+  "<refresh-theme-follow-us-block>": {
+    "template": "./follow-us.marko"
+  },
+  "<refresh-theme-most-read-block>": {
+    "template": "./most-read.marko"
   }
 }
