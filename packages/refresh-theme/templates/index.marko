@@ -14,6 +14,7 @@ $ const adSlots = ({ aliases }) => ({
   "gpt-ad-lb1": GAM.getAdUnit({ name: "lb1", aliases }),
   "gpt-ad-lb2": GAM.getAdUnit({ name: "lb1", aliases }),
   "gpt-ad-lb3": GAM.getAdUnit({ name: "lb1", aliases }),
+  "gpt-ad-rail1": GAM.getAdUnit({ name: "rail1", aliases }),
 });
 
 <marko-web-website-section-page-layout id=id alias=alias name=name>
@@ -45,11 +46,62 @@ $ const adSlots = ({ aliases }) => ({
             </div>
           </div>
         </@section>
+
         <@section>
           <div class="row">
             <div class="col">
               <marko-web-gam-display-ad id="gpt-ad-lb1" slots=adSlots({ aliases }) />
             </div>
+          </div>
+        </@section>
+
+        <@section modifiers=["card-deck"]>
+          <marko-web-query|{ nodes }|
+            name="website-optioned-content"
+            params={ sectionId: id, optionName: "Pinned", excludeContentTypes: ["Company"], limit: 3, skip: 6, requiresImage: true, queryFragment }
+          >
+            <marko-web-node-list collapsible=false>
+              <@header modifiers=["padding-y"]>Editor's Picks</@header>
+            </marko-web-node-list>
+            <default-theme-card-deck-flow cols=3 nodes=nodes>
+              <@slot|{ node, index }|>
+                <refresh-theme-content-card-node node=node>
+                  <@image width=340 />
+                </refresh-theme-content-card-node>
+              </@slot>
+            </default-theme-card-deck-flow>
+          </marko-web-query>
+        </@section>
+
+        <@section>
+          <div class="row">
+            <div class="col">
+              <marko-web-gam-display-ad id="gpt-ad-lb2" slots=adSlots({ aliases }) />
+            </div>
+          </div>
+        </@section>
+
+        <@section>
+          <div class="row">
+            <div class="col-lg-8">
+              <marko-web-query|{ nodes }|
+                name="all-published-content"
+                params={ excludeContentTypes: ["Company", "Contact"], limit: 6, requiresImage: true, queryFragment }
+              >
+                <refresh-theme-latest-content-list-flow nodes=nodes with-header=true />
+              </marko-web-query>
+            </div>
+            <aside class="col-lg-4 page-rail">
+              <marko-web-node-list collapsible=false>
+                <@header modifiers=["padding-y"]>Follow Us</@header>
+              </marko-web-node-list>
+
+              <marko-web-gam-display-ad
+                id="gpt-ad-rail1"
+                modifiers=["sticky-top"]
+                slots=adSlots({ aliases })
+              />
+            </aside>
           </div>
         </@section>
       </marko-web-page-wrapper>
