@@ -29,5 +29,9 @@
     "@modifiers": "array",
     "@attrs": "object",
     "@link-attrs": "object"
+  },
+  "<refresh-theme-contact-us-list-node>": {
+    "template": "./contact-us-list.marko",
+    "@node": "object"
   }
 }
