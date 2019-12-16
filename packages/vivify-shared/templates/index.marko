@@ -1,0 +1,17 @@
+$ const {
+  id,
+  alias,
+  name,
+  pageNode,
+} = data;
+
+<marko-web-website-section-page-layout id=id alias=alias name=name>
+  <@head>
+    <marko-web-gtm-website-section-context|{ context }| alias=alias>
+      <marko-web-gtm-push data=context />
+    </marko-web-gtm-website-section-context>
+  </@head>
+  <@page>
+    <h1>Homepage</h1>
+  </@page>
+</marko-web-website-section-page-layout>
