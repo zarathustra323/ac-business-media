@@ -1,6 +1,9 @@
 {
-  "taglib-imports": [],
-  "<lazarus-shared-document>": {
+  "taglib-imports": [
+    "./flows/marko.json",
+    "./nodes/marko.json"
+  ],
+  "<vivify-shared-document>": {
     "template": "./document.marko",
     "<head>": {},
     "<above-container>": {},

@@ -1,0 +1,16 @@
+{
+  "<vivify-shared-content-card-node>": {
+    "template": "./content-card.marko",
+    "<image>": {},
+    "<title>": {},
+    "@node": "object",
+    "@display-image": "boolean",
+    "@image-position": "string",
+
+    "@with-teaser": "boolean",
+
+    "@modifiers": "array",
+    "@attrs": "object",
+    "@link-attrs": "object"
+  }
+}
