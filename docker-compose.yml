@@ -104,3 +104,19 @@ services:
     ports:
       - "9712:80"
       - "19712:19712"
+
+  foodlogistics.com:
+    <<: *node
+    <<: *site-cmd
+    working_dir: /root/sites/foodlogistics.com
+    environment:
+      <<: *env
+      <<: *env-caprica
+      PORT: 80
+      EXPOSED_PORT: 9713
+      LIVERELOAD_PORT: 19713
+      TENANT_KEY: acbm_fl
+      SITE_ID: 53c95f4a1784f8066eb2c86a
+    ports:
+      - "9713:80"
+      - "19713:19713"
