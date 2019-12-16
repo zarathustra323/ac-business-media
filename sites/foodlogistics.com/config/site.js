@@ -27,6 +27,9 @@ module.exports = {
   gtm: {
     containerId: 'GTM-MQ68SRH',
   },
+  gcse: {
+    id: '017383739850048358259:-mlkn4aclei',
+  },
   wufoo: {
     userName: '<NOT SET>',
   },
