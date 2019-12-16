@@ -5,25 +5,25 @@ module.exports = {
   company: 'AC Business Media, LLC',
   logos: {
     navbar: {
-      src: 'https://img.sdcexec.com/files/base/acbm/sdce/image/static/logo/site_logo_og.png?h=45',
+      src: 'https://img.foodlogistics.com/files/base/acbm/fl/image/static/logo/site_logo_large.png?h=45',
       srcset: [
-        'https://img.sdcexec.com/files/base/acbm/sdce/image/static/logo/site_logo_og.png?h=90 2x',
+        'https://img.foodlogistics.com/files/base/acbm/fl/image/static/logo/site_logo_large.png?h=90 2x',
       ],
     },
     footer: {
-      src: 'https://img.sdcexec.com/files/base/acbm/sdce/image/static/logo/site_logo_og.png?h=60',
+      src: 'https://img.foodlogistics.com/files/base/acbm/fl/image/static/logo/site_logo_large.png?h=60',
       srcset: [
-        'https://img.sdcexec.com/files/base/acbm/sdce/image/static/logo/site_logo_og.png?h=120 2x',
+        'https://img.foodlogistics.com/files/base/acbm/fl/image/static/logo/site_logo_large.png?h=120 2x',
       ],
     },
   },
   socialMediaLinks: [
-    { provider: 'facebook', href: 'http://www.facebook.com/sdcexec', target: '_blank' },
-    { provider: 'twitter', href: 'http://www.twitter.com/sdcexec', target: '_blank' },
-    { provider: 'linkedin', href: 'https://www.linkedin.com/company/supply-demand-chain-executive/', target: '_blank' },
+    { provider: 'facebook', href: 'https://www.facebook.com/FoodLogistics', target: '_blank' },
+    { provider: 'twitter', href: 'https://www.twitter.com/FoodLogistics', target: '_blank' },
+    { provider: 'linkedin', href: 'https://www.linkedin.com/company/food-logistics-magazine/', target: '_blank' },
   ],
   gtm: {
-    containerId: 'GTM-5VGVG9C',
+    containerId: 'GTM-MQ68SRH',
   },
   wufoo: {
     userName: '<NOT SET>',
@@ -33,8 +33,8 @@ module.exports = {
   },
   contactUs: {
     branding: {
-      bgColor: '#ec131c',
-      logo: 'https://img.sdcexec.com/files/base/acbm/sdce/image/static/logo/site_logo_og.png?h=60',
+      bgColor: '#1a93f9',
+      logo: 'https://img.foodlogistics.com/files/base/acbm/fl/image/static/logo/site_logo_large.png?h=60',
     },
     to: 'nraether@acbusinessmedia.com',
   },
@@ -42,9 +42,9 @@ module.exports = {
     enabled: true,
     directSend: true,
     sendTo: 'nraether@acbusinessmedia.com',
-    sendFrom: 'Supply & Demand Chain Executive <noreply@baseplatform.io>',
+    sendFrom: 'Food Logistics <noreply@baseplatform.io>',
     sendBcc: 'emailactivity@cygnus.com',
-    logo: 'https://img.sdcexec.com/files/base/acbm/sdce/image/static/logo/site_logo_og.png?h=60',
-    bgColor: '#ec131c',
+    logo: 'https://img.foodlogistics.com/files/base/acbm/fl/image/static/logo/site_logo_large.png?h=60',
+    bgColor: '#1a93f9',
   },
 };
