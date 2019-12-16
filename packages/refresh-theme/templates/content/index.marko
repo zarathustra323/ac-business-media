@@ -159,7 +159,7 @@ $ const displayPublishedDate = ["event", "webinar"].includes(type) ? false : tru
                 <refresh-theme-latest-content-list-flow nodes=nodes with-header=true />
               </marko-web-query>
 
-              <refresh-theme-latest-content-load-more-block max-pages=4>
+              <refresh-theme-latest-content-load-more-block max-pages=3>
                 <@query
                   name="website-scheduled-content"
                   params={ sectionId: section.id, limit: 12, skip: 20, requiresImage: true }
