@@ -1,0 +1,18 @@
+import queryFragment from "../../graphql/fragments/content-list";
+
+$ const params = {
+  ...(input.sectionId && { sectionId: input.sectionId }),
+  contentTypes: ["Video"],
+  limit: 6,
+  requiresImage: true,
+  queryFragment,
+};
+
+<marko-web-query|{ nodes }| name="all-published-content" params=params>
+  <marko-web-node-list collapsible=false>
+    <@header modifiers=["padding-y"]>Featured Videos</@header>
+  </marko-web-node-list>
+  <refresh-theme-content-hero-flow nodes=nodes>
+    <@list inner-justified=false />
+  </refresh-theme-content-hero-flow>
+</marko-web-query>

@@ -1,0 +1,20 @@
+<default-theme-hero-flow nodes=input.nodes>
+  <@hero|{ node }|>
+    <refresh-theme-content-card-node node=node>
+      <@image width=600 />
+      <@title modifiers=["large"] />
+    </refresh-theme-content-card-node>
+  </@hero>
+  <@list|{ nodes }|>
+    <refresh-theme-content-list-flow
+      nodes=nodes
+      native-x=input.nativeX
+      ...input.list
+    >
+      <@node>
+        <@image use-placeholder=false />
+        <@title modifiers=["small"] />
+      </@node>
+    </refresh-theme-content-list-flow>
+  </@list>
+</default-theme-hero-flow>

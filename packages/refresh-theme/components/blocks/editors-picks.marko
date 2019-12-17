@@ -1,0 +1,24 @@
+import queryFragment from "../../graphql/fragments/content-list";
+
+$ const params = {
+  sectionId: input.sectionId,
+  optionName: "Pinned",
+  excludeContentTypes: ["Company"],
+  limit: 3,
+  skip: input.skip,
+  requiresImage: true,
+  queryFragment,
+}
+
+<marko-web-query|{ nodes }| name="website-optioned-content" params=params>
+  <marko-web-node-list collapsible=false>
+    <@header modifiers=["padding-y"]>Editor's Picks</@header>
+  </marko-web-node-list>
+  <default-theme-card-deck-flow cols=3 nodes=nodes>
+    <@slot|{ node }|>
+      <refresh-theme-content-card-node node=node>
+        <@image width=340 />
+      </refresh-theme-content-card-node>
+    </@slot>
+  </default-theme-card-deck-flow>
+</marko-web-query>

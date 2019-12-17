@@ -1,0 +1,55 @@
+{
+  "<refresh-theme-content-hero-flow>": {
+    "template": "./content-hero.marko",
+    "<list>": {},
+    "<native-x>": {
+      "@index": "number",
+      "@name": "string",
+      "@aliases": "array"
+    },
+    "@nodes": "array"
+  },
+  "<refresh-theme-content-list-flow>": {
+    "template": "./content-list.marko",
+    "<header>": {},
+    "<node>": {
+      "<image>": {},
+      "<title>": {}
+    },
+    "<native-x>": {
+      "@index": "number",
+      "@name": "string",
+      "@aliases": "array"
+    },
+    "@nodes": "array",
+    "@inner-justified": "boolean",
+    "@class": "string",
+    "@modifiers": "array"
+  },
+  "<refresh-theme-latest-content-list-flow>": {
+    "template": "./latest-content-list.marko",
+    "<adunit>": {},
+    "@nodes": "array",
+    "@header": "string",
+    "@with-header": "boolean",
+    "@modifiers": "array"
+  },
+  "<refresh-theme-magazine-issue-archive-flow>": {
+    "template": "./magazine-issue-archive.marko",
+    "@nodes": "array",
+    "@flush": {
+      "type": "boolean",
+      "default-value": false
+    },
+    "@with-title": {
+      "type": "boolean",
+      "default-value": true
+    },
+    "@modifiers": "array"
+  },
+  "<refresh-theme-magazine-latest-issue-flow>": {
+    "template": "./magazine-latest-issue.marko",
+    "<header>": {},
+    "@issue-node": "object"
+  }
+}

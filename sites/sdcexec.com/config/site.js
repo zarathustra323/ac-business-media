@@ -1,6 +1,8 @@
 const navigation = require('./navigation');
+const gam = require('./gam');
 
 module.exports = {
+  gam,
   navigation,
   company: 'AC Business Media, LLC',
   logos: {
@@ -24,6 +26,9 @@ module.exports = {
   ],
   gtm: {
     containerId: 'GTM-KK6K97N',
+  },
+  gcse: {
+    id: '017383739850048358259:xbexltkrwbk',
   },
   wufoo: {
     userName: '<NOT SET>',

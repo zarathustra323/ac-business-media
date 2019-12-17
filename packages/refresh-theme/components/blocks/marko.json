@@ -1,0 +1,40 @@
+{
+  "<refresh-theme-latest-content-load-more-block>": {
+    "template": "./latest-content-load-more.marko",
+    "<query>": {},
+    "<page>": {},
+    "<adunit>": {},
+    "@max-pages": "number"
+  },
+  "<refresh-theme-follow-us-block>": {
+    "template": "./follow-us.marko"
+  },
+  "<refresh-theme-most-read-block>": {
+    "template": "./most-read.marko"
+  },
+  "<refresh-theme-featured-videos-block>": {
+    "template": "./featured-videos.marko",
+    "@section-id": "number"
+  },
+  "<refresh-theme-editors-picks-block>": {
+    "template": "./editors-picks.marko",
+    "@section-id": "number",
+    "@skip": "number"
+  },
+  "<refresh-theme-related-content-block>": {
+    "template": "./related-content.marko",
+    "<native-x>": {
+      "@index": "number",
+      "@name": "string",
+      "@aliases": "array"
+    },
+    "@id": "number",
+    "@type": "string",
+    "@section-id": "number",
+    "@section-name": "string",
+    "@query-fragment": "object"
+  },
+  "<refresh-theme-magazine-publications-block>": {
+    "template": "./magazine-publications.marko"
+  }
+}

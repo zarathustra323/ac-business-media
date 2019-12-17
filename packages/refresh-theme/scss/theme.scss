@@ -1,0 +1,482 @@
+
+// Theme start!
+@import url("https://fonts.googleapis.com/css?family=Arimo:400,400i,700&display=swap");
+
+$black:           #000 !default;
+$body-color:      $black !default;
+$block-spacer:    1.25rem !default;
+
+// Marko Web Settings
+$marko-web-document-container-max-width: 1010px !default;
+$marko-web-document-container-gutter: 10px !default;
+$marko-web-page-padding: 0 !default;
+$marko-web-page-wrapper-padding: $marko-web-document-container-gutter !default;
+$marko-web-node-list-padding: 15px !default;
+
+// Fonts (reset all to Arimo, including serif font)
+$theme-font-family-sans-serif: "Arimo", sans-serif !default;
+$theme-font-family-serif: "Arimo", sans-serif !default;
+$theme-font-family-page-title: $theme-font-family-sans-serif !default;
+
+// General
+$body-bg: #fff !default;
+$breadcrumb-divider: "|" !default;
+$font-weight-bold: 700 !default;
+$grid-gutter-width: 20px !default;
+
+// Settings
+$enable-shadows: false !default;
+$enable-rounded: false !default;
+
+// Navbar
+$theme-site-navbar-primary-font-size: 15px !default;
+$theme-site-navbar-primary-font-size-sm: 15px !default;
+$theme-site-navbar-primary-line-height: 1.6 !default;
+$theme-site-navbar-primary-line-height-sm: 1.6 !default;
+
+$theme-site-navbar-primary-link-hover-decoration: none !default;
+$theme-site-navbar-primary-link-active-decoration: none !default;
+
+$theme-site-navbar-secondary-font-size: 13px !default;
+$theme-site-navbar-secondary-font-size-sm: 13px !default;
+$theme-site-navbar-secondary-line-height: 1.6 !default;
+$theme-site-navbar-secondary-line-height-sm: 1.6 !default;
+$theme-site-navbar-secondary-padding-y: 5px !default;
+
+$theme-site-navbar-secondary-link-hover-decoration: none !default;
+$theme-site-navbar-secondary-link-active-decoration: none !default;
+
+// General Heading Defaults
+$theme-heading-font-weight: $font-weight-bold !default;
+
+$theme-heading-large-font-size:       22px !default;
+$theme-heading-large-font-size-sm:    22px !default;
+$theme-heading-large-line-height:     1.3 !default;
+$theme-heading-large-line-height-sm:  1.3 !default;
+
+$theme-heading-h4-font-size:          20px !default;
+$theme-heading-h4-font-size-sm:       20px !default;
+$theme-heading-h4-line-height:        1.3 !default;
+$theme-heading-h4-line-height-sm:     1.3 !default;
+
+$theme-heading-h5-font-size:          18px !default;
+$theme-heading-h5-font-size-sm:       18px !default;
+$theme-heading-h5-line-height:        1.3 !default;
+$theme-heading-h5-line-height-sm:     1.3 !default;
+
+$theme-heading-h6-font-size:          16px !default;
+$theme-heading-h6-font-size-sm:       16px !default;
+$theme-heading-h6-line-height:        1.3 !default;
+$theme-heading-h6-line-height-sm:     1.3 !default;
+
+// Content Headings
+$theme-content-heading-large-margin-bottom:     1rem !default;
+$theme-content-heading-large-margin-bottom-sm:  1rem !default;
+
+$theme-content-heading-h4-margin-bottom:        1rem !default;
+$theme-content-heading-h4-margin-bottom-sm:     1rem !default;
+
+$theme-content-heading-h5-margin-bottom:        1rem !default;
+$theme-content-heading-h5-margin-bottom-sm:     1rem !default;
+
+$theme-content-heading-h6-margin-bottom:        1rem !default;
+$theme-content-heading-h6-margin-bottom-sm:     1rem !default;
+
+// Content Paragraphs
+$theme-content-paragraph-margin-bottom: 1.25rem !default;
+$theme-content-paragraph-margin-bottom-sm: 1.25rem !default;
+
+
+// Page Wrapper
+$theme-page-title-font-weight: $font-weight-bold !default;
+$theme-page-title-font-size: 24px !default;
+$theme-page-title-font-size-sm: 24px !default;
+$theme-page-title-line-height: 1.2 !default;
+$theme-page-title-line-height-sm: 1.2 !default;
+
+$theme-page-deck-color: #000 !default;
+$theme-page-deck-font-size: 18px !default;
+$theme-page-deck-font-size-sm: 18px !default;
+$theme-page-deck-line-height: 1.5 !default;
+$theme-page-deck-line-height-sm: 1.5 !default;
+
+$marko-web-page-image-margin: 1.25rem !default;
+
+// Media Caption/Credit
+$theme-media-footer-padding-y: 5px !default;
+$theme-media-footer-line-height: 1.2 !default;
+
+$theme-media-caption-color: #9e9e9e !default;
+$theme-media-caption-font-size: 11px !default;
+$theme-media-credit-color: #9e9e9e !default;
+$theme-media-credit-font-size: 11px !default;
+
+// Breadcrumbs
+$theme-breadcrumbs-font-size: 14px !default;
+$theme-breadcrumbs-font-weight: $font-weight-bold !default;
+
+// Content Published Date
+$theme-content-published-date-font-size: 14px !default;
+$theme-content-published-date-line-height: 1.2 !default;
+
+// Content Attribution
+$theme-content-attribution-font-size: 14px !default;
+$theme-content-attribution-prefix-spacer-content: none !default;
+$theme-content-attribution-prefix-font-weight: 400 !default;
+$theme-content-attribution-line-height: 1.2 !default;
+
+// Content Body
+$theme-page-body-font-size-sm: 16px !default;
+$theme-page-body-font-size: 16px !default;
+$theme-page-body-font-weight: 400 !default;
+$theme-page-body-line-height-sm: 1.8 !default;
+$theme-page-body-line-height: 1.8 !default;
+
+// Card / Node List Header
+$theme-card-header-text-transform: none !default;
+$theme-card-header-color: $black !default;
+$theme-card-header-font-size: 24px !default;
+$theme-card-header-font-weight: $font-weight-bold !default;
+$theme-card-header-letter-spacing: normal !default;
+$theme-card-header-background-color: transparent !default;
+$theme-card-header-border: none !default;
+
+// Item / Node
+$theme-item-title-font-size: 18px !default;
+$theme-item-title-font-size-sm: 18px !default;
+$theme-item-title-font-weight: $font-weight-bold !default;
+$theme-item-title-line-height: 1.4 !default;
+$theme-item-title-line-height-sm: 1.4 !default;
+
+$theme-item-title-large-font-size: 22px;
+$theme-item-title-large-font-size-sm: 22px;
+$theme-item-title-large-line-height: 1.4 !default;
+$theme-item-title-large-line-height-sm: 1.4 !default;
+
+$theme-item-description-font-size: 14px !default;
+$theme-item-description-font-size-sm: 14px !default;
+$theme-item-description-line-height: 1.5 !default;
+$theme-item-description-line-height-sm: 1.5 !default;
+$theme-item-description-max-lines: 3 !default;
+
+$theme-item-header-font-size: 12px !default;
+
+$theme-item-footer-font-size: 12px !default;
+
+@import "../../node_modules/@base-cms/marko-web-gam/scss/fixed-ad-bottom";
+@import "../../node_modules/@base-cms/marko-web-theme-default/scss/theme";
+// @todo this should be remove once contact us is in core
+@import "../../node_modules/@ac-business-media/package-common/scss/contact-us-form";
+@import "../../node_modules/@ac-business-media/package-common/scss/directory";
+@import "../../node_modules/@ac-business-media/package-inquiry/scss/index";
+
+.ad-container {
+  &--left {
+    text-align: left;
+  }
+
+  &--right {
+    text-align: right;
+  }
+
+  &--sticky-top {
+    position: sticky;
+    top: calc(95px + #{$block-spacer});
+  }
+
+  &__wrapper {
+    position: relative;
+    padding-top: 15px;
+    padding-bottom: 20px;
+    border-top: 2px solid #ebebeb;
+    border-bottom: 2px solid #ebebeb;
+
+    &::before {
+      position: absolute;
+      top: auto;
+      right: 0;
+      bottom: 5px;
+      left: auto;
+      font-size: 8px;
+      line-height: 1;
+      color: #a3a3a3;
+      text-align: right;
+      text-transform: uppercase;
+      content: "Advertisement";
+    }
+  }
+}
+
+.site-navbar {
+  $self: &;
+  &__items {
+    text-transform: none;
+  }
+
+  &--primary,
+  &--secondary {
+    #{ $self } {
+      &__link {
+        &--active {
+          font-weight: 700;
+        }
+      }
+    }
+  }
+
+  &--primary {
+    @each $section, $color in $website-section-colors {
+      #{ $self } {
+        &__link--active[href*="#{$section}"] {
+          color: $color;
+        }
+      }
+    }
+  }
+}
+
+.page-wrapper {
+  padding-top: $block-spacer;
+  padding-bottom: $block-spacer;
+  &__deck,
+  &__title {
+    $max: 920px;
+    // ensure readable line length is not too long.
+    padding-right: ($marko-web-document-container-max-width - ($marko-web-document-container-gutter * 2) - ($marko-web-page-wrapper-padding * 2)) - $max;
+    margin-bottom: 1.25rem;
+
+    @media (max-width: 920px) {
+      padding-right: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__section {
+    padding-bottom: $grid-gutter-width;
+    margin-bottom: $grid-gutter-width + 5px;
+    border-bottom: 2px solid #ebebeb;
+
+    &--card-deck {
+      padding-bottom: 0;
+    }
+  }
+}
+
+.page-dates {
+  display: flex;
+
+  // @todo this should be moved to the core theme
+  &__content-starts,
+  &__content-start-date,
+  &__content-ends,
+  &__content-end-date {
+    font-family: $theme-content-published-date-font-family;
+    font-size: $theme-content-published-date-font-size;
+    font-weight: $theme-content-published-date-font-weight;
+    line-height: $theme-content-published-date-line-height;
+    color: $theme-content-published-date-color;
+    text-transform: $theme-content-published-date-text-transform;
+  }
+}
+
+.page-attribution {
+  display: flex;
+
+  &__content-authors {
+    &::before {
+      content: "By";
+    }
+  }
+  a {
+    color: $body-color;
+  }
+
+  div:last-child {
+    margin-bottom: 0;
+  }
+
+  &:empty {
+    display: none;
+  }
+}
+
+.page-attribution-wrapper {
+  display: flex;
+}
+
+.page-dates + .page-attribution {
+  padding-left: .5rem;
+  margin-left: .5rem;
+  border-left: 1px solid #000;
+}
+
+.page-image {
+  $self: &;
+
+  &__image-caption,
+  &__image-credit {
+    text-align: right;
+  }
+
+  &__image-credit {
+    &::before {
+      margin-right: .25rem;
+      content: "Photo Credit:";
+    }
+  }
+
+  // @todo keep in skin
+  > :last-child:not(#{ $self }__wrapper) {
+    border-bottom: none;
+  }
+}
+
+.page-contents {
+  &__content-body {
+    margin-bottom: $block-spacer;
+    ul {
+      padding-left: $grid-gutter-width;
+    }
+  }
+}
+
+.page-rail {
+  > :first-child {
+    margin-top: 0;
+  }
+}
+
+.node {
+  &__title {
+    padding-bottom: 18px;
+    &--small {
+      font-size: 14px;
+    }
+  }
+
+  &__footer {
+    justify-content: flex-start;
+  }
+
+  &__footer-left:not(:empty) + &__footer-right {
+    margin-left: .25rem;
+  }
+}
+
+.node-list {
+  $self: &;
+  &__header {
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    line-height: 1.3;
+
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 40px;
+      height: 4px;
+      content: "";
+      background: #000;
+    }
+
+    &--padding-y {
+      padding-top: $block-spacer;
+      padding-bottom: $block-spacer;
+    }
+
+    &--website-section-title {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      font-size: 26px;
+      font-weight: $font-weight-bold;
+      line-height: 1.3;
+    }
+
+    @each $section, $color in $website-section-colors {
+      &--#{$section} {
+        &::before {
+          background: $color;
+        }
+      }
+    }
+  }
+
+  &__nodes {
+    padding-top: $block-spacer;
+    padding-bottom: $block-spacer;
+  }
+
+  &--padding-large {
+    #{ $self } {
+      &__node {
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+    }
+  }
+
+  &--infinite-scroll {
+    #{ $self } {
+      &__node:first-child {
+        @include marko-web-node-list-border(border-top);
+      }
+    }
+  }
+
+  &--flush-y {
+    #{ $self } {
+      &__header:first-child {
+        padding-top: $block-spacer;
+      }
+
+      &__node:first-child {
+        @include media-breakpoint-down(md) {
+          padding-top: $block-spacer;
+          @include marko-web-node-list-border(border-top);
+        }
+      }
+    }
+  }
+}
+
+.hero-flow {
+  &__hero {
+    margin-bottom: 0;
+    @include media-breakpoint-down(md) {
+      margin-bottom: $block-spacer;
+
+    }
+  }
+  &__list {
+    margin-bottom: 0;
+  }
+}
+
+.card-deck-flow {
+  $self: &;
+  &--3-cols {
+    #{ $self } {
+      &__node {
+        @include media-breakpoint-up(md) {
+          @include make-col(4);
+        }
+        @include media-breakpoint-up(lg) {
+          @include make-col(4);
+        }
+      }
+    }
+  }
+}
+
+.magazine-publication-card-block {
+  &__header,
+  &__body {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}

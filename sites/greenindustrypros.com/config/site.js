@@ -1,19 +1,21 @@
 const navigation = require('./navigation');
+const gam = require('./gam');
 
 module.exports = {
+  gam,
   navigation,
   company: 'AC Business Media, LLC',
   logos: {
     navbar: {
-      src: 'https://base.imgix.net/files/base/acbm/gip/image/static/logo/site_logo.png?h=45',
+      src: 'https://img.greenindustrypros.com/files/base/acbm/gip/image/static/logo/site_logo.png?h=45',
       srcset: [
-        'https://base.imgix.net/files/base/acbm/gip/image/static/logo/site_logo.png?h=90 2x',
+        'https://img.greenindustrypros.com/files/base/acbm/gip/image/static/logo/site_logo.png?h=90 2x',
       ],
     },
     footer: {
-      src: 'https://base.imgix.net/files/base/acbm/gip/image/static/logo/site_logo.png?h=60',
+      src: 'https://img.greenindustrypros.com/files/base/acbm/gip/image/static/logo/site_logo.png?h=60',
       srcset: [
-        'https://base.imgix.net/files/base/acbm/gip/image/static/logo/site_logo.png?h=120 2x',
+        'https://img.greenindustrypros.com/files/base/acbm/gip/image/static/logo/site_logo.png?h=120 2x',
       ],
     },
   },
@@ -25,6 +27,9 @@ module.exports = {
   gtm: {
     containerId: 'GTM-T2K6NQQ',
   },
+  gcse: {
+    id: '017383739850048358259:WMX-939532962',
+  },
   wufoo: {
     userName: '<NOT SET>',
   },
@@ -34,7 +39,7 @@ module.exports = {
   contactUs: {
     branding: {
       bgColor: '#164f77',
-      logo: 'https://base.imgix.net/files/base/acbm/gip/image/static/logo/site_logo.png?h=60',
+      logo: 'https://img.greenindustrypros.com/files/base/acbm/gip/image/static/logo/site_logo.png?h=60',
     },
     to: 'nraether@acbusinessmedia.com',
   },
@@ -44,7 +49,7 @@ module.exports = {
     sendTo: 'nraether@acbusinessmedia.com',
     sendFrom: 'GreenIndustryPros.com <noreply@baseplatform.io>',
     sendBcc: 'emailactivity@cygnus.com',
-    logo: 'https://base.imgix.net/files/base/acbm/gip/image/static/logo/site_logo.png?h=60',
+    logo: 'https://img.greenindustrypros.com/files/base/acbm/gip/image/static/logo/site_logo.png?h=60',
     bgColor: '#164f77',
   },
 };
