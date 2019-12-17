@@ -22,3 +22,15 @@ $theme-site-header-breakpoints: (
 $website-section-colors: ();
 
 @import "../../node_modules/@ac-business-media/refresh-theme/scss/theme";
+
+.site-navbar {
+  $self: &;
+
+  &--primary {
+    #{ $self } {
+      &__link--active {
+        color: $primary;
+      }
+    }
+  }
+}
