@@ -1,6 +1,6 @@
 const { withWebsiteSection } = require('@base-cms/marko-web/middleware');
-const home = require('../templates/index');
-const queryFragment = require('../graphql/fragments/website-section-page');
+const home = require('@ac-business-media/refresh-theme/templates/index');
+const queryFragment = require('@ac-business-media/refresh-theme/graphql/fragments/website-section-page');
 
 module.exports = (app) => {
   app.get('/', withWebsiteSection({
