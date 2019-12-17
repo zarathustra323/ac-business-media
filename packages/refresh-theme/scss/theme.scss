@@ -323,6 +323,7 @@ $theme-item-footer-font-size: 12px !default;
 
 .page-contents {
   &__content-body {
+    margin-bottom: $block-spacer;
     ul {
       padding-left: $grid-gutter-width;
     }
