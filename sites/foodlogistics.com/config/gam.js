@@ -10,7 +10,6 @@ module.exports = {
         rail2: 'FLOG_MR',
         'infinite-rail': 'FLOG_MR',
         'infinite-interstitial': 'FLOG_MR',
-        'load-more': 'FLOG_HP',
         reskin: 'FLOG_Reskin',
         wa: 'FLOG_WA',
       },

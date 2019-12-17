@@ -49,7 +49,6 @@ module.exports = ({
     rail2: 'RAIL2',
     'infinite-rail': 'INFINITE-RAIL',
     'infinite-interstitial': 'INFINITE-INTERSTITIAL',
-    'load-more': 'RAIL1',
     reskin: undefined,
     wa: undefined,
   };
