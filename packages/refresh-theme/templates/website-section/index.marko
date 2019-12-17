@@ -110,15 +110,7 @@ $ const adSlots = ({ aliases }) => ({
                 name="website-scheduled-content"
                 params={ sectionId: id, limit: 12, skip: 15, requiresImage: true, queryFragment }
               >
-                <refresh-theme-content-list-flow
-                  nodes=nodes
-                  inner-justified=false
-                  modifiers=["padding-large"]
-                >
-                  <@node image-position="left" with-attribution=true with-teaser=true>
-                    <@image use-placeholder=false ar="16:9" width=288 />
-                  </@node>
-                </refresh-theme-content-list-flow>
+                <refresh-theme-latest-content-list-flow nodes=nodes with-header=false />
               </marko-web-query>
 
               <refresh-theme-latest-content-load-more-block max-pages=4>
