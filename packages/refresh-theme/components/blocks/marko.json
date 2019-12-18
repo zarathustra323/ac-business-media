@@ -16,8 +16,8 @@
     "template": "./featured-videos.marko",
     "@section-id": "number"
   },
-  "<refresh-theme-editors-picks-block>": {
-    "template": "./editors-picks.marko",
+  "<refresh-theme-recommended-block>": {
+    "template": "./recommended.marko",
     "@skip": "number"
   },
   "<refresh-theme-related-content-block>": {
