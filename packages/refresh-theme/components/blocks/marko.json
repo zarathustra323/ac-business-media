@@ -35,5 +35,16 @@
   },
   "<refresh-theme-magazine-publications-block>": {
     "template": "./magazine-publications.marko"
+  },
+  "<refresh-theme-latest-in-section-block>": {
+    "template": "./latest-in-section.marko",
+    "<native-x>": {
+      "@index": "number",
+      "@name": "string",
+      "@aliases": "array"
+    },
+    "@content-id": "number",
+    "@section-id": "number",
+    "@section-name": "string"
   }
 }
