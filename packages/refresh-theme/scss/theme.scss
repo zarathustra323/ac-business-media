@@ -350,6 +350,8 @@ $theme-item-footer-font-size: 12px !default;
 }
 
 .node {
+  $image-border: 1px solid rgba(239, 239, 239, .9);
+  $self: &;
   &__title {
     padding-bottom: 18px;
     &--small {
@@ -363,6 +365,18 @@ $theme-item-footer-font-size: 12px !default;
 
   &__footer-left:not(:empty) + &__footer-right {
     margin-left: .25rem;
+  }
+
+  &__image-inner-wrapper--fluid-16by9 {
+    #{ $self } {
+      &__image {
+        border: $image-border;
+      }
+    }
+  }
+
+  &__image {
+    border: $image-border;
   }
 }
 
