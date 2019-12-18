@@ -112,6 +112,10 @@ $ const displayPublishedDate = ["event", "webinar"].includes(type) ? false : tru
               <if(type === "product")>
                 <!-- <website-inquiry-form content=content /> -->
               </if>
+
+              <refresh-theme-related-content-block
+                content-id=id
+              />
             </default-theme-page-contents>
             <aside class="col-lg-4 page-rail">
               <marko-web-gam-display-ad
