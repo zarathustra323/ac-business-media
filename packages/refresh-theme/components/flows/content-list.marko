@@ -8,8 +8,8 @@ $ const nativeX = getAsObject(input, "nativeX");
 <marko-web-node-list
   inner-justified=defaultValue(input.innerJustified, true)
   class=input.class
-  flush-x=true
-  flush-y=true
+  flush-x=defaultValue(input.flushX, true)
+  flush-y=defaultValue(input.flushY, true)
   modifiers=input.modifiers
   header=input.header
 >

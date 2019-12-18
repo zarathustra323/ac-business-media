@@ -23,6 +23,8 @@
     },
     "@nodes": "array",
     "@inner-justified": "boolean",
+    "@flush-x": "boolean",
+    "@flush-y": "boolean",
     "@class": "string",
     "@modifiers": "array"
   },
