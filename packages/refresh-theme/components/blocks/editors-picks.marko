@@ -1,18 +1,17 @@
 import queryFragment from "../../graphql/fragments/content-list";
 
 $ const params = {
-  sectionId: input.sectionId,
-  optionName: "Pinned",
-  excludeContentTypes: ["Company"],
+  sectionAlias: "home",
+  optionName: "Recommended",
   limit: 3,
   skip: input.skip,
   requiresImage: true,
   queryFragment,
 }
 
-<marko-web-query|{ nodes }| name="website-optioned-content" params=params>
+<marko-web-query|{ nodes }| name="website-scheduled-content" params=params>
   <marko-web-node-list collapsible=false>
-    <@header modifiers=["padding-y"]>Editor's Picks</@header>
+    <@header modifiers=["padding-y"]>Recommended</@header>
   </marko-web-node-list>
   <default-theme-card-deck-flow cols=3 nodes=nodes>
     <@slot|{ node }|>

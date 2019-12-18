@@ -18,7 +18,6 @@
   },
   "<refresh-theme-editors-picks-block>": {
     "template": "./editors-picks.marko",
-    "@section-id": "number",
     "@skip": "number"
   },
   "<refresh-theme-related-content-block>": {
