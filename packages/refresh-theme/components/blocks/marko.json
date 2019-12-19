@@ -4,6 +4,11 @@
     "<query>": {},
     "<page>": {},
     "<adunit>": {},
+    "<native-x>": {
+      "@index": "number",
+      "@name": "string",
+      "@aliases": "array"
+    },
     "@max-pages": "number"
   },
   "<refresh-theme-follow-us-block>": {
