@@ -2,6 +2,9 @@ const newrelic = require('newrelic');
 const { startServer } = require('@base-cms/marko-web');
 const { set, get, getAsObject } = require('@base-cms/object-path');
 const cleanResponse = require('@base-cms/marko-core/middleware/clean-marko-response');
+const contactUsHandler = require('@ac-business-media/package-common/contact-us');
+const loadInquiry = require('@ac-business-media/package-inquiry/load-from-config');
+
 const buildGAMConfig = require('./gam/build-config');
 const buildNativeXConfig = require('./native-x/build-config');
 
@@ -9,12 +12,22 @@ const document = require('./components/document');
 const components = require('./components');
 const fragments = require('./fragments');
 
+const routes = siteRoutes => (app) => {
+  // Handle submissions on /__inquiry
+  loadInquiry(app);
+  // Handle contact submissions on /__contact-us
+  contactUsHandler(app);
+  // Load site routes.
+  siteRoutes(app);
+};
+
 module.exports = (options = {}) => {
   const { onStart } = options;
   const gamConfig = get(options, 'siteConfig.gam');
   const nativeXConfig = getAsObject(options, 'siteConfig.nativeX');
   return startServer({
     ...options,
+    routes: routes(options.routes),
     document: options.document || document,
     components: options.components || components,
     fragments: options.fragments || fragments,
