@@ -1,7 +1,7 @@
 import { getAsArray, getAsObject } from "@base-cms/object-path";
 import defaultValue from "@base-cms/marko-core/utils/default-value";
-<!-- import nxConfig from "../../../config/native-x"; -->
 
+$ const { nativeX: nxConfig } = out.global;
 $ const nodes = getAsArray(input, "nodes");
 $ const nativeX = getAsObject(input, "nativeX");
 
@@ -15,11 +15,7 @@ $ const nativeX = getAsObject(input, "nativeX");
 >
   <@nodes nodes=nodes>
     <@slot|{ node, index }|>
-      <refresh-theme-content-list-node
-        ...input.node
-        node=node
-      />
-      <!-- <marko-web-native-x-render|{ node: nxNode, linkAttrs, containerAttrs }|
+      <marko-web-native-x-render|{ node: nxNode, linkAttrs, containerAttrs }|
         ...nativeX
         when=(index === nativeX.index)
         node=node
@@ -31,7 +27,7 @@ $ const nativeX = getAsObject(input, "nativeX");
           attrs=containerAttrs
           link-attrs=linkAttrs
         />
-      </marko-web-native-x-render> -->
+      </marko-web-native-x-render>
     </@slot>
   </@nodes>
 </marko-web-node-list>
