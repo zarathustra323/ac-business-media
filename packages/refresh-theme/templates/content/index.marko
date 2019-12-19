@@ -14,12 +14,12 @@ $ const adSlots = ({ aliases }) => ({
 });
 $ const displayPrimaryImage = ["whitepaper", "media-gallery"].includes(type) ? false : true;
 $ const displayPublishedDate = ["event", "webinar", "company", "contact"].includes(type) ? false : true;
-$ const displayRecommended = ["company", "contact"].includes(type) ? false : true;
+$ const displayRecommended = ["company", "product", "contact"].includes(type) ? false : true;
 $ const displayInquiry = ["company", "product"].includes(type) ? true : false;
 $ const displayCompanyImage = ["product", "press-release"].includes(type) ? true : false;
 $ const isShortForm = ["contact"].includes(type) ? true : false;
 $ const injectAds = ["article", "news", "press-release", "blog"].includes(type) ? true : false;
-
+<!-- @todo change recommended to be more from company on product pages -->
 <marko-web-content-page-layout id=id type=type>
   <@head>
     <marko-web-gtm-content-context|{ context }| id=id>
