@@ -1,0 +1,55 @@
+import defaultValue from "@base-cms/marko-core/utils/default-value";
+import queryFragment from "../../graphql/fragments/content-list";
+
+$ const { GAM } = out.global;
+
+$ const {
+  id,
+  type,
+  name,
+  sectionId,
+  aliases
+} = input;
+$ const limit = defaultValue(input.limit, 12);
+$ const skip = defaultValue(input.skip, 0);
+
+$ const createAttrs = () => {
+  if (type === "company") {
+    return {
+      header: `More from ${name}`,
+      queryName: "all-company-content",
+      queryParams: { companyId: id, limit, skip, queryFragment },
+    };
+  }
+  return {
+    header: "Latest",
+    queryName: "website-scheduled-content",
+    queryParams: { sectionId, excludeContentIds: [id], limit, skip, queryFragment },
+  };
+};
+$ const attrs = createAttrs();
+$ const loadMoreQueryParams = { ...attrs.queryParams, skip: limit + skip };
+
+<marko-web-query|{ nodes }|
+  name=attrs.queryName
+  params=attrs.queryParams
+>
+  <refresh-theme-latest-content-list-flow
+    nodes=nodes
+    with-header=true
+    header=attrs.header
+  />
+</marko-web-query>
+
+<refresh-theme-latest-content-load-more-block max-pages=4>
+  <@query
+    name=attrs.queryName
+    params=loadMoreQueryParams
+  />
+  <@page for="content" id=id type=type />
+  <@adunit
+    ...GAM.getAdUnit({ name: "infinite-interstitial", aliases })
+    modifiers=["max-width-300", "margin-auto-x"]
+  />
+  <@native-x index=0 name="default" aliases=aliases />
+</refresh-theme-latest-content-load-more-block>
