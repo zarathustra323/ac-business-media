@@ -1,0 +1,15 @@
+import { getAsObject } from "@base-cms/object-path";
+
+$ const content = getAsObject(input, "node");
+
+$ const blockName = "inquiry-form";
+
+<marko-web-block name=blockName>
+  <marko-web-element name="header" block-name=blockName>
+    Request More Information
+  </marko-web-element>
+  <marko-web-element name="description" block-name=blockName>
+    Fill out the form below to request more information about <marko-web-content-name tag="span" block-name=blockName obj=content />
+  </marko-web-element>
+  <marko-web-browser-component name="InquiryForm" props={ contentId: content.id, content: content }/>
+</marko-web-block>
