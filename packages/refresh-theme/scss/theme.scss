@@ -573,3 +573,17 @@ $theme-related-content-border-color: #dee2e6;
     padding-left: 0;
   }
 }
+
+.follow-us {
+  &__icons {
+    padding-bottom: 20px;
+    @include marko-web-node-list-border(border-bottom);
+
+    > a {
+      margin-right: 15px;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
