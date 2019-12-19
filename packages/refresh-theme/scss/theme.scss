@@ -403,6 +403,28 @@ $theme-related-content-border-color: #dee2e6;
   &--related-content {
     background-color: $theme-related-content-bg-color;
   }
+
+  &--image-left {
+    @include media-breakpoint-down(xs) {
+      #{ $self } {
+        &__image-wrapper + #{ $self }__body {
+          margin-top: $marko-web-node-spacer * 2;
+          margin-left: 0;
+        }
+        &__body {
+          &--overlay {
+            margin-top: 0;
+          }
+        }
+        &__contents {
+          flex-direction: column;
+          &--body {
+            flex-direction: column;
+          }
+        }
+      }
+    }
+  }
 }
 
 .node-list {
