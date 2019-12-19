@@ -27,6 +27,14 @@ module.exports = ({
     })
     .setTemplate('RAIL1', { size: [[300, 250]] })
     .setTemplate('RAIL2', { size: [[300, 600]] })
+    .setTemplate('IN-CONTENT', {
+      size: [[300, 250], [300, 600]],
+      sizeMapping: [
+        { viewport: [992, 0], size: [] },
+        { viewport: [576, 0], size: [[300, 250], [300, 600]] },
+        { viewport: [300, 0], size: [[300, 250]] },
+      ],
+    })
     .setTemplate('INFINITE-RAIL', {
       size: [[300, 250], [300, 600]],
       sizeMapping: [
@@ -49,6 +57,7 @@ module.exports = ({
     rail2: 'RAIL2',
     'infinite-rail': 'INFINITE-RAIL',
     'infinite-interstitial': 'INFINITE-INTERSTITIAL',
+    'in-content': 'IN-CONTENT',
     reskin: undefined,
     wa: undefined,
   };

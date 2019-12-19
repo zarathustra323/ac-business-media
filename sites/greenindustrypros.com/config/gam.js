@@ -10,6 +10,7 @@ module.exports = {
         rail2: 'GIP_MR',
         'infinite-rail': 'GIP_MR',
         'infinite-interstitial': 'GIP_MR',
+        'in-content': 'GIP_MR',
         reskin: 'GIP_Reskin',
         wa: 'GIP_WA',
       },

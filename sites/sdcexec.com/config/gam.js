@@ -10,6 +10,7 @@ module.exports = {
         rail2: 'SDC_MR',
         'infinite-rail': 'SDC_MR',
         'infinite-interstitial': 'SDC_MR',
+        'in-content': 'SDC_MR',
         reskin: 'SDC_Reskin',
         wa: 'SDC_WA',
       },
