@@ -849,10 +849,10 @@
     "@base-cms/utils" "^1.0.0"
     node-fetch "^2.6.0"
 
-"@base-cms/marko-web-theme-default@^1.6.4":
-  version "1.6.4"
-  resolved "https://registry.yarnpkg.com/@base-cms/marko-web-theme-default/-/marko-web-theme-default-1.6.4.tgz#1b21af1fce0ad0013be72b8ec669cb475dbb08cf"
-  integrity sha512-7CVbl8Q4VHGgh7bU8WfB9VB6ydZLJxIE2jKANO1dF1GrHK7+54/QCiHmNPy022HoBietNUBriEJZ1BbqC3VV/A==
+"@base-cms/marko-web-theme-default@^1.6.7":
+  version "1.6.7"
+  resolved "https://registry.yarnpkg.com/@base-cms/marko-web-theme-default/-/marko-web-theme-default-1.6.7.tgz#5b1aba03d7bccb6a6f2601d6421124034a7cdbce"
+  integrity sha512-MdmrG/E6UuU1sr5FBaKOwJX+CaglOgeC7G/RlhfYEHC3epdCpx+BBkJdTv4lkGqOngiQ4apcUdZo0P41qg7E6A==
   dependencies:
     "@base-cms/marko-web-icons" "^1.0.0"
     "@base-cms/object-path" "^1.0.0"
