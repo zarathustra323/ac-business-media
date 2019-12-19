@@ -193,6 +193,12 @@ $theme-related-content-border-color: #dee2e6;
     max-width: 970px;
   }
 
+  &--in-content {
+    margin-right: auto;
+    margin-bottom: 1.25rem;
+    margin-left: auto;
+  }
+
   &--margin-auto-x {
     margin-right: auto;
     margin-left: auto;
