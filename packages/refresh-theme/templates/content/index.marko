@@ -13,10 +13,11 @@ $ const adSlots = ({ aliases }) => ({
   "gpt-ad-rail-infinite": GAM.getAdUnit({ name: "infinite-rail", aliases }),
 });
 $ const displayPrimaryImage = ["whitepaper", "media-gallery"].includes(type) ? false : true;
-$ const displayPublishedDate = ["event", "webinar", "company"].includes(type) ? false : true;
-$ const displayRecommended = ["company"].includes(type) ? false : true;
+$ const displayPublishedDate = ["event", "webinar", "company", "contact"].includes(type) ? false : true;
+$ const displayRecommended = ["company", "contact"].includes(type) ? false : true;
 $ const displayInquiry = ["company", "product"].includes(type) ? true : false;
 $ const displayCompanyImage = ["product", "press-release"].includes(type) ? true : false;
+$ const isShortForm = ["contact"].includes(type) ? true : false;
 $ const injectAds = ["article", "news", "press-release", "blog"].includes(type) ? true : false;
 
 <marko-web-content-page-layout id=id type=type>
@@ -183,11 +184,13 @@ $ const injectAds = ["article", "news", "press-release", "blog"].includes(type) 
                 <@native-x index=0 name="default" aliases=aliases />
               </refresh-theme-latest-in-section-block>
 
-              <marko-web-gam-display-ad
-                id="gpt-ad-rail2"
-                modifiers=["sticky-top", "max-width-300", "margin-auto-x-md"]
-                slots=adSlots({ aliases })
-              />
+              <if(!isShortForm)>
+                <marko-web-gam-display-ad
+                  id="gpt-ad-rail2"
+                  modifiers=["sticky-top", "max-width-300", "margin-auto-x-md"]
+                  slots=adSlots({ aliases })
+                />
+              </if>
             </aside>
           </div>
         </@section>
@@ -215,25 +218,15 @@ $ const injectAds = ["article", "news", "press-release", "blog"].includes(type) 
         <@section>
           <div class="row">
             <div class="col-lg-8 infinite-scroll-target">
-              <marko-web-query|{ nodes }|
-                name="website-scheduled-content"
-                params={ sectionId: section.id, excludeContentIds: [id], limit: 12, skip: 4, queryFragment }
-              >
-                <refresh-theme-latest-content-list-flow nodes=nodes with-header=true />
-              </marko-web-query>
-
-              <refresh-theme-latest-content-load-more-block max-pages=4>
-                <@query
-                  name="website-scheduled-content"
-                  params={ sectionId: section.id, excludeContentIds: [id], limit: 12, skip: 16, }
-                />
-                <@page for="content" id=id type=type />
-                <@adunit
-                  ...GAM.getAdUnit({ name: "infinite-interstitial", aliases })
-                  modifiers=["max-width-300", "margin-auto-x"]
-                />
-                <@native-x index=0 name="default" aliases=aliases />
-              </refresh-theme-latest-content-load-more-block>
+              <refresh-theme-content-infinite-scroll-block
+                id=id
+                type=type
+                name=content.name
+                section-id=section.id
+                aliases=aliases
+                limit=12
+                skip=(["company", "contact"].includes(type) ? 0 : 4)
+              />
             </div>
             <aside class="col-lg-4 page-rail">
               <refresh-theme-follow-us-block />
