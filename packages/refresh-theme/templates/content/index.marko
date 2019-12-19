@@ -38,7 +38,11 @@ $ const displayPublishedDate = ["event", "webinar"].includes(type) ? false : tru
         <@section>
           <div class="row">
             <div class="col">
-              <marko-web-gam-display-ad id="gpt-ad-lb1" slots=adSlots({ aliases }) />
+              <marko-web-gam-display-ad
+                id="gpt-ad-lb1"
+                slots=adSlots({ aliases })
+                modifiers=["max-width-970", "center"]
+              />
             </div>
           </div>
         </@section>
@@ -120,7 +124,7 @@ $ const displayPublishedDate = ["event", "webinar"].includes(type) ? false : tru
             <aside class="col-lg-4 page-rail">
               <marko-web-gam-display-ad
                 id="gpt-ad-rail1"
-                modifiers=["left"]
+                modifiers=["max-width-300", "margin-auto-x-md"]
                 slots=adSlots({ aliases })
               />
 
@@ -132,7 +136,7 @@ $ const displayPublishedDate = ["event", "webinar"].includes(type) ? false : tru
 
               <marko-web-gam-display-ad
                 id="gpt-ad-rail2"
-                modifiers=["sticky-top", "left"]
+                modifiers=["sticky-top", "max-width-300", "margin-auto-x-md"]
                 slots=adSlots({ aliases })
               />
             </aside>
@@ -151,7 +155,11 @@ $ const displayPublishedDate = ["event", "webinar"].includes(type) ? false : tru
         <@section>
           <div class="row">
             <div class="col">
-              <marko-web-gam-display-ad id="gpt-ad-lb2" slots=adSlots({ aliases }) />
+              <marko-web-gam-display-ad
+                id="gpt-ad-lb2"
+                slots=adSlots({ aliases })
+                modifiers=["max-width-970", "center"]
+              />
             </div>
           </div>
         </@section>
@@ -172,7 +180,10 @@ $ const displayPublishedDate = ["event", "webinar"].includes(type) ? false : tru
                   params={ sectionId: section.id, excludeContentIds: [id], limit: 12, skip: 16, }
                 />
                 <@page for="content" id=id type=type />
-                <@adunit ...GAM.getAdUnit({ name: "infinite-interstitial", aliases }) />
+                <@adunit
+                  ...GAM.getAdUnit({ name: "infinite-interstitial", aliases })
+                  modifiers=["max-width-300", "margin-auto-x"]
+                />
               </refresh-theme-latest-content-load-more-block>
             </div>
             <aside class="col-lg-4 page-rail">
@@ -180,7 +191,7 @@ $ const displayPublishedDate = ["event", "webinar"].includes(type) ? false : tru
 
               <marko-web-gam-display-ad
                 id="gpt-ad-rail-infinite"
-                modifiers=["sticky-top"]
+                modifiers=["sticky-top", "max-width-300", "margin-auto-x-md"]
                 slots=adSlots({ aliases })
               />
             </aside>

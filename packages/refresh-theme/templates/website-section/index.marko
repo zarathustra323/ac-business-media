@@ -56,7 +56,11 @@ $ const adSlots = ({ aliases }) => ({
         <@section>
           <div class="row">
             <div class="col">
-              <marko-web-gam-display-ad id="gpt-ad-lb1" slots=adSlots({ aliases }) />
+              <marko-web-gam-display-ad
+                id="gpt-ad-lb1"
+                slots=adSlots({ aliases })
+                modifiers=["max-width-970", "center"]
+              />
             </div>
           </div>
         </@section>
@@ -68,7 +72,11 @@ $ const adSlots = ({ aliases }) => ({
         <@section>
           <div class="row">
             <div class="col">
-              <marko-web-gam-display-ad id="gpt-ad-lb2" slots=adSlots({ aliases }) />
+              <marko-web-gam-display-ad
+                id="gpt-ad-lb2"
+                slots=adSlots({ aliases })
+                modifiers=["max-width-970", "center"]
+              />
             </div>
           </div>
         </@section>
@@ -88,7 +96,7 @@ $ const adSlots = ({ aliases }) => ({
 
               <marko-web-gam-display-ad
                 id="gpt-ad-rail1"
-                modifiers=["sticky-top"]
+                modifiers=["sticky-top", "max-width-300", "margin-auto-x-md"]
                 slots=adSlots({ aliases })
               />
             </aside>
@@ -98,7 +106,11 @@ $ const adSlots = ({ aliases }) => ({
         <@section>
           <div class="row">
             <div class="col">
-              <marko-web-gam-display-ad id="gpt-ad-lb3" slots=adSlots({ aliases }) />
+              <marko-web-gam-display-ad
+                id="gpt-ad-lb3"
+                slots=adSlots({ aliases })
+                modifiers=["max-width-970", "center"]
+              />
             </div>
           </div>
         </@section>
@@ -119,7 +131,10 @@ $ const adSlots = ({ aliases }) => ({
                   params={ sectionId: id, limit: 12, skip: 27, requiresImage: true }
                 />
                 <@page for="website-section" id=id />
-                <@adunit ...GAM.getAdUnit({ name: "infinite-interstitial", aliases }) />
+                <@adunit
+                  ...GAM.getAdUnit({ name: "infinite-interstitial", aliases })
+                  modifiers=["max-width-300", "margin-auto-x"]
+                />
               </refresh-theme-latest-content-load-more-block>
             </div>
 
@@ -128,7 +143,7 @@ $ const adSlots = ({ aliases }) => ({
 
               <marko-web-gam-display-ad
                 id="gpt-ad-rail-infinite"
-                modifiers=["sticky-top"]
+                modifiers=["sticky-top", "max-width-300", "margin-auto-x-md"]
                 slots=adSlots({ aliases })
               />
             </aside>

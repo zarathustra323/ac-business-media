@@ -174,17 +174,35 @@ $theme-related-content-bg-color: #f8f9fa;
 $theme-related-content-border-color: #dee2e6;
 
 .ad-container {
-  &--left {
-    text-align: left;
-  }
+  text-align: left;
 
-  &--right {
-    text-align: right;
+  &--center {
+    text-align: center;
   }
 
   &--sticky-top {
     position: sticky;
     top: calc(95px + #{$block-spacer});
+  }
+
+  &--max-width-300 {
+    max-width: 300px;
+  }
+
+  &--max-width-970 {
+    max-width: 970px;
+  }
+
+  &--margin-auto-x {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  &--margin-auto-x-md {
+    @include media-breakpoint-down(md) {
+      margin-right: auto;
+      margin-left: auto;
+    }
   }
 
   &__wrapper {
