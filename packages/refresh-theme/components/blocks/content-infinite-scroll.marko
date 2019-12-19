@@ -1,5 +1,5 @@
 import defaultValue from "@base-cms/marko-core/utils/default-value";
-import queryFragment from "../../graphql/fragments/content-list";
+import queryFragment from "../../graphql/fragments/content-latest";
 
 $ const { GAM } = out.global;
 
@@ -36,6 +36,7 @@ $ const createAttrs = () => {
 };
 $ const attrs = createAttrs();
 $ const loadMoreQueryParams = { ...attrs.queryParams, skip: limit + skip };
+$ delete loadMoreQueryParams.queryFragment;
 
 <marko-web-query|{ nodes }|
   name=attrs.queryName
