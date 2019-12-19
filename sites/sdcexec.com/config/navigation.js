@@ -24,7 +24,19 @@ module.exports = {
   },
   tertiary: {
     items: [
-      { href: '/search', label: 'Search', icon: 'search' },
+      {
+        href: 'https://acbusiness.dragonforms.com/loading.do?omedasite=SDCE_prefs_ShortForm',
+        label: 'Sign Up',
+        icon: 'mail',
+        forceLabel: true,
+        target: '_blank',
+      },
+      {
+        href: '/search',
+        label: 'Search',
+        icon: 'search',
+        forceLabel: true,
+      },
     ],
   },
   footer: {

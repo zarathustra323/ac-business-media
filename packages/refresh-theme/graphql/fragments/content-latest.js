@@ -2,7 +2,7 @@ const gql = require('graphql-tag');
 
 module.exports = gql`
 
-fragment WebsiteContentListFragment on Content {
+fragment WebsiteContentLatestFragment on Content {
   id
   type
   shortName
@@ -18,12 +18,6 @@ fragment WebsiteContentListFragment on Content {
     siteContext {
       path
     }
-  }
-  primarySection {
-    id
-    name
-    fullName
-    canonicalPath
   }
   primaryImage {
     id

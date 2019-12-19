@@ -47,5 +47,15 @@
     "@content-id": "number",
     "@section-id": "number",
     "@section-name": "string"
+  },
+  "<refresh-theme-content-infinite-scroll-block>": {
+    "template":  "./content-infinite-scroll.marko",
+    "@id": "number",
+    "@type": "string",
+    "@name": "string",
+    "@section-id": "number",
+    "@aliases": "array",
+    "@limit": "number",
+    "@skip": "number"
   }
 }

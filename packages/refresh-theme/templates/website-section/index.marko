@@ -1,5 +1,6 @@
 import hierarchyAliases from "@base-cms/marko-web/utils/hierarchy-aliases";
 import queryFragment from "../../graphql/fragments/content-list";
+import latestQueryFragment from "../../graphql/fragments/content-latest";
 
 $ const { GAM } = out.global;
 
@@ -122,7 +123,7 @@ $ const adSlots = ({ aliases }) => ({
             <div class="col-lg-8 infinite-scroll-target">
               <marko-web-query|{ nodes }|
                 name="website-scheduled-content"
-                params={ sectionId: id, limit: 12, skip: 15, requiresImage: true, queryFragment }
+                params={ sectionId: id, limit: 12, skip: 15, queryFragment: latestQueryFragment }
               >
                 <refresh-theme-latest-content-list-flow nodes=nodes with-header=false>
                   <@native-x index=0 name="default" aliases=aliases />
@@ -131,8 +132,8 @@ $ const adSlots = ({ aliases }) => ({
 
               <refresh-theme-latest-content-load-more-block max-pages=4>
                 <@query
-                  name="all-published-content"
-                  params={ sectionId: id, limit: 12, skip: 27, requiresImage: true }
+                  name="website-scheduled-content"
+                  params={ sectionId: id, limit: 12, skip: 27 }
                 />
                 <@page for="website-section" id=id />
                 <@adunit

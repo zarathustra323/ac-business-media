@@ -13,6 +13,14 @@ fragment ContentPageFragment on Content {
     siteContext {
       path
     }
+    primaryImage {
+      id
+      src
+      alt
+      caption
+      credit
+      isLogo
+    }
   }
   primarySection {
     id
