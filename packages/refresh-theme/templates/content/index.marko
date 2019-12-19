@@ -86,10 +86,10 @@ $ const injectAds = ["article", "news", "press-release", "blog"].includes(type) 
               </if>
               <else-if(displayPrimaryImage)>
                 $ const isLogo = get(content, "primaryImage.isLogo");
-                <if(isLogo)>
+                <if(isLogo || type === "contact")>
                   <marko-web-page-image
                     obj=content.primaryImage
-                    modifiers=["primary-image-inline"]
+                    modifiers=(type === "contact" ? [] : ["primary-image-inline"])
                     fluid=false
                     width=250
                   />
