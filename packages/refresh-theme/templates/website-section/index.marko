@@ -66,7 +66,9 @@ $ const adSlots = ({ aliases }) => ({
         </@section>
 
         <@section modifiers=["card-deck"]>
-          <refresh-theme-recommended-block />
+          <refresh-theme-recommended-block>
+            <@native-x index=2 name="default" aliases=aliases />
+          </refresh-theme-recommended-block>
         </@section>
 
         <@section>

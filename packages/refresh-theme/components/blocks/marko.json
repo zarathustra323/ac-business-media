@@ -18,6 +18,11 @@
   },
   "<refresh-theme-recommended-block>": {
     "template": "./recommended.marko",
+    "<native-x>": {
+      "@index": "number",
+      "@name": "string",
+      "@aliases": "array"
+    },
     "@skip": "number"
   },
   "<refresh-theme-related-content-block>": {
