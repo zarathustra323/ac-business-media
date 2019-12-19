@@ -51,19 +51,29 @@ $ const adSlots = ({ aliases }) => ({
         <@section>
           <div class="row">
             <div class="col">
-              <marko-web-gam-display-ad id="gpt-ad-lb1" slots=adSlots({ aliases }) />
+              <marko-web-gam-display-ad
+                id="gpt-ad-lb1"
+                slots=adSlots({ aliases })
+                modifiers=["max-width-970", "center"]
+              />
             </div>
           </div>
         </@section>
 
         <@section modifiers=["card-deck"]>
-          <refresh-theme-editors-picks-block section-id=id skip=6 />
+          <refresh-theme-recommended-block>
+            <@native-x index=2 name="default" aliases=aliases />
+          </refresh-theme-recommended-block>
         </@section>
 
         <@section>
           <div class="row">
             <div class="col">
-              <marko-web-gam-display-ad id="gpt-ad-lb2" slots=adSlots({ aliases }) />
+              <marko-web-gam-display-ad
+                id="gpt-ad-lb2"
+                slots=adSlots({ aliases })
+                modifiers=["max-width-970", "center"]
+              />
             </div>
           </div>
         </@section>
@@ -83,7 +93,7 @@ $ const adSlots = ({ aliases }) => ({
 
               <marko-web-gam-display-ad
                 id="gpt-ad-rail1"
-                modifiers=["sticky-top"]
+                modifiers=["sticky-top", "max-width-300", "margin-auto-x-md"]
                 slots=adSlots({ aliases })
               />
             </aside>
@@ -101,7 +111,11 @@ $ const adSlots = ({ aliases }) => ({
         <@section>
           <div class="row">
             <div class="col">
-              <marko-web-gam-display-ad id="gpt-ad-lb3" slots=adSlots({ aliases }) />
+              <marko-web-gam-display-ad
+                id="gpt-ad-lb3"
+                slots=adSlots({ aliases })
+                modifiers=["max-width-970", "center"]
+              />
             </div>
           </div>
         </@section>
@@ -113,7 +127,9 @@ $ const adSlots = ({ aliases }) => ({
                 name="all-published-content"
                 params={ excludeContentTypes: ["Company", "Contact"], limit: 12, skip: 6, requiresImage: true, queryFragment }
               >
-                <refresh-theme-latest-content-list-flow nodes=nodes with-header=false />
+                <refresh-theme-latest-content-list-flow nodes=nodes with-header=false>
+                  <@native-x index=0 name="default" aliases=aliases />
+                </refresh-theme-latest-content-list-flow>
               </marko-web-query>
 
               <refresh-theme-latest-content-load-more-block max-pages=1>
@@ -122,7 +138,11 @@ $ const adSlots = ({ aliases }) => ({
                   params={ excludeContentTypes: ["Company", "Contact"], limit: 12, skip: 18, requiresImage: true }
                 />
                 <@page for="website-section" id=id />
-                <@adunit ...GAM.getAdUnit({ name: "infinite-interstitial", aliases }) />
+                <@adunit
+                  ...GAM.getAdUnit({ name: "infinite-interstitial", aliases })
+                  modifiers=["max-width-300", "margin-auto-x"]
+                />
+                <@native-x index=0 name="default" aliases=aliases />
               </refresh-theme-latest-content-load-more-block>
             </div>
 
@@ -131,7 +151,7 @@ $ const adSlots = ({ aliases }) => ({
 
               <marko-web-gam-display-ad
                 id="gpt-ad-rail-infinite"
-                modifiers=["sticky-top"]
+                modifiers=["sticky-top", "max-width-300", "margin-auto-x-md"]
                 slots=adSlots({ aliases })
               />
             </aside>
