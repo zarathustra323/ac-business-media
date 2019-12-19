@@ -21,6 +21,13 @@ $ const createAttrs = () => {
       queryParams: { companyId: id, limit, skip, queryFragment },
     };
   }
+  if (type === "contact") {
+    return {
+      header: `More from ${name}`,
+      queryName: "all-author-content",
+      queryParams: { contactId: id, limit, skip, queryFragment },
+    };
+  }
   return {
     header: "Latest",
     queryName: "website-scheduled-content",
