@@ -127,7 +127,9 @@ $ const adSlots = ({ aliases }) => ({
                 name="all-published-content"
                 params={ excludeContentTypes: ["Company", "Contact"], limit: 12, skip: 6, requiresImage: true, queryFragment }
               >
-                <refresh-theme-latest-content-list-flow nodes=nodes with-header=false />
+                <refresh-theme-latest-content-list-flow nodes=nodes with-header=false>
+                  <@native-x index=0 name="default" aliases=aliases />
+                </refresh-theme-latest-content-list-flow>
               </marko-web-query>
 
               <refresh-theme-latest-content-load-more-block max-pages=1>
@@ -140,6 +142,7 @@ $ const adSlots = ({ aliases }) => ({
                   ...GAM.getAdUnit({ name: "infinite-interstitial", aliases })
                   modifiers=["max-width-300", "margin-auto-x"]
                 />
+                <@native-x index=0 name="default" aliases=aliases />
               </refresh-theme-latest-content-load-more-block>
             </div>
 
