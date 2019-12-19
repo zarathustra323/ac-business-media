@@ -120,6 +120,11 @@ $ const displayPublishedDate = ["event", "webinar"].includes(type) ? false : tru
               <refresh-theme-related-content-block
                 content-id=id
               />
+
+              <div
+                id="omeda-content-newsletter-block"
+                class="omeda-personalization"
+              />
             </default-theme-page-contents>
             <aside class="col-lg-4 page-rail">
               <marko-web-gam-display-ad
@@ -142,11 +147,6 @@ $ const displayPublishedDate = ["event", "webinar"].includes(type) ? false : tru
                 slots=adSlots({ aliases })
               />
             </aside>
-          </div>
-          <div class="row">
-            <div class="col">
-              <div id="omeda-content-newsletter-block" class="omeda-personalization"></div>
-            </div>
           </div>
         </@section>
 
