@@ -118,24 +118,25 @@ $ const injectAds = ["article", "news", "press-release", "blog"].includes(type) 
               $ const bodyId = `content-body-${id}`;
               <marko-web-content-body block-name=blockName obj=content attrs={ id: bodyId } />
               <if(injectAds)>
+                $ const atCount = 1750;
                 <marko-web-gam-inject-ads selector=`#${bodyId}`>
                   <@inject
-                    at=1750
+                    at=atCount
                     modifiers=["max-width-300", "in-content"]
                     ...GAM.getAdUnit({ name: "in-content", aliases })
                   />
                   <@inject
-                    at=3000
+                    at=(atCount * 2)
                     modifiers=["max-width-300", "in-content"]
                     ...GAM.getAdUnit({ name: "in-content", aliases })
                   />
                   <@inject
-                    at=4500
+                    at=(atCount * 3)
                     modifiers=["max-width-300", "in-content"]
                     ...GAM.getAdUnit({ name: "in-content", aliases })
                   />
                   <@inject
-                    at=6000
+                    at=(atCount * 4)
                     modifiers=["max-width-300", "in-content"]
                     ...GAM.getAdUnit({ name: "in-content", aliases })
                   />
