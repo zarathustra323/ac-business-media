@@ -19,6 +19,7 @@ $ const displayInquiry = ["company", "product"].includes(type) ? true : false;
 $ const displayCompanyImage = ["product", "press-release"].includes(type) ? true : false;
 $ const isShortForm = ["contact"].includes(type) ? true : false;
 $ const injectAds = ["article", "news", "press-release", "blog"].includes(type) ? true : false;
+
 <!-- @todo change recommended to be more from company on product pages -->
 <marko-web-content-page-layout id=id type=type>
   <@head>
@@ -84,6 +85,14 @@ $ const injectAds = ["article", "news", "press-release", "blog"].includes(type) 
               <if(content.embedCode)>
                 <marko-web-content-embed-code block-name=blockName obj=content />
               </if>
+              <else-if(content.type === "whitepaper")>
+                <marko-web-page-image
+                  obj=content.primaryImage
+                  modifiers=["primary-image-inline"]
+                  fluid=false
+                  width=250
+                />
+              </else-if>
               <else-if(displayPrimaryImage)>
                 $ const isLogo = get(content, "primaryImage.isLogo");
                 <if(isLogo || type === "contact")>
@@ -151,9 +160,10 @@ $ const injectAds = ["article", "news", "press-release", "blog"].includes(type) 
                 </default-theme-content-download>
               </if>
               <if(type === "webinar")>
+                $ const isUpcoming = content.startDate > Date.now();
                 <default-theme-content-link-url
                   obj=content
-                  label="Register/View"
+                  label=(isUpcoming ? "Register for Webinar" : "View Webinar")
                   target="_blank"
                 />
               </if>

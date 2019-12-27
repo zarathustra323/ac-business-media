@@ -318,7 +318,7 @@ $theme-related-content-border-color: #dee2e6;
     }
   }
   a {
-    color: $body-color;
+    color: $primary;
   }
 
   div:last-child {
@@ -355,6 +355,10 @@ $theme-related-content-border-color: #dee2e6;
     }
   }
 
+  &--primary-image-inline {
+    margin-top: 0;
+  }
+
   // @todo keep in skin
   > :last-child:not(#{ $self }__wrapper) {
     border-bottom: none;
@@ -367,6 +371,13 @@ $theme-related-content-border-color: #dee2e6;
     ul {
       padding-left: $grid-gutter-width;
     }
+
+    > p:first-child {
+      @include theme-line-height-crop($theme-page-body-line-height);
+      @include media-breakpoint-down($theme-responsive-text-breakpoint) {
+        @include theme-line-height-crop($theme-page-body-line-height-sm);
+      }
+    }
   }
 }
 
@@ -377,13 +388,44 @@ $theme-related-content-border-color: #dee2e6;
 }
 
 .node {
+  $title-spacer: 18px;
+  $title-spacer-sm: 14px;
   $image-border: 1px solid rgba(239, 239, 239, .9);
   $self: &;
+
+  &__header-left {
+    @include theme-line-height-crop($theme-item-header-line-height);
+  }
+
   &__title {
-    padding-bottom: 18px;
+    padding-bottom: $title-spacer;
     &--small {
-      font-size: 14px;
+      font-size: $title-spacer-sm;
     }
+  }
+
+  &__title + &__text--event-details {
+    margin-top: -$title-spacer;
+    margin-bottom: .5rem;
+  }
+
+  &__title--small + &__text--event-details {
+    margin-top: -$title-spacer-sm;
+  }
+
+  &__text {
+    &--event-details {
+      font-size: 14px;
+      color: $theme-item-footer-color;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__content-link-url {
+    font-weight: $font-weight-bold;
+    text-transform: uppercase;
   }
 
   &__footer {
@@ -404,6 +446,19 @@ $theme-related-content-border-color: #dee2e6;
 
   &__image {
     border: $image-border;
+  }
+
+  &__upcoming-archived {
+    font-weight: $font-weight-bold;
+    color: #444;
+    text-transform: uppercase;
+  }
+
+  &__content-start-date {
+    &::before {
+      color: $black;
+      content: "Date: ";
+    }
   }
 
   &--related-content {

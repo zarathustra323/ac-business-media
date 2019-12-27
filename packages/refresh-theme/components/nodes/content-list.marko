@@ -10,12 +10,18 @@ $ const withSection = defaultValue(input.withSection, false);
 $ const withAttribution = defaultValue(input.withAttribution, false);
 $ const withDates = defaultValue(input.withDates, true);
 
+$ const isWebinar = content.type === "webinar";
+$ const isEvent = ["event", "webinar"].includes(content.type);
+$ const isUpcoming = content.startDate > Date.now();
+
 $ const { linkAttrs } = input;
 
 <marko-web-node
   type=`${content.type}-content`
   image-position=defaultValue(input.imagePosition, "right")
+  card=defaultValue(input.card, false)
   flush=true
+  full-height=defaultValue(input.fullHeight, false)
   attrs=input.attrs
   modifiers=input.modifiers
 >
@@ -24,26 +30,63 @@ $ const { linkAttrs } = input;
       ar="1:1"
       width=75
       align="top"
+      fluid=false
       ...input.image
       src=primaryImage.src
       alt=primaryImage.alt
       is-logo=primaryImage.isLogo
-      fluid=false
       link={ href: content.siteContext.path, attrs: linkAttrs }
     />
   </if>
   <@body>
-    <if(withSection)>
+    <if(withSection || isEvent)>
       <@header>
-        <@left>
-          <marko-web-website-section-name obj=primarySection link=true />
+        <@left|{ blockName }|>
+          <if(withSection)>
+            <marko-web-website-section-name obj=primarySection link=true />
+          </if>
+          <else-if(isEvent)>
+            <marko-web-element tag="span" name="upcoming-archived" block-name=blockName>
+              <if(isUpcoming)>
+                Upcoming ${content.type}
+              </if>
+              <else>
+                Archived ${content.type}
+              </else>
+            </marko-web-element>
+          </else-if>
         </@left>
       </@header>
     </if>
     <@title tag="h5" ...input.title>
       <marko-web-content-short-name tag=null obj=content link={ attrs: linkAttrs } />
     </@title>
-    <@text modifiers=["teaser"] show=(withTeaser && content.teaser)>
+    <@text|{ blockName }|
+      modifiers=["event-details"]
+      show=(Boolean(isEvent && (content.startDate || content.endDate || content.linkUrl)))
+    >
+      <if(content.startDate || content.endDate)>
+        <div class=`${blockName}__content-event-dates`>
+          <marko-web-content-start-date tag="span" block-name=blockName obj=content />
+          <marko-web-content-end-date tag="span" block-name=blockName obj=content />
+        </div>
+      </if>
+      <if(isWebinar && content.linkUrl)>
+        <marko-web-link
+          class=`${blockName}__content-link-url`
+          href=content.linkUrl
+          title="View / Register"
+          target="_blank"
+        >
+          <if(isUpcoming)>Register</if>
+          <else>View</else>
+        </marko-web-link>
+      </if>
+    </@text>
+    <@text
+      modifiers=["teaser"]
+      show=(Boolean(withTeaser && content.teaser))
+    >
       <marko-web-content-teaser tag=null obj=content link={ attrs: linkAttrs } />
     </@text>
     <if(withAttribution || withDates)>
@@ -53,9 +96,9 @@ $ const { linkAttrs } = input;
             <attribution content=content />
           </@left>
         </if>
-        <if(withDates)>
+        <if(withDates && !isEvent)>
           <@right|{ blockName }|>
-            <dates block-name=blockName content=content />
+            <marko-web-content-published obj=content />
           </@right>
         </if>
       </@footer>

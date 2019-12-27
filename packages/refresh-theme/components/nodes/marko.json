@@ -8,6 +8,9 @@
     "@image-position": "string",
 
     "@with-teaser": "boolean",
+    "@with-section": "boolean",
+    "@with-attribution": "boolean",
+    "@with-dates": "boolean",
 
     "@modifiers": "array",
     "@attrs": "object",
@@ -20,6 +23,8 @@
     "@node": "object",
     "@display-image": "boolean",
     "@image-position": "string",
+    "@card": "boolean",
+    "@full-height": "boolean",
 
     "@with-teaser": "boolean",
     "@with-section": "boolean",

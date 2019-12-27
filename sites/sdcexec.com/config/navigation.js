@@ -70,7 +70,7 @@ module.exports = {
         { href: '/events', label: 'Events' },
         { href: '/webinars', label: 'Webinars' },
         { href: 'http://www.supplychainlearningcenter.com/', label: 'Supply Chain Learning Center', target: '_blank' },
-        { href: '/podcasts', label: 'Podcasts' },
+        { href: '/podcast', label: 'Podcasts' },
         { href: '/blogs', label: 'Blogs' },
         { href: '/multimedia', label: 'Multimedia' },
       ],
