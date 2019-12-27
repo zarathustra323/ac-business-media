@@ -19,7 +19,9 @@ $ const { linkAttrs } = input;
 <marko-web-node
   type=`${content.type}-content`
   image-position=defaultValue(input.imagePosition, "right")
+  card=defaultValue(input.card, false)
   flush=true
+  full-height=defaultValue(input.fullHeight, false)
   attrs=input.attrs
   modifiers=input.modifiers
 >
@@ -28,11 +30,11 @@ $ const { linkAttrs } = input;
       ar="1:1"
       width=75
       align="top"
+      fluid=false
       ...input.image
       src=primaryImage.src
       alt=primaryImage.alt
       is-logo=primaryImage.isLogo
-      fluid=false
       link={ href: content.siteContext.path, attrs: linkAttrs }
     />
   </if>
