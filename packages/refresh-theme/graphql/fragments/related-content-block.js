@@ -18,6 +18,7 @@ fragment WebsiteRelatedContentFragment on Content {
   }
   ... on ContentWebinar {
     startDate
+    linkUrl
   }
   ... on ContentEvent {
     startDate
