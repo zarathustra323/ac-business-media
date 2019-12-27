@@ -85,6 +85,14 @@ $ const injectAds = ["article", "news", "press-release", "blog"].includes(type) 
               <if(content.embedCode)>
                 <marko-web-content-embed-code block-name=blockName obj=content />
               </if>
+              <else-if(content.type === "whitepaper")>
+                <marko-web-page-image
+                  obj=content.primaryImage
+                  modifiers=["primary-image-inline"]
+                  fluid=false
+                  width=250
+                />
+              </else-if>
               <else-if(displayPrimaryImage)>
                 $ const isLogo = get(content, "primaryImage.isLogo");
                 <if(isLogo || type === "contact")>
