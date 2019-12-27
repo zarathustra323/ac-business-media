@@ -355,6 +355,10 @@ $theme-related-content-border-color: #dee2e6;
     }
   }
 
+  &--primary-image-inline {
+    margin-top: 0;
+  }
+
   // @todo keep in skin
   > :last-child:not(#{ $self }__wrapper) {
     border-bottom: none;
@@ -366,6 +370,13 @@ $theme-related-content-border-color: #dee2e6;
     margin-bottom: $block-spacer;
     ul {
       padding-left: $grid-gutter-width;
+    }
+
+    > p:first-child {
+      @include theme-line-height-crop($theme-page-body-line-height);
+      @include media-breakpoint-down($theme-responsive-text-breakpoint) {
+        @include theme-line-height-crop($theme-page-body-line-height-sm);
+      }
     }
   }
 }
