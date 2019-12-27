@@ -1,0 +1,13 @@
+{
+  "<refresh-theme-published-content-layout>": {
+    "template": "./published-content.marko",
+    "<query>": {
+      "@name": "string",
+      "@params": "object"
+    },
+    "@title": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
