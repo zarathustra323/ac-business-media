@@ -39,19 +39,19 @@ $ const { linkAttrs } = input;
     />
   </if>
   <@body>
-    <if(withSection || isWebinar)>
+    <if(withSection || isEvent)>
       <@header>
         <@left|{ blockName }|>
           <if(withSection)>
             <marko-web-website-section-name obj=primarySection link=true />
           </if>
-          <else-if(isWebinar)>
+          <else-if(isEvent)>
             <marko-web-element tag="span" name="upcoming-archived" block-name=blockName>
               <if(isUpcoming)>
-                Upcoming Webinar
+                Upcoming ${content.type}
               </if>
               <else>
-                Archived Webinar
+                Archived ${content.type}
               </else>
             </marko-web-element>
           </else-if>
