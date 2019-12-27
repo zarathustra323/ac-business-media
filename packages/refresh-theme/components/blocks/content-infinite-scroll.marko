@@ -12,6 +12,7 @@ $ const {
 } = input;
 $ const limit = defaultValue(input.limit, 12);
 $ const skip = defaultValue(input.skip, 0);
+$ const now = Date.now();
 
 $ const createAttrs = () => {
   if (type === "company") {
@@ -26,6 +27,34 @@ $ const createAttrs = () => {
       header: `More from ${name}`,
       queryName: "all-author-content",
       queryParams: { contactId: id, limit, skip, queryFragment },
+    };
+  }
+  if (type === "webinar") {
+    return {
+      header: "More Webinars",
+      queryName: "all-published-content",
+      queryParams: {
+        contentTypes: ["Webinar"],
+        excludeContentIds: [id],
+        sortField: "startDate",
+        sortOrder: "desc",
+        limit,
+        skip,
+        queryFragment },
+    };
+  }
+  if (type === "event") {
+    return {
+      header: "More Events",
+      queryName: "all-published-content",
+      queryParams: {
+        contentTypes: ["Event"],
+        endingAfter: now,
+        sortField: "startDate",
+        sortOrder: "asc",
+        limit,
+        skip,
+        queryFragment },
     };
   }
   return {
