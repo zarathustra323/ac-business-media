@@ -7,7 +7,7 @@ $ const { config, GAM } = out.global;
 
 $ const { title } = input;
 $ const type = "published-content";
-$ const description = defaultDescription(title, config);
+$ const description = defaultValue(input.description, defaultDescription(title, config));
 
 $ const adSlots = () => ({
   "gpt-ad-lb1": GAM.getAdUnit({ name: "lb1" }),
