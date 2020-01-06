@@ -849,6 +849,13 @@
     "@base-cms/utils" "^1.0.0"
     node-fetch "^2.6.0"
 
+"@base-cms/marko-web-social-sharing@^1.5.1":
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/@base-cms/marko-web-social-sharing/-/marko-web-social-sharing-1.5.1.tgz#2980405c1c98d3bcd7a2c3c8224e0e4a069dfb2a"
+  integrity sha512-n51wtOMvEp0WxLqHxciCl46inDgaQ88KDx9UcDW8Dx8PCZ2v1Kz/KYlBYGjSeg3oKkx/x+8Q+FJ2Gnse8Uz/vw==
+  dependencies:
+    "@base-cms/utils" "^1.0.0"
+
 "@base-cms/marko-web-theme-default@^1.6.7":
   version "1.6.7"
   resolved "https://registry.yarnpkg.com/@base-cms/marko-web-theme-default/-/marko-web-theme-default-1.6.7.tgz#5b1aba03d7bccb6a6f2601d6421124034a7cdbce"

@@ -67,7 +67,11 @@ $ const displayPublishedDate = ["event", "webinar"].includes(type) ? false : tru
         <@section modifiers=["content-page"]>
           <div class="row">
             <default-theme-page-contents|{ blockName }| class="col">
-              <marko-web-content-body block-name=blockName obj=content />
+              <marko-web-social-sharing
+                path=content.siteContext.path
+                providers=["email", "facebook", "linkedin", "twitter"]
+              />
+              <marko-web-content-body block-name=blockName obj=content class="mt-block" />
               <marko-web-content-sidebars block-name=blockName obj=content />
               <if(type === "document")>
                 <default-theme-content-download obj=content>
