@@ -37,7 +37,7 @@ module.exports = {
       ],
     },
     {
-      label: 'Resources',
+      label: 'Archives',
       items: [
         { href: '/magazine', label: 'Magazine' },
       ],
