@@ -17,6 +17,7 @@ $ const displayPublishedDate = ["event", "webinar", "company", "contact"].includ
 $ const displayRecommended = ["company", "product", "contact"].includes(type) ? false : true;
 $ const displayInquiry = ["company", "product"].includes(type) ? true : false;
 $ const displayCompanyImage = ["product", "press-release"].includes(type) ? true : false;
+$ const displaySocialShare = ["contact"].includes(type) ? false : true;
 $ const isShortForm = ["contact"].includes(type) ? true : false;
 $ const injectAds = ["article", "news", "press-release", "blog"].includes(type) ? true : false;
 
@@ -75,6 +76,13 @@ $ const injectAds = ["article", "news", "press-release", "blog"].includes(type) 
                 </default-theme-page-dates>
                 <default-theme-content-attribution obj=content />
               </div>
+
+              <if(displaySocialShare)>
+                <marko-web-social-sharing
+                  path=content.siteContext.path
+                  providers=["email", "facebook", "linkedin", "twitter"]
+                />
+              </if>
             </div>
           </div>
         </@section>
@@ -153,6 +161,12 @@ $ const injectAds = ["article", "news", "press-release", "blog"].includes(type) 
               </if>
 
               <marko-web-content-sidebars block-name=blockName obj=content />
+              <if(displaySocialShare)>
+                <marko-web-social-sharing
+                  path=content.siteContext.path
+                  providers=["email", "facebook", "linkedin", "twitter"]
+                />
+              </if>
               <if(type === "document")>
                 <default-theme-content-download obj=content>
                   <@wufoo user-name=site.get("wufoo.userName") />

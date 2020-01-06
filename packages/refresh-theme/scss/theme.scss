@@ -165,6 +165,7 @@ $theme-item-footer-font-size: 12px !default;
 
 @import "../../node_modules/@base-cms/marko-web-gam/scss/fixed-ad-bottom";
 @import "../../node_modules/@base-cms/marko-web-theme-default/scss/theme";
+@import "../../node_modules/@base-cms/marko-web-social-sharing/scss/buttons";
 // @todo this should be remove once contact us is in core
 @import "../../node_modules/@ac-business-media/package-common/scss/contact-us-form";
 @import "../../node_modules/@ac-business-media/package-common/scss/directory";
@@ -172,6 +173,11 @@ $theme-item-footer-font-size: 12px !default;
 
 $theme-related-content-bg-color: #f8f9fa;
 $theme-related-content-border-color: #dee2e6;
+
+.social-sharing {
+  margin-top: map-get($spacers, block);
+  margin-bottom: map-get($spacers, block);
+}
 
 .ad-container {
   text-align: left;
