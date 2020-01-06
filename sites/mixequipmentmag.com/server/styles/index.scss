@@ -593,3 +593,20 @@ body {
     padding-left: 0;
   }
 }
+
+.site-footer {
+  &__contact-info {
+    max-width: 400px;
+    margin-right: auto;
+    margin-left: auto;
+    color: $tan-secondary;
+
+    a {
+      color: $tan-light;
+      text-decoration: underline;
+      &:hover {
+        color: $tan-lighter;
+      }
+    }
+  }
+}

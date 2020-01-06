@@ -15,5 +15,8 @@
     },
     "<below-container>": {},
     "<foot>": {}
+  },
+  "<website-site-footer>": {
+    "template": "./site-footer.marko"
   }
 }
