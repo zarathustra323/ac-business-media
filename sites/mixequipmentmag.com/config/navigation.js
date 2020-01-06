@@ -11,7 +11,7 @@ module.exports = {
   },
   secondary: {
     items: [
-      { href: '/magazine', label: 'Magazine' },
+      { href: '/magazine/5dea77962231ca27128b45f9', label: 'Magazine' },
     ],
   },
   tertiary: {
@@ -39,7 +39,7 @@ module.exports = {
     {
       label: 'Archives',
       items: [
-        { href: '/magazine', label: 'Magazine' },
+        { href: '/magazine/5dea77962231ca27128b45f9', label: 'Magazine' },
       ],
     },
     {
