@@ -219,6 +219,7 @@ $theme-item-footer-color: $tan-dark !default;
 $theme-item-footer-font-size: 12px !default;
 
 @import "../../node_modules/@base-cms/marko-web-theme-default/scss/theme";
+@import "../../node_modules/@base-cms/marko-web-social-sharing/scss/buttons";
 // @todo this should be remove once contact us is in core
 @import "../../node_modules/@ac-business-media/package-common/scss/contact-us-form";
 
@@ -391,6 +392,14 @@ body {
   &__content-body {
     ul {
       padding-left: $grid-gutter-width;
+    }
+
+    blockquote {
+      padding: 10.5px 21px;
+      margin: 0 0 21px;
+      font-size: 18.75px;
+      color: #6f6f6f;
+      border-left: 5px solid #ddd;
     }
   }
 }
@@ -591,5 +600,51 @@ body {
     padding-right: 0;
     padding-bottom: 0;
     padding-left: 0;
+  }
+}
+
+.site-footer {
+  &__contact-info {
+    max-width: 400px;
+    margin-right: auto;
+    margin-left: auto;
+    color: $tan-secondary;
+
+    a {
+      color: $tan-light;
+      text-decoration: underline;
+      &:hover {
+        color: $tan-lighter;
+      }
+    }
+  }
+}
+
+
+
+.pullquote {
+  position: relative;
+
+  float: right;
+  width: 50%;
+  max-width: 50%;
+  padding: 12px 0 12px 12px;
+  margin: 6px 0 6px 12px;
+
+  font-size: 18.75px;
+
+  color: #6f6f6f;
+
+  &::before {
+    position: absolute;
+    left: 0;
+    z-index: -1;
+
+    font-size: 8em;
+    line-height: .6em;
+
+    color: rgb(204, 204, 204);
+
+    content: "“";
   }
 }

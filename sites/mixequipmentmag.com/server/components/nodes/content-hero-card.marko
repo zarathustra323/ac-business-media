@@ -1,8 +1,11 @@
 import { getAsObject } from "@base-cms/object-path";
+import defaultValue from "@base-cms/marko-core/utils/default-value";
 
 $ const content = getAsObject(input, "node");
 $ const primaryImage = getAsObject(content, "primaryImage");
 $ const primarySection = getAsObject(content, "primarySection");
+
+$ const withDates = defaultValue(input.withDates, false);
 
 <marko-web-node
   type=`${content.type}-content`
@@ -35,6 +38,11 @@ $ const primarySection = getAsObject(content, "primarySection");
       <@left>
         <marko-web-website-section-name obj=primarySection link=true />
       </@left>
+      <if(withDates)>
+        <@right|{ blockName }|>
+          <dates block-name=blockName content=content />
+        </@right>
+      </if>
     </@header>
   </@body>
 </marko-web-node>
