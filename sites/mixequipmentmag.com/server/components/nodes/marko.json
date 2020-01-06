@@ -1,11 +1,13 @@
 {
   "<website-content-card-node>": {
     "template": "./content-card.marko",
-    "@node": "object"
+    "@node": "object",
+    "@with-dates": "boolean"
   },
   "<website-content-hero-card-node>": {
     "template": "./content-hero-card.marko",
-    "@node": "object"
+    "@node": "object",
+    "@with-dates": "boolean"
   },
   "<website-content-list-node>": {
     "template": "./content-list.marko",
