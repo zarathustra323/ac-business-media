@@ -29,6 +29,12 @@ $ const adSlots = ({ aliases }) => ({
       <marko-web-gam-slots slots=adSlots({ aliases }) />
     </marko-web-resolve-page>
   </@head>
+  <@above-container>
+    <marko-web-resolve-page|{ data: section }| node=pageNode>
+      $ const aliases = hierarchyAliases(section);
+      <marko-web-gam-out-of-page-ad ...GAM.getAdUnit({ name: "reskin", aliases }) />
+    </marko-web-resolve-page>
+  </@above-container>
   <@page>
     <!-- Refresh sticky, right-rail infinite scroll ad -->
     <marko-web-gam-refresh-ad on="load-more-in-view" slot-id="gpt-ad-rail-infinite" />

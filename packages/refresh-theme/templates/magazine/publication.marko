@@ -7,6 +7,9 @@ $ const { id, pageNode } = data;
       <marko-web-gtm-push data=context />
     </marko-web-gtm-magazine-publication-context>
   </@head>
+  <@above-container>
+    <marko-web-gam-out-of-page-ad ...GAM.getAdUnit({ name: "reskin" }) />
+  </@above-container>
   <@page>
     <marko-web-page-wrapper class="mb-block">
       <@section>
