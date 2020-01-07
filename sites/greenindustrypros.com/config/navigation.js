@@ -6,7 +6,6 @@ module.exports = {
       { href: '/lawn-care-renovation', label: 'Lawn Care & Renovation' },
       { href: '/landscape-design-installation', label: 'Landscape Design & Installation' },
       { href: '/irrigation-water', label: 'Irrigation & Water' },
-      { href: '/tree-care', label: 'Tree Care' },
     ],
   },
   secondary: {
@@ -39,7 +38,6 @@ module.exports = {
         { href: '/lawn-care-renovation', label: 'Lawn Care & Renovation' },
         { href: '/landscape-design-installation', label: 'Landscape Design & Installation' },
         { href: '/irrigation-water', label: 'Irrigation & Water' },
-        { href: '/tree-care', label: 'Tree Care' },
       ],
     },
     {
