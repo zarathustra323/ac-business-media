@@ -427,6 +427,9 @@ $theme-related-content-border-color: #dee2e6;
         margin-bottom: 0;
       }
     }
+    &--body {
+      flex-grow: 1;
+    }
   }
 
   &__content-link-url {
