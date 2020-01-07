@@ -75,7 +75,12 @@ $ const adSlots = ({ aliases }) => ({
             <default-theme-card-deck-flow cols=3 nodes=nodes>
               <@slot|{ node }|>
                 <!-- @todo add support for promotion link text and content body -->
-                <refresh-theme-content-card-node node=node with-body=true>
+                <refresh-theme-content-card-node
+                  node=node
+                  with-body=true
+                  with-dates=false
+                  with-attribution=false
+                >
                   <@image width=340 />
                 </refresh-theme-content-card-node>
               </@slot>
