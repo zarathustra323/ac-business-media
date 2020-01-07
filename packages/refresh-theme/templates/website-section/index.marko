@@ -52,7 +52,14 @@ $ const adSlots = ({ aliases }) => ({
             <div class="col">
               <marko-web-query|{ nodes }|
                 name="website-optioned-content"
-                params={ sectionId: id, optionName: "Pinned", limit: 6, requiresImage: true, queryFragment }
+                params={
+                  sectionId: id,
+                  optionName: "Pinned",
+                  excludeContentTypes: ["Company", "Contact"],
+                  limit: 6,
+                  requiresImage: true,
+                  queryFragment,
+                }
               >
                 <refresh-theme-content-hero-flow nodes=nodes />
               </marko-web-query>
