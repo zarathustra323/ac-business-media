@@ -5,6 +5,7 @@ module.exports = {
       { href: '/lawn-care-renovation', label: 'Lawn Care & Renovation' },
       { href: '/design-installation', label: 'Design & Installation' },
       { href: '/irrigation-water', label: 'Irrigation & Water' },
+      { href: '/snow-ice-management', label: 'Snow & Ice' },
     ],
   },
   secondary: {
@@ -36,6 +37,7 @@ module.exports = {
         { href: '/lawn-care-renovation', label: 'Lawn Care & Renovation' },
         { href: '/design-installation', label: 'Design & Installation' },
         { href: '/irrigation-water', label: 'Irrigation & Water' },
+        { href: '/snow-ice-management', label: 'Snow & Ice' },
       ],
     },
     {
