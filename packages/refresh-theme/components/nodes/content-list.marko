@@ -6,11 +6,13 @@ $ const primaryImage = getAsObject(content, "primaryImage");
 $ const primarySection = getAsObject(content, "primarySection");
 
 $ const withTeaser = defaultValue(input.withTeaser, false);
+$ const withBody = defaultValue(input.withBody, false);
 $ const withSection = defaultValue(input.withSection, false);
 $ const withAttribution = defaultValue(input.withAttribution, false);
 $ const withDates = defaultValue(input.withDates, true);
 
 $ const isWebinar = content.type === "webinar";
+$ const isPromotion = content.type === "promotion";
 $ const isEvent = ["event", "webinar"].includes(content.type);
 $ const isUpcoming = content.startDate > Date.now();
 
@@ -88,6 +90,25 @@ $ const { linkAttrs } = input;
       show=(Boolean(withTeaser && content.teaser))
     >
       <marko-web-content-teaser tag=null obj=content link={ attrs: linkAttrs } />
+    </@text>
+    <@text
+      modifiers=["body"]
+      show=(Boolean(withBody && content.body))
+    >
+      <marko-web-content-body tag=null obj=content />
+    </@text>
+    <@text
+      modifiers=["promotion-link-button"]
+      show=(Boolean(isPromotion && content.linkUrl && content.linkText))
+    >
+      <marko-web-link
+        class="btn btn-primary btn-block"
+        href=content.linkUrl
+        title=content.linkText
+        target="_blank"
+      >
+        ${content.linkText}
+      </marko-web-link>
     </@text>
     <if(withAttribution || withDates)>
       <@footer>

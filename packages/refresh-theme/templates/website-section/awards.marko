@@ -1,0 +1,133 @@
+import hierarchyAliases from "@base-cms/marko-web/utils/hierarchy-aliases";
+import promotionQueryFragment from "../../graphql/fragments/content-promotion-list";
+import latestQueryFragment from "../../graphql/fragments/content-latest";
+
+$ const { GAM } = out.global;
+
+$ const {
+  id,
+  alias,
+  name,
+  pageNode
+} = data;
+
+$ const adSlots = ({ aliases }) => ({
+  "gpt-ad-lb1": GAM.getAdUnit({ name: "lb1", aliases }),
+  "gpt-ad-rail-infinite": GAM.getAdUnit({ name: "infinite-rail", aliases }),
+});
+
+<marko-web-website-section-page-layout id=id alias=alias name=name>
+  <@head>
+    <marko-web-gtm-website-section-context|{ context }| alias=alias>
+      <marko-web-gtm-push data=context />
+    </marko-web-gtm-website-section-context>
+    <marko-web-resolve-page|{ data: section }| node=pageNode>
+      $ const aliases = hierarchyAliases(section);
+      <marko-web-gam-slots slots=adSlots({ aliases }) />
+    </marko-web-resolve-page>
+  </@head>
+  <@above-container>
+    <marko-web-resolve-page|{ data: section }| node=pageNode>
+      $ const aliases = hierarchyAliases(section);
+      <marko-web-gam-out-of-page-ad ...GAM.getAdUnit({ name: "reskin", aliases }) />
+    </marko-web-resolve-page>
+  </@above-container>
+  <@page>
+    <!-- Refresh sticky, right-rail infinite scroll ad -->
+    <marko-web-gam-refresh-ad on="load-more-in-view" slot-id="gpt-ad-rail-infinite" />
+
+    <marko-web-resolve-page|{ data: section, resolved }| node=pageNode>
+      $ const aliases = hierarchyAliases(section);
+      <marko-web-page-wrapper>
+        <@section>
+          <div class="row">
+            <div class="col">
+              <marko-web-gam-display-ad
+                id="gpt-ad-lb1"
+                slots=adSlots({ aliases })
+                modifiers=["max-width-970", "center"]
+              />
+            </div>
+          </div>
+        </@section>
+
+        <@section>
+          <marko-web-node-list collapsible=false>
+            <@header tag="h1" modifiers=["website-section-title", section.alias]>
+              <marko-web-website-section-name tag=null obj=section />
+            </@header>
+          </marko-web-node-list>
+          <marko-web-website-section-description tag="p" class="page-wrapper__deck" obj=section />
+        </@section>
+
+        <@section modifiers=["card-deck"]>
+          <marko-web-query|{ nodes }|
+            name="website-scheduled-content"
+            params={
+              sectionId: id,
+              optionName: "Pinned",
+              includeContentTypes: ["Promotion"],
+              queryFragment: promotionQueryFragment,
+            }
+          >
+            <default-theme-card-deck-flow cols=3 nodes=nodes>
+              <@slot|{ node }|>
+                <refresh-theme-content-card-node
+                  node=node
+                  with-body=true
+                  with-dates=false
+                  with-attribution=false
+                >
+                  <@image width=340 />
+                </refresh-theme-content-card-node>
+              </@slot>
+            </default-theme-card-deck-flow>
+           </marko-web-query>
+        </@section>
+
+        <@section>
+          <div class="row">
+            <div class="col-lg-8 infinite-scroll-target">
+              <marko-web-query|{ nodes }|
+                name="website-scheduled-content"
+                params={
+                  sectionId: id,
+                  limit: 12,
+                  excludeContentTypes: ["Promotion"],
+                  queryFragment: latestQueryFragment,
+                }
+              >
+                <refresh-theme-latest-content-list-flow nodes=nodes with-header=false />
+              </marko-web-query>
+
+              <refresh-theme-latest-content-load-more-block max-pages=4>
+                <@query
+                  name="website-scheduled-content"
+                  params={ sectionId: id, limit: 12, skip: 12, excludeContentTypes: ["Promotion"] }
+                />
+                <@page for="website-section" id=id />
+                <@adunit
+                  ...GAM.getAdUnit({ name: "infinite-interstitial", aliases })
+                  modifiers=["max-width-300", "margin-auto-x"]
+                />
+              </refresh-theme-latest-content-load-more-block>
+            </div>
+
+            <aside class="col-lg-4 page-rail">
+              <marko-web-gam-display-ad
+                id="gpt-ad-rail-infinite"
+                modifiers=["sticky-top", "max-width-300", "margin-auto-x-md"]
+                slots=adSlots({ aliases })
+              />
+            </aside>
+          </div>
+        </@section>
+      </marko-web-page-wrapper>
+    </marko-web-resolve-page>
+  </@page>
+  <@foot>
+    <marko-web-resolve-page|{ data: section }| node=pageNode>
+      <refresh-theme-fixed-ad-bottom aliases=hierarchyAliases(section) />
+    </marko-web-resolve-page>
+  </@foot>
+</marko-web-website-section-page-layout>

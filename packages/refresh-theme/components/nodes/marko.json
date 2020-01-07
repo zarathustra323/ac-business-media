@@ -8,6 +8,7 @@
     "@image-position": "string",
 
     "@with-teaser": "boolean",
+    "@with-body": "boolean",
     "@with-section": "boolean",
     "@with-attribution": "boolean",
     "@with-dates": "boolean",
@@ -27,6 +28,7 @@
     "@full-height": "boolean",
 
     "@with-teaser": "boolean",
+    "@with-body": "boolean",
     "@with-section": "boolean",
     "@with-attribution": "boolean",
     "@with-dates": "boolean",
