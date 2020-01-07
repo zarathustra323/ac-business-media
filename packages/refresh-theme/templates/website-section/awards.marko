@@ -2,8 +2,6 @@ import hierarchyAliases from "@base-cms/marko-web/utils/hierarchy-aliases";
 import promotionQueryFragment from "../../graphql/fragments/content-promotion-list";
 import latestQueryFragment from "../../graphql/fragments/content-latest";
 
-<!-- @todo use awards specific query fragment -->
-
 $ const { GAM } = out.global;
 
 $ const {
@@ -74,7 +72,6 @@ $ const adSlots = ({ aliases }) => ({
           >
             <default-theme-card-deck-flow cols=3 nodes=nodes>
               <@slot|{ node }|>
-                <!-- @todo add support for promotion link text and content body -->
                 <refresh-theme-content-card-node
                   node=node
                   with-body=true
