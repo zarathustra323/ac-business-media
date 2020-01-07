@@ -6,6 +6,7 @@ $ const primaryImage = getAsObject(content, "primaryImage");
 $ const primarySection = getAsObject(content, "primarySection");
 
 $ const withTeaser = defaultValue(input.withTeaser, false);
+$ const withBody = defaultValue(input.withBody, false);
 $ const withSection = defaultValue(input.withSection, false);
 $ const withAttribution = defaultValue(input.withAttribution, false);
 $ const withDates = defaultValue(input.withDates, true);
@@ -88,6 +89,12 @@ $ const { linkAttrs } = input;
       show=(Boolean(withTeaser && content.teaser))
     >
       <marko-web-content-teaser tag=null obj=content link={ attrs: linkAttrs } />
+    </@text>
+    <@text
+      modifiers=["body"]
+      show=(Boolean(withBody && content.body))
+    >
+      <marko-web-content-body tag=null obj=content />
     </@text>
     <if(withAttribution || withDates)>
       <@footer>
