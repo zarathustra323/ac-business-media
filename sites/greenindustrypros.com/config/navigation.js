@@ -1,9 +1,9 @@
 module.exports = {
   primary: {
     items: [
-      { href: '/lawn-maintenance', label: 'Lawn Maintenance' },
+      { href: '/mowing-maintenance', label: 'Mowing & Maintenance' },
       { href: '/lawn-care-renovation', label: 'Lawn Care & Renovation' },
-      { href: '/landscape-design-installation', label: 'Landscape Design & Installation' },
+      { href: '/design-installation', label: 'Design & Installation' },
       { href: '/irrigation-water', label: 'Irrigation & Water' },
     ],
   },
@@ -32,9 +32,9 @@ module.exports = {
     {
       label: 'Topics',
       items: [
-        { href: '/lawn-maintenance', label: 'Lawn Maintenance' },
+        { href: '/mowing-maintenance', label: 'Mowing & Maintenance' },
         { href: '/lawn-care-renovation', label: 'Lawn Care & Renovation' },
-        { href: '/landscape-design-installation', label: 'Landscape Design & Installation' },
+        { href: '/design-installation', label: 'Design & Installation' },
         { href: '/irrigation-water', label: 'Irrigation & Water' },
       ],
     },
