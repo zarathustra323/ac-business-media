@@ -868,10 +868,10 @@
     graphql "^14.5.4"
     graphql-tag "^2.10.1"
 
-"@base-cms/marko-web@^1.6.3":
-  version "1.6.3"
-  resolved "https://registry.yarnpkg.com/@base-cms/marko-web/-/marko-web-1.6.3.tgz#c5351bb66e9b4293fd7ac286f6316b581dc033b3"
-  integrity sha512-DUDnoyd0xaqvxnK84gxfb15soLumlVJ7+WRMYNmCH4qfi3ueG6H7IfljA6v2tvtbrqb8Tofni+B1U0pJfzf1KQ==
+"@base-cms/marko-web@^1.7.1":
+  version "1.7.1"
+  resolved "https://registry.yarnpkg.com/@base-cms/marko-web/-/marko-web-1.7.1.tgz#94c9ecb841aa75ae8f203f9b3343a63f356abd0d"
+  integrity sha512-iK5/s3/YBRp6c9jqlMe7NxHgtW2OD+Wt256DwlAEIQGh1fbekjWbihmb4rQQWL4bXMIGIt0oyST2TCk6XJV/fw==
   dependencies:
     "@base-cms/embedded-media" "^1.6.3"
     "@base-cms/express-apollo" "^1.0.0"
@@ -918,10 +918,10 @@
   resolved "https://registry.yarnpkg.com/@base-cms/utils/-/utils-1.0.0.tgz#9e872c8c427ba0bbca08883a8bd8f65599eb18e6"
   integrity sha512-ExCwdJkiZa9c+QoYfHWPCrlQaIFgP+xR1N+KzbzGE0ppO0oND3VBx9seJI68HuBRqXLiPeHk2I8raCAGgn/z0g==
 
-"@base-cms/web-cli@^1.6.3":
-  version "1.6.3"
-  resolved "https://registry.yarnpkg.com/@base-cms/web-cli/-/web-cli-1.6.3.tgz#10b137986a8bd22764358f644bea75d59c0690a8"
-  integrity sha512-EBKHhBQm7wKBsz8W6dnmLFx3w6gB37UFGdgYcVOLVxe7HTQu7yXoPOHfCgN7hPPTz7vTGU06QLc3UiYNE9tckg==
+"@base-cms/web-cli@^1.7.1":
+  version "1.7.1"
+  resolved "https://registry.yarnpkg.com/@base-cms/web-cli/-/web-cli-1.7.1.tgz#1a983a983edbefb414a92a625cfec750bd7b6c75"
+  integrity sha512-yqX9AlQ0wRdQakl2BOQ922frExJvpnb0r98a17pX+J1hS5cY+KZHypKTh94MSjrGaJFTAABmYd1/cCN9fKM0kA==
   dependencies:
     "@babel/core" "^7.6.0"
     "@babel/plugin-transform-runtime" "^7.6.0"
@@ -929,7 +929,7 @@
     "@babel/runtime" "^7.6.0"
     "@babel/runtime-corejs2" "^7.6.0"
     "@base-cms/express-apollo" "^1.0.0"
-    "@base-cms/marko-web" "^1.6.3"
+    "@base-cms/marko-web" "^1.7.1"
     autoprefixer "^9.6.1"
     babel-eslint "^10.0.3"
     babel-loader "^8.0.6"
@@ -957,7 +957,7 @@
     gulp-sass "^4.0.2"
     gulp-sourcemaps "^2.6.5"
     gulp-stylelint "^9.0.0"
-    handlebars "^4.1.2"
+    handlebars "^4.6.0"
     ignore "^5.0.5"
     inquirer "^6.5.2"
     mkdirp "^0.5.1"
@@ -5726,6 +5726,17 @@ handlebars@^4.1.2:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/handlebars/-/handlebars-4.2.0.tgz#57ce8d2175b9bbb3d8b3cf3e4217b1aec8ddcb2e"
   integrity sha512-Kb4xn5Qh1cxAKvQnzNWZ512DhABzyFNmsaJf3OAkWNa4NkaqWcNI8Tao8Tasi0/F4JD9oyG0YxuFyvyR57d+Gw==
+  dependencies:
+    neo-async "^2.6.0"
+    optimist "^0.6.1"
+    source-map "^0.6.1"
+  optionalDependencies:
+    uglify-js "^3.1.4"
+
+handlebars@^4.6.0:
+  version "4.6.0"
+  resolved "https://registry.yarnpkg.com/handlebars/-/handlebars-4.6.0.tgz#33af6c3eda930d7a924f5d8f1c6d8edc3180512e"
+  integrity sha512-i1ZUP7Qp2JdkMaFon2a+b0m5geE8Z4ZTLaGkgrObkEd+OkUKyRbRWw4KxuFCoHfdETSY1yf9/574eVoNSiK7pw==
   dependencies:
     neo-async "^2.6.0"
     optimist "^0.6.1"
