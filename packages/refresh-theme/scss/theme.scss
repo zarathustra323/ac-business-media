@@ -664,6 +664,13 @@ $theme-related-content-border-color: #dee2e6;
     padding-right: 0;
     padding-left: 0;
   }
+  &__magazine-publication-description {
+    margin-top: map-get($spacers, 2);
+    margin-bottom: 0;
+    font-size: 18px;
+    font-weight: $font-weight-normal;
+    color: $gray-700;
+  }
 }
 
 .follow-us {
