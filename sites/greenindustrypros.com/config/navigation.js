@@ -18,7 +18,19 @@ module.exports = {
   },
   tertiary: {
     items: [
-      { href: '/search', label: 'Search', icon: 'search' },
+      {
+        href: 'https://acbusiness.dragonforms.com/loading.do?omedasite=ACBM_acctlookup&pub=gipros',
+        label: 'Sign Up',
+        icon: 'mail',
+        forceLabel: true,
+        target: '_blank',
+      },
+      {
+        href: '/search',
+        label: 'Search',
+        icon: 'search',
+        forceLabel: true,
+      },
     ],
   },
   footer: {
