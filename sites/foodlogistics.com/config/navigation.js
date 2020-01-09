@@ -21,6 +21,7 @@ module.exports = {
       { href: '/contact-us', label: 'Contact Us' },
       { href: '/webinars', label: 'Webinars' },
       { href: 'https://www.supplychainlearningcenter.com/', label: 'Supply Chain Learning Center', target: '_blank' },
+      { href: '/sponsored-content', label: 'Sponsored Research' },
     ],
   },
   tertiary: {
@@ -68,6 +69,7 @@ module.exports = {
       items: [
         { href: '/magazine', label: 'Magazine' },
         { href: '/awards', label: 'Awards' },
+        { href: '/sponsored-content', label: 'Sponsored Research' },
         { href: '/events', label: 'Events' },
         { href: 'https://www.supplychainnetworkmediakit.com/', label: 'Advertise', target: '_blank' },
         { href: '/contact-us', label: 'Contact Us' },

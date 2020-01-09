@@ -1,5 +1,6 @@
 const webinars = require('@ac-business-media/refresh-theme/templates/published-content/webinars');
 const podcasts = require('@ac-business-media/refresh-theme/templates/published-content/podcasts');
+const whitepapers = require('@ac-business-media/refresh-theme/templates/published-content/whitepapers');
 const blogs = require('@ac-business-media/refresh-theme/templates/published-content/blogs');
 const events = require('@ac-business-media/refresh-theme/templates/published-content/events');
 
@@ -8,4 +9,5 @@ module.exports = (app) => {
   app.get('/events', (_, res) => { res.marko(events); });
   app.get('/webinars', (_, res) => { res.marko(webinars); });
   app.get('/podcasts', (_, res) => { res.marko(podcasts); });
+  app.get('/sponsored-content', (_, res) => { res.marko(whitepapers, { title: 'Sponsored Research' }); });
 };
