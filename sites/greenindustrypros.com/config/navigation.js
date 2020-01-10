@@ -10,7 +10,6 @@ module.exports = {
   },
   secondary: {
     items: [
-      { href: '/subscribe', label: 'Subscribe' },
       { href: '/contact-us', label: 'Contact Us' },
       { href: '/magazine', label: 'Magazine' },
       { href: '/advertise', label: 'Advertise' },
@@ -64,7 +63,6 @@ module.exports = {
     {
       label: 'User Tools',
       items: [
-        { href: '/subscribe', label: 'Subscribe' },
         { href: 'https://www.landscapenetworkmediakit.com/', label: 'Advertise', target: '_blank' },
         { href: '/contact-us', label: 'Contact Us' },
         { href: '/page/privacy-policy', label: 'Privacy Policy', target: '_blank' },
