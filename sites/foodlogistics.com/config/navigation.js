@@ -1,7 +1,7 @@
 module.exports = {
   primary: {
     items: [
-      { href: '/warehousing', label: 'WHSE' },
+      { href: '/warehousing', label: 'Warehousing' },
       { href: '/transportation', label: 'Transport' },
       { href: '/technology', label: 'Tech' },
       { href: '/safety', label: 'Safety & Security' },
@@ -53,7 +53,7 @@ module.exports = {
     {
       label: 'Topics',
       items: [
-        { href: '/warehousing', label: 'WHSE' },
+        { href: '/warehousing', label: 'Warehousing' },
         { href: '/transportation', label: 'Transport' },
         { href: '/technology', label: 'Tech' },
         { href: '/safety', label: 'Safety & Security' },
