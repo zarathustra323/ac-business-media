@@ -57,7 +57,7 @@ module.exports = {
         { href: '/podcasts', label: 'Podcasts' },
         { href: '/subscribe/email', label: 'Newsletters' },
         { href: '/magazine', label: 'Magazines' },
-        { href: '/specguide', label: 'Spec Guide' },
+        // { href: '/specguide', label: 'Spec Guide' },
       ],
     },
     {
