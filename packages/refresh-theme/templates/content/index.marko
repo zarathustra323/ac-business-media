@@ -167,17 +167,17 @@ $ const injectAds = ["article", "news", "press-release", "blog"].includes(type) 
               </if>
 
               <marko-web-content-sidebars block-name=blockName obj=content />
+              <if(type === "document" || type === "whitepaper")>
+                <default-theme-content-download obj=content>
+                  <@wufoo user-name=site.get("wufoo.userName") />
+                  <@link class="btn btn-lg btn-primary" />
+                </default-theme-content-download>
+              </if>
               <if(displaySocialShare)>
                 <marko-web-social-sharing
                   path=content.siteContext.path
                   providers=["email", "facebook", "linkedin", "twitter"]
                 />
-              </if>
-              <if(type === "document")>
-                <default-theme-content-download obj=content>
-                  <@wufoo user-name=site.get("wufoo.userName") />
-                  <@link class="btn btn-lg btn-primary" />
-                </default-theme-content-download>
               </if>
               <if(type === "webinar")>
                 $ const isUpcoming = content.startDate > Date.now();

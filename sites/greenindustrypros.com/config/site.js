@@ -31,7 +31,7 @@ module.exports = {
     id: '017383739850048358259:WMX-939532962',
   },
   wufoo: {
-    userName: '<NOT SET>',
+    userName: 'acbm',
   },
   magazines: {
     description: '',
