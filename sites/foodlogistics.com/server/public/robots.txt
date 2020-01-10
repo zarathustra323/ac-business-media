@@ -4,5 +4,5 @@
 User-agent: *
 Disallow: /__load-more
 
-Sitemap: https://www.greenindustrypros.com/sitemap.xml
-Sitemap: https://www.greenindustrypros.com/sitemap-google-news.xml
+Sitemap: https://www.foodlogistics.com/sitemap.xml
+Sitemap: https://www.foodlogistics.com/sitemap-google-news.xml
