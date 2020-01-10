@@ -33,7 +33,7 @@ module.exports = {
     id: '017383739850048358259:-mlkn4aclei',
   },
   wufoo: {
-    userName: '<NOT SET>',
+    userName: 'acbm',
   },
   magazines: {
     description: '',

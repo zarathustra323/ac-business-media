@@ -2,30 +2,36 @@ import { getAsObject } from "@base-cms/object-path";
 import contentListFragment from "../../graphql/fragments/content-list";
 
 $ const { GAM } = out.global;
-
 $ const { id, pageNode } = data;
+
+$ const adSlots = {
+  "gpt-ad-lb1": GAM.getAdUnit({ name: "lb1" }),
+  "gpt-ad-rail-infinite": GAM.getAdUnit({ name: "infinite-rail" }),
+};
 
 <marko-web-magazine-issue-page-layout id=id>
   <@head>
     <marko-web-gtm-magazine-issue-context|{ context }| id=id>
       <marko-web-gtm-push data=context />
     </marko-web-gtm-magazine-issue-context>
+    <marko-web-gam-slots slots=adSlots />
   </@head>
   <@above-container>
     <marko-web-gam-out-of-page-ad ...GAM.getAdUnit({ name: "reskin" }) />
   </@above-container>
   <@page>
-    <marko-web-page-wrapper class="mb-block">
-      <@section>
-        <marko-web-gam-define-display-ad
-          ...GAM.getAdUnit({ name: "lb1" })
-          modifiers=["max-width-970", "center"]
-        />
-      </@section>
-      <@section>
-        <div class="row">
-          <div class="col">
-            <marko-web-resolve-page|{ data: issue }| node=pageNode>
+    <marko-web-resolve-page|{ data: issue }| node=pageNode>
+      <marko-web-page-wrapper class="mb-block">
+        <@section>
+          <marko-web-gam-display-ad
+            id="gpt-ad-lb1"
+            slots=adSlots
+            modifiers=["max-width-970", "center"]
+          />
+        </@section>
+        <@section>
+          <div class="row">
+            <div class="col">
               <default-theme-breadcrumbs-with-home>
                 <@item><marko-web-link href="/magazine">Magazines</marko-web-link></@item>
                 <@item><marko-web-magazine-publication-name tag=null obj=issue.publication link=true /></@item>
@@ -35,34 +41,47 @@ $ const { id, pageNode } = data;
               <if(issue.description)>
                 <p class="page-wrapper__deck">${issue.description}</p>
               </if>
-            </marko-web-resolve-page>
+            </div>
           </div>
-        </div>
-      </@section>
-    </marko-web-page-wrapper>
+        </@section>
 
-    <marko-web-resolve-page|{ data: issue }| node=pageNode>
-      <marko-web-query|{ nodes: issueContent }| name="magazine-scheduled-content" collapsible=false params={ issueId: id, limit: 5, queryFragment: contentListFragment }>
-        <default-theme-featured-flow>
-          <@featured node=issue>
-            <refresh-theme-magazine-latest-issue-node card=true flush=false node=issue />
-          </@featured>
-          <@list nodes=issueContent>
-            <refresh-theme-content-list-flow nodes=issueContent />
-          </@list>
-        </default-theme-featured-flow>
-      </marko-web-query>
+        <@section>
+          <marko-web-query|{ nodes: issueContent }| name="magazine-scheduled-content" collapsible=false params={ issueId: id, limit: 5, queryFragment: contentListFragment }>
+            <default-theme-featured-flow>
+              <@featured node=issue>
+                <refresh-theme-magazine-latest-issue-node card=true flush=true node=issue />
+              </@featured>
+              <@list nodes=issueContent>
+                <refresh-theme-content-list-flow nodes=issueContent />
+              </@list>
+            </default-theme-featured-flow>
+          </marko-web-query>
+        </@section>
+
+        <@section>
+          <div class="row">
+            <div class="col-lg-8 infinite-scroll-target">
+              <marko-web-load-more
+                append-to=".infinite-scroll-target"
+                component-name="refresh-theme-latest-content-list-flow"
+                fragment-name="content-list"
+                query-name="magazine-scheduled-content"
+                query-params={ issueId: id, limit: 10, skip: 5 }
+                page-input={ for: "magazine-issue", id }
+              />
+            </div>
+            <aside class="col-lg-4 page-rail">
+              <refresh-theme-follow-us-block />
+
+              <marko-web-gam-display-ad
+                id="gpt-ad-rail-infinite"
+                modifiers=["sticky-top", "max-width-300", "margin-auto-x-md"]
+                slots=adSlots
+              />
+            </aside>
+          </div>
+        </@section>
+      </marko-web-page-wrapper>
     </marko-web-resolve-page>
   </@page>
-  <@below-page>
-    <marko-web-resolve-page|{ data: issue }| node=pageNode>
-      <marko-web-load-more
-        component-name="refresh-theme-latest-content-list-flow"
-        fragment-name="content-list"
-        query-name="magazine-scheduled-content"
-        query-params={ issueId: id, limit: 10, skip: 5 }
-        page-input={ for: "magazine-issue", id }
-      />
-    </marko-web-resolve-page>
-  </@below-page>
 </marko-web-magazine-issue-page-layout>
