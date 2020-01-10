@@ -1,0 +1,23 @@
+$ const {
+  id,
+  alias,
+  name,
+  pageNode
+} = data;
+
+<refresh-theme-website-section-published-content-layout
+  id=id
+  alias=alias
+  name=name
+  page-node=pageNode
+>
+  <@query
+    name="all-published-content"
+    params={
+      contentTypes: ["Webinar"],
+      limit: 12,
+      sortField: "startDate",
+      sortOrder: "desc",
+    }
+  />
+</refresh-theme-website-section-published-content-layout>
