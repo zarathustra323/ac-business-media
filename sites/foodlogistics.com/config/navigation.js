@@ -80,7 +80,7 @@ module.exports = {
     {
       label: 'User Tools',
       items: [
-        { href: 'https://acbusiness.dragonforms.com/loading.do?omedasite=ACBM_acctlookup&pub=fl', label: 'Newsletters', target: '_blank' },
+        { href: 'https://acbm.dragonforms.com/loading.do?omedasite=FLOG_NL_signup', label: 'Newsletters', target: '_blank' },
         { href: '/contact-us', label: 'Contact Us' },
         { href: 'https://www.supplychainnetworkmediakit.com/', label: 'Advertise', target: '_blank' },
         { href: '/page/privacy-policy', label: 'Privacy Policy', target: '_blank' },

@@ -55,7 +55,7 @@ module.exports = {
       label: 'Resources',
       items: [
         { href: '/podcasts', label: 'Podcasts' },
-        { href: '/subscribe/email', label: 'Newsletters' },
+        { href: 'https://acbm.dragonforms.com/loading.do?omedasite=GIP_NL_signup', label: 'Newsletters', target: '_blank' },
         { href: '/magazine', label: 'Magazines' },
         // { href: '/specguide', label: 'Spec Guide' },
       ],
