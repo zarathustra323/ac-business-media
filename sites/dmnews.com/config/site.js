@@ -50,7 +50,7 @@ module.exports = {
     enabled: true,
     directSend: true,
     sendTo: 'jsage@acbusinessmedia.com',
-    sendFrom: 'OEM Off-Highway <noreply@baseplatform.io>',
+    sendFrom: 'DMNews.com <noreply@baseplatform.io>',
     sendBcc: 'emailactivity@cygnus.com',
     logo: 'https://img.dmnews.com/files/base/acbm/static/DMNLogoWhite.png?h=60',
     bgColor: '#28ace2',
