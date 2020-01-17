@@ -41,7 +41,7 @@ module.exports = {
   },
   contactUs: {
     branding: {
-      bgColor: '#ec131c',
+      bgColor: '#ed1c24',
       logo: 'https://img.oemoffhighway.com/files/base/acbm/static/OEM_Logo2019_Reversed_NoTag.png?h=60',
     },
     to: 'jsage@acbusinessmedia.com',
@@ -50,9 +50,9 @@ module.exports = {
     enabled: true,
     directSend: true,
     sendTo: 'jsage@acbusinessmedia.com',
-    sendFrom: 'Supply & Demand Chain Executive <noreply@baseplatform.io>',
+    sendFrom: 'OEM Off-Highway <noreply@baseplatform.io>',
     sendBcc: 'emailactivity@cygnus.com',
     logo: 'https://img.oemoffhighway.com/files/base/acbm/static/OEM_Logo2019_Reversed_NoTag.png?h=60',
-    bgColor: '#ec131c',
+    bgColor: '#ed1c24',
   },
 };
