@@ -1,4 +1,4 @@
-import { getAsObject } from "@base-cms/object-path";
+import { getAsObject, get } from "@base-cms/object-path";
 import defaultValue from "@base-cms/marko-core/utils/default-value";
 
 $ const content = getAsObject(input, "node");
@@ -12,9 +12,13 @@ $ const withAttribution = defaultValue(input.withAttribution, false);
 $ const withDates = defaultValue(input.withDates, true);
 
 $ const isWebinar = content.type === "webinar";
+$ const isEbook = content.type === "ebook";
 $ const isPromotion = content.type === "promotion";
 $ const isEvent = ["event", "webinar"].includes(content.type);
 $ const isUpcoming = content.startDate > Date.now();
+
+$ let aspectRatio = get(input, "image.ar", "1:1");
+$ if (isEbook) aspectRatio = "3:4";
 
 $ const { linkAttrs } = input;
 
@@ -29,14 +33,14 @@ $ const { linkAttrs } = input;
 >
   <if(defaultValue(input.displayImage, true))>
     <@image
-      ar="1:1"
       width=75
       align="top"
       fluid=false
       ...input.image
+      ar=aspectRatio
       src=primaryImage.src
       alt=primaryImage.alt
-      is-logo=primaryImage.isLogo
+      is-logo=(isEbook ? true : primaryImage.isLogo)
       link={ href: content.siteContext.path, attrs: linkAttrs }
     />
   </if>

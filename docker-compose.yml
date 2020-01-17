@@ -136,3 +136,19 @@ services:
     ports:
       - "9714:80"
       - "19714:19714"
+
+  dmnews.com:
+    <<: *node
+    <<: *site-cmd
+    working_dir: /root/sites/dmnews.com
+    environment:
+      <<: *env
+      <<: *env-caprica
+      PORT: 80
+      EXPOSED_PORT: 9715
+      LIVERELOAD_PORT: 19715
+      TENANT_KEY: acbm_dmn
+      SITE_ID: 5ab9105112fedfa38dbd63f4
+    ports:
+      - "9715:80"
+      - "19715:19715"
