@@ -63,11 +63,12 @@ module.exports = {
       label: 'Resources',
       items: [
         { href: '/market-analysis', label: 'Market Analysis' },
-        { href: '/specguide', label: 'Spec Guides' },
         { href: '/trends', label: 'Trends' },
-        { href: '/media-center', label: 'Media' },
-        { href: '/events', label: 'Events' },
-        { href: '/magazine', label: 'Magazine' },
+        { href: '/events', label: 'Industry Events' },
+        { href: '/media-center', label: 'Media Center' },
+        { href: '/specguide', label: 'Spec Guides' },
+        { href: '/media-center/whitepapers-ebooks', label: 'White Papers & eBooks' },
+        { href: '/webinars', label: 'Webinars' },
       ],
     },
     {
@@ -75,6 +76,7 @@ module.exports = {
       items: [
         { href: 'https://acbusiness.dragonforms.com/loading.do?omedasite=ACBM_acctlookup&pub=ooh', label: 'Newsletters', target: '_blank' },
         { href: 'https://www.oemoffhighwaymediakit.com/', label: 'Advertise', target: '_blank' },
+        { href: '/magazine', label: 'Current Issue' },
         { href: '/contact-us', label: 'Contact Us' },
         { href: '/page/privacy-policy', label: 'Privacy Policy', target: '_blank' },
         { href: '/page/terms-conditions', label: 'Terms & Conditions', target: '_blank' },
