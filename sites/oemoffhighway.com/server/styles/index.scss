@@ -1,4 +1,4 @@
-$primary: #e7212d;
+$primary: #ed1c24;
 $secondary: #495057;
 $light: #e9ecef;
 $dark: #212529;
@@ -20,13 +20,13 @@ $theme-site-header-breakpoints: (
 
 // Site Section Colors
 $website-section-colors: (
-  warehousing: #4b6e94,
-  transportation: #d14b2b,
-  sourcing-procurement: #2c8bad,
-  risk-compliance: #d8222a,
-  software-technology: #40bddb,
-  sustainability: #9cb52b,
-  "3pl-4pl": #cea14c,
+  engines: #029ea5,
+  drivetrains: #116baf,
+  fluid-power: #e6ad03,
+  electronics: #790000,
+  operator-cab: #ffa300,
+  engineering-manufacturing: #a6b928,
+  ifpe-conexpo: #0190ff,
 );
 
 @import "../../node_modules/@ac-business-media/refresh-theme/scss/theme";
