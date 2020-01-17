@@ -28,7 +28,7 @@ module.exports = {
     { provider: 'youtube', href: 'https://www.youtube.com/channel/UCuAwQzKyZOqJolRTNYa0ZyA', target: '_blank' },
   ],
   gtm: {
-    containerId: 'GTM-KK6K97N',
+    containerId: 'GTM-KFFMFV4',
   },
   gcse: {
     id: '017383739850048358259:xbexltkrwbk',
