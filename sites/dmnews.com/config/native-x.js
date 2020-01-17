@@ -1,13 +1,11 @@
 module.exports = {
   placements: {
-    default: '5b55e3bd2360050001b77353',
-    engines: '5b55e3d62360050001b77355',
-    drivetrains: '5b55e41bdfcd9c00010676bc',
-    'fluid-power': '5b55e92c2360050001b77357',
-    electronics: '5b56087e2a488f0001ecf2b2',
-    'operator-cab': '5b5608932a488f0001ecf2b3',
-    'engineering-manufacturing': '5b5608a62a488f0001ecf2b5',
-    'market-analysis': '5b5608b8a4ac010001bbc4ef',
-    trends: '5b5608c62a488f0001ecf2b7',
+    default: '5b5f21fe82a75700011d299d',
+    agencies: '5b5f236511624800013bf096',
+    'channel-marketing': '5b5f238811624800013bf0ca',
+    'content-marketing': '5b5f23a711624800013bf111',
+    'customer-experience': '5b5f23c182a75700011d2cde',
+    data: '5b5f23e382a75700011d2d17',
+    retail: '5b5f241711624800013bf1ed',
   },
 };
