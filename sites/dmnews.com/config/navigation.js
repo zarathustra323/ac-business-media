@@ -65,7 +65,7 @@ module.exports = {
         { href: '/ebooks', label: 'eBooks' },
         { href: '/webcast', label: 'Webcast' },
         { href: 'https://jobs.dmnews.com', label: 'Jobs', target: '_blank' },
-        { href: '/magazine/5ab986d312fedfa38dbd63f6/archive', label: 'Archives' },
+        { href: '/magazine/5ab986d312fedfa38dbd63f6', label: 'Archives' },
         { href: 'https://www.dmn40under40.com/', label: '40Under40', target: '_blank' },
         { href: 'https://www.dmnawards.com/', label: 'DMN Awards', target: '_blank' },
         { href: 'https://www.marketinghalloffemme.com/', label: 'Women in Marketing' },
