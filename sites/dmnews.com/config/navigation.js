@@ -11,13 +11,13 @@ module.exports = {
   },
   secondary: {
     items: [
-      { href: '/market-analysis', label: 'Market Analysis' },
-      { href: '/specguide', label: 'Spec Guides' },
-      { href: '/trends', label: 'Trends' },
-      { href: '/media-center', label: 'Media' },
-      { href: '/events', label: 'Events' },
-      { href: 'https://www.oemoffhighwaymediakit.com/', label: 'Advertise', target: '_blank' },
-      { href: '/magazine', label: 'Magazine' },
+      { href: '/podcast', label: 'Podcast' },
+      { href: '/ebooks', label: 'eBooks' },
+      { href: '/webcast', label: 'Webcast' },
+      { href: 'https://www.dmnewsmk.com/', label: 'Advertise', target: '_blank' },
+      { href: 'https://www.dmn40under40.com/', label: '40Under40', target: '_blank' },
+      { href: 'https://www.dmnawards.com/', label: 'DMN Awards', target: '_blank' },
+      { href: 'https://www.marketinghalloffemme.com/', label: 'Marketing Hall of Femme' },
     ],
   },
   tertiary: {
