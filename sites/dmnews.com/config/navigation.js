@@ -1,13 +1,12 @@
 module.exports = {
   primary: {
     items: [
-      { href: '/engines', label: 'Engines' },
-      { href: '/drivetrains', label: 'Drivetrains' },
-      { href: '/fluid-power', label: 'Fluid Power' },
-      { href: '/electronics', label: 'Electronics' },
-      { href: '/operator-cab', label: 'Operator Cab' },
-      { href: '/engineering-manufacturing', label: 'Engineering & Manufacturing' },
-      { href: '/ifpe-conexpo', label: 'IFPE & CONEXPO' },
+      { href: '/agencies', label: 'Agencies' },
+      { href: '/marketing-channels', label: 'Marketing Channels' },
+      { href: '/content-marketing', label: 'Content Marketing' },
+      { href: '/customer-experience', label: 'Customer Experience' },
+      { href: '/data', label: 'Data' },
+      { href: '/retail', label: 'Retail' },
     ],
   },
   secondary: {
@@ -50,13 +49,12 @@ module.exports = {
     {
       label: 'Topics',
       items: [
-        { href: '/engines', label: 'Engines' },
-        { href: '/drivetrains', label: 'Drivetrains' },
-        { href: '/fluid-power', label: 'Fluid Power' },
-        { href: '/electronics', label: 'Electronics' },
-        { href: '/operator-cab', label: 'Operator Cab' },
-        { href: '/engineering-manufacturing', label: 'Engineering & Manufacturing' },
-        { href: '/ifpe-conexpo', label: 'IFPE & CONEXPO' },
+        { href: '/agencies', label: 'Agencies' },
+        { href: '/marketing-channels', label: 'Marketing Channels' },
+        { href: '/content-marketing', label: 'Content Marketing' },
+        { href: '/customer-experience', label: 'Customer Experience' },
+        { href: '/data', label: 'Data' },
+        { href: '/retail', label: 'Retail' },
       ],
     },
     {
