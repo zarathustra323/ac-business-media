@@ -28,7 +28,7 @@ module.exports = {
     { provider: 'instagram', href: 'https://www.instagram.com/dmn_marketing/', target: '_blank' },
   ],
   gtm: {
-    containerId: 'GTM-KFFMFV4',
+    containerId: 'GTM-M4ZFPK7',
   },
   gcse: {
     id: '017383739850048358259:aj4j1qbs7ai',
