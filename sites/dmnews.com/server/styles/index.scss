@@ -18,15 +18,4 @@ $theme-site-header-breakpoints: (
   small-text-secondary: 0
 );
 
-// Site Section Colors
-$website-section-colors: (
-  engines: #029ea5,
-  drivetrains: #116baf,
-  fluid-power: #e6ad03,
-  electronics: #a14d4d,
-  operator-cab: #ffa300,
-  engineering-manufacturing: #a6b928,
-  ifpe-conexpo: #0190ff,
-);
-
 @import "../../node_modules/@ac-business-media/refresh-theme/scss/theme";
