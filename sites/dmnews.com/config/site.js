@@ -41,7 +41,7 @@ module.exports = {
   },
   contactUs: {
     branding: {
-      bgColor: '#ed1c24',
+      bgColor: '#28ace2',
       logo: 'https://img.oemoffhighway.com/files/base/acbm/static/OEM_Logo2019_Reversed_NoTag.png?h=60',
     },
     to: 'jsage@acbusinessmedia.com',
@@ -53,6 +53,6 @@ module.exports = {
     sendFrom: 'OEM Off-Highway <noreply@baseplatform.io>',
     sendBcc: 'emailactivity@cygnus.com',
     logo: 'https://img.oemoffhighway.com/files/base/acbm/static/OEM_Logo2019_Reversed_NoTag.png?h=60',
-    bgColor: '#ed1c24',
+    bgColor: '#28ace2',
   },
 };
