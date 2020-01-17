@@ -5,5 +5,5 @@ User-agent: *
 Disallow: /
 Disallow: /__load-more
 
-Sitemap: https://www.oemoffhighway.com/sitemap.xml
-Sitemap: https://www.oemoffhighway.com/sitemap-google-news.xml
+Sitemap: https://www.dmnews.com/sitemap.xml
+Sitemap: https://www.dmnews.com/sitemap-google-news.xml
