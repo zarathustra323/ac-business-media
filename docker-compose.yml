@@ -120,3 +120,19 @@ services:
     ports:
       - "9713:80"
       - "19713:19713"
+
+  oemoffhighway.com:
+    <<: *node
+    <<: *site-cmd
+    working_dir: /root/sites/oemoffhighway.com
+    environment:
+      <<: *env
+      <<: *env-caprica
+      PORT: 80
+      EXPOSED_PORT: 9714
+      LIVERELOAD_PORT: 19714
+      TENANT_KEY: acbm_ooh
+      SITE_ID: 54b5a261c99db54158ed0fc9
+    ports:
+      - "9714:80"
+      - "19714:19714"
