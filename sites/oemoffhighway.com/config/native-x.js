@@ -1,13 +1,13 @@
 module.exports = {
   placements: {
-    default: '5b560a22a4ac010001bbc500',
-    warehousing: '5b560978a4ac010001bbc4f9',
-    transport: '5b5609832a488f0001ecf2c3',
-    procurement: '5b56098f2a488f0001ecf2c5',
-    'risk-compliance': '5b5609a62a488f0001ecf2c7',
-    technology: '5b5609b52a488f0001ecf2c8',
-    sustainability: '5b5609c6a4ac010001bbc4fc',
-    '3pl-4pl': '5b5609e22a488f0001ecf2c9',
-    'professional-development': '5b5609ee2a488f0001ecf2ca',
+    default: '5b55e3bd2360050001b77353',
+    engines: '5b55e3d62360050001b77355',
+    drivetrains: '5b55e41bdfcd9c00010676bc',
+    'fluid-power': '5b55e92c2360050001b77357',
+    electronics: '5b56087e2a488f0001ecf2b2',
+    'operator-cab': '5b5608932a488f0001ecf2b3',
+    'engineering-manufacturing': '5b5608a62a488f0001ecf2b5',
+    'market-analysis': '5b5608b8a4ac010001bbc4ef',
+    trends: '5b5608c62a488f0001ecf2b7',
   },
 };
