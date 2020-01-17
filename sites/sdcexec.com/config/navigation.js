@@ -78,7 +78,7 @@ module.exports = {
     {
       label: 'User Tools',
       items: [
-        { href: 'ttps://acbm.dragonforms.com/loading.do?omedasite=SDCE_NL_signup', label: 'Newsletters', target: '_blank' },
+        { href: 'https://acbm.dragonforms.com/loading.do?omedasite=SDCE_NL_signup', label: 'Newsletters', target: '_blank' },
         { href: 'http://www.supplychainnetworkmediakit.com/', label: 'Advertise', target: '_blank' },
         { href: '/contact-us', label: 'Contact Us' },
         { href: '/page/privacy-policy', label: 'Privacy Policy', target: '_blank' },
