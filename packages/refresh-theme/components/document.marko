@@ -15,6 +15,8 @@ $ const { site, req, nativeX } = out.global;
     <marko-web-gam-targeting key-values={ uri: req.path } />
   </@head>
   <@above-container>
+    <marko-web-browser-component name="TriggerScreenChangeEvent" />
+    <marko-web-gtm-track-bus-event on="screen_change" />
     <marko-web-gtm-track-load-more />
     <default-theme-site-header />
     <default-theme-site-menu />
