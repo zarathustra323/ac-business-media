@@ -71,6 +71,7 @@ module.exports = {
         { href: '/awards', label: 'Awards' },
         { href: '/sponsored-content', label: 'Sponsored Research' },
         { href: '/blogs', label: 'Expert Columnists' },
+        { href: '/case-studies', label: 'Case Studies' },
         { href: '/events', label: 'Events' },
         { href: 'https://www.supplychainnetworkmediakit.com/', label: 'Advertise', target: '_blank' },
         { href: '/contact-us', label: 'Contact Us' },
