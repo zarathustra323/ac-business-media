@@ -1,8 +1,10 @@
 const navigation = require('./navigation');
 const gam = require('./gam');
+const nativeX = require('./native-x');
 
 module.exports = {
   gam,
+  nativeX,
   navigation,
   company: 'AC Business Media, LLC',
   logos: {
