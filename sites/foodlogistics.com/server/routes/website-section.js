@@ -8,6 +8,7 @@ const webinars = require('@ac-business-media/refresh-theme/templates/website-sec
 const whitepapers = require('@ac-business-media/refresh-theme/templates/website-section/whitepapers');
 const contactUs = require('@ac-business-media/refresh-theme/templates/website-section/contact-us');
 const queryFragment = require('@ac-business-media/refresh-theme/graphql/fragments/website-section-page');
+const caseStudies = require('../templates/website-section/case-studies');
 
 module.exports = (app) => {
   app.get('/:alias(contact-us)', withWebsiteSection({
@@ -36,6 +37,10 @@ module.exports = (app) => {
   }));
   app.get('/:alias(sponsored-content)', withWebsiteSection({
     template: whitepapers,
+    queryFragment,
+  }));
+  app.get('/:alias(case-studies)', withWebsiteSection({
+    template: caseStudies,
     queryFragment,
   }));
   app.get('/:alias([a-z0-9-/]+)', withWebsiteSection({
