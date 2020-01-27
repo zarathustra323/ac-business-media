@@ -3,6 +3,7 @@ const section = require('@ac-business-media/refresh-theme/templates/website-sect
 const awards = require('@ac-business-media/refresh-theme/templates/website-section/awards');
 const blogs = require('@ac-business-media/refresh-theme/templates/website-section/blogs');
 const events = require('@ac-business-media/refresh-theme/templates/website-section/events');
+const feed = require('@ac-business-media/refresh-theme/templates/website-section/feed');
 const podcasts = require('@ac-business-media/refresh-theme/templates/website-section/podcasts');
 const webinars = require('@ac-business-media/refresh-theme/templates/website-section/webinars');
 const whitepapers = require('@ac-business-media/refresh-theme/templates/website-section/whitepapers');
@@ -36,6 +37,10 @@ module.exports = (app) => {
   }));
   app.get('/:alias(sponsored-content)', withWebsiteSection({
     template: whitepapers,
+    queryFragment,
+  }));
+  app.get('/:alias(case-studies)', withWebsiteSection({
+    template: feed,
     queryFragment,
   }));
   app.get('/:alias([a-z0-9-/]+)', withWebsiteSection({
