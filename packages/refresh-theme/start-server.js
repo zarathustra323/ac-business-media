@@ -4,6 +4,7 @@ const { set, get, getAsObject } = require('@base-cms/object-path');
 const cleanResponse = require('@base-cms/marko-core/middleware/clean-marko-response');
 const contactUsHandler = require('@ac-business-media/package-common/contact-us');
 const loadInquiry = require('@ac-business-media/package-inquiry/load-from-config');
+const sharedRedirectHandler = require('./redirect-handler');
 
 const buildGAMConfig = require('./gam/build-config');
 const buildNativeXConfig = require('./native-x/build-config');
@@ -22,7 +23,7 @@ const routes = siteRoutes => (app) => {
 };
 
 module.exports = (options = {}) => {
-  const { onStart } = options;
+  const { onStart, redirectHandler } = options;
   const gamConfig = get(options, 'siteConfig.gam');
   const nativeXConfig = getAsObject(options, 'siteConfig.nativeX');
   return startServer({
@@ -47,6 +48,13 @@ module.exports = (options = {}) => {
       });
       // Clean all response bodies.
       app.use(cleanResponse());
+    },
+    redirectHandler: async (redirectOps) => {
+      if (typeof redirectHandler === 'function') {
+        const result = await redirectHandler(redirectOps);
+        if (result) return result;
+      }
+      return sharedRedirectHandler(redirectOps);
     },
     onAsyncBlockError: e => newrelic.noticeError(e),
   });
