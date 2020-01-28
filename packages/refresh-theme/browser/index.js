@@ -5,6 +5,7 @@ import GCSE from '@base-cms/marko-web-gcse/browser';
 import Common from '@ac-business-media/package-common/browser';
 import Inquiry from '@ac-business-media/package-inquiry/browser';
 import SocialSharing from '@base-cms/marko-web-social-sharing/browser';
+import SpecGuides from '@ac-business-media/package-spec-guides/browser';
 
 export default (Browser) => {
   DefaultTheme(Browser);
@@ -14,4 +15,5 @@ export default (Browser) => {
   Common(Browser);
   Inquiry(Browser);
   SocialSharing(Browser);
+  SpecGuides(Browser);
 };

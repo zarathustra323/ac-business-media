@@ -1,0 +1,35 @@
+$ const { GAM } = out.global;
+$ const type = "spec-guide";
+$ const { title, description, alias } = data;
+
+
+$ const adSlots = () => ({
+  "gpt-ad-lb1": GAM.getAdUnit({ name: "lb1" }),
+});
+
+<marko-web-default-page-layout type=type title=title description=description>
+  <@head>
+    <marko-web-gtm-default-context|{ context }| type=type>
+      <marko-web-gtm-push data=context />
+    </marko-web-gtm-default-context>
+    <marko-web-gam-slots slots=adSlots() />
+  </@head>
+  <@page>
+    <marko-web-page-wrapper>
+      <@section>
+        <marko-web-gam-display-ad
+          id="gpt-ad-lb1"
+          slots=adSlots()
+          modifiers=["max-width-970", "center"]
+        />
+      </@section>
+      <@section>
+        <div class="row">
+          <div class="col">
+            <h1>Spec Guide ${alias}</h1>
+          </div>
+        </div>
+      </@section>
+    </marko-web-page-wrapper>
+  </@page>
+</marko-web-default-page-layout>
