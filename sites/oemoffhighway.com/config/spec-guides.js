@@ -7,7 +7,7 @@ module.exports = {
       metric: { label: 'Metric' },
       standard: { label: 'Standard' },
     },
-    selectedMeasureKey: 'standard',
+    initialMeasureKey: 'metric',
     columns: {
       hp: {
         measure: 'standard',
