@@ -53,6 +53,7 @@
 
 <script>
 import { get } from 'object-path';
+import escapeRegex from './utils/escape-regex';
 import MeasureSelect from './measure-select.vue';
 import FieldSearch from './field-search.vue';
 
@@ -139,9 +140,11 @@ export default {
       return columnList.filter(col => !col.measure || col.measure === selectedMeasureKey);
     },
     filteredRows() {
-      const { searchPhrase } = this;
+      const { searchPhrase, selectedSearchKey } = this;
       if (!searchPhrase) return this.rows;
-      return this.rows;
+      const column = this.getColumn(selectedSearchKey);
+      if (column.type === 'number') return this.filterByNumber({ key: selectedSearchKey, phrase: searchPhrase, range: column.range });
+      return this.filterByRegex({ key: selectedSearchKey, phrase: searchPhrase });
     },
   },
 
@@ -163,13 +166,21 @@ export default {
       this.searchPhrase = event.target.value;
     },
 
+    getColumn(key) {
+      return this.columns[key];
+    },
+
     getValue(col, row) {
       const { range, key } = col;
-      if (isArray(range) && range.length === 2) {
+      if (this.hasRange(range)) {
         const [low, high] = range;
         return this.getRangeValue({ low, high, row });
       }
       return this.getValueFor({ key, row });
+    },
+
+    hasRange(range) {
+      return isArray(range) && range.length === 2;
     },
 
     getValueFor({ key, row }) {
@@ -182,6 +193,32 @@ export default {
         this.getValueFor({ key: high, row }),
       ];
       return values.filter(v => v).join(' - ');
+    },
+
+    filterByRegex({ key, phrase }) {
+      const { rows } = this;
+      if (!phrase) return rows;
+      const tokens = escapeRegex(phrase).replace(/\s\s+/, ' ').split(' ');
+      const pattern = new RegExp(`${tokens.join('|')}`, 'i');
+      return this.rows.filter(row => pattern.test(this.getValueFor({ key, row })));
+    },
+
+    filterByNumber({ key, phrase, range }) {
+      const n = parseFloat(phrase);
+      if (Number.isNaN(n)) return [];
+      if (this.hasRange(range)) {
+        // @todo implement
+        return this.rows;
+      }
+      let nextN = Math.ceil(n);
+      if (n === nextN) nextN += 1;
+      return this.rows.filter((row) => {
+        const val = this.getValueFor({ key, row });
+        if (!val) return false;
+        const parsed = parseFloat(val);
+        if (Number.isNaN(parsed)) return false;
+        return n === parsed || (parsed > n && parsed < nextN);
+      });
     },
 
     async loadData() {
