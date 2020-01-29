@@ -1,12 +1,4 @@
 <template>
-  <!-- <table>
-    <thead>
-      <tr>
-        <th>hp</th>
-      </tr>
-    </thead>
-    <tbody />
-  </table> -->
   <div>
     <form>
       <measure-select
@@ -15,30 +7,22 @@
         @change="setSelectedMeasure"
       />
     </form>
-    <h5>All Measures</h5>
-    <p v-for="measure in measureList" :key="measure.key">
-      {{ measure.label }}
-    </p>
-    <hr>
-    <h5>All Columns</h5>
-    <p v-for="col in columnList" :key="`${col.key}-all`">
-      {{ col.label }}
-    </p>
-    <hr>
-    <h5>Visible Columns</h5>
-    <p v-for="col in visibleColumnList" :key="`${col.key}-visible`">
-      {{ col.label }}
-    </p>
+    <table ref="table" class="table">
+      <thead>
+        <tr>
+          <th v-for="col in visibleColumnList" :key="`${col.key}-header`">
+            {{ col.label }}
+          </th>
+        </tr>
+      </thead>
+      <tbody />
+    </table>
   </div>
 </template>
 
 
 <script>
-import $ from '@base-cms/marko-web/browser/jquery-full';
-import dt from 'datatables.net';
 import MeasureSelect from './measure-select.vue';
-
-dt(window, $);
 
 const { keys } = Object;
 
@@ -65,7 +49,6 @@ export default {
   },
 
   data: () => ({
-    table: null,
     activeMeasureKey: null,
   }),
 
@@ -101,16 +84,6 @@ export default {
       if (!selectedMeasure) return columnList.slice();
       return columnList.filter(col => !col.measure || col.measure === selectedMeasureKey);
     },
-  },
-
-  mounted() {
-    // this.table = $(this.$el).DataTable({
-    //   sAjaxDataProp: 'feed.entry',
-    //   ajax: 'https://spreadsheets.google.com/feeds/list/10EKomL-SVMZ4imnCaoO86t48T7ngVaopWXie04AveUo/4/public/values?alt=json',
-    //   columns: [
-    //     { mDataProp: this.pathFor('hp-low'), sType: 'num' },
-    //   ],
-    // });
   },
 
   methods: {
