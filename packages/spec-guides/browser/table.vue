@@ -7,10 +7,10 @@
         @change="setSelectedMeasure"
       />
     </form>
-    <table ref="table" class="table table-striped table-hover">
+    <table ref="table" class="table table-striped table-hover table-sm">
       <thead class="thead-dark">
         <tr>
-          <th v-for="col in visibleColumnList" :key="`${col.key}-header`">
+          <th v-for="col in visibleColumnList" :key="`${col.key}-header`" class="text-center">
             {{ col.label }}
           </th>
         </tr>
@@ -26,9 +26,9 @@
             Error: {{ error.message }}
           </td>
         </tr>
-        <tr v-else>
-          <td :colspan="visibleColumnList.length">
-            Data loaded!
+        <tr v-for="(row, index) in rows" v-else :key="index">
+          <td v-for="col in visibleColumnList" :key="`${col.key}-row-${index}`" class="text-center">
+            {{ getValue(col, row) }}
           </td>
         </tr>
       </tbody>
@@ -120,8 +120,9 @@ export default {
     setSelectedMeasure(event) {
       this.activeMeasureKey = event.target.value;
     },
-    pathFor(column) {
-      return `gsx$${column}.$t`;
+
+    getValue(col, row) {
+      return get(row, `gsx$${col.key}.$t`, '');
     },
 
     async loadData() {
