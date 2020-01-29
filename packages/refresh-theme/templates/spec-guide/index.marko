@@ -24,24 +24,26 @@ $ const adSlots = () => ({
           modifiers=["max-width-970", "center"]
         />
       </@section>
-      <@section>
-        <div class="row">
-          <div class="col">
-            <if(config)>
-              <marko-web-browser-component
-                name="SpecGuideTable"
-                props={
-                  measures: config.measures,
-                  columns: config.columns,
-                  initialMeasureKey: config.initialMeasureKey,
-                  sheetSrc: config.sheetSrc,
-                  alias,
-                }
-              />
-            </if>
-          </div>
-        </div>
-      </@section>
     </marko-web-page-wrapper>
   </@page>
+  <@below-container>
+    <div class="container-fluid px-lg-5">
+      <div class="row">
+        <div class="col">
+          <if(config)>
+            <marko-web-browser-component
+              name="SpecGuideTable"
+              props={
+                measures: config.measures,
+                columns: config.columns,
+                initialMeasureKey: config.initialMeasureKey,
+                sheetSrc: config.sheetSrc,
+                alias,
+              }
+            />
+          </if>
+        </div>
+      </div>
+    </div>
+  </@below-container>
 </marko-web-default-page-layout>
