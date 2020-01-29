@@ -7,23 +7,42 @@
         @change="setSelectedMeasure"
       />
     </form>
-    <table ref="table" class="table">
-      <thead>
+    <table ref="table" class="table table-striped table-hover">
+      <thead class="thead-dark">
         <tr>
           <th v-for="col in visibleColumnList" :key="`${col.key}-header`">
             {{ col.label }}
           </th>
         </tr>
       </thead>
-      <tbody />
+      <tbody>
+        <tr v-if="isLoading">
+          <td :colspan="visibleColumnList.length">
+            Loading data...
+          </td>
+        </tr>
+        <tr v-else-if="error">
+          <td :colspan="visibleColumnList.length">
+            Error: {{ error.message }}
+          </td>
+        </tr>
+        <tr v-else>
+          <td :colspan="visibleColumnList.length">
+            Data loaded!
+          </td>
+        </tr>
+      </tbody>
+      <tfoot />
     </table>
   </div>
 </template>
 
 
 <script>
+import { get } from 'object-path';
 import MeasureSelect from './measure-select.vue';
 
+const { isArray } = Array;
 const { keys } = Object;
 
 export default {
@@ -32,6 +51,10 @@ export default {
   },
 
   props: {
+    sheetSrc: {
+      type: String,
+      required: true,
+    },
     columns: {
       type: Object,
       default: () => ({}),
@@ -49,7 +72,10 @@ export default {
   },
 
   data: () => ({
+    isLoading: false,
+    error: null,
     activeMeasureKey: null,
+    rows: [],
   }),
 
   computed: {
@@ -86,12 +112,35 @@ export default {
     },
   },
 
+  created() {
+    this.loadData();
+  },
+
   methods: {
     setSelectedMeasure(event) {
       this.activeMeasureKey = event.target.value;
     },
     pathFor(column) {
       return `gsx$${column}.$t`;
+    },
+
+    async loadData() {
+      this.error = null;
+      this.isLoading = true;
+
+      try {
+        const { sheetSrc } = this;
+        if (!sheetSrc) throw new Error('No data source was provided.');
+        const res = await fetch(sheetSrc);
+        if (!res.ok) throw new Error('Network error encountered when retrieving data.');
+        const json = await res.json();
+        const rows = get(json, 'feed.entry');
+        this.rows = isArray(rows) ? rows : [];
+      } catch (e) {
+        this.error = e;
+      } finally {
+        this.isLoading = false;
+      }
     },
   },
 };
