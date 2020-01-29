@@ -1,10 +1,18 @@
 <template>
   <div>
     <form>
+      <field-search
+        :columns="visibleColumnList"
+        :selected="selectedSearchKey"
+        :disabled="isLoading"
+        @field-change="setSelectedSearchKey"
+        @phrase-change="setSearchPhrase"
+      />
       <measure-select
         :measures="measureList"
         :selected="selectedMeasureKey"
-        @change="setSelectedMeasure"
+        :disabled="isLoading"
+        @change="setSelectedMeasureKey"
       />
     </form>
     <div class="table-responsive">
@@ -27,7 +35,7 @@
               Error: {{ error.message }}
             </td>
           </tr>
-          <tr v-for="(row, index) in rows" v-else :key="index">
+          <tr v-for="(row, index) in filteredRows" v-else :key="index">
             <td
               v-for="col in visibleColumnList"
               :key="`${col.key}-row-${index}`"
@@ -46,6 +54,7 @@
 <script>
 import { get } from 'object-path';
 import MeasureSelect from './measure-select.vue';
+import FieldSearch from './field-search.vue';
 
 const { isArray } = Array;
 const { keys } = Object;
@@ -53,6 +62,7 @@ const { keys } = Object;
 export default {
   components: {
     MeasureSelect,
+    FieldSearch,
   },
 
   props: {
@@ -74,12 +84,20 @@ export default {
         return keys(this.measures)[0];
       },
     },
+    initialSearchKey: {
+      type: String,
+      default: function defaultKey() {
+        return keys(this.columns)[0];
+      },
+    },
   },
 
   data: () => ({
     isLoading: false,
     error: null,
     activeMeasureKey: null,
+    activeSearchKey: null,
+    searchPhrase: null,
     rows: [],
   }),
 
@@ -88,6 +106,11 @@ export default {
       const { activeMeasureKey } = this;
       if (activeMeasureKey) return activeMeasureKey;
       return this.initialMeasureKey;
+    },
+    selectedSearchKey() {
+      const { activeSearchKey } = this;
+      if (activeSearchKey) return activeSearchKey;
+      return this.initialSearchKey;
     },
     measureList() {
       const { measures } = this;
@@ -115,6 +138,11 @@ export default {
       if (!selectedMeasure) return columnList.slice();
       return columnList.filter(col => !col.measure || col.measure === selectedMeasureKey);
     },
+    filteredRows() {
+      const { searchPhrase } = this;
+      if (!searchPhrase) return this.rows;
+      return this.rows;
+    },
   },
 
   created() {
@@ -122,8 +150,17 @@ export default {
   },
 
   methods: {
-    setSelectedMeasure(event) {
+    setSelectedMeasureKey(event) {
       this.activeMeasureKey = event.target.value;
+    },
+
+    setSelectedSearchKey(event) {
+      this.activeSearchKey = event.target.value;
+      this.searchPhrase = null;
+    },
+
+    setSearchPhrase(event) {
+      this.searchPhrase = event.target.value;
     },
 
     getValue(col, row) {
