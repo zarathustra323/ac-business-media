@@ -1,7 +1,8 @@
-$ const { GAM } = out.global;
+$ const { GAM, site } = out.global;
 $ const type = "spec-guide";
 $ const { title, description, alias } = data;
 
+$ const config = site.get(`specGuides.${alias}`);
 
 $ const adSlots = () => ({
   "gpt-ad-lb1": GAM.getAdUnit({ name: "lb1" }),
@@ -26,7 +27,17 @@ $ const adSlots = () => ({
       <@section>
         <div class="row">
           <div class="col">
-            <h1>Spec Guide ${alias}</h1>
+            <if(config)>
+              <marko-web-browser-component
+                name="SpecGuideTable"
+                props={
+                  measures: config.measures,
+                  columns: config.columns,
+                  selectedMeasureKey: config.selectedMeasureKey,
+                  alias,
+                }
+              />
+            </if>
           </div>
         </div>
       </@section>
