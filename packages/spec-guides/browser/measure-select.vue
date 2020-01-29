@@ -1,5 +1,5 @@
 <template>
-  <select v-if="measures.length" @change="emitChange">
+  <select v-if="measures.length" :disabled="disabled" @change="emitChange">
     <option
       v-for="measure in measures"
       :key="measure.key"
@@ -21,6 +21,10 @@ export default {
     measures: {
       type: Array,
       default: () => [],
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
     },
   },
 
