@@ -725,6 +725,15 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
+"@base-cms/cli-utils@^1.13.0":
+  version "1.13.0"
+  resolved "https://registry.yarnpkg.com/@base-cms/cli-utils/-/cli-utils-1.13.0.tgz#4d11ac591f4d34e9f477ec04ae7ee9bad011fb15"
+  integrity sha512-jTeVdmykLqH5VlZjYpQJ6l1O5QmWrDBzWLqAF8hr4raQsio5RK9B457t2zyaU6c7SBG24KveZabpykor6vkwxQ==
+  dependencies:
+    chalk "^2.4.2"
+    fancy-log "^1.3.3"
+    mkdirp "^0.5.1"
+
 "@base-cms/embedded-media@^1.6.3":
   version "1.6.3"
   resolved "https://registry.yarnpkg.com/@base-cms/embedded-media/-/embedded-media-1.6.3.tgz#a3c96a8061210b3f00da00ae49af7ed1bd8627ec"
@@ -868,10 +877,10 @@
     graphql "^14.5.4"
     graphql-tag "^2.10.1"
 
-"@base-cms/marko-web@^1.12.0":
-  version "1.12.0"
-  resolved "https://registry.yarnpkg.com/@base-cms/marko-web/-/marko-web-1.12.0.tgz#0b655b3c63663123313d224adf973e72d0096215"
-  integrity sha512-pALbo0WqtFNZakIWnsU6BhO3av/YuSF1b5jNl94jFXrgSf4532wauR4BpBTbwkXNZuXvSHKaOj4eLgiFfeQ0XA==
+"@base-cms/marko-web@^1.14.0":
+  version "1.14.0"
+  resolved "https://registry.yarnpkg.com/@base-cms/marko-web/-/marko-web-1.14.0.tgz#5feef1778564c500a7379e828a05ca73e45a39de"
+  integrity sha512-gfWTdh/eIMB9ZhjF6rA7NwsMh4Zip72NXrVSRZPqX44BixoiZX9DjQzEtKEAchxhUIPlQ1eSbV5Zk++ToLnV6A==
   dependencies:
     "@base-cms/embedded-media" "^1.6.3"
     "@base-cms/express-apollo" "^1.9.0"
@@ -918,18 +927,19 @@
   resolved "https://registry.yarnpkg.com/@base-cms/utils/-/utils-1.9.0.tgz#fb208c11b155d019876806855e7a8bb1c56041fd"
   integrity sha512-mo3sRxE/KL1i1haP8MrZa32aZaKz4dOqtUb84DOHSlNrhyoPEJ0wq/+KKi6gLjYAY6j2ECxmDcgBztcYjamIEg==
 
-"@base-cms/web-cli@^1.12.0":
-  version "1.12.0"
-  resolved "https://registry.yarnpkg.com/@base-cms/web-cli/-/web-cli-1.12.0.tgz#c37fa3dbda86f8ffe58f9b141b709536513297e1"
-  integrity sha512-2EWeBQRMRkpUGP7tR6G+N97zFSyEkMzfCxstYe1GG1+1GVbfhO6ne+WB7y3HqAWgBke0R2455Cc/x1Iea5CnZQ==
+"@base-cms/web-cli@^1.14.0":
+  version "1.14.0"
+  resolved "https://registry.yarnpkg.com/@base-cms/web-cli/-/web-cli-1.14.0.tgz#a6a79496ed0b582bd3ef6ccadaa910be0aeb5266"
+  integrity sha512-7fG/Nnq/6t+92LbLsI8TS5AG0mLWqcUYSXP9bF7K+L+ATpoXAbX2O2jxCbaeM88dmZSj40zXO4TL/eKtA9b+tA==
   dependencies:
     "@babel/core" "^7.6.0"
     "@babel/plugin-transform-runtime" "^7.6.0"
     "@babel/preset-env" "^7.6.0"
     "@babel/runtime" "^7.6.0"
     "@babel/runtime-corejs2" "^7.6.0"
+    "@base-cms/cli-utils" "^1.13.0"
     "@base-cms/express-apollo" "^1.9.0"
-    "@base-cms/marko-web" "^1.12.0"
+    "@base-cms/marko-web" "^1.14.0"
     autoprefixer "^9.6.1"
     babel-eslint "^10.0.3"
     babel-loader "^8.0.6"
@@ -945,6 +955,7 @@
     eslint-plugin-vue "^5.2.3"
     fancy-log "^1.3.3"
     figlet "^1.2.4"
+    file-loader "^5.0.2"
     graphql "^14.5.4"
     graphql-tag "^2.10.1"
     gulp "^4.0.2"
@@ -960,7 +971,6 @@
     handlebars "^4.6.0"
     ignore "^5.0.5"
     inquirer "^6.5.2"
-    mkdirp "^0.5.1"
     node-sass "^4.12.0"
     pump "^3.0.0"
     recursive-readdir "^2.2.2"
@@ -5023,6 +5033,14 @@ file-entry-cache@^5.0.1:
   integrity sha512-bCg29ictuBaKUwwArK4ouCaqDgLZcysCFLmM/Yn/FDoqndh/9vNuQfXRDvTuXKLxfD/JtZQGKFT8MGcJBK644g==
   dependencies:
     flat-cache "^2.0.1"
+
+file-loader@^5.0.2:
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/file-loader/-/file-loader-5.0.2.tgz#7f3d8b4ac85a5e8df61338cfec95d7405f971caa"
+  integrity sha512-QMiQ+WBkGLejKe81HU8SZ9PovsU/5uaLo0JdTCEXOYv7i7jfAjHZi1tcwp9tSASJPOmmHZtbdCervFmXMH/Dcg==
+  dependencies:
+    loader-utils "^1.2.3"
+    schema-utils "^2.5.0"
 
 fill-range@^4.0.0:
   version "4.0.0"
@@ -9846,6 +9864,14 @@ schema-utils@^2.0.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/schema-utils/-/schema-utils-2.2.0.tgz#48a065ce219e0cacf4631473159037b2c1ae82da"
   integrity sha512-5EwsCNhfFTZvUreQhx/4vVQpJ/lnCAkgoIHLhSpp4ZirE+4hzFvdJi0FMub6hxbFVBJYSpeVVmon+2e7uEGRrA==
+  dependencies:
+    ajv "^6.10.2"
+    ajv-keywords "^3.4.1"
+
+schema-utils@^2.5.0:
+  version "2.6.4"
+  resolved "https://registry.yarnpkg.com/schema-utils/-/schema-utils-2.6.4.tgz#a27efbf6e4e78689d91872ee3ccfa57d7bdd0f53"
+  integrity sha512-VNjcaUxVnEeun6B2fiiUDjXXBtD4ZSH7pdbfIu1pOFwgptDPLMo/z9jr4sUfsjFVPqDCEin/F7IYlq7/E6yDbQ==
   dependencies:
     ajv "^6.10.2"
     ajv-keywords "^3.4.1"
