@@ -7,33 +7,38 @@
         @change="setSelectedMeasure"
       />
     </form>
-    <table ref="table" class="table table-striped table-hover table-sm">
-      <thead class="thead-dark">
-        <tr>
-          <th v-for="col in visibleColumnList" :key="`${col.key}-header`" class="text-center">
-            {{ col.label }}
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-if="isLoading">
-          <td :colspan="visibleColumnList.length">
-            Loading data...
-          </td>
-        </tr>
-        <tr v-else-if="error">
-          <td :colspan="visibleColumnList.length">
-            Error: {{ error.message }}
-          </td>
-        </tr>
-        <tr v-for="(row, index) in rows" v-else :key="index">
-          <td v-for="col in visibleColumnList" :key="`${col.key}-row-${index}`" class="text-center">
-            {{ getValue(col, row) }}
-          </td>
-        </tr>
-      </tbody>
-      <tfoot />
-    </table>
+    <div class="table-responsive">
+      <table ref="table" class="table table-striped table-hover table-sm" style="min-width: 100%;">
+        <thead class="thead-dark">
+          <tr>
+            <th v-for="col in visibleColumnList" :key="`${col.key}-header`" class="text-center">
+              {{ col.label }}
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-if="isLoading">
+            <td :colspan="visibleColumnList.length">
+              Loading data...
+            </td>
+          </tr>
+          <tr v-else-if="error">
+            <td :colspan="visibleColumnList.length">
+              Error: {{ error.message }}
+            </td>
+          </tr>
+          <tr v-for="(row, index) in rows" v-else :key="index">
+            <td
+              v-for="col in visibleColumnList"
+              :key="`${col.key}-row-${index}`"
+              class="text-center"
+            >
+              {{ getValue(col, row) }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </template>
 
@@ -122,7 +127,24 @@ export default {
     },
 
     getValue(col, row) {
-      return get(row, `gsx$${col.key}.$t`, '');
+      const { range, key } = col;
+      if (isArray(range) && range.length === 2) {
+        const [low, high] = range;
+        return this.getRangeValue({ low, high, row });
+      }
+      return this.getValueFor({ key, row });
+    },
+
+    getValueFor({ key, row }) {
+      return get(row, `gsx$${key}.$t`, '');
+    },
+
+    getRangeValue({ low, high, row }) {
+      const values = [
+        this.getValueFor({ key: low, row }),
+        this.getValueFor({ key: high, row }),
+      ];
+      return values.filter(v => v).join(' - ');
     },
 
     async loadData() {
