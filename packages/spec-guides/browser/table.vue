@@ -91,6 +91,10 @@ export default {
         return keys(this.columns)[0];
       },
     },
+    driftPercent: {
+      type: Number,
+      default: 10,
+    },
   },
 
   data: () => ({
@@ -210,14 +214,18 @@ export default {
         // @todo implement
         return this.rows;
       }
-      let nextN = Math.ceil(n);
-      if (n === nextN) nextN += 1;
+
+      const exponent = `${parseInt(Math.abs(n), 10)}`.length - 1;
+      const drift = (10 ** exponent) / this.driftPercent;
+      const min = n - drift;
+      const max = n + drift;
+
       return this.rows.filter((row) => {
         const val = this.getValueFor({ key, row });
         if (!val) return false;
         const parsed = this.parseFloat({ value: val });
         if (parsed == null) return false;
-        return n === parsed || (parsed > n && parsed < nextN);
+        return parsed >= min && parsed <= max;
       });
     },
 
