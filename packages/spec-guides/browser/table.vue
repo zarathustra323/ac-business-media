@@ -22,6 +22,7 @@
           <tr>
             <th v-for="col in visibleColumnList" :key="`${col.key}-header`" class="text-center">
               {{ col.label }}
+              <sort-buttons :col-key="col.key" :selected="selectedSortKey" @click="setSortKey" />
             </th>
           </tr>
         </thead>
@@ -58,6 +59,7 @@ import escapeRegex from './utils/escape-regex';
 import parseNumber from './utils/parse-number';
 import MeasureSelect from './measure-select.vue';
 import FieldSearch from './field-search.vue';
+import SortButtons from './sort-buttons.vue';
 
 const { isArray } = Array;
 const { keys } = Object;
@@ -69,6 +71,7 @@ export default {
   components: {
     MeasureSelect,
     FieldSearch,
+    SortButtons,
   },
 
   /**
@@ -113,6 +116,7 @@ export default {
     error: null,
     activeMeasureKey: null,
     activeSearchKey: null,
+    selectedSortKey: null,
     searchPhrase: null,
     rows: [],
   }),
@@ -243,6 +247,10 @@ export default {
      */
     setSearchPhrase(phrase) {
       this.searchPhrase = phrase;
+    },
+
+    setSortKey({ key }) {
+      this.selectedSortKey = key;
     },
 
     /**
