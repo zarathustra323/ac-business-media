@@ -62,11 +62,17 @@ const { isArray } = Array;
 const { keys } = Object;
 
 export default {
+  /**
+   *
+   */
   components: {
     MeasureSelect,
     FieldSearch,
   },
 
+  /**
+   *
+   */
   props: {
     sheetSrc: {
       type: String,
@@ -98,6 +104,9 @@ export default {
     },
   },
 
+  /**
+   *
+   */
   data: () => ({
     isLoading: false,
     error: null,
@@ -107,17 +116,31 @@ export default {
     rows: [],
   }),
 
+  /**
+   *
+   */
   computed: {
+    /**
+     *
+     */
     selectedMeasureKey() {
       const { activeMeasureKey } = this;
       if (activeMeasureKey) return activeMeasureKey;
       return this.initialMeasureKey;
     },
+
+    /**
+     *
+     */
     selectedSearchKey() {
       const { activeSearchKey } = this;
       if (activeSearchKey) return activeSearchKey;
       return this.initialSearchKey;
     },
+
+    /**
+     *
+     */
     measureList() {
       const { measures } = this;
       const measureKeys = keys(measures);
@@ -126,11 +149,19 @@ export default {
         return { ...measure, key, label: measure.label || key };
       });
     },
+
+    /**
+     *
+     */
     selectedMeasure() {
       const { selectedMeasureKey } = this;
       if (!selectedMeasureKey) return undefined;
       return this.measures[selectedMeasureKey];
     },
+
+    /**
+     *
+     */
     columnList() {
       const { columns } = this;
       const colKeys = keys(columns);
@@ -139,11 +170,19 @@ export default {
         return { ...col, key, label: col.label || key };
       });
     },
+
+    /**
+     *
+     */
     visibleColumnList() {
       const { columnList, selectedMeasure, selectedMeasureKey } = this;
       if (!selectedMeasure) return columnList.slice();
       return columnList.filter(col => !col.measure || col.measure === selectedMeasureKey);
     },
+
+    /**
+     *
+     */
     filteredRows() {
       const { searchPhrase, selectedSearchKey } = this;
       if (!searchPhrase) return this.rows;
@@ -153,11 +192,20 @@ export default {
     },
   },
 
+  /**
+   *
+   */
   created() {
     this.loadData();
   },
 
+  /**
+   *
+   */
   methods: {
+    /**
+     *
+     */
     setSelectedMeasureKey(event) {
       this.activeMeasureKey = event.target.value;
       const { selectedSearchKey } = this;
@@ -167,19 +215,31 @@ export default {
       }
     },
 
+    /**
+     *
+     */
     setSelectedSearchKey(event) {
       this.activeSearchKey = event.target.value;
       this.searchPhrase = null;
     },
 
+    /**
+     *
+     */
     setSearchPhrase(event) {
       this.searchPhrase = event.target.value;
     },
 
+    /**
+     *
+     */
     getColumn(key) {
       return this.columns[key];
     },
 
+    /**
+     *
+     */
     getValue(col, row) {
       const { range, key } = col;
       if (this.hasRange(range)) {
@@ -189,14 +249,23 @@ export default {
       return this.getValueFor({ key, row });
     },
 
+    /**
+     *
+     */
     hasRange(range) {
       return isArray(range) && range.length === 2;
     },
 
+    /**
+     *
+     */
     getValueFor({ key, row }) {
       return get(row, `gsx$${key}.$t`, '');
     },
 
+    /**
+     *
+     */
     getRangeValue({ low, high, row }) {
       const values = [
         this.getValueFor({ key: low, row }),
@@ -205,6 +274,9 @@ export default {
       return values.filter(v => v).join(' - ');
     },
 
+    /**
+     *
+     */
     filterByRegex({ key, phrase }) {
       const { rows } = this;
       if (!phrase) return rows;
@@ -213,6 +285,9 @@ export default {
       return this.rows.filter(row => pattern.test(this.getValueFor({ key, row })));
     },
 
+    /**
+     *
+     */
     filterByNumber({ key, phrase, range }) {
       const n = this.parseFloat({ value: phrase });
       if (n == null) return [];
@@ -235,6 +310,9 @@ export default {
       });
     },
 
+    /**
+     *
+     */
     parseFloat({ value, whenRange = 'high' }) {
       if (!value) return null;
       const v = this.pickRangeValue({ value, choice: whenRange });
@@ -244,6 +322,9 @@ export default {
       return Number.isNaN(parsed) ? null : parsed;
     },
 
+    /**
+     *
+     */
     pickRangeValue({ value, choice = 'high' }) {
       if (!value) return null;
       if (!/-/.test(value)) return value;
@@ -254,6 +335,9 @@ export default {
       return parts[index];
     },
 
+    /**
+     *
+     */
     async loadData() {
       this.error = null;
       this.isLoading = true;
