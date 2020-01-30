@@ -215,18 +215,22 @@ export default {
       const { selectedSortKey, sortDirection, filteredRows } = this;
       if (!selectedSortKey) return filteredRows;
       const column = this.getColumn(selectedSortKey);
-      if (column.type === 'number') return filteredRows;
+      if (column.type === 'number') {
+        return filteredRows.sort((rowA, rowB) => {
+          if (sortDirection === 'asc') {
+            const { min: a } = get(rowA, selectedSortKey);
+            const { min: b } = get(rowB, selectedSortKey);
+            return this.sortValues(a, b, sortDirection);
+          }
+          const { max: a } = get(rowA, selectedSortKey);
+          const { max: b } = get(rowB, selectedSortKey);
+          return this.sortValues(a, b, sortDirection);
+        });
+      }
       return filteredRows.sort((rowA, rowB) => {
         const { displayValue: a } = get(rowA, selectedSortKey);
         const { displayValue: b } = get(rowB, selectedSortKey);
-        if (sortDirection === 'asc') {
-          if (a > b) return 1;
-          if (a < b) return -1;
-          return 0;
-        }
-        if (a > b) return -1;
-        if (a < b) return 1;
-        return 0;
+        return this.sortValues(a, b, sortDirection);
       });
     },
   },
@@ -269,9 +273,19 @@ export default {
       this.searchPhrase = phrase;
     },
 
+    /**
+     *
+     */
     setSortKey({ key, direction }) {
       this.selectedSortKey = key;
       this.sortDirection = direction;
+    },
+
+    sortValues(a, b, direction) {
+      const order = direction === 'asc' ? 1 : -1;
+      if (a > b) return 1 * order;
+      if (a < b) return -1 * order;
+      return 0;
     },
 
     /**
