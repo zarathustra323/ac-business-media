@@ -48,6 +48,36 @@ module.exports = {
         label: 'Aftertreatment',
       },
       // Dimension group here.
+      ldimensionsin: {
+        label: 'L (in.)',
+        measure: 'standard',
+        type: 'number',
+      },
+      wdimensionsin: {
+        label: 'W (in.)',
+        measure: 'standard',
+        type: 'number',
+      },
+      hdimensionsin: {
+        label: 'H (in.)',
+        measure: 'standard',
+        type: 'number',
+      },
+      ldimensionsmm: {
+        label: 'L (mm)',
+        measure: 'metric',
+        type: 'number',
+      },
+      wdimensionsmm: {
+        label: 'W (mm)',
+        measure: 'metric',
+        type: 'number',
+      },
+      hdimensionsmm: {
+        label: 'H (mm)',
+        measure: 'metric',
+        type: 'number',
+      },
       weightdrylb: {
         label: 'Dry Weight (lb.)',
         measure: 'standard',
