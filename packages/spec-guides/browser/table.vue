@@ -104,7 +104,8 @@ export default {
     },
     driftPercent: {
       type: Number,
-      default: 10,
+      default: 0.1,
+      validate: v => v >= 0 && v <= 1,
     },
   },
 
@@ -177,6 +178,9 @@ export default {
       });
     },
 
+    /**
+     *
+     */
     allColumnsMap() {
       return this.columnList.reduce((map, col) => {
         const { type } = col;
@@ -211,6 +215,9 @@ export default {
       return this.filterByRegex({ key: selectedSearchKey, phrase: searchPhrase });
     },
 
+    /**
+     *
+     */
     sortedRows() {
       const { selectedSortKey, sortDirection, filteredRows } = this;
       if (!selectedSortKey) return filteredRows;
@@ -327,16 +334,25 @@ export default {
       return value.raw;
     },
 
+    /**
+     *
+     */
     getRangeValueFor({ key, row, prop }) {
       const value = get(row, key);
       if (!value) return null;
       return value[prop] == null ? null : value[prop];
     },
 
+    /**
+     *
+     */
     getMinValueFor({ key, row }) {
       return this.getRangeValueFor({ key, row, prop: 'min' });
     },
 
+    /**
+     *
+     */
     getMaxValueFor({ key, row }) {
       return this.getRangeValueFor({ key, row, prop: 'max' });
     },
@@ -375,7 +391,7 @@ export default {
       const [n] = tuple;
 
       const exponent = `${parseInt(Math.abs(n), 10)}`.length - 1;
-      const drift = (10 ** exponent) / this.driftPercent;
+      const drift = (10 ** exponent) * this.driftPercent;
       const min = n - drift;
       const max = n + drift;
 
