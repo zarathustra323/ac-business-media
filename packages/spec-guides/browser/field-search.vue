@@ -57,10 +57,10 @@ export default {
 
   methods: {
     emitFieldChange(event) {
-      this.$emit('field-change', event);
+      this.$emit('field-change', event.target.value);
     },
     emitPhraseChange: debounce(function emit(event) {
-      this.$emit('phrase-change', event);
+      this.$emit('phrase-change', event.target.value);
     }, 250),
   },
 };

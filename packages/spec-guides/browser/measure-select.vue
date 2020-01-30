@@ -30,7 +30,7 @@ export default {
 
   methods: {
     emitChange(event) {
-      this.$emit('change', event);
+      this.$emit('change', event.target.value);
     },
   },
 };

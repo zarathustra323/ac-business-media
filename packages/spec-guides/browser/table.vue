@@ -207,8 +207,8 @@ export default {
     /**
      *
      */
-    setSelectedMeasureKey(event) {
-      this.activeMeasureKey = event.target.value;
+    setSelectedMeasureKey(key) {
+      this.activeMeasureKey = key;
       const { selectedSearchKey } = this;
       if (selectedSearchKey) {
         const col = this.getColumn(selectedSearchKey);
@@ -219,16 +219,16 @@ export default {
     /**
      *
      */
-    setSelectedSearchKey(event) {
-      this.activeSearchKey = event.target.value;
+    setSelectedSearchKey(key) {
+      this.activeSearchKey = key;
       this.searchPhrase = null;
     },
 
     /**
      *
      */
-    setSearchPhrase(event) {
-      this.searchPhrase = event.target.value;
+    setSearchPhrase(phrase) {
+      this.searchPhrase = phrase;
     },
 
     /**
@@ -291,7 +291,6 @@ export default {
      */
     filterByNumber({ key, phrase, range }) {
       const n = parseNumber({ value: phrase });
-      console.log({ n });
       if (n == null) return [];
       if (this.hasRange(range)) {
         // @todo implement
