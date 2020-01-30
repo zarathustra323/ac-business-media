@@ -13,7 +13,7 @@
     <input
       :value="phrase"
       :disabled="disabled"
-      type="text"
+      :type="type"
       placeholder="Enter search value..."
       @input="emitPhraseChange(...arguments)"
     >
@@ -40,6 +40,18 @@ export default {
     disabled: {
       type: Boolean,
       default: false,
+    },
+  },
+
+  computed: {
+    selectedColumn() {
+      return this.columns.find(col => col.key === this.selected);
+    },
+
+    type() {
+      const { selectedColumn } = this;
+      if (!selectedColumn || selectedColumn.type !== 'number') return 'text';
+      return 'number';
     },
   },
 
