@@ -3,6 +3,7 @@
     <button
       type="button"
       :class="{ active: activeDirection === 'asc' }"
+      :disabled="activeDirection === 'asc'"
       @click="setDirection('asc')"
     >
       Asc <span v-if="activeDirection === 'asc'">*</span>
@@ -10,6 +11,7 @@
     <button
       type="button"
       :class="{ active: activeDirection === 'desc' }"
+      :disabled="activeDirection === 'desc'"
       @click="setDirection('desc')"
     >
       Desc <span v-if="activeDirection === 'desc'">*</span>
