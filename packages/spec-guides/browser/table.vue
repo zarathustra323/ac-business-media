@@ -42,7 +42,7 @@
               :key="`${col.key}-row-${index}`"
               class="text-center"
             >
-              {{ getValue(col, row) }}
+              {{ row[col.key].displayValue }}
             </td>
           </tr>
         </tbody>
@@ -172,13 +172,27 @@ export default {
       });
     },
 
+    allColumnsMap() {
+      return this.columnList.reduce((map, col) => {
+        const { type } = col;
+        map.set(col.key, { type, root: col });
+        if (this.hasRange(col.range)) {
+          const [lowKey, highKey] = col.range;
+          map.set(lowKey, { type });
+          map.set(highKey, { type });
+        }
+        return map;
+      }, new Map());
+    },
+
     /**
      *
      */
     visibleColumnList() {
       const { columnList, selectedMeasure, selectedMeasureKey } = this;
       if (!selectedMeasure) return columnList.slice();
-      return columnList.filter(col => !col.measure || col.measure === selectedMeasureKey);
+      const visible = columnList.filter(col => !col.measure || col.measure === selectedMeasureKey);
+      return visible;
     },
 
     /**
@@ -241,11 +255,13 @@ export default {
     /**
      *
      */
-    getValue(col, row) {
+    getDisplayValue(col, row) {
       const { range, key } = col;
       if (this.hasRange(range)) {
-        const [low, high] = range;
-        return this.getRangeValue({ low, high, row });
+        const [lowKey, highKey] = range;
+        const rangeValue = this.getRangeValue({ lowKey, highKey, row });
+        if (rangeValue === '') return this.getValueFor({ key, row });
+        return rangeValue;
       }
       return this.getValueFor({ key, row });
     },
@@ -261,16 +277,34 @@ export default {
      *
      */
     getValueFor({ key, row }) {
-      return get(row, `gsx$${key}.$t`, '');
+      const value = get(row, key);
+      if (!value) return '';
+      if (value.isRange) return `${value.min} - ${value.max}`;
+      if (value.min != null) return value.min;
+      return value.raw;
+    },
+
+    getRangeValueFor({ key, row, prop }) {
+      const value = get(row, key);
+      if (!value) return null;
+      return value[prop] == null ? null : value[prop];
+    },
+
+    getMinValueFor({ key, row }) {
+      return this.getRangeValueFor({ key, row, prop: 'min' });
+    },
+
+    getMaxValueFor({ key, row }) {
+      return this.getRangeValueFor({ key, row, prop: 'max' });
     },
 
     /**
      *
      */
-    getRangeValue({ low, high, row }) {
+    getRangeValue({ lowKey, highKey, row }) {
       const values = [
-        this.getValueFor({ key: low, row }),
-        this.getValueFor({ key: high, row }),
+        this.getMinValueFor({ key: lowKey, row }),
+        this.getMaxValueFor({ key: highKey, row }),
       ];
       return values.filter(v => v).join(' - ');
     },
@@ -283,15 +317,19 @@ export default {
       if (!phrase) return rows;
       const tokens = escapeRegex(phrase).replace(/\s\s+/, ' ').split(' ');
       const pattern = new RegExp(`${tokens.join('|')}`, 'i');
-      return this.rows.filter(row => pattern.test(this.getValueFor({ key, row })));
+      return this.rows.filter((row) => {
+        const { displayValue } = get(row, key);
+        return pattern.test(displayValue);
+      });
     },
 
     /**
      *
      */
     filterByNumber({ key, phrase, range }) {
-      const n = parseNumber({ value: phrase });
-      if (n == null) return [];
+      const tuple = parseNumber({ value: phrase });
+      if (tuple == null) return [];
+      const [n] = tuple;
       if (this.hasRange(range)) {
         // @todo implement
         return this.rows;
@@ -303,11 +341,12 @@ export default {
       const max = n + drift;
 
       return this.rows.filter((row) => {
-        const val = this.getValueFor({ key, row });
+        const val = get(row, key);
         if (!val) return false;
-        const parsed = parseNumber({ value: val });
-        if (parsed == null) return false;
-        return parsed >= min && parsed <= max;
+        if (val.isRange) {
+          return (min >= val.min && min <= val.max) || (max >= val.min && max <= val.max);
+        }
+        return val.min >= min && val.min <= max;
       });
     },
 
@@ -324,8 +363,36 @@ export default {
         const res = await fetch(sheetSrc);
         if (!res.ok) throw new Error('Network error encountered when retrieving data.');
         const json = await res.json();
-        const rows = get(json, 'feed.entry');
-        this.rows = isArray(rows) ? rows : [];
+        let rows = get(json, 'feed.entry');
+        const colKeys = [...this.allColumnsMap.keys()];
+
+        // Format/simplify the raw data.
+        this.rows = isArray(rows) ? rows.map((row) => {
+          const newRow = colKeys.reduce((o, key) => {
+            const col = this.allColumnsMap.get(key);
+            const raw = get(row, `gsx$${key}.$t`);
+            const values = { raw };
+            if (col.type === 'number') {
+              const range = parseNumber({ value: raw });
+              if (range) {
+                const [min, max] = range;
+                values.min = min;
+                values.max = max;
+                values.isRange = min !== max;
+              }
+            }
+            return { ...o, [key]: values };
+          }, {});
+
+          // calculate display value off of formatted row.
+          this.columnList.forEach((col) => {
+            const displayValue = this.getDisplayValue(col, newRow);
+            newRow[col.key].displayValue = displayValue;
+          });
+          return newRow;
+        }) : [];
+        // clear the rows after mapping to allow for gc.
+        rows = [];
       } catch (e) {
         this.error = e;
       } finally {
