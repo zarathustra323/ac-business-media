@@ -55,6 +55,7 @@
 <script>
 import { get } from 'object-path';
 import escapeRegex from './utils/escape-regex';
+import parseNumber from './utils/parse-number';
 import MeasureSelect from './measure-select.vue';
 import FieldSearch from './field-search.vue';
 
@@ -289,7 +290,8 @@ export default {
      *
      */
     filterByNumber({ key, phrase, range }) {
-      const n = this.parseFloat({ value: phrase });
+      const n = parseNumber({ value: phrase });
+      console.log({ n });
       if (n == null) return [];
       if (this.hasRange(range)) {
         // @todo implement
@@ -304,35 +306,10 @@ export default {
       return this.rows.filter((row) => {
         const val = this.getValueFor({ key, row });
         if (!val) return false;
-        const parsed = this.parseFloat({ value: val });
+        const parsed = parseNumber({ value: val });
         if (parsed == null) return false;
         return parsed >= min && parsed <= max;
       });
-    },
-
-    /**
-     *
-     */
-    parseFloat({ value, whenRange = 'high' }) {
-      if (!value) return null;
-      const v = this.pickRangeValue({ value, choice: whenRange });
-      if (!v) return null;
-      // parse and remove commas
-      const parsed = parseFloat(v.replace(/,/g, ''));
-      return Number.isNaN(parsed) ? null : parsed;
-    },
-
-    /**
-     *
-     */
-    pickRangeValue({ value, choice = 'high' }) {
-      if (!value) return null;
-      if (!/-/.test(value)) return value;
-      const parts = value.split('-').map(v => v.trim()).filter(v => v);
-      if (!parts.length) return null;
-      if (parts.length === 1) return parts[0];
-      const index = choice === 'high' ? 1 : 0;
-      return parts[index];
     },
 
     /**
