@@ -17,6 +17,9 @@
       placeholder="Enter search value..."
       @input="emitPhraseChange(...arguments)"
     >
+    <button type="button" :disabled="!phrase" @click="clearSearchPhrase">
+      &times;
+    </button>
   </div>
 </template>
 
@@ -62,6 +65,9 @@ export default {
     emitPhraseChange: debounce(function emit(event) {
       this.$emit('phrase-change', event.target.value);
     }, 250),
+    clearSearchPhrase() {
+      this.$emit('phrase-change', null);
+    },
   },
 };
 </script>
