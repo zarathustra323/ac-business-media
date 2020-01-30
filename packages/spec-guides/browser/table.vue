@@ -204,8 +204,8 @@ export default {
     },
 
     filterByNumber({ key, phrase, range }) {
-      const n = parseFloat(phrase);
-      if (Number.isNaN(n)) return [];
+      const n = this.parseFloat({ value: phrase });
+      if (n == null) return [];
       if (this.hasRange(range)) {
         // @todo implement
         return this.rows;
@@ -215,10 +215,29 @@ export default {
       return this.rows.filter((row) => {
         const val = this.getValueFor({ key, row });
         if (!val) return false;
-        const parsed = parseFloat(val);
-        if (Number.isNaN(parsed)) return false;
+        const parsed = this.parseFloat({ value: val });
+        if (parsed == null) return false;
         return n === parsed || (parsed > n && parsed < nextN);
       });
+    },
+
+    parseFloat({ value, whenRange = 'high' }) {
+      if (!value) return null;
+      const v = this.pickRangeValue({ value, choice: whenRange });
+      if (!v) return null;
+      // parse and remove commas
+      const parsed = parseFloat(v.replace(/,/g, ''));
+      return Number.isNaN(parsed) ? null : parsed;
+    },
+
+    pickRangeValue({ value, choice = 'high' }) {
+      if (!value) return null;
+      if (!/-/.test(value)) return value;
+      const parts = value.split('-').map(v => v.trim()).filter(v => v);
+      if (!parts.length) return null;
+      if (parts.length === 1) return parts[0];
+      const index = choice === 'high' ? 1 : 0;
+      return parts[index];
     },
 
     async loadData() {
