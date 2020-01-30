@@ -5,6 +5,7 @@
         :columns="visibleColumnList"
         :selected="selectedSearchKey"
         :disabled="isLoading"
+        :phrase="searchPhrase"
         @field-change="setSelectedSearchKey"
         @phrase-change="setSearchPhrase"
       />
@@ -159,7 +160,11 @@ export default {
   methods: {
     setSelectedMeasureKey(event) {
       this.activeMeasureKey = event.target.value;
-      this.searchPhrase = null;
+      const { selectedSearchKey } = this;
+      if (selectedSearchKey) {
+        const col = this.getColumn(selectedSearchKey);
+        if (col && col.measure) this.searchPhrase = null;
+      }
     },
 
     setSelectedSearchKey(event) {
