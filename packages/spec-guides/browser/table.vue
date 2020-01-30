@@ -159,6 +159,7 @@ export default {
   methods: {
     setSelectedMeasureKey(event) {
       this.activeMeasureKey = event.target.value;
+      this.searchPhrase = null;
     },
 
     setSelectedSearchKey(event) {
