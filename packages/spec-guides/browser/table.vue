@@ -202,7 +202,7 @@ export default {
       const { searchPhrase, selectedSearchKey } = this;
       if (!searchPhrase) return this.rows;
       const column = this.getColumn(selectedSearchKey);
-      if (column.type === 'number') return this.filterByNumber({ key: selectedSearchKey, phrase: searchPhrase, range: column.range });
+      if (column.type === 'number') return this.filterByNumber({ key: selectedSearchKey, phrase: searchPhrase });
       return this.filterByRegex({ key: selectedSearchKey, phrase: searchPhrase });
     },
   },
@@ -326,14 +326,10 @@ export default {
     /**
      *
      */
-    filterByNumber({ key, phrase, range }) {
+    filterByNumber({ key, phrase }) {
       const tuple = parseNumber({ value: phrase });
       if (tuple == null) return [];
       const [n] = tuple;
-      if (this.hasRange(range)) {
-        // @todo implement
-        return this.rows;
-      }
 
       const exponent = `${parseInt(Math.abs(n), 10)}`.length - 1;
       const drift = (10 ** exponent) / this.driftPercent;
