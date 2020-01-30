@@ -37,7 +37,7 @@
               Error: {{ error.message }}
             </td>
           </tr>
-          <tr v-for="(row, index) in filteredRows" v-else :key="index">
+          <tr v-for="(row, index) in sortedRows" v-else :key="index">
             <td
               v-for="col in visibleColumnList"
               :key="`${col.key}-row-${index}`"
@@ -118,6 +118,7 @@ export default {
     activeSearchKey: null,
     selectedSortKey: null,
     searchPhrase: null,
+    sortDirection: null,
     rows: [],
   }),
 
@@ -209,6 +210,25 @@ export default {
       if (column.type === 'number') return this.filterByNumber({ key: selectedSearchKey, phrase: searchPhrase });
       return this.filterByRegex({ key: selectedSearchKey, phrase: searchPhrase });
     },
+
+    sortedRows() {
+      const { selectedSortKey, sortDirection, filteredRows } = this;
+      if (!selectedSortKey) return filteredRows;
+      const column = this.getColumn(selectedSortKey);
+      if (column.type === 'number') return filteredRows;
+      return filteredRows.sort((rowA, rowB) => {
+        const { displayValue: a } = get(rowA, selectedSortKey);
+        const { displayValue: b } = get(rowB, selectedSortKey);
+        if (sortDirection === 'asc') {
+          if (a > b) return 1;
+          if (a < b) return -1;
+          return 0;
+        }
+        if (a > b) return -1;
+        if (a < b) return 1;
+        return 0;
+      });
+    },
   },
 
   /**
@@ -249,8 +269,9 @@ export default {
       this.searchPhrase = phrase;
     },
 
-    setSortKey({ key }) {
+    setSortKey({ key, direction }) {
       this.selectedSortKey = key;
+      this.sortDirection = direction;
     },
 
     /**
