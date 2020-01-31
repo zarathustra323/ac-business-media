@@ -17,3 +17,13 @@ $common-spec-guide-container-max-width: 1400px;
     max-width: $common-spec-guide-container-max-width;
   }
 }
+
+.spec-guide-button {
+  @extend .btn;
+  @extend .btn-block;
+
+  &--engine {
+    $color: #179fa4;
+    @include button-variant($color, $color);
+  }
+}

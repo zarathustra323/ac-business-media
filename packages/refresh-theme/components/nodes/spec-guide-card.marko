@@ -15,8 +15,7 @@ $ const content = {
   },
 };
 $ const { primaryImage } = content;
-
-$ console.log(content);
+$ const buttonClasses = `spec-guide-button spec-guide-button--${node.alias}`;
 
 <marko-web-node
   type="spec-guide-content"
@@ -45,38 +44,24 @@ $ console.log(content);
     <@text tag="p" modifiers=["body"]>
       <marko-web-content-body tag=null obj=content />
     </@text>
-    <@text modifiers=["promotion-link-button"]>
+    <@text modifiers=["spec-guide-link-button"]>
       <marko-web-link
-        class="btn btn-primary btn-block"
+        class=buttonClasses
         href=content.siteContext.path
       >
         Visit the Interactive $!{content.shortName}
       </marko-web-link>
     </@text>
     <@text
-      modifiers=["promotion-link-button"]
+      modifiers=["spec-guide-link-button"]
       show=(Boolean(node.downloadLink))
     >
       <marko-web-link
-        class="btn btn-primary btn-block"
+        class=buttonClasses
         href=node.downloadLink
       >
         Download Print $!{content.shortName}
       </marko-web-link>
     </@text>
-
-    <!-- <@text
-      modifiers=["promotion-link-button"]
-      show=(Boolean(isPromotion && content.linkUrl && content.linkText))
-    >
-      <marko-web-link
-        class="btn btn-primary btn-block"
-        href=content.linkUrl
-        title=content.linkText
-        target="_blank"
-      >
-        ${content.linkText}
-      </marko-web-link>
-    </@text> -->
   </@body>
 </marko-web-node>
