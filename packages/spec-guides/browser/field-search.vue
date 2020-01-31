@@ -1,25 +1,40 @@
 <template>
-  <div v-if="columns.length">
-    <select :disabled="disabled" @change="emitFieldChange">
-      <option
-        v-for="col in columns"
-        :key="col.key"
-        :value="col.key"
-        :selected="col.key === selected"
+  <div v-if="columns.length" class="form-group">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">
+          Filter By:
+        </span>
+      </div>
+      <select class="custom-select" :disabled="disabled" @change="emitFieldChange">
+        <option
+          v-for="col in columns"
+          :key="col.key"
+          :value="col.key"
+          :selected="col.key === selected"
+        >
+          {{ col.label }}
+        </option>
+      </select>
+      <input
+        class="form-control"
+        :value="phrase"
+        :disabled="disabled"
+        :type="type"
+        placeholder="Enter search value..."
+        @input="emitPhraseChange(...arguments)"
       >
-        {{ col.label }}
-      </option>
-    </select>
-    <input
-      :value="phrase"
-      :disabled="disabled"
-      :type="type"
-      placeholder="Enter search value..."
-      @input="emitPhraseChange(...arguments)"
-    >
-    <button type="button" :disabled="!phrase" @click="clearSearchPhrase">
-      &times;
-    </button>
+      <div class="input-group-append">
+        <button
+          type="button"
+          class="btn btn-outline-secondary"
+          :disabled="!phrase"
+          @click="clearSearchPhrase"
+        >
+          &times;
+        </button>
+      </div>
+    </div>
   </div>
 </template>
 

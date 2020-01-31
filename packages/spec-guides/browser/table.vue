@@ -1,23 +1,25 @@
 <template>
   <div>
-    <form>
-      <field-search
-        :columns="visibleColumnList"
-        :selected="selectedSearchKey"
-        :disabled="isLoading"
-        :phrase="searchPhrase"
-        @field-change="setSelectedSearchKey"
-        @phrase-change="setSearchPhrase"
-      />
-      <measure-select
-        :measures="measureList"
-        :selected="selectedMeasureKey"
-        :disabled="isLoading"
-        @change="setSelectedMeasureKey"
-      />
+    <form class="row">
+      <div class="col-xl-6 col-lg-8">
+        <field-search
+          :columns="visibleColumnList"
+          :selected="selectedSearchKey"
+          :disabled="isLoading"
+          :phrase="searchPhrase"
+          @field-change="setSelectedSearchKey"
+          @phrase-change="setSearchPhrase"
+        />
+        <measure-select
+          :measures="measureList"
+          :selected="selectedMeasureKey"
+          :disabled="isLoading"
+          @change="setSelectedMeasureKey"
+        />
+      </div>
     </form>
     <div class="table-responsive">
-      <table ref="table" class="table table-striped table-hover table-sm" style="min-width: 100%;">
+      <table ref="table" class="table table-striped table-hover table-sm w-100">
         <thead class="thead-dark">
           <tr>
             <th v-for="col in visibleColumnList" :key="`${col.key}-header`" class="text-center">

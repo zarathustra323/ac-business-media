@@ -2,7 +2,7 @@
   <div>
     <button
       type="button"
-      :class="{ active: activeDirection === 'asc' }"
+      :class="{ btn: true, 'btn-sm': true, 'btn-dark': true, active: activeDirection === 'asc' }"
       :disabled="activeDirection === 'asc'"
       @click="setDirection('asc')"
     >
@@ -10,7 +10,7 @@
     </button>
     <button
       type="button"
-      :class="{ active: activeDirection === 'desc' }"
+      :class="{ btn: true, 'btn-sm': true, 'btn-dark': true, active: activeDirection === 'desc' }"
       :disabled="activeDirection === 'desc'"
       @click="setDirection('desc')"
     >
