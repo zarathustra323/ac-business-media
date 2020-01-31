@@ -15,32 +15,32 @@ $ const adSlots = () => ({
     </marko-web-gtm-default-context>
     <marko-web-gam-slots slots=adSlots() />
   </@head>
-  <@page>
-    <marko-web-page-wrapper>
-      <@section>
-        <marko-web-gam-display-ad
-          id="gpt-ad-lb1"
-          slots=adSlots()
-          modifiers=["max-width-970", "center"]
-        />
-      </@section>
-    </marko-web-page-wrapper>
-  </@page>
   <@below-container>
-    <div class="container-fluid px-lg-5">
-      <div class="row">
-        <div class="col">
-          <if(config)>
-            <common-spec-guide-table
-              measures=config.measures
-              columns=config.columns
-              initial-measure-key=config.initialMeasureKey
-              sheet-src=config.sheetSrc
-              alias=alias
-            />
-          </if>
-        </div>
-      </div>
+    <div class="spec-guide-container">
+      <marko-web-page-wrapper>
+        <@section>
+          <marko-web-gam-display-ad
+            id="gpt-ad-lb1"
+            slots=adSlots()
+            modifiers=["max-width-970", "margin-auto-x", "center"]
+          />
+        </@section>
+        <@section>
+          <div class="row">
+            <div class="col">
+              <if(config)>
+                <common-spec-guide-table
+                  measures=config.measures
+                  columns=config.columns
+                  initial-measure-key=config.initialMeasureKey
+                  sheet-src=config.sheetSrc
+                  alias=alias
+                />
+              </if>
+            </div>
+          </div>
+        </@section>
+      </marko-web-page-wrapper>
     </div>
   </@below-container>
 </marko-web-default-page-layout>

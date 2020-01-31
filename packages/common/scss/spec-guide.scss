@@ -1,3 +1,19 @@
+$common-spec-guide-container-max-width: 1400px;
+
 // Require Bootstrap tables and input groups
 @import "../../node_modules/bootstrap/scss/tables";
 @import "../../node_modules/bootstrap/scss/input-group";
+
+
+.spec-guide-container {
+  position: relative;
+  width: 100%;
+  padding-right: $marko-web-document-container-gutter;
+  padding-left: $marko-web-document-container-gutter;
+  margin-right: auto;
+  margin-left: auto;
+
+  @media (min-width: $common-spec-guide-container-max-width) {
+    max-width: $common-spec-guide-container-max-width;
+  }
+}
