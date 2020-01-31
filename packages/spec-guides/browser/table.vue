@@ -19,7 +19,7 @@
       </div>
     </form>
     <div class="table-responsive">
-      <table ref="table" class="table table-striped table-hover table-sm w-100">
+      <table ref="table" class="table table-striped table-hover table-sm w-100 small">
         <thead class="thead-dark">
           <tr>
             <th v-for="col in visibleColumnList" :key="`${col.key}-header`" class="text-center">
