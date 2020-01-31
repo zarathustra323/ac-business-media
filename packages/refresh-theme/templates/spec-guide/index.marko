@@ -1,8 +1,7 @@
-$ const { GAM, site } = out.global;
-$ const type = "spec-guide-table";
-$ const { title, description, alias } = data;
+$ const { GAM, specGuides } = out.global;
 
-$ const config = site.get(`specGuides.${alias}`);
+$ const type = "spec-guide-index";
+$ const { title, description } = specGuides;
 
 $ const adSlots = () => ({
   "gpt-ad-lb1": GAM.getAdUnit({ name: "lb1" }),
@@ -27,7 +26,10 @@ $ const adSlots = () => ({
       <@section>
         <div class="row">
           <div class="col">
-            <h1 class="page-wrapper__title">${title}</h1>
+            <h1 class="page-wrapper__title">$!{title}</h1>
+            <if(description)>
+              <div class="page-wrapper__deck">$!{description}</div>
+            </if>
           </div>
         </div>
       </@section>
