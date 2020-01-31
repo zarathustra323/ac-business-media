@@ -16,15 +16,26 @@
           :disabled="isLoading"
           @change="setSelectedMeasureKey"
         />
+        <field-sort
+          :columns="visibleColumnList"
+          :selected="selectedSortKey"
+          :direction="sortDirection"
+          :disabled="isLoading"
+          @field-change="setSelectedSortKey"
+          @direction-change="setSortDirection"
+        />
       </div>
     </form>
     <div class="table-responsive">
       <table ref="table" class="table table-striped table-hover table-sm w-100 small">
         <thead class="thead-dark">
           <tr>
-            <th v-for="col in visibleColumnList" :key="`${col.key}-header`" class="text-center">
+            <th
+              v-for="col in visibleColumnList"
+              :key="`${col.key}-header`"
+              class="text-center align-middle"
+            >
               {{ col.label }}
-              <sort-buttons :col-key="col.key" :selected="selectedSortKey" @click="setSortKey" />
             </th>
           </tr>
         </thead>
@@ -61,7 +72,7 @@ import escapeRegex from './utils/escape-regex';
 import parseNumber from './utils/parse-number';
 import MeasureSelect from './measure-select.vue';
 import FieldSearch from './field-search.vue';
-import SortButtons from './sort-buttons.vue';
+import FieldSort from './field-sort.vue';
 
 const { isArray } = Array;
 const { keys } = Object;
@@ -73,7 +84,7 @@ export default {
   components: {
     MeasureSelect,
     FieldSearch,
-    SortButtons,
+    FieldSort,
   },
 
   /**
@@ -121,7 +132,7 @@ export default {
     activeSearchKey: null,
     selectedSortKey: null,
     searchPhrase: null,
-    sortDirection: null,
+    sortDirection: 1,
     rows: [],
   }),
 
@@ -226,7 +237,7 @@ export default {
       const column = this.getColumn(selectedSortKey);
       if (column.type === 'number') {
         return filteredRows.sort((rowA, rowB) => {
-          if (sortDirection === 'asc') {
+          if (sortDirection === 1) {
             const { min: a } = get(rowA, selectedSortKey);
             const { min: b } = get(rowB, selectedSortKey);
             return this.sortValues(a, b, sortDirection);
@@ -263,7 +274,10 @@ export default {
       const { selectedSearchKey } = this;
       if (selectedSearchKey) {
         const col = this.getColumn(selectedSearchKey);
-        if (col && col.measure) this.searchPhrase = null;
+        if (col && col.measure) {
+          this.searchPhrase = null;
+          this.selectedSortKey = null;
+        }
       }
     },
 
@@ -285,15 +299,17 @@ export default {
     /**
      *
      */
-    setSortKey({ key, direction }) {
+    setSelectedSortKey(key) {
       this.selectedSortKey = key;
+    },
+
+    setSortDirection(direction) {
       this.sortDirection = direction;
     },
 
     sortValues(a, b, direction) {
-      const order = direction === 'asc' ? 1 : -1;
-      if (a > b) return 1 * order;
-      if (a < b) return -1 * order;
+      if (a > b) return 1 * direction;
+      if (a < b) return -1 * direction;
       return 0;
     },
 
