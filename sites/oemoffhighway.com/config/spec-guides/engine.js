@@ -1,6 +1,11 @@
 module.exports = {
   title: 'Engine Spec Guide',
   teaser: 'Find hundreds of gas and diesel engine systems from all of the major engine manufacturers in horsepower ranging from 1 hp to over 5,000 hp.',
+  description: 'The <strong><em>OEM Off-Highway Engine Spec Guide</em></strong> is the industry’s first online, interactive component specing tool custom-built for engineers and product development team members to find exactly which engine they need for integration into the next generation of equipment.',
+  bullets: [
+    'Entering specific search criteria (company name, Tier certification, etc.)',
+    'Sorting the information by any column to order the information the way you need it',
+  ],
   image: {
     src: 'https://img.oemoffhighway.com/files/base/acbm/ooh/image/static/engine.png',
   },
