@@ -74,6 +74,7 @@ module.exports = {
     {
       label: 'User Tools',
       items: [
+        { href: '/page/sitemap', label: 'Site Section Map' },
         { href: 'https://www.dragonforms.com/loading.do?omedasite=OOH_prefs_ProgReg', label: 'Newsletters', target: '_blank' },
         { href: 'https://www.oemoffhighwaymediakit.com/', label: 'Advertise', target: '_blank' },
         { href: '/magazine', label: 'Current Issue' },
