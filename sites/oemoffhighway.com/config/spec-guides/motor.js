@@ -96,12 +96,10 @@ module.exports = {
     in: {
       label: 'Output Shaft (in)',
       measure: 'standard',
-      type: 'number',
     },
     mm: {
       label: 'Output Shaft (mm)',
       measure: 'metric',
-      type: 'number',
     },
     productseries: {
       label: 'Product / Series',
