@@ -26,6 +26,7 @@ module.exports = (options = {}) => {
   const { onStart, redirectHandler } = options;
   const gamConfig = get(options, 'siteConfig.gam');
   const nativeXConfig = getAsObject(options, 'siteConfig.nativeX');
+  const specGuideConfig = getAsObject(options, 'siteConfig.specGuides');
   return startServer({
     ...options,
     routes: routes(options.routes),
@@ -41,6 +42,10 @@ module.exports = (options = {}) => {
       }
       // Setup NativeX.
       set(app.locals, 'nativeX', buildNativeXConfig(nativeXConfig));
+      // Setup Spec Guides
+      if (specGuideConfig.guides && Object.keys(specGuideConfig.guides).length) {
+        set(app.locals, 'specGuides', specGuideConfig);
+      }
       // Force set all date formats.
       app.use((req, res, next) => {
         set(app.locals, 'markoCoreDate.format', 'MMMM D, YYYY');
