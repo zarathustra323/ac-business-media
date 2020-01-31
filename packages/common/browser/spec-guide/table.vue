@@ -409,7 +409,6 @@ export default {
                 values.max = max;
                 values.hasRange = min !== max;
               } else {
-                console.log('range invalid', { lowKey, highKey, row });
                 values.min = 0;
                 values.max = 0;
                 values.hasRange = false;
@@ -424,7 +423,6 @@ export default {
                 values.max = max;
                 values.hasRange = min !== max;
               } else {
-                console.log('number invalid', { key, row });
                 values.min = 0;
                 values.max = 0;
                 values.hasRange = false;
