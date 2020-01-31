@@ -1,10 +1,15 @@
 module.exports = {
   rootPath: '/specguide',
+  title: 'OEM Off-Highway Spec Guides',
+  description: '<em>OEM Off-Highway Spec Guides</em> are essential industry tools to help engineers specify the products they need for the next generation of heavy-duty on- and off-road mobile equipment. The Engine Spec Guide, Pump Spec Guide, and Motor Spec Guide are the industry’s first and only completely interactive component specifier that was custom built <strong>by engineers, for engineers.</strong>',
   guides: {
     engine: {
-      title: '',
-      image: '',
-      pdfLink: '',
+      title: 'Engine Spec Guide',
+      teaser: 'Find hundreds of gas and diesel engine systems from all of the major engine manufacturers in horsepower ranging from 1 hp to over 5,000 hp.',
+      image: {
+        src: 'https://img.oemoffhighway.com/files/base/acbm/ooh/image/static/engine.png',
+      },
+      downloadLink: '/12254042',
       sheetSrc: 'https://spreadsheets.google.com/feeds/list/10EKomL-SVMZ4imnCaoO86t48T7ngVaopWXie04AveUo/4/public/values?alt=json',
       measures: {
         metric: { label: 'Metric' },
