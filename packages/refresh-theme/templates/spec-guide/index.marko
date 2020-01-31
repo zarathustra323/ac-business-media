@@ -31,15 +31,12 @@ $ const adSlots = () => ({
       <div class="row">
         <div class="col">
           <if(config)>
-            <marko-web-browser-component
-              name="SpecGuideTable"
-              props={
-                measures: config.measures,
-                columns: config.columns,
-                initialMeasureKey: config.initialMeasureKey,
-                sheetSrc: config.sheetSrc,
-                alias,
-              }
+            <common-spec-guide-table
+              measures=config.measures
+              columns=config.columns
+              initial-measure-key=config.initialMeasureKey
+              sheet-src=config.sheetSrc
+              alias=alias
             />
           </if>
         </div>
