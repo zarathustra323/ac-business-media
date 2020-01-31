@@ -99,7 +99,7 @@ $ const injectAds = ["article", "news", "press-release", "blog"].includes(type) 
               <if(content.embedCode)>
                 <marko-web-content-embed-code block-name=blockName obj=content />
               </if>
-              <else-if(content.type === "whitepaper")>
+              <else-if(content.type === "whitepaper" || content.type === "document")>
                 <marko-web-page-image
                   obj=content.primaryImage
                   modifiers=["primary-image-inline"]
