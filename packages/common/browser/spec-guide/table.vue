@@ -314,7 +314,7 @@ export default {
       const { key } = col;
       const value = get(row, key);
       if (!value) return '';
-      if (value.invalidNumber) return '';
+      if (value.invalidNumber) return value.raw || '';
       if (value.hasRange) return `${value.min} - ${value.max}`;
       if (value.min != null) return value.min;
       return value.raw;
@@ -385,8 +385,11 @@ export default {
             if (isArray(col.range) && col.range.length === 2) {
               // dependends on other spreadsheet fields for low/high values.
               const [lowKey, highKey] = col.range;
-              const lowRange = parseNumber({ value: this.getSourceValue(row, lowKey) });
-              const highRange = parseNumber({ value: this.getSourceValue(row, highKey) });
+              const lowRaw = this.getSourceValue(row, lowKey);
+              const highRaw = this.getSourceValue(row, highKey);
+
+              const lowRange = parseNumber({ value: lowRaw });
+              const highRange = parseNumber({ value: highRaw });
 
               if (lowRange && highRange) {
                 // both ranges were parsed successfully.
@@ -409,6 +412,7 @@ export default {
                 values.max = max;
                 values.hasRange = min !== max;
               } else {
+                values.raw = lowRaw || highRaw;
                 values.min = 0;
                 values.max = 0;
                 values.hasRange = false;
