@@ -30,3 +30,20 @@ $website-section-colors: (
 );
 
 @import "../../node_modules/@ac-business-media/refresh-theme/scss/theme";
+
+.spec-guide-button {
+  &--engine {
+    $color: #179fa4;
+    @include button-variant($color, $color);
+  }
+
+  &--motor {
+    $color: #0c6bb1;
+    @include button-variant($color, $color);
+  }
+
+  &--pump {
+    $color: #ed2028;
+    @include button-variant($color, $color);
+  }
+}
