@@ -15,7 +15,7 @@ module.exports = {
     metric: { label: 'Metric' },
     standard: { label: 'Standard' },
   },
-  initialMeasureKey: 'standard',
+  initialMeasureKey: 'metric',
   columns: {
     openloop: {
       label: 'Open Loop',
