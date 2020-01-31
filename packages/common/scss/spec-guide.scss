@@ -22,3 +22,9 @@ $common-spec-guide-container-max-width: 1400px;
   @extend .btn;
   @extend .btn-block;
 }
+
+.spec-guide-tagline {
+  font-size: 18px;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+}

@@ -1,10 +1,11 @@
-import { get } from "@base-cms/object-path";
+import { get, getAsArray } from "@base-cms/object-path";
 
 $ const { GAM, specGuides } = out.global;
 $ const type = "spec-guide";
 $ const { title, description, alias } = data;
 
 $ const config = get(specGuides, `guides.${alias}`);
+$ const bullets = getAsArray(config, "bullets");
 
 $ const adSlots = () => ({
   "gpt-ad-lb1": GAM.getAdUnit({ name: "lb1" }),
@@ -26,6 +27,38 @@ $ const adSlots = () => ({
             slots=adSlots()
             modifiers=["max-width-970", "margin-auto-x", "center"]
           />
+        </@section>
+        <@section>
+          <div class="row">
+            <div class="col-md-6 col-lg-4">
+              <marko-web-page-image
+                obj=config.image
+                fluid=true
+                width=400
+              />
+              <p class="spec-guide-tagline">
+                Search | Sort | Filter | Download
+              </p>
+            </div>
+            <div class="col-md-6 col-lg-8">
+              <p>$!{config.description}</p>
+              <if(bullets.length)>
+                <p><strong>Access ONLY the information you want through:</strong></p>
+                <ul>
+                  <for|text| of=bullets>
+                    <li>$!{text}</li>
+                  </for>
+                  <if(config.downloadLink)>
+                    <li>
+                      <marko-web-link href=config.downloadLink>
+                        <strong>Download the PDF</strong>
+                      </marko-web-link>
+                    </li>
+                  </if>
+                </ul>
+              </if>
+            </div>
+          </div>
         </@section>
         <@section>
           <div class="row">
