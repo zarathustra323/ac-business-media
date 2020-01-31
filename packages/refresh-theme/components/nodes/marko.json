@@ -59,5 +59,8 @@
     "@flush": "boolean",
     "@card": "boolean",
     "@with-title": "boolean"
+  },
+  "<refresh-theme-spec-guide-card-node>": {
+    "template": "./spec-guide-card.marko"
   }
 }

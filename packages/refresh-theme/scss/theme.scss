@@ -439,6 +439,10 @@ $theme-related-content-border-color: #dee2e6;
     &--body {
       flex-grow: 1;
     }
+
+    &--promotion-link-button + &--promotion-link-button {
+      margin-top: .75rem;
+    }
   }
 
   &__content-link-url {

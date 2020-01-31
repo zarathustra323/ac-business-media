@@ -7,6 +7,11 @@ $ const adSlots = () => ({
   "gpt-ad-lb1": GAM.getAdUnit({ name: "lb1" }),
 });
 
+$ const nodes = Object.keys(specGuides.guides).map((alias) => {
+  const node = specGuides.guides[alias];
+  return { ...node, alias };
+});
+
 <marko-web-default-page-layout type=type title=title description=description>
   <@head>
     <marko-web-gtm-default-context|{ context }| type=type>
@@ -32,6 +37,13 @@ $ const adSlots = () => ({
             </if>
           </div>
         </div>
+      </@section>
+      <@section modifiers=["card-deck"]>
+        <default-theme-card-deck-flow cols=3 nodes=nodes>
+          <@slot|{ node }|>
+            <refresh-theme-spec-guide-card-node root-path=specGuides.rootPath node=node />
+          </@slot>
+        </default-theme-card-deck-flow>
       </@section>
     </marko-web-page-wrapper>
   </@page>
