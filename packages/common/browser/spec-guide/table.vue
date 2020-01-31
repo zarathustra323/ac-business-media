@@ -194,22 +194,6 @@ export default {
     /**
      *
      */
-    allColumnsMap() {
-      return this.columnList.reduce((map, col) => {
-        const { type } = col;
-        map.set(col.key, { type, root: col });
-        if (this.hasRange(col.range)) {
-          const [lowKey, highKey] = col.range;
-          map.set(lowKey, { type });
-          map.set(highKey, { type });
-        }
-        return map;
-      }, new Map());
-    },
-
-    /**
-     *
-     */
     visibleColumnList() {
       const { columnList, selectedMeasure, selectedMeasureKey } = this;
       if (!selectedMeasure) return columnList.slice();
@@ -303,6 +287,9 @@ export default {
       this.selectedSortKey = key;
     },
 
+    /**
+     *
+     */
     setSortDirection(direction) {
       this.sortDirection = direction;
     },
@@ -324,66 +311,13 @@ export default {
      *
      */
     getDisplayValue(col, row) {
-      const { range, key } = col;
-      if (this.hasRange(range)) {
-        const [lowKey, highKey] = range;
-        const rangeValue = this.getRangeValue({ lowKey, highKey, row });
-        if (rangeValue === '') return this.getValueFor({ key, row });
-        return rangeValue;
-      }
-      return this.getValueFor({ key, row });
-    },
-
-    /**
-     *
-     */
-    hasRange(range) {
-      return isArray(range) && range.length === 2;
-    },
-
-    /**
-     *
-     */
-    getValueFor({ key, row }) {
+      const { key } = col;
       const value = get(row, key);
       if (!value) return '';
-      if (value.isRange) return `${value.min} - ${value.max}`;
+      if (value.invalidNumber) return '';
+      if (value.hasRange) return `${value.min} - ${value.max}`;
       if (value.min != null) return value.min;
       return value.raw;
-    },
-
-    /**
-     *
-     */
-    getRangeValueFor({ key, row, prop }) {
-      const value = get(row, key);
-      if (!value) return null;
-      return value[prop] == null ? null : value[prop];
-    },
-
-    /**
-     *
-     */
-    getMinValueFor({ key, row }) {
-      return this.getRangeValueFor({ key, row, prop: 'min' });
-    },
-
-    /**
-     *
-     */
-    getMaxValueFor({ key, row }) {
-      return this.getRangeValueFor({ key, row, prop: 'max' });
-    },
-
-    /**
-     *
-     */
-    getRangeValue({ lowKey, highKey, row }) {
-      const values = [
-        this.getMinValueFor({ key: lowKey, row }),
-        this.getMaxValueFor({ key: highKey, row }),
-      ];
-      return values.filter(v => v).join(' - ');
     },
 
     /**
@@ -416,11 +350,15 @@ export default {
       return this.rows.filter((row) => {
         const val = get(row, key);
         if (!val) return false;
-        if (val.isRange) {
+        if (val.hasRange) {
           return (min >= val.min && min <= val.max) || (max >= val.min && max <= val.max);
         }
         return val.min >= min && val.min <= max;
       });
+    },
+
+    getSourceValue(row, key) {
+      return get(row, `gsx$${key}.$t`);
     },
 
     /**
@@ -437,21 +375,60 @@ export default {
         if (!res.ok) throw new Error('Network error encountered when retrieving data.');
         const json = await res.json();
         let rows = get(json, 'feed.entry');
-        const colKeys = [...this.allColumnsMap.keys()];
 
         // Format/simplify the raw data.
         this.rows = isArray(rows) ? rows.map((row) => {
-          const newRow = colKeys.reduce((o, key) => {
-            const col = this.allColumnsMap.get(key);
-            const raw = get(row, `gsx$${key}.$t`);
+          const newRow = this.columnList.reduce((o, col) => {
+            const { key } = col;
+            const raw = this.getSourceValue(row, key);
             const values = { raw };
-            if (col.type === 'number') {
+            if (isArray(col.range) && col.range.length === 2) {
+              // dependends on other spreadsheet fields for low/high values.
+              const [lowKey, highKey] = col.range;
+              const lowRange = parseNumber({ value: this.getSourceValue(row, lowKey) });
+              const highRange = parseNumber({ value: this.getSourceValue(row, highKey) });
+
+              if (lowRange && highRange) {
+                // both ranges were parsed successfully.
+                // use the min of the lowest, and the max of the highest.
+                const [lowMin] = lowRange;
+                const [, highMax] = highRange;
+                values.min = lowMin;
+                values.max = highMax;
+                values.hasRange = values.min !== values.max;
+              } else if (lowRange) {
+                // only a low range was parsed. use min/max of it.
+                const [min, max] = lowRange;
+                values.min = min;
+                values.max = max;
+                values.hasRange = min !== max;
+              } else if (highRange) {
+                // only a high range was parsed. use min/max of it.
+                const [min, max] = highRange;
+                values.min = min;
+                values.max = max;
+                values.hasRange = min !== max;
+              } else {
+                console.log('range invalid', { lowKey, highKey, row });
+                values.min = 0;
+                values.max = 0;
+                values.hasRange = false;
+                values.invalidNumber = true;
+              }
+            } else if (col.type === 'number') {
+              // single number.
               const range = parseNumber({ value: raw });
               if (range) {
                 const [min, max] = range;
                 values.min = min;
                 values.max = max;
-                values.isRange = min !== max;
+                values.hasRange = min !== max;
+              } else {
+                console.log('number invalid', { key, row });
+                values.min = 0;
+                values.max = 0;
+                values.hasRange = false;
+                values.invalidNumber = true;
               }
             }
             return { ...o, [key]: values };
