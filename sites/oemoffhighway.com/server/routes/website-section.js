@@ -2,6 +2,7 @@ const { withWebsiteSection } = require('@base-cms/marko-web/middleware');
 const section = require('@ac-business-media/refresh-theme/templates/website-section');
 const contactUs = require('@ac-business-media/refresh-theme/templates/website-section/contact-us');
 const events = require('@ac-business-media/refresh-theme/templates/website-section/events');
+const feed = require('@ac-business-media/refresh-theme/templates/website-section/feed');
 const mediaGalleries = require('@ac-business-media/refresh-theme/templates/website-section/media-galleries');
 const webinars = require('@ac-business-media/refresh-theme/templates/website-section/webinars');
 const whitepapers = require('@ac-business-media/refresh-theme/templates/website-section/whitepapers');
@@ -33,6 +34,14 @@ module.exports = (app) => {
   }));
   app.get('/:alias(media-center/whitepapers-ebooks)', withWebsiteSection({
     template: whitepapers,
+    queryFragment,
+  }));
+  app.get('/:alias(media-center/videos/industry-videos)', withWebsiteSection({
+    template: feed,
+    queryFragment,
+  }));
+  app.get('/:alias(media-center/videos/technology-news-tracker)', withWebsiteSection({
+    template: feed,
     queryFragment,
   }));
   app.get('/:alias(market-analysis/equipment-market-outlook)', withWebsiteSection({
