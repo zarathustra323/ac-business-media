@@ -67,17 +67,6 @@ $ const adSlots = ({ aliases }) => ({
                 </refresh-theme-content-card-node>
               </@slot>
             </default-theme-card-deck-flow>
-          </marko-web-query><marko-web-query|{ nodes }|
-            name="website-scheduled-content"
-            params={ limit: 3, sectionAlias: "media-center/videos/technology-news-tracker", includeContentTypes: ["Video"], queryFragment }
-          >
-            <default-theme-card-deck-flow cols=3 nodes=nodes>
-              <@slot|{ node }|>
-                <refresh-theme-content-card-node node=node>
-                  <@image width=340 />
-                </refresh-theme-content-card-node>
-              </@slot>
-            </default-theme-card-deck-flow>
           </marko-web-query>
         </@section>
         <@section|{ blockName }|>
