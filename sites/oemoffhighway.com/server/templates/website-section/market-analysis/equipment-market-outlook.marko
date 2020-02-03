@@ -1,6 +1,7 @@
 import hierarchyAliases from "@base-cms/marko-web/utils/hierarchy-aliases";
 import articleFragment from "../../../graphql/fragments/market-outlook-article";
 import navFragment from "../../../graphql/fragments/market-outlook-nav";
+import listFragment from "../../../graphql/fragments/market-outlook-list";
 
 $ const { GAM } = out.global;
 
@@ -13,12 +14,14 @@ $ const {
 
 $ const adSlots = ({ aliases }) => ({
   "gpt-ad-lb1": GAM.getAdUnit({ name: "lb1", aliases }),
+  "gpt-ad-rail-infinite": GAM.getAdUnit({ name: "infinite-rail" }),
 });
 
 $ const listQueryParams = {
   sectionId: id,
   includeContentTypes: ["Document"],
   limit: 0,
+  queryFragment: listFragment,
 };
 $ const navQueryParams = { ...listQueryParams, queryFragment: navFragment };
 
@@ -65,6 +68,7 @@ $ const navQueryParams = { ...listQueryParams, queryFragment: navFragment };
           </div>
         </@section>
         <@section modifiers=["text-center"]>
+          <a class="anchor" name="nav" />
           <h2 class="page-wrapper__description">Click to Navigate</h2>
           <marko-web-query|{ nodes }| name="website-scheduled-content" params=navQueryParams>
             $ const blockName = "market-outlook-nav";
@@ -75,7 +79,28 @@ $ const navQueryParams = { ...listQueryParams, queryFragment: navFragment };
             </div>
           </marko-web-query>
         </@section>
+        <@section>
+        <div class="row">
+          <div class="col-lg-8">
+            <marko-web-query|{ nodes }| name="website-scheduled-content" params=listQueryParams>
+              <website-market-outlook-flow nodes=nodes />
+            </marko-web-query>
+          </div>
+          <aside class="col-lg-4 page-rail">
+            <marko-web-gam-display-ad
+              id="gpt-ad-rail-infinite"
+              modifiers=["sticky-top", "max-width-300", "margin-auto-x-md"]
+              slots=adSlots({ aliases })
+            />
+          </aside>
+        </div>
+      </@section>
       </marko-web-page-wrapper>
     </marko-web-resolve-page>
   </@page>
+  <@foot>
+    <marko-web-resolve-page|{ data: section }| node=pageNode>
+      <refresh-theme-fixed-ad-bottom aliases=hierarchyAliases(section) />
+    </marko-web-resolve-page>
+  </@foot>
 </marko-web-website-section-page-layout>
