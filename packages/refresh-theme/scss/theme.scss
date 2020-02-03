@@ -462,8 +462,8 @@ $theme-related-content-border-color: #dee2e6;
     text-transform: uppercase;
   }
 
-  &__footer {
-    justify-content: flex-start;
+  &__footer-left {
+    max-width: 70%;
   }
 
   &__footer-left:not(:empty) + &__footer-right {
