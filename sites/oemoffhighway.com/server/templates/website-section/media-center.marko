@@ -49,82 +49,29 @@ $ const adSlots = ({ aliases }) => ({
             </div>
           </div>
         </@section>
-        <@section|{ blockName }|>
-          <!-- @todo make a subcomponent for this -->
-          <h2 class=`${blockName}__section-title`>
-            <marko-web-link href="/media-center/videos/industry-videos">
-              Industry Videos
-            </marko-web-link>
-          </h2>
-          <marko-web-query|{ nodes }|
-            name="website-scheduled-content"
-            params={ limit: 3, sectionAlias: "media-center/videos/industry-videos", includeContentTypes: ["Video"], queryFragment }
-          >
-            <default-theme-card-deck-flow cols=3 nodes=nodes>
-              <@slot|{ node }|>
-                <refresh-theme-content-card-node node=node>
-                  <@image width=340 />
-                </refresh-theme-content-card-node>
-              </@slot>
-            </default-theme-card-deck-flow>
-          </marko-web-query>
+        <@section>
+          <refresh-theme-media-center-section-block title="Industry Videos">
+            <@link href="/media-center/videos/industry-videos" />
+            <@query name="website-scheduled-content" params={ limit: 3, sectionAlias: "media-center/videos/industry-videos", includeContentTypes: ["Video"], queryFragment } />
+          </refresh-theme-media-center-section-block>
         </@section>
-        <@section|{ blockName }|>
-          <h2 class=`${blockName}__section-title`>
-            <marko-web-link href="/media-center/videos/technology-news-tracker">
-              Technology News Tracker
-            </marko-web-link>
-          </h2>
-          <marko-web-query|{ nodes }|
-            name="website-scheduled-content"
-            params={ limit: 3, sectionAlias: "media-center/videos/technology-news-tracker", includeContentTypes: ["Video"], queryFragment }
-          >
-            <default-theme-card-deck-flow cols=3 nodes=nodes>
-              <@slot|{ node }|>
-                <refresh-theme-content-card-node node=node>
-                  <@image width=340 />
-                </refresh-theme-content-card-node>
-              </@slot>
-            </default-theme-card-deck-flow>
-          </marko-web-query>
+        <@section>
+          <refresh-theme-media-center-section-block title="Technology News Tracker">
+            <@link href="/media-center/videos/technology-news-tracker" />
+            <@query name="website-scheduled-content" params={ limit: 3, sectionAlias: "media-center/videos/technology-news-tracker", includeContentTypes: ["Video"], queryFragment } />
+          </refresh-theme-media-center-section-block>
         </@section>
-        <@section|{ blockName }|>
-          <h2 class=`${blockName}__section-title`>
-            <marko-web-link href="/media-center/photo-galleries">
-              Photo Galleries
-            </marko-web-link>
-          </h2>
-          <marko-web-query|{ nodes }|
-            name="all-published-content"
-            params={ limit: 3, includeContentTypes: ["MediaGallery"], queryFragment }
-          >
-            <default-theme-card-deck-flow cols=3 nodes=nodes>
-              <@slot|{ node }|>
-                <refresh-theme-content-card-node node=node>
-                  <@image width=340 />
-                </refresh-theme-content-card-node>
-              </@slot>
-            </default-theme-card-deck-flow>
-          </marko-web-query>
+        <@section>
+          <refresh-theme-media-center-section-block title="Photo Galleries">
+            <@link href="/media-center/photo-galleries" />
+            <@query name="all-published-content" params={ limit: 3, includeContentTypes: ["MediaGallery"], queryFragment } />
+          </refresh-theme-media-center-section-block>
         </@section>
-        <@section|{ blockName }|>
-          <h2 class=`${blockName}__section-title`>
-            <marko-web-link href="/media-center/whitepapers-ebook">
-              White Papers &amp; Ebooks
-            </marko-web-link>
-          </h2>
-          <marko-web-query|{ nodes }|
-            name="all-published-content"
-            params={ limit: 6, includeContentTypes: ["Whitepaper", "Ebook"], queryFragment }
-          >
-            <default-theme-card-deck-flow cols=3 nodes=nodes>
-              <@slot|{ node }|>
-                <refresh-theme-content-card-node node=node>
-                  <@image width=340 />
-                </refresh-theme-content-card-node>
-              </@slot>
-            </default-theme-card-deck-flow>
-          </marko-web-query>
+        <@section>
+          <refresh-theme-media-center-section-block title="White Papers & Ebooks">
+            <@link href="/media-center/whitepapers-ebook" />
+            <@query name="all-published-content" params={ limit: 6, includeContentTypes: ["Whitepaper", "Ebook"], queryFragment } />
+          </refresh-theme-media-center-section-block>
         </@section>
       </marko-web-page-wrapper>
     </marko-web-resolve-page>
