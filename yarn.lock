@@ -804,10 +804,10 @@
     marko "^4.18.30"
     yargs "^14.1.0"
 
-"@base-cms/marko-core@^1.9.0":
-  version "1.9.0"
-  resolved "https://registry.yarnpkg.com/@base-cms/marko-core/-/marko-core-1.9.0.tgz#1791a870738242d61aeb54528d5c249438c39840"
-  integrity sha512-fT3k58ronBL+r9oqX4n/wM4BCUntbh6r9/RNM1u1YCxSlMx3jQKenDtT3OOtTuZ/RsQVq0AQXfNxsCmBponAPQ==
+"@base-cms/marko-core@^1.15.0":
+  version "1.15.0"
+  resolved "https://registry.yarnpkg.com/@base-cms/marko-core/-/marko-core-1.15.0.tgz#7b8a212fdeb968531c6214b11a3f3d16e145eff5"
+  integrity sha512-gOP9Lr0SqZ+oVPw6ZGog3olQ0tnH7ElBsaeT0x9ZOLVleq4flYQheaDqaeP+HTte76gX6RUXprDrHT7CMlCQYg==
   dependencies:
     "@base-cms/object-path" "^1.9.0"
     "@base-cms/utils" "^1.9.0"
