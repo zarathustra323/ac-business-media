@@ -57,5 +57,14 @@
     "@aliases": "array",
     "@limit": "number",
     "@skip": "number"
+  },
+  "<refresh-theme-media-center-section-block>": {
+    "template":  "./media-center-section.marko",
+    "<link>": {},
+    "<query>": {
+      "@name": "string",
+      "@params": "object"
+    },
+    "@title": "string"
   }
 }

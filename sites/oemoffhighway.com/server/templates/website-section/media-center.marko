@@ -1,0 +1,84 @@
+import hierarchyAliases from "@base-cms/marko-web/utils/hierarchy-aliases";
+import queryFragment from "@ac-business-media/refresh-theme/graphql/fragments/content-list";
+
+$ const { GAM } = out.global;
+
+$ const {
+  id,
+  alias,
+  name,
+  pageNode
+} = input;
+
+$ const adSlots = ({ aliases }) => ({
+  "gpt-ad-lb1": GAM.getAdUnit({ name: "lb1", aliases }),
+});
+
+<marko-web-website-section-page-layout id=id alias=alias name=name>
+  <@head>
+    <marko-web-gtm-website-section-context|{ context }| alias=alias>
+      <marko-web-gtm-push data=context />
+    </marko-web-gtm-website-section-context>
+    <marko-web-resolve-page|{ data: section }| node=pageNode>
+      $ const aliases = hierarchyAliases(section);
+      <marko-web-gam-slots slots=adSlots({ aliases }) />
+    </marko-web-resolve-page>
+  </@head>
+  <@above-container>
+    <marko-web-resolve-page|{ data: section }| node=pageNode>
+      $ const aliases = hierarchyAliases(section);
+      <marko-web-gam-out-of-page-ad ...GAM.getAdUnit({ name: "reskin", aliases }) />
+    </marko-web-resolve-page>
+  </@above-container>
+  <@page>
+    <marko-web-resolve-page|{ data: section, resolved }| node=pageNode>
+      $ const aliases = hierarchyAliases(section);
+      <marko-web-page-wrapper>
+        <@section>
+          <marko-web-gam-display-ad
+            id="gpt-ad-lb1"
+            slots=adSlots({ aliases })
+            modifiers=["max-width-970", "center"]
+          />
+        </@section>
+        <@section>
+          <div class="row">
+            <div class="col">
+              <marko-web-website-section-name tag="h1" class="page-wrapper__title" obj=section />
+              <marko-web-website-section-description class="page-wrapper__deck" obj=section />
+            </div>
+          </div>
+        </@section>
+        <@section>
+          <refresh-theme-media-center-section-block title="Industry Videos">
+            <@link href="/media-center/videos/industry-videos" />
+            <@query name="website-scheduled-content" params={ limit: 3, sectionAlias: "media-center/videos/industry-videos", includeContentTypes: ["Video"], queryFragment } />
+          </refresh-theme-media-center-section-block>
+        </@section>
+        <@section>
+          <refresh-theme-media-center-section-block title="Technology News Tracker">
+            <@link href="/media-center/videos/technology-news-tracker" />
+            <@query name="website-scheduled-content" params={ limit: 3, sectionAlias: "media-center/videos/technology-news-tracker", includeContentTypes: ["Video"], queryFragment } />
+          </refresh-theme-media-center-section-block>
+        </@section>
+        <@section>
+          <refresh-theme-media-center-section-block title="Photo Galleries">
+            <@link href="/media-center/photo-galleries" />
+            <@query name="all-published-content" params={ limit: 3, includeContentTypes: ["MediaGallery"], queryFragment } />
+          </refresh-theme-media-center-section-block>
+        </@section>
+        <@section>
+          <refresh-theme-media-center-section-block title="White Papers & Ebooks">
+            <@link href="/media-center/whitepapers-ebook" />
+            <@query name="all-published-content" params={ limit: 6, includeContentTypes: ["Whitepaper", "Ebook"], queryFragment } />
+          </refresh-theme-media-center-section-block>
+        </@section>
+      </marko-web-page-wrapper>
+    </marko-web-resolve-page>
+  </@page>
+  <@foot>
+    <marko-web-resolve-page|{ data: section }| node=pageNode>
+      <refresh-theme-fixed-ad-bottom aliases=hierarchyAliases(section) />
+    </marko-web-resolve-page>
+  </@foot>
+</marko-web-website-section-page-layout>

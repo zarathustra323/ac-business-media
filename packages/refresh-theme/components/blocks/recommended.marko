@@ -1,9 +1,6 @@
 import { getAsObject } from "@base-cms/object-path";
 import queryFragment from "../../graphql/fragments/content-list";
 
-$ const { nativeX: nxConfig } = out.global;
-$ const nativeX = getAsObject(input, "nativeX");
-
 $ const params = {
   sectionAlias: "home",
   optionName: "Recommended",
@@ -17,18 +14,7 @@ $ const params = {
   <marko-web-node-list collapsible=false>
     <@header modifiers=["padding-y"]>Recommended</@header>
   </marko-web-node-list>
-  <default-theme-card-deck-flow cols=3 nodes=nodes>
-    <@slot|{ node, index }|>
-      <marko-web-native-x-render|{ node: nxNode, linkAttrs, containerAttrs }|
-        ...nativeX
-        when=(index === nativeX.index)
-        node=node
-        config=nxConfig
-      >
-        <refresh-theme-content-card-node node=nxNode attrs=containerAttrs link-attrs=linkAttrs>
-          <@image width=340 />
-        </refresh-theme-content-card-node>
-      </marko-web-native-x-render>
-    </@slot>
-  </default-theme-card-deck-flow>
+  <refresh-theme-content-card-deck-flow nodes=nodes>
+    <@native-x ...getAsObject(input, "nativeX") />
+  </refresh-theme-content-card-deck-flow>
 </marko-web-query>
