@@ -1,1 +1,113 @@
-<h1>Media Center</h1>
+import hierarchyAliases from "@base-cms/marko-web/utils/hierarchy-aliases";
+import queryFragment from "@ac-business-media/refresh-theme/graphql/fragments/content-list";
+
+$ const { GAM } = out.global;
+
+$ const {
+  id,
+  alias,
+  name,
+  pageNode
+} = input;
+
+$ const adSlots = ({ aliases }) => ({
+  "gpt-ad-lb1": GAM.getAdUnit({ name: "lb1", aliases }),
+});
+
+<marko-web-website-section-page-layout id=id alias=alias name=name>
+  <@head>
+    <marko-web-gtm-website-section-context|{ context }| alias=alias>
+      <marko-web-gtm-push data=context />
+    </marko-web-gtm-website-section-context>
+    <marko-web-resolve-page|{ data: section }| node=pageNode>
+      $ const aliases = hierarchyAliases(section);
+      <marko-web-gam-slots slots=adSlots({ aliases }) />
+    </marko-web-resolve-page>
+  </@head>
+  <@above-container>
+    <marko-web-resolve-page|{ data: section }| node=pageNode>
+      $ const aliases = hierarchyAliases(section);
+      <marko-web-gam-out-of-page-ad ...GAM.getAdUnit({ name: "reskin", aliases }) />
+    </marko-web-resolve-page>
+  </@above-container>
+  <@page>
+    <marko-web-resolve-page|{ data: section, resolved }| node=pageNode>
+      $ const aliases = hierarchyAliases(section);
+      <marko-web-page-wrapper>
+        <@section>
+          <marko-web-gam-display-ad
+            id="gpt-ad-lb1"
+            slots=adSlots({ aliases })
+            modifiers=["max-width-970", "center"]
+          />
+        </@section>
+        <@section>
+          <div class="row">
+            <div class="col">
+              <marko-web-website-section-name tag="h1" class="page-wrapper__title" obj=section />
+              <marko-web-website-section-description class="page-wrapper__deck" obj=section />
+            </div>
+          </div>
+        </@section>
+        <@section|{ blockName }|>
+          <!-- @todo make a subcomponent for this -->
+          <h2 class=`${blockName}__section-title`>
+            <marko-web-link href="/media-center/videos/industry-videos">
+              Industry Videos
+            </marko-web-link>
+          </h2>
+        </@section>
+        <@section|{ blockName }|>
+          <h2 class=`${blockName}__section-title`>
+            <marko-web-link href="/media-center/videos/technology-news-tracker">
+              Technology News Tracker
+            </marko-web-link>
+          </h2>
+        </@section>
+        <@section|{ blockName }|>
+          <h2 class=`${blockName}__section-title`>
+            <marko-web-link href="/media-center/photo-galleries">
+              Photo Galleries
+            </marko-web-link>
+          </h2>
+          <marko-web-query|{ nodes }|
+            name="all-published-content"
+            params={ limit: 3, includeContentTypes: ["MediaGallery"], queryFragment }
+          >
+            <default-theme-card-deck-flow cols=3 nodes=nodes>
+              <@slot|{ node }|>
+                <refresh-theme-content-card-node node=node>
+                  <@image width=340 />
+                </refresh-theme-content-card-node>
+              </@slot>
+            </default-theme-card-deck-flow>
+          </marko-web-query>
+        </@section>
+        <@section|{ blockName }|>
+          <h2 class=`${blockName}__section-title`>
+            <marko-web-link href="/media-center/whitepapers-ebook">
+              White Papers &amp; Ebooks
+            </marko-web-link>
+          </h2>
+          <marko-web-query|{ nodes }|
+            name="all-published-content"
+            params={ limit: 6, includeContentTypes: ["Whitepaper", "Ebook"], queryFragment }
+          >
+            <default-theme-card-deck-flow cols=3 nodes=nodes>
+              <@slot|{ node }|>
+                <refresh-theme-content-card-node node=node>
+                  <@image width=340 />
+                </refresh-theme-content-card-node>
+              </@slot>
+            </default-theme-card-deck-flow>
+          </marko-web-query>
+        </@section>
+      </marko-web-page-wrapper>
+    </marko-web-resolve-page>
+  </@page>
+  <@foot>
+    <marko-web-resolve-page|{ data: section }| node=pageNode>
+      <refresh-theme-fixed-ad-bottom aliases=hierarchyAliases(section) />
+    </marko-web-resolve-page>
+  </@foot>
+</marko-web-website-section-page-layout>
