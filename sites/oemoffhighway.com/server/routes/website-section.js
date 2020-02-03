@@ -2,6 +2,7 @@ const { withWebsiteSection } = require('@base-cms/marko-web/middleware');
 const section = require('@ac-business-media/refresh-theme/templates/website-section');
 const contactUs = require('@ac-business-media/refresh-theme/templates/website-section/contact-us');
 const events = require('@ac-business-media/refresh-theme/templates/website-section/events');
+const mediaGalleries = require('@ac-business-media/refresh-theme/templates/website-section/media-galleries');
 const webinars = require('@ac-business-media/refresh-theme/templates/website-section/webinars');
 const whitepapers = require('@ac-business-media/refresh-theme/templates/website-section/whitepapers');
 const queryFragment = require('@ac-business-media/refresh-theme/graphql/fragments/website-section-page');
@@ -24,6 +25,10 @@ module.exports = (app) => {
   }));
   app.get('/:alias(media-center)', withWebsiteSection({
     template: mediaCenter,
+    queryFragment,
+  }));
+  app.get('/:alias(media-center/photo-galleries)', withWebsiteSection({
+    template: mediaGalleries,
     queryFragment,
   }));
   app.get('/:alias(media-center/whitepapers-ebooks)', withWebsiteSection({
