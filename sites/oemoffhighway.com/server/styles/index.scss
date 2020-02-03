@@ -47,3 +47,32 @@ $website-section-colors: (
     @include button-variant($color, $color);
   }
 }
+
+.market-outlook-nav {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  &__content-name {
+    padding: 0 10px;
+    margin: 10px 0;
+    font-weight: $font-weight-bold;
+  }
+}
+
+.market-outlook-node {
+  &__content-name {
+    @include theme-apply-fonts(
+      $font-family: $theme-item-title-font-family,
+      $font-size-sm: $theme-item-title-font-size-sm,
+      $font-size: $theme-item-title-font-size,
+      $font-weight: $theme-item-title-font-weight,
+      $letter-spacing: $theme-item-title-letter-spacing,
+      $line-height-sm: $theme-item-title-line-height-sm,
+      $line-height: $theme-item-title-line-height
+    );
+    margin-bottom: $theme-item-title-margin;
+    color: $theme-item-title-color;
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "<website-market-outlook-flow>": {
+    "template": "./flow.marko",
+    "@nodes": "array"
+  },
+  "<website-market-outlook-node>": {
+    "template": "./node.marko",
+    "@node": "object"
+  }
+}
