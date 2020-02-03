@@ -179,6 +179,14 @@ $theme-related-content-border-color: #dee2e6;
   flex-grow: 0;
 }
 
+.anchor {
+  // offset link anchors to account for fixed header
+  position: relative;
+  top: -100px;
+  display: block;
+  visibility: hidden;
+}
+
 .social-sharing {
   margin-top: map-get($spacers, block);
   margin-bottom: map-get($spacers, block);
