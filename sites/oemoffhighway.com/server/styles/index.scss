@@ -47,3 +47,16 @@ $website-section-colors: (
     @include button-variant($color, $color);
   }
 }
+
+.market-outlook-nav {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  &__content-name {
+    padding: 0 10px;
+    margin: 10px 0;
+    font-weight: $font-weight-bold;
+  }
+}

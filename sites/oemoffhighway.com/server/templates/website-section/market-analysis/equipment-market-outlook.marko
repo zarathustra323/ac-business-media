@@ -1,5 +1,6 @@
 import hierarchyAliases from "@base-cms/marko-web/utils/hierarchy-aliases";
 import articleFragment from "../../../graphql/fragments/market-outlook-article";
+import navFragment from "../../../graphql/fragments/market-outlook-nav";
 
 $ const { GAM } = out.global;
 
@@ -13,6 +14,13 @@ $ const {
 $ const adSlots = ({ aliases }) => ({
   "gpt-ad-lb1": GAM.getAdUnit({ name: "lb1", aliases }),
 });
+
+$ const listQueryParams = {
+  sectionId: id,
+  includeContentTypes: ["Document"],
+  limit: 0,
+};
+$ const navQueryParams = { ...listQueryParams, queryFragment: navFragment };
 
 <marko-web-website-section-page-layout id=id alias=alias name=name>
   <@head>
@@ -55,6 +63,17 @@ $ const adSlots = ({ aliases }) => ({
               </marko-web-query>
             </div>
           </div>
+        </@section>
+        <@section modifiers=["text-center"]>
+          <h2 class="page-wrapper__description">Click to Navigate</h2>
+          <marko-web-query|{ nodes }| name="website-scheduled-content" params=navQueryParams>
+            $ const blockName = "market-outlook-nav";
+            <div class=blockName>
+              <for|node| of=nodes>
+                <marko-web-content-name block-name=blockName obj=node link={ target: "_self", href: `#content-${node.id}` } />
+              </for>
+            </div>
+          </marko-web-query>
         </@section>
       </marko-web-page-wrapper>
     </marko-web-resolve-page>
