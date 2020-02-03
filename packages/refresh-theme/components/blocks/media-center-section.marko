@@ -1,0 +1,36 @@
+import { getAsObject } from "@base-cms/object-path";
+
+$ const blockName = "media-center-section";
+$ const query = getAsObject(input, "query");
+$ const link = getAsObject(input, "link");
+$ const { title } = input;
+
+<marko-web-block
+  name=blockName
+>
+  <marko-web-query|{ nodes }|
+    name=query.name
+    params=query.params
+  >
+    <if(title)>
+      <marko-web-element tag="h2" block-name=blockName name="header">
+        <if(link.href)>
+          <marko-web-link ...link>
+            ${title}
+          </marko-web-link>
+        </if>
+        <else>
+          ${title}
+        </else>
+      </marko-web-element>
+    </if>
+    <refresh-theme-content-card-deck-flow nodes=nodes />
+    <if(link.href)>
+      <marko-web-element block-name=blockName name="view-more">
+        <marko-web-link ...link>
+          View More ${title}
+        </marko-web-link>
+      </marko-web-element>
+    </if>
+  </marko-web-query>
+</marko-web-block>
