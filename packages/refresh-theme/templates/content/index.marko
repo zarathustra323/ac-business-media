@@ -15,7 +15,11 @@ $ const adSlots = ({ aliases }) => ({
 $ const displayPrimaryImage = ["whitepaper", "media-gallery"].includes(type) ? false : true;
 $ const displayPublishedDate = ["event", "webinar", "company", "contact"].includes(type) ? false : true;
 $ const displayRecommended = ["company", "product", "contact"].includes(type) ? false : true;
-$ const displayInquiry = ["company", "product"].includes(type) ? true : false;
+$ const displayInquiry = (content) => {
+  if (type === "company" && get(content, "enableRmi")) return true;
+  if (type === "product" && get(content, "company.enableRmi")) return true;
+  return false;
+}
 $ const displayCompanyImage = ["product", "press-release"].includes(type) ? true : false;
 $ const displaySocialShare = ["contact"].includes(type) ? false : true;
 $ const displayPhotoswipe = ["contact"].includes(type) ? false : true;
@@ -191,7 +195,7 @@ $ const injectAds = ["article", "news", "press-release", "blog"].includes(type) 
                   target="_blank"
                 />
               </if>
-              <if(displayInquiry)>
+              <if(displayInquiry(content))>
                 <refresh-theme-inquiry-form node=content />
               </if>
 
