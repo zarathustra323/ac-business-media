@@ -22,7 +22,7 @@ module.exports = {
     },
   },
   socialMediaLinks: [
-    { provider: 'linkedin', href: 'https://www.linkedin.com/groups/3916625/profile', target: '_blank' },
+    { provider: 'linkedin', href: 'https://www.linkedin.com/company/green-industry-pros/', target: '_blank' },
     { provider: 'twitter', href: 'https://twitter.com/greenindpros', target: '_blank' },
     { provider: 'facebook', href: 'https://www.facebook.com/GreenIndustryPros', target: '_blank' },
   ],
