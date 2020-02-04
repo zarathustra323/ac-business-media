@@ -15,7 +15,6 @@ fragment WebsiteContentListFragment on Content {
     id
     type
     name
-    enableRmi
     siteContext {
       path
     }
@@ -31,9 +30,6 @@ fragment WebsiteContentListFragment on Content {
     src
     alt
     isLogo
-  }
-  ... on Inquirable {
-    enableRmi
   }
   ... on Authorable {
     authors {
