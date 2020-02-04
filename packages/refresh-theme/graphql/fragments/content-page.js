@@ -16,6 +16,7 @@ fragment ContentPageFragment on Content {
     siteContext {
       path
     }
+    enableRmi
     primaryImage {
       id
       src
@@ -105,6 +106,9 @@ fragment ContentPageFragment on Content {
   }
   ... on Media {
     fileSrc
+  }
+  ... on Inquirable {
+    enableRmi
   }
   ... on Authorable {
     authors {
