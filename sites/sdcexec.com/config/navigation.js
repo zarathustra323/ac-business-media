@@ -67,6 +67,7 @@ module.exports = {
         { href: '/magazine', label: 'Magazines' },
         { href: '/awards', label: 'Awards' },
         { href: '/sponsored-research', label: 'Sponsored Research' },
+        { href: '/case-studies', label: 'Case Studies' },
         { href: '/modex', label: 'MODEX' },
         { href: '/events', label: 'Events' },
         { href: '/webinars', label: 'Webinars' },
