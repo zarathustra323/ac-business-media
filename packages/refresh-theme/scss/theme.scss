@@ -170,6 +170,7 @@ $pswp__root-z-index: $theme-site-header-z-index + 1 !default;
 
 @import "../../node_modules/@base-cms/marko-web-gam/scss/fixed-ad-bottom";
 @import "../../node_modules/@base-cms/marko-web-social-sharing/scss/buttons";
+@import "../../node_modules/@base-cms/marko-web-reveal-ad/scss/reveal-ad";
 // @todo this should be removed once contact us is in core
 @import "../../node_modules/@ac-business-media/package-common/scss/contact-us-form";
 @import "../../node_modules/@ac-business-media/package-common/scss/directory";
