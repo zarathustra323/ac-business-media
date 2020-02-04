@@ -18,6 +18,7 @@ $ const displayRecommended = ["company", "product", "contact"].includes(type) ? 
 $ const displayInquiry = ["company", "product"].includes(type) ? true : false;
 $ const displayCompanyImage = ["product", "press-release"].includes(type) ? true : false;
 $ const displaySocialShare = ["contact"].includes(type) ? false : true;
+$ const displayPhotoswipe = ["contact"].includes(type) ? false : true;
 $ const isShortForm = ["contact"].includes(type) ? true : false;
 $ const injectAds = ["article", "news", "press-release", "blog"].includes(type) ? true : false;
 
@@ -95,7 +96,10 @@ $ const injectAds = ["article", "news", "press-release", "blog"].includes(type) 
 
         <@section>
           <div class="row">
-            <default-theme-page-contents|{ blockName }| class="col-lg-8 mb-3 mb-lg-0">
+            <default-theme-page-contents|{ blockName }|
+              class="col-lg-8 mb-3 mb-lg-0"
+              attrs={ "data-gallery-id": id }
+            >
               <if(content.embedCode)>
                 <marko-web-content-embed-code block-name=blockName obj=content />
               </if>
@@ -223,6 +227,11 @@ $ const injectAds = ["article", "news", "press-release", "blog"].includes(type) 
                 />
               </if>
             </aside>
+            <if(displayPhotoswipe)>
+              <marko-web-photoswipe-images images=resolved.getEdgeNodesFor("images")>
+                <@props thumbnail-click-selectors=`[data-gallery-id="${id}"] [data-image-id]` />
+              </marko-web-photoswipe-images>
+            </if>
           </div>
         </@section>
 
