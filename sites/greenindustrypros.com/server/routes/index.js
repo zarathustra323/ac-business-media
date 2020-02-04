@@ -1,3 +1,4 @@
+const sharedPublicFiles = require('@ac-business-media/refresh-theme/routes/public-files');
 const content = require('./content');
 const dynamicPages = require('./dynamic-page');
 const home = require('./home');
@@ -6,6 +7,9 @@ const search = require('./search');
 const websiteSections = require('./website-section');
 
 module.exports = (app) => {
+  // Shared Public Files
+  sharedPublicFiles(app);
+
   // Homepage
   home(app);
 
