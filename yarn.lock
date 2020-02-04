@@ -804,10 +804,10 @@
     marko "^4.18.30"
     yargs "^14.1.0"
 
-"@base-cms/marko-core@^1.15.0":
-  version "1.15.0"
-  resolved "https://registry.yarnpkg.com/@base-cms/marko-core/-/marko-core-1.15.0.tgz#7b8a212fdeb968531c6214b11a3f3d16e145eff5"
-  integrity sha512-gOP9Lr0SqZ+oVPw6ZGog3olQ0tnH7ElBsaeT0x9ZOLVleq4flYQheaDqaeP+HTte76gX6RUXprDrHT7CMlCQYg==
+"@base-cms/marko-core@^1.16.2":
+  version "1.16.2"
+  resolved "https://registry.yarnpkg.com/@base-cms/marko-core/-/marko-core-1.16.2.tgz#91171d55f0ba17fc66949af33e8c879e44b745d3"
+  integrity sha512-80ju56BX9swex+8BNcvlMfoCJWFEBKac2hRErgg0P8fH9EDjmmGlY5sClL4DFNLCPOyXeEbGfCD3wlFIkf9INQ==
   dependencies:
     "@base-cms/object-path" "^1.9.0"
     "@base-cms/utils" "^1.9.0"
@@ -867,10 +867,10 @@
     "@base-cms/object-path" "^1.9.0"
     photoswipe "^4.1.3"
 
-"@base-cms/marko-web-reveal-ad@^1.12.1":
-  version "1.12.1"
-  resolved "https://registry.yarnpkg.com/@base-cms/marko-web-reveal-ad/-/marko-web-reveal-ad-1.12.1.tgz#9ad5ac77ac3045780e3fee7751da2fe85a95bfa9"
-  integrity sha512-yJNAfuldHGhB5WeEw9z2RIVDEeEO5Tn7UlxjH8WUykwcOA2qHkSbzg6iBuxBqSpMz6GUrpJupjKYhzX2uXQ4uw==
+"@base-cms/marko-web-reveal-ad@^1.16.2":
+  version "1.16.2"
+  resolved "https://registry.yarnpkg.com/@base-cms/marko-web-reveal-ad/-/marko-web-reveal-ad-1.16.2.tgz#53cdc8c1481dac779baceb09c82089a95694d7ba"
+  integrity sha512-ecB92psXgybz8IE8pUeVcqgN5EmukA0ggZ8pf1TJs04b84RnhnVclJ1Y42rop8ldQtGrgV2ybBazaBNt5rK8cw==
   dependencies:
     "@base-cms/object-path" "^1.9.0"
     "@base-cms/utils" "^1.9.0"
