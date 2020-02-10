@@ -1,7 +1,6 @@
 const { withWebsiteSection } = require('@base-cms/marko-web/middleware');
 const section = require('@ac-business-media/refresh-theme/templates/website-section');
 const awards = require('@ac-business-media/refresh-theme/templates/website-section/awards');
-const blogs = require('@ac-business-media/refresh-theme/templates/website-section/blogs');
 const events = require('@ac-business-media/refresh-theme/templates/website-section/events');
 const feed = require('@ac-business-media/refresh-theme/templates/website-section/feed');
 const podcasts = require('@ac-business-media/refresh-theme/templates/website-section/podcasts');
@@ -20,8 +19,14 @@ module.exports = (app) => {
     queryFragment,
   }));
   app.get('/:alias(blogs)', withWebsiteSection({
-    template: blogs,
+    template: feed,
     queryFragment,
+    context: ({ section: s }) => ({
+      query: {
+        name: 'website-optioned-content',
+        params: { sectionId: s.id, optionName: 'Pinned', limit: 12 },
+      },
+    }),
   }));
   app.get('/:alias(events)', withWebsiteSection({
     template: events,
