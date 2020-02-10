@@ -17,10 +17,10 @@
   "dependencies": {
     "@ac-business-media/refresh-theme": "^1.9.1",
     "@base-cms/marko-core": "^1.16.2",
-    "@base-cms/marko-web": "^1.19.1",
+    "@base-cms/marko-web": "^1.19.2",
     "@base-cms/object-path": "^1.9.0",
     "@base-cms/utils": "^1.9.0",
-    "@base-cms/web-cli": "^1.19.1",
+    "@base-cms/web-cli": "^1.19.2",
     "graphql": "^14.5.4",
     "graphql-tag": "^2.10.1"
   }
