@@ -467,6 +467,13 @@ $theme-related-content-border-color: #dee2e6;
     text-transform: uppercase;
   }
 
+  &__footer-left,
+  &__footer-right {
+    &:empty {
+      display: block;
+    }
+  }
+
   &__footer-left {
     max-width: 70%;
   }
