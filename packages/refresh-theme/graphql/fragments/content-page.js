@@ -157,6 +157,7 @@ fragment ContentPageFragment on Content {
         displayName
         caption
         credit
+        isLogo
       }
     }
   }
