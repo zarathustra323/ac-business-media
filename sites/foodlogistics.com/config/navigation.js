@@ -21,7 +21,7 @@ module.exports = {
       { href: '/contact-us', label: 'Contact Us' },
       { href: '/webinars', label: 'Webinars' },
       { href: 'https://www.supplychainlearningcenter.com/', label: 'Supply Chain Learning Center', target: '_blank' },
-      { href: '/sponsored-content', label: 'Sponsored Research' },
+      { href: 'https://foodlog.tradepub.com', label: 'Sponsored Research', target: '_blank' },
     ],
   },
   tertiary: {
