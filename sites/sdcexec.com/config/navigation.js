@@ -19,7 +19,7 @@ module.exports = {
       { href: '/contact-us', label: 'Contact Us' },
       { href: '/webinars', label: 'Webinars' },
       { href: 'http://www.supplychainlearningcenter.com/', label: 'Supply Chain Learning Center', target: '_blank' },
-      { href: '/sponsored-research', label: 'Sponsored Research' },
+      { href: 'https://sdcexec.tradepub.com/?pt=dir&page=sdcexec', label: 'Sponsored Research', target: '_blank' },
     ],
   },
   tertiary: {
