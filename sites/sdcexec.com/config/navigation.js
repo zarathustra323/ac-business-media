@@ -66,7 +66,7 @@ module.exports = {
       items: [
         { href: '/magazine', label: 'Magazines' },
         { href: '/awards', label: 'Awards' },
-        { href: '/sponsored-research', label: 'Sponsored Research' },
+        { href: 'https://sdcexec.tradepub.com/?pt=dir&page=sdcexec', label: 'Sponsored Research', target: '_blank' },
         { href: '/case-studies', label: 'Case Studies' },
         { href: '/modex', label: 'MODEX' },
         { href: '/events', label: 'Events' },
