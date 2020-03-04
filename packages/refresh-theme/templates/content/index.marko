@@ -12,7 +12,7 @@ $ const adSlots = ({ aliases }) => ({
   "gpt-ad-rail2": GAM.getAdUnit({ name: "rail2", aliases }),
   "gpt-ad-rail-infinite": GAM.getAdUnit({ name: "infinite-rail", aliases }),
 });
-$ const displayPrimaryImage = ["whitepaper", "media-gallery"].includes(type) ? false : true;
+$ const displayPrimaryImage = ["whitepaper", "media-gallery", "video"].includes(type) ? false : true;
 $ const displayPublishedDate = ["event", "webinar", "company", "contact"].includes(type) ? false : true;
 $ const displayRecommended = ["company", "product", "contact"].includes(type) ? false : true;
 $ const displayInquiry = (content) => {
