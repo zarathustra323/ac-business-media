@@ -246,7 +246,7 @@ $ const injectAds = ["article", "news", "press-release", "blog"].includes(type) 
     </marko-web-resolve-page>
   </@page>
   <@below-page>
-    <marko-web-page-container for="content" tag="div" id=id type=type modifiers=["latest-feed"]>
+    <marko-web-page-container for="content" tag="div" id=id type=type modifiers=["below"]>
       <!-- Refresh sticky, right-rail infinite scroll ad -->
       <marko-web-gam-refresh-ad on="load-more-in-view" slot-id="gpt-ad-rail-infinite" />
 
