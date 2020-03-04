@@ -328,6 +328,10 @@ $theme-related-content-border-color: #dee2e6;
       text-align: center;
     }
   }
+
+  &--no-bottom-padding {
+    padding-bottom: 0;
+  }
 }
 
 .page-dates {

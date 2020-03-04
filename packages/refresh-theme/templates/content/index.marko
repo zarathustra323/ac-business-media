@@ -45,14 +45,10 @@ $ const injectAds = ["article", "news", "press-release", "blog"].includes(type) 
     </marko-web-resolve-page>
   </@above-container>
   <@page>
-    <!-- Refresh sticky, right-rail infinite scroll ad -->
-    <marko-web-gam-refresh-ad on="load-more-in-view" slot-id="gpt-ad-rail-infinite" />
-
-
     <marko-web-resolve-page|{ data: content, resolved }| node=pageNode>
       $ const section = resolved.getAsObject("primarySection");
       $ const aliases = hierarchyAliases(section);
-      <marko-web-page-wrapper>
+      <marko-web-page-wrapper modifiers=["no-bottom-padding"]>
         <@section>
           <div class="row">
             <div class="col">
@@ -246,46 +242,58 @@ $ const injectAds = ["article", "news", "press-release", "blog"].includes(type) 
             </refresh-theme-recommended-block>
           </@section>
         </if>
-
-        <@section>
-          <div class="row">
-            <div class="col">
-              <marko-web-gam-display-ad
-                id="gpt-ad-lb2"
-                slots=adSlots({ aliases })
-                modifiers=["max-width-970", "center"]
-              />
-            </div>
-          </div>
-        </@section>
-
-        <@section>
-          <div class="row">
-            <div class="col-lg-8 infinite-scroll-target">
-              <refresh-theme-content-infinite-scroll-block
-                id=id
-                type=type
-                name=content.name
-                section-id=section.id
-                aliases=aliases
-                limit=12
-                skip=(["company", "contact"].includes(type) ? 0 : 4)
-              />
-            </div>
-            <aside class="col-lg-4 page-rail">
-              <refresh-theme-follow-us-block />
-
-              <marko-web-gam-display-ad
-                id="gpt-ad-rail-infinite"
-                modifiers=["sticky-top", "max-width-300", "margin-auto-x-md"]
-                slots=adSlots({ aliases })
-              />
-            </aside>
-          </div>
-        </@section>
       </marko-web-page-wrapper>
     </marko-web-resolve-page>
   </@page>
+  <@below-page>
+    <marko-web-page-container for="content" tag="div" id=id type=type modifiers=["below"]>
+      <!-- Refresh sticky, right-rail infinite scroll ad -->
+      <marko-web-gam-refresh-ad on="load-more-in-view" slot-id="gpt-ad-rail-infinite" />
+
+      <marko-web-resolve-page|{ data: content, resolved }| node=pageNode>
+        $ const section = resolved.getAsObject("primarySection");
+        $ const aliases = hierarchyAliases(section);
+        <marko-web-page-wrapper>
+          <@section>
+            <div class="row">
+              <div class="col">
+                <marko-web-gam-display-ad
+                  id="gpt-ad-lb2"
+                  slots=adSlots({ aliases })
+                  modifiers=["max-width-970", "center"]
+                />
+              </div>
+            </div>
+          </@section>
+
+          <@section>
+            <div class="row">
+              <div class="col-lg-8 infinite-scroll-target">
+                <refresh-theme-content-infinite-scroll-block
+                  id=id
+                  type=type
+                  name=content.name
+                  section-id=section.id
+                  aliases=aliases
+                  limit=12
+                  skip=(["company", "contact"].includes(type) ? 0 : 4)
+                />
+              </div>
+              <aside class="col-lg-4 page-rail">
+                <refresh-theme-follow-us-block />
+
+                <marko-web-gam-display-ad
+                  id="gpt-ad-rail-infinite"
+                  modifiers=["sticky-top", "max-width-300", "margin-auto-x-md"]
+                  slots=adSlots({ aliases })
+                />
+              </aside>
+            </div>
+          </@section>
+        </marko-web-page-wrapper>
+      </marko-web-resolve-page>
+    </marko-web-page-container>
+  </@below-page>
   <@foot>
     <marko-web-resolve-page|{ data: section }| node=pageNode>
       <refresh-theme-fixed-ad-bottom aliases=hierarchyAliases(section) />
