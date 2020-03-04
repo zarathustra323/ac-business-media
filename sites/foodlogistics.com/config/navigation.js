@@ -21,7 +21,7 @@ module.exports = {
       { href: 'https://www.supplychainnetworkmediakit.com/', label: 'Advertise', target: '_blank' },
       { href: '/contact-us', label: 'Contact Us' },
       { href: '/webinars', label: 'Webinars' },
-      { href: 'https://www.supplychainlearningcenter.com/', label: 'Supply Chain Learning Center', target: '_blank' },
+      { href: 'https://www.supplychainlearningcenter.com/', label: 'Learning Center', target: '_blank' },
       { href: 'https://foodlog.tradepub.com', label: 'Sponsored Research', target: '_blank' },
     ],
   },
@@ -78,7 +78,7 @@ module.exports = {
         { href: 'https://www.supplychainnetworkmediakit.com/', label: 'Advertise', target: '_blank' },
         { href: '/contact-us', label: 'Contact Us' },
         { href: '/webinars', label: 'Webinars' },
-        { href: 'https://www.supplychainlearningcenter.com/', label: 'Supply Chain Learning Center', target: '_blank' },
+        { href: 'https://www.supplychainlearningcenter.com/', label: 'Learning Center', target: '_blank' },
       ],
     },
     {
