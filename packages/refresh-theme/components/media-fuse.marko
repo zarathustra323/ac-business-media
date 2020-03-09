@@ -4,8 +4,8 @@ $ const { id } = input;
   var id = ${id},
   dayMs = 864e5,
   cb = parseInt(Date.now() / dayMs),
-  vpbSrc = `//player.mediafuse.com/prebid/wrapper_hb_302826_${id}.js?cb=${cb}`,
-  gptSrc = '//securepubads.g.doubleclick.net/tag/js/gpt.js',
+  vpbSrc = `https://player.mediafuse.com/prebid/wrapper_hb_302826_${id}.js?cb=${cb}`,
+  gptSrc = 'https://securepubads.g.doubleclick.net/tag/js/gpt.js',
   c = document.head || document.body || document.documentElement;
   function loadScript(src, cb) {
     var s = document.createElement('script');
