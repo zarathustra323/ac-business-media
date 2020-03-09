@@ -6,12 +6,7 @@ $ const { site, req, nativeX } = out.global;
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
-    <if(site.get("mediaFuse.id"))>
-      <refresh-theme-media-fuse id=site.get("mediaFuse.id") />
-    </if>
-    <else>
-      <marko-web-gam-init />
-    </else>
+    <refresh-theme-gam-media-fuse id=site.get("mediaFuse.id") />
     <marko-web-gtm-init container-id=site.get("gtm.containerId") />
     <marko-web-native-x-init uri=nativeX.getUri() enabled=nativeX.isEnabled() />
     <${input.head} />
