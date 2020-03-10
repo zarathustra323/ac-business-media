@@ -1,0 +1,30 @@
+$ const { id } = input;
+
+<if(id)>
+  <script>var googletag = googletag || {}; googletag.cmd = googletag.cmd || [];</script>
+  <script>
+    (function(d) {
+      var id = ${id},
+      dayMs = 864e5,
+      cb = parseInt(Date.now() / dayMs),
+      vpbSrc = 'https://player.mediafuse.com/prebid/wrapper_hb_302826_' + id + '.js?cb=' + cb,
+      gptSrc = 'https://securepubads.g.doubleclick.net/tag/js/gpt.js',
+      c = d.head || d.body || d.documentElement;
+      function loadScript(src, cb) {
+        var s = d.createElement('script');
+        s.src = src; c.appendChild(s);
+        s.onload = cb;
+        s.onerror = cb;
+        return s;
+      }
+
+      // Load media fuse js file and then call gpt.js
+      loadScript(vpbSrc, function() {
+        loadScript(gptSrc);
+      });
+    })(document)
+  </script>
+</if>
+<else>
+  <marko-web-gam-init />
+</else>

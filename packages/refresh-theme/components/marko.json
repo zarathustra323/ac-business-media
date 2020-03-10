@@ -24,5 +24,9 @@
   "<refresh-theme-inquiry-form>": {
     "template": "./inquiry-form.marko",
     "@node": "object"
+  },
+  "<refresh-theme-gam-media-fuse>": {
+    "template": "./gam-media-fuse.marko",
+    "@id" : "number"
   }
 }

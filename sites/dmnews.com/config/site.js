@@ -30,6 +30,9 @@ module.exports = {
   gtm: {
     containerId: 'GTM-M4ZFPK7',
   },
+  mediaFuse: {
+    id: 6059,
+  },
   gcse: {
     id: '017383739850048358259:9et21cn0jag',
   },
