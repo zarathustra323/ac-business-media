@@ -1,8 +1,10 @@
 ##BPA Ads.txt##
 
 #MediaFuse_Google
-google.com, pub-1467620061769933, RESELLER, f08c47fec0942fa0
-google.com, pub-6360314255127135, RESELLER, f08c47fec0942fa0
+google.com, pub-1467620061769933, DIRECT, f08c47fec0942fa0
+google.com, pub-6360314255127135, DIRECT, f08c47fec0942fa0
+google.com, pub-8431373508079831, DIRECT, f08c47fec0942fa0
+google.com, ca-video-pub-8431373508079831, DIRECT, f08c47fec0942fa0
 
 #Appnexus
 appnexus.com, 9538, RESELLER
