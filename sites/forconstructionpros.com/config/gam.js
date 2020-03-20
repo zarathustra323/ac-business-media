@@ -1,0 +1,31 @@
+module.exports = {
+  basePath: 'forconstructionpros',
+  pathMaps: [
+    {
+      alias: 'default',
+      map: {
+        lb1: 'default/lb1',
+        'lb-sticky-bottom': 'default/lb1',
+        rail1: 'default/rail1',
+        rail2: 'default/rail1',
+        'infinite-rail': 'default/rail1',
+        'infinite-interstitial': 'default/rail1',
+        'in-content': 'default/rail1',
+        reskin: 'default/reskin',
+      },
+    },
+    // {
+    //   alias: 'engines',
+    //   map: {
+    //     lb1: 'engines/lb1',
+    //     'lb-sticky-bottom': 'engines/lb1',
+    //     rail1: 'engines/rail1',
+    //     rail2: 'engines/rail1',
+    //     'infinite-rail': 'engines/rail1',
+    //     'infinite-interstitial': 'engines/rail1',
+    //     'in-content': 'engines/rail1',
+    //     reskin: 'engines/reskin',
+    //   },
+    // },
+  ],
+};
