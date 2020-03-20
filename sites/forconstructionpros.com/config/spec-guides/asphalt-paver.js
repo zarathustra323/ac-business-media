@@ -1,108 +1,53 @@
 module.exports = {
-  title: 'Engine Spec Guide',
-  teaser: 'Find hundreds of gas and diesel engine systems from all of the major engine manufacturers in horsepower ranging from 1 hp to over 5,000 hp.',
-  description: 'The <strong><em>OEM Off-Highway Engine Spec Guide</em></strong> is the industry’s first online, interactive component specing tool custom-built for engineers and product development team members to find exactly which engine they need for integration into the next generation of equipment.',
+  title: 'Asphalt Paver Spec Guide',
+  description: 'The <strong><em>Asphalt Paver Spec Guide</em></strong> is the industry’s first online, interactive spec’ing tool custom-built for construction equipment owners to find exactly which paver they need for their equipment fleets.',
   bullets: [
-    'Entering specific search criteria (company name, Tier certification, etc.)',
+    'Entering specific search criteria (Manufacturer, Model No., Engine HP, etc.)',
     'Sorting the information by any column to order the information the way you need it',
   ],
+  seeAlso: '<p>To learn about the components that go into your equipment, also visit the <strong><a href="https://www.oemoffhighway.com/specguide" target="_blank" rel="nofollow">OEM Off-Highway Spec Guides</a></strong>.</p>',
   image: {
-    src: 'https://img.oemoffhighway.com/files/base/acbm/ooh/image/static/engine.png',
+    src: 'https://img.forconstructionpros.com/files/base/acbm/fcp/image/static/asphalt-paver.jpg',
   },
-  downloadLink: '/12254042',
-  sheetSrc: 'https://spreadsheets.google.com/feeds/list/10EKomL-SVMZ4imnCaoO86t48T7ngVaopWXie04AveUo/4/public/values?alt=json',
-  measures: {
-    metric: { label: 'Metric' },
-    standard: { label: 'Standard' },
-  },
-  initialMeasureKey: 'standard',
+  downloadLink: '/21036185',
+  sheetSrc: 'https://spreadsheets.google.com/feeds/list/1Lx2srmVT5OTFf9y1TZjpCRnYFGWNlDp7J_eDzznuL8M/1/public/values?alt=json',
   columns: {
-    hp: {
-      measure: 'standard',
-      range: ['hp-low', 'hp-high'],
+    manufacturer: {
+      label: 'Manufacturer',
+    },
+    modelno: {
+      label: 'Model No.',
+    },
+    undercarriagetype: {
+      label: 'Undercarriage Type',
+    },
+    enginehpnet: {
+      label: 'Engine HP',
       type: 'number',
     },
-    kw: {
-      label: 'kW',
-      measure: 'metric',
-      range: ['kw-low', 'kw-high'],
+    shippingdimensionslxwxhft: {
+      label: 'Shipping Dimensions (LxWxH) (ft.)',
+    },
+    maxoperatingweightlbs: {
+      label: 'Max Operating Weight (lbs.)',
+    },
+    hoppercapacitytons: {
+      label: 'Hopper Capacity (tons)',
       type: 'number',
     },
-    disp: {
-      label: 'Disp. (L)',
-      range: ['disp-low', 'disp-high'],
+    standardPavingWidth: {
+      label: 'Standard Paving Width (ft.)',
+      range: ['standardpavingwidthftminimum', 'standardpavingwidthftmaximum'],
       type: 'number',
     },
-    torque: {
-      label: 'Torque (lb.-ft.)',
-      measure: 'standard',
-      range: ['torque-low', 'torque-high'],
-      type: 'number',
+    maxpavingspeedvibratoryscreed: {
+      label: 'Max Paving Speed (Vibratory Screed)',
     },
-    torquenm: {
-      label: 'Torque (Nm)',
-      measure: 'metric',
-      range: ['torque-lownm', 'torque-highnm'],
-      type: 'number',
+    maxpavingspeedtamperbarscreed: {
+      label: 'Max Paving Speed (Tamper Bar Screed)',
     },
-    fuel: {
-      label: 'Fuel',
-    },
-    tierregcompliant: {
-      label: 'Emissions Certifications',
-    },
-    aftertreatment: {
-      label: 'Aftertreatment',
-    },
-    // Dimension group here.
-    ldimensionsin: {
-      label: 'L (in.)',
-      measure: 'standard',
-      type: 'number',
-    },
-    wdimensionsin: {
-      label: 'W (in.)',
-      measure: 'standard',
-      type: 'number',
-    },
-    hdimensionsin: {
-      label: 'H (in.)',
-      measure: 'standard',
-      type: 'number',
-    },
-    ldimensionsmm: {
-      label: 'L (mm)',
-      measure: 'metric',
-      type: 'number',
-    },
-    wdimensionsmm: {
-      label: 'W (mm)',
-      measure: 'metric',
-      type: 'number',
-    },
-    hdimensionsmm: {
-      label: 'H (mm)',
-      measure: 'metric',
-      type: 'number',
-    },
-    weightdrylb: {
-      label: 'Dry Weight (lb.)',
-      measure: 'standard',
-      type: 'number',
-    },
-    weightdrykg: {
-      label: 'Dry Weight (kg.)',
-      measure: 'metric',
-      type: 'number',
-    },
-    model: {
-      label: 'Model',
-    },
-    familyseries: {
-      label: 'Family / Series',
-    },
-    company: {
-      label: 'Company',
+    maxtravelspeedmph: {
+      label: 'Max Travel Speed (mph)',
     },
   },
 };

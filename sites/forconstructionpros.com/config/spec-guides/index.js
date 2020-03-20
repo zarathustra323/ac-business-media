@@ -6,13 +6,13 @@ const skidSteer = require('./skid-steer');
 
 module.exports = {
   rootPath: '/specguide',
-  title: 'For Construction Pros Spec Guides',
+  title: 'ForConstructionPros.com Spec Guides',
   description: '<em>ForConstructionPros.com</em> Spec Guides are essential industry tools to help you make the right choices when purchasing or renting heavy construction equipment. Use the industry’s first and only completely interactive component specifiers custom built <strong>for construction equipment owners and end users.</strong>',
   guides: {
-    asphaltPaver,
-    backhoeLoader,
+    'backhoe-loader': backhoeLoader,
     excavator,
+    'skid-steer': skidSteer,
     roller,
-    skidSteer,
+    'asphalt-paver': asphaltPaver,
   },
 };
