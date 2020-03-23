@@ -8,7 +8,6 @@ const webinars = require('@ac-business-media/refresh-theme/templates/website-sec
 const whitepapers = require('@ac-business-media/refresh-theme/templates/website-section/whitepapers');
 const queryFragment = require('@ac-business-media/refresh-theme/graphql/fragments/website-section-page');
 
-const equipmentMarketOutlook = require('../templates/website-section/market-analysis/equipment-market-outlook');
 const mediaCenter = require('../templates/website-section/media-center');
 
 module.exports = (app) => {
@@ -42,10 +41,6 @@ module.exports = (app) => {
   }));
   app.get('/:alias(media-center/videos/technology-news-tracker)', withWebsiteSection({
     template: feed,
-    queryFragment,
-  }));
-  app.get('/:alias(market-analysis/equipment-market-outlook)', withWebsiteSection({
-    template: equipmentMarketOutlook,
     queryFragment,
   }));
   app.get('/:alias([a-z0-9-/]+)', withWebsiteSection({
