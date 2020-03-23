@@ -1,109 +1,52 @@
+const title = 'Skid Steer Spec Guide';
+
 module.exports = {
-  title: 'Pump Spec Guide',
-  teaser: 'Search through over 500 fluid power pump products to find the unit that suits your application, from gear pumps to axial piston pumps.',
-  description: 'The <strong><em>OEM Off-Highway Pump Spec Guide</em></strong> is the industry’s first online, interactive component specing tool custom-built for engineers and product development team members to find exactly which pump they need for integration into the next generation of equipment.',
+  title,
+  description: `The <strong><em>Equipment Today ${title}</em></strong> is the industry’s first online, interactive spec’ing tool custom-built for construction equipment owners to find exactly which skid-steer loader they need for their equipment fleets.`,
   bullets: [
-    'Entering specific search criteria (Company Name, Pressure, Speed, etc.)',
+    'Entering specific search criteria (Model, Engine HP, Rated Operating Capacity, etc.)',
     'Sorting the information by any column to order the information the way you need it',
   ],
+  seeAlso: '<p>Also check out the interactive <a href="/specguide/excavator"><strong><u>Excavator Spec Guide</u></strong></a>, and the components that go into your equipment using the <a href="https://www.oemoffhighway.com/specguide" target="_blank" rel="nofollow"><strong><u>OEM Off-Highway Spec Guides</u></strong></a>.</p>',
   image: {
-    src: 'https://img.oemoffhighway.com/files/base/acbm/ooh/image/static/pump.png',
+    src: 'https://img.forconstructionpros.com/files/base/acbm/fcp/image/static/skidsteerlarge.jpg',
   },
-  downloadLink: '/20839221',
-  sheetSrc: 'https://spreadsheets.google.com/feeds/list/10EKomL-SVMZ4imnCaoO86t48T7ngVaopWXie04AveUo/5/public/values?alt=json',
-  measures: {
-    metric: { label: 'Metric' },
-    standard: { label: 'Standard' },
-  },
-  initialMeasureKey: 'metric',
+  downloadLink: '/21070764',
+  sheetSrc: 'https://spreadsheets.google.com/feeds/list/12TC912nI227058ho8_zrLwYYzp7P2T7zZDCXO0ZTSZw/1/public/values?alt=json',
+
   columns: {
-    openloop: {
-      label: 'Open Loop',
+    manufacturer: {
+      label: 'Manufacturer',
     },
-    closedloop: {
-      label: 'Closed Loop',
+    modelno: {
+      label: 'Model No.',
     },
-    unit: {
-      label: 'Unit',
-    },
-    type: {
-      label: 'Type',
-    },
-    in3rev: {
-      label: 'Disp. (in3/rev)',
-      measure: 'standard',
-      range: ['in3rev-low', 'in3rev-high'],
+    enginehpnet: {
+      label: 'Engine HP (net)',
       type: 'number',
     },
-    cm3rev: {
-      label: 'Disp. (cm3/rev)',
-      measure: 'metric',
-      range: ['cm3rev-low', 'cm3rev-high'],
+    operatingweightlbs: {
+      label: 'Operating Weight (lbs.)',
       type: 'number',
     },
-    'nominal-bar': {
-      label: 'Nominal Press (bar)',
-      measure: 'metric',
-      range: ['nominal-lowbar', 'nominal-highbar'],
+    ratedoperatingcapacitylbs: {
+      label: 'Rated Operating Capacity (lbs.)',
       type: 'number',
     },
-    'peak-bar': {
-      label: 'Peak Press (bar)',
-      measure: 'metric',
-      range: ['peak-lowbar', 'peak-highbar'],
+    breakoutforcelbs: {
+      label: 'Breakout Force (lbs.)',
       type: 'number',
     },
-    'nominal-psi': {
-      label: 'Nominal Press (psi)',
-      measure: 'standard',
-      range: ['nominal-lowpsi', 'nominal-highpsi'],
+    heighttohingepinin: {
+      label: 'Height to Hing Pin (in.)',
       type: 'number',
     },
-    'peak-psi': {
-      label: 'Peak Press (psi)',
-      measure: 'standard',
-      range: ['peak-lowpsi', 'peak-highpsi'],
+    standardhydraulicflowgpm: {
+      label: 'Standard Hydraulic Flow (gpm)',
       type: 'number',
     },
-    continuous: {
-      label: 'Cont. Speed (RPM)',
-      range: ['continuous-low', 'continuous-high'],
-      type: 'number',
-    },
-    max: {
-      label: 'Max Speed (RPM)',
-      range: ['max-low', 'max-high'],
-      type: 'number',
-    },
-    hp: {
-      label: 'Max Input (hp)',
-      measure: 'standard',
-      range: ['hp-low', 'hp-high'],
-      type: 'number',
-    },
-    kw: {
-      label: 'Max Input (kW)',
-      measure: 'metric',
-      range: ['kw-low', 'kw-high'],
-      type: 'number',
-    },
-    lpm: {
-      label: 'Thoe. Flow at Rated Speed (lpm)',
-      measure: 'metric',
-      range: ['lpm-low', 'lpm-high'],
-      type: 'number',
-    },
-    gpm: {
-      label: 'Thoe. Flow at Rated Speed (gpm)',
-      measure: 'standard',
-      range: ['gpm-low', 'gpm-high'],
-      type: 'number',
-    },
-    productseries: {
-      label: 'Product / Series',
-    },
-    company: {
-      label: 'Company',
+    verticalvorradialrlift: {
+      label: 'Vertical (V) or Radial (R) Lift',
     },
   },
 };
