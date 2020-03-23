@@ -32,18 +32,21 @@ $website-section-colors: (
 @import "../../node_modules/@ac-business-media/refresh-theme/scss/theme";
 
 .spec-guide-button {
-  &--engine {
-    $color: #179fa4;
+  $color: #1e5d92;
+  @include button-variant($color, $color);
+
+  &--asphalt-paver {
+    $color: #751c1c;
     @include button-variant($color, $color);
   }
 
-  &--motor {
-    $color: #0c6bb1;
+  &--roller {
+    $color: #fdb813;
     @include button-variant($color, $color);
   }
 
-  &--pump {
-    $color: #ed2028;
+  &--skid-steer {
+    $color: #000;
     @include button-variant($color, $color);
   }
 }
