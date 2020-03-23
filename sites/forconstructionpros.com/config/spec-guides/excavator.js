@@ -1,109 +1,51 @@
+const title = 'Excavator Spec Guide';
+
 module.exports = {
-  title: 'Pump Spec Guide',
-  teaser: 'Search through over 500 fluid power pump products to find the unit that suits your application, from gear pumps to axial piston pumps.',
-  description: 'The <strong><em>OEM Off-Highway Pump Spec Guide</em></strong> is the industry’s first online, interactive component specing tool custom-built for engineers and product development team members to find exactly which pump they need for integration into the next generation of equipment.',
+  title,
+  description: `The <strong><em>Equipment Today ${title}</em></strong> is the industry’s first online, interactive spec’ing tool custom-built for construction equipment owners to find exactly which excavator they need for their equipment fleets.`,
   bullets: [
-    'Entering specific search criteria (Company Name, Pressure, Speed, etc.)',
+    'Entering specific search criteria (Model, Engine HP, Operating Weight, etc.)',
     'Sorting the information by any column to order the information the way you need it',
   ],
+  seeAlso: '<p>To learn about the components that go into your equipment, also visit the <a href="https://www.oemoffhighway.com/specguide" target="_blank" rel="nofollow"><strong><u>OEM Off-Highway Spec Guides</u></strong></a>.</p>',
   image: {
-    src: 'https://img.oemoffhighway.com/files/base/acbm/ooh/image/static/pump.png',
+    src: 'https://img.forconstructionpros.com/files/base/acbm/fcp/image/static/excavator.jpg',
   },
-  downloadLink: '/20839221',
-  sheetSrc: 'https://spreadsheets.google.com/feeds/list/10EKomL-SVMZ4imnCaoO86t48T7ngVaopWXie04AveUo/5/public/values?alt=json',
-  measures: {
-    metric: { label: 'Metric' },
-    standard: { label: 'Standard' },
-  },
-  initialMeasureKey: 'metric',
+  downloadLink: '/21009138',
+  sheetSrc: 'https://spreadsheets.google.com/feeds/list/1LYU3btf5iNzaBdONjMvZmK7KiEDxSUofUR6fvJGxU2Q/1/public/values?alt=json',
   columns: {
-    openloop: {
-      label: 'Open Loop',
-    },
-    closedloop: {
-      label: 'Closed Loop',
-    },
-    unit: {
-      label: 'Unit',
-    },
-    type: {
-      label: 'Type',
-    },
-    in3rev: {
-      label: 'Disp. (in3/rev)',
-      measure: 'standard',
-      range: ['in3rev-low', 'in3rev-high'],
-      type: 'number',
-    },
-    cm3rev: {
-      label: 'Disp. (cm3/rev)',
-      measure: 'metric',
-      range: ['cm3rev-low', 'cm3rev-high'],
-      type: 'number',
-    },
-    'nominal-bar': {
-      label: 'Nominal Press (bar)',
-      measure: 'metric',
-      range: ['nominal-lowbar', 'nominal-highbar'],
-      type: 'number',
-    },
-    'peak-bar': {
-      label: 'Peak Press (bar)',
-      measure: 'metric',
-      range: ['peak-lowbar', 'peak-highbar'],
-      type: 'number',
-    },
-    'nominal-psi': {
-      label: 'Nominal Press (psi)',
-      measure: 'standard',
-      range: ['nominal-lowpsi', 'nominal-highpsi'],
-      type: 'number',
-    },
-    'peak-psi': {
-      label: 'Peak Press (psi)',
-      measure: 'standard',
-      range: ['peak-lowpsi', 'peak-highpsi'],
-      type: 'number',
-    },
-    continuous: {
-      label: 'Cont. Speed (RPM)',
-      range: ['continuous-low', 'continuous-high'],
-      type: 'number',
-    },
-    max: {
-      label: 'Max Speed (RPM)',
-      range: ['max-low', 'max-high'],
-      type: 'number',
-    },
-    hp: {
-      label: 'Max Input (hp)',
-      measure: 'standard',
-      range: ['hp-low', 'hp-high'],
-      type: 'number',
-    },
-    kw: {
-      label: 'Max Input (kW)',
-      measure: 'metric',
-      range: ['kw-low', 'kw-high'],
-      type: 'number',
-    },
-    lpm: {
-      label: 'Thoe. Flow at Rated Speed (lpm)',
-      measure: 'metric',
-      range: ['lpm-low', 'lpm-high'],
-      type: 'number',
-    },
-    gpm: {
-      label: 'Thoe. Flow at Rated Speed (gpm)',
-      measure: 'standard',
-      range: ['gpm-low', 'gpm-high'],
-      type: 'number',
-    },
-    productseries: {
-      label: 'Product / Series',
-    },
     company: {
       label: 'Company',
+    },
+    model: {
+      label: 'Model No.',
+    },
+    hpnet: {
+      label: 'HP (net)',
+      type: 'number',
+    },
+    operatingweight: {
+      label: 'Operating Weight (lbs.)',
+      type: 'number',
+      range: ['operatingweightlbslow', 'operatingweightlbshigh'],
+    },
+    standardBucketCapacity: {
+      label: 'Standard Bucket Capacity (yd³)',
+      type: 'number',
+      range: ['stdbucketcapacitycuydslow', 'stdbucketcapacitycuydshigh'],
+    },
+    breakoutforcelbs: {
+      label: 'Breakout Force (lbs.)',
+      type: 'number',
+    },
+    maxdigdepthdisplay: {
+      label: 'Max Dig Depth (ft. in.)',
+    },
+    maxreachatgradegroundleveldisplay: {
+      label: 'Max Reach at Ground Level\n(ft. in)',
+    },
+    tracktwheelw: {
+      label: 'Track (T) / Wheeled (W)',
     },
   },
 };
