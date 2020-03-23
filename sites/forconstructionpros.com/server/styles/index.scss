@@ -20,13 +20,14 @@ $theme-site-header-breakpoints: (
 
 // Site Section Colors
 $website-section-colors: (
-  engines: #029ea5,
-  drivetrains: #116baf,
-  fluid-power: #e6ad03,
-  electronics: #a14d4d,
-  operator-cab: #ffa300,
-  engineering-manufacturing: #a6b928,
-  ifpe-conexpo: #0190ff,
+  equipment: #ffc20a,
+  trucks: #ffa200,
+  rental: #e72725,
+  concrete: #2483c6,
+  asphalt: #9acb3c,
+  pavement-maintenance: #f26522,
+  profit-matters: #e9a422,
+  equipment-management: #98002e,
 );
 
 @import "../../node_modules/@ac-business-media/refresh-theme/scss/theme";
