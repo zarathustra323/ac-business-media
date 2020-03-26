@@ -8,6 +8,7 @@ const webinars = require('@ac-business-media/refresh-theme/templates/website-sec
 const whitepapers = require('@ac-business-media/refresh-theme/templates/website-section/whitepapers');
 const queryFragment = require('@ac-business-media/refresh-theme/graphql/fragments/website-section-page');
 
+const economics = require('../templates/website-section/economics');
 const mediaCenter = require('../templates/website-section/media-center');
 
 module.exports = (app) => {
@@ -21,6 +22,10 @@ module.exports = (app) => {
   }));
   app.get('/:alias(webinars)', withWebsiteSection({
     template: webinars,
+    queryFragment,
+  }));
+  app.get('/:alias(economics)', withWebsiteSection({
+    template: economics,
     queryFragment,
   }));
   app.get('/:alias(media-center)', withWebsiteSection({

@@ -1,7 +1,7 @@
 const gql = require('graphql-tag');
 
 module.exports = gql`
-fragment EquipmentMarketOutlookListFragment on Content {
+fragment EconomicsArticleFragment on Content {
   id
   name
   body

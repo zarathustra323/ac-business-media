@@ -1,0 +1,5 @@
+{
+  "taglib-imports": [
+    "./economics/marko.json"
+  ]
+}
