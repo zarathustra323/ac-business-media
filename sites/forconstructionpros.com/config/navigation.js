@@ -66,6 +66,7 @@ module.exports = {
       label: 'Resources',
       items: [
         { href: '/directory', label: 'New Equipment Directory' },
+        { href: '/asphalt-industry-directory', label: 'Asphalt Industry Directory' },
         { href: '/construction-technology', label: 'Technology' },
         { href: '/business', label: 'Business' },
         { href: '/specguide', label: 'Spec Guides' },
