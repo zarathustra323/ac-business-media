@@ -1,0 +1,14 @@
+{
+  "<native-x>": {},
+  "<list>": {
+    "<body>": {},
+    "<node>": {}
+  },
+  "<query-params>": {},
+  "<header>": {},
+  "@alias": {
+    "type": "string",
+    "required": true
+  },
+  "@link-header": "boolean"
+}

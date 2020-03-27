@@ -4,5 +4,8 @@
     "@facets": "array",
     "@active-id": "expression",
     "@title": "string"
+  },
+  "<directory-layout>": {
+    "template": "./layout.marko"
   }
 }

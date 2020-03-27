@@ -1,0 +1,11 @@
+{
+  "<query-params>":  {},
+  "<component-input>": {},
+  "@header": "string",
+  "@name": {
+    "type": "string",
+    "required": true
+  },
+  "@max-pages": "number",
+  "@fragment-name": "string"
+}

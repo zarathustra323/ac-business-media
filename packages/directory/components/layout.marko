@@ -1,0 +1,98 @@
+import { getAsObject, getAsArray } from "@base-cms/object-path";
+import { isFunction } from "@base-cms/utils";
+import hierarchyAliases from "@base-cms/marko-web/utils/hierarchy-aliases";
+import queryFragment from "../graphql/fragments/content-list";
+
+$ const { GAM } = out.global;
+$ const { id, alias, name, pageNode } = input;
+$ const adSlots = isFunction(input.adSlots) ? input.adSlots : ({ aliases }) => ({
+  "gpt-ad-lb1": GAM.getAdUnit({ name: "lb1", aliases }),
+  "gpt-ad-rail1": GAM.getAdUnit({ name: "rail1", aliases }),
+});
+
+$ const facets = getAsArray(input, "directory.facets");
+$ const directory = {
+  title: "Categories",
+  ...getAsObject(input, "directory"),
+  facets,
+};
+
+<marko-web-website-section-page-layout id=id alias=alias name=name>
+  <@head>
+    <if(input.head)>
+      <${input.head} />
+    </if>
+    <else>
+      <marko-web-gtm-website-section-context|{ context }| alias=alias>
+        <marko-web-gtm-push data=context />
+      </marko-web-gtm-website-section-context>
+      <marko-web-resolve-page|{ data: section }| node=pageNode>
+        $ const aliases = hierarchyAliases(section);
+        <marko-web-gam-slots slots=adSlots({ aliases }) />
+      </marko-web-resolve-page>
+      <if(input.inHead)>
+        <${input.inHead} />
+      </if>
+    </else>
+  </@head>
+
+  <@above-container>
+    <if(input.aboveContainer)>
+      <${input.aboveContainer} />
+    </if>
+    <else>
+      <marko-web-resolve-page|{ data: section }| node=pageNode>
+        $ const aliases = hierarchyAliases(section);
+        <marko-web-gam-out-of-page-ad ...GAM.getAdUnit({ name: "reskin", aliases }) />
+      </marko-web-resolve-page>
+    </else>
+  </@above-container>
+
+  <@page>
+    <marko-web-gam-display-ad id="gpt-ad-lb1" modifiers=["top-of-page"] />
+    <marko-web-resolve-page|{ data: section }| node=pageNode>
+      <marko-web-page-wrapper class="mb-block">
+        <@section>
+          <div class="row">
+            <div class="col">
+              <default-theme-website-section-breadcrumbs section=section display-self=false />
+              <marko-web-website-section-name tag="h1" class="page-wrapper__title" obj=section />
+              <marko-web-website-section-description tag="p" class="page-wrapper__deck" obj=section />
+            </div>
+          </div>
+        </@section>
+      </marko-web-page-wrapper>
+    </marko-web-resolve-page>
+
+    <div class="row">
+      <div class="col-lg-4 page-rail mb-block">
+        <directory-facets ...directory active-id=id />
+        <marko-web-gam-display-ad id="gpt-ad-rail1" />
+      </div>
+      <div class="col-lg-8 mb-block">
+        <list-block alias=alias>
+          <@header>Featured Companies</@header>
+          <@query-params limit=3 option-name="Pinned" include-content-types=["Company"] />
+          <@list>
+            <@node image-position="left" with-teaser=true />
+          </@list>
+        </list-block>
+
+        <marko-web-query|{ nodes }| name="all-published-content" params={ contentTypes: ["Product"], limit: 5, queryFragment }>
+          <list-flow nodes=nodes inner-justified=false>
+            <@header>Latest</@header>
+            <@node image-position="left" with-teaser=true />
+          </list-flow>
+        </marko-web-query>
+      </div>
+    </div>
+  </@page>
+
+  <@below-page>
+    <load-more name="list">
+      <@query-params content-types=["Product"] limit=18 skip=5 />
+      <@component-input inner-justified=false node={ imagePosition: "left", withTeaser: true } />
+    </load-more>
+  </@below-page>
+
+</marko-web-website-section-page-layout>
