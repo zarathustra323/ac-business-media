@@ -9,6 +9,7 @@ const whitepapers = require('@ac-business-media/refresh-theme/templates/website-
 const queryFragment = require('@ac-business-media/refresh-theme/graphql/fragments/website-section-page');
 
 const economics = require('../templates/website-section/economics');
+const directory = require('../templates/website-section/directory');
 const mediaCenter = require('../templates/website-section/media-center');
 
 module.exports = (app) => {
@@ -26,6 +27,14 @@ module.exports = (app) => {
   }));
   app.get('/:alias(economics)', withWebsiteSection({
     template: economics,
+    queryFragment,
+  }));
+  app.get('/:alias(directory)', withWebsiteSection({
+    template: directory,
+    queryFragment,
+  }));
+  app.get('/:alias(directory/[a-z0-9-/]+)', withWebsiteSection({
+    template: directory,
     queryFragment,
   }));
   app.get('/:alias(media-center)', withWebsiteSection({
