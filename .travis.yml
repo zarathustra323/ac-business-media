@@ -112,6 +112,18 @@ jobs:
       install: skip
       env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-rc5kp]
 
+    - stage: production
+      name: forconstructionpros.com
+      script: npx @base-cms/website-deployment-tool deploy forconstructionpros.com caprica
+      install: skip
+      env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-gxsr7]
+
+    - stage: staging
+      name: forconstructionpros.com
+      script: npx @base-cms/website-deployment-tool deploy forconstructionpros.com caprica
+      install: skip
+      env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-rc5kp]
+
     #############################
     ### ^^^ ADD SITES HERE ^^^ ##
     #############################

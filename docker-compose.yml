@@ -152,3 +152,19 @@ services:
     ports:
       - "9715:80"
       - "19715:19715"
+
+  forconstructionpros.com:
+    <<: *node
+    <<: *site-cmd
+    working_dir: /root/sites/forconstructionpros.com
+    environment:
+      <<: *env
+      <<: *env-caprica
+      PORT: 80
+      EXPOSED_PORT: 9716
+      LIVERELOAD_PORT: 19716
+      TENANT_KEY: acbm_fcp
+      SITE_ID: 53ca8d671784f8066eb2c949
+    ports:
+      - "9716:80"
+      - "19716:19716"

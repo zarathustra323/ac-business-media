@@ -1,0 +1,10 @@
+{
+  "<website-economics-flow>": {
+    "template": "./flow.marko",
+    "@nodes": "array"
+  },
+  "<website-economics-node>": {
+    "template": "./node.marko",
+    "@node": "object"
+  }
+}

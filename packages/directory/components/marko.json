@@ -1,0 +1,8 @@
+{
+  "<directory-facets>": {
+    "template": "./facets.marko",
+    "@facets": "array",
+    "@active-id": "expression",
+    "@title": "string"
+  }
+}

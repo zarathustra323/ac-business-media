@@ -1,0 +1,105 @@
+import { getAsObject, getAsArray } from "@base-cms/object-path";
+import { isFunction } from "@base-cms/utils";
+import hierarchyAliases from "@base-cms/marko-web/utils/hierarchy-aliases";
+import queryFragment from "../../graphql/fragments/content-list";
+
+$ const { GAM } = out.global;
+$ const { id, alias, name, pageNode } = input;
+$ const adSlots = isFunction(input.adSlots) ? input.adSlots : ({ aliases }) => ({
+  "gpt-ad-lb1": GAM.getAdUnit({ name: "lb1", aliases }),
+  "gpt-ad-rail1": GAM.getAdUnit({ name: "rail1", aliases }),
+});
+
+$ const facets = getAsArray(input, "directory.facets");
+$ const directory = {
+  title: "Categories",
+  ...getAsObject(input, "directory"),
+  facets,
+};
+
+<marko-web-website-section-page-layout id=id alias=alias name=name>
+  <@head>
+    <if(input.head)>
+      <${input.head} />
+    </if>
+    <else>
+      <marko-web-gtm-website-section-context|{ context }| alias=alias>
+        <marko-web-gtm-push data=context />
+      </marko-web-gtm-website-section-context>
+      <marko-web-resolve-page|{ data: section }| node=pageNode>
+        $ const aliases = hierarchyAliases(section);
+        <marko-web-gam-slots slots=adSlots({ aliases }) />
+      </marko-web-resolve-page>
+      <if(input.inHead)>
+        <${input.inHead} />
+      </if>
+    </else>
+  </@head>
+
+  <@above-container>
+    <if(input.aboveContainer)>
+      <${input.aboveContainer} />
+    </if>
+    <else>
+      <marko-web-resolve-page|{ data: section }| node=pageNode>
+        $ const aliases = hierarchyAliases(section);
+        <marko-web-gam-out-of-page-ad ...GAM.getAdUnit({ name: "reskin", aliases }) />
+      </marko-web-resolve-page>
+    </else>
+  </@above-container>
+
+  <@page>
+    <marko-web-gam-display-ad id="gpt-ad-lb1" modifiers=["top-of-page"] />
+    <marko-web-resolve-page|{ data: section }| node=pageNode>
+      <marko-web-page-wrapper class="mb-block">
+        <@section>
+          <div class="row">
+            <div class="col">
+              <default-theme-website-section-breadcrumbs section=section display-self=false />
+              <marko-web-website-section-name tag="h1" class="page-wrapper__title" obj=section />
+              <marko-web-website-section-description tag="p" class="page-wrapper__deck" obj=section />
+            </div>
+          </div>
+        </@section>
+      </marko-web-page-wrapper>
+    </marko-web-resolve-page>
+
+    <div class="row">
+      <div class="col-lg-4 page-rail mb-block">
+        <directory-facets ...directory active-id=id />
+        <marko-web-gam-display-ad id="gpt-ad-rail1" />
+      </div>
+      <div class="col-lg-8 mb-block">
+        $ const queryParams = { alias, queryFragment, includeContentTypes: ["Company"], limit: 3, optionName: "Pinned" };
+        <marko-web-query|{ nodes }| name="website-scheduled-content" params=queryParams>
+          <refresh-theme-content-list-flow nodes=nodes inner-justified=false modifiers=["directory-featured-companies"]>
+            <@header>Featured Companies</@header>
+            <@node image-position="left" with-teaser=true />
+          </refresh-theme-content-list-flow>
+        </marko-web-query>
+
+        <marko-web-query|{ nodes }| name="all-published-content" params={ contentTypes: ["Product"], limit: 5, queryFragment }>
+          <refresh-theme-content-list-flow nodes=nodes inner-justified=false>
+            <@header>Latest</@header>
+            <@node image-position="left" with-teaser=true />
+          </refresh-theme-content-list-flow>
+        </marko-web-query>
+      </div>
+    </div>
+  </@page>
+
+  <@below-page>
+    <refresh-theme-latest-content-load-more-block max-pages=4>
+      <@query
+        name="all-published-content"
+        params={ contentTypes: ["Product"], limit: 18, skip: 5 }
+      />
+      <@page for="website-section" id=id />
+      <@adunit
+        ...GAM.getAdUnit({ name: "infinite-interstitial" })
+        modifiers=["max-width-300", "margin-auto-x"]
+      />
+    </refresh-theme-latest-content-load-more-block>
+  </@below-page>
+
+</marko-web-website-section-page-layout>
