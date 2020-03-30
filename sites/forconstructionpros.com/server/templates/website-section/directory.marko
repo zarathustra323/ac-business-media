@@ -2,11 +2,6 @@ import categories from "../../../config/categories";
 
 $ const { id, alias, name, pageNode } = data;
 
-<directory-layout
-  id=id
-  alias=alias
-  name=name
-  page-node=pageNode
->
+<refresh-theme-directory-layout id=id alias=alias name=name page-node=pageNode>
   <@directory facets=categories />
-</directory-layout>
+</refresh-theme-directory-layout>

@@ -1,7 +1,7 @@
 import { getAsObject, getAsArray } from "@base-cms/object-path";
 import { isFunction } from "@base-cms/utils";
 import hierarchyAliases from "@base-cms/marko-web/utils/hierarchy-aliases";
-import queryFragment from "../graphql/fragments/content-list";
+import queryFragment from "../../graphql/fragments/content-list";
 
 $ const { GAM } = out.global;
 $ const { id, alias, name, pageNode } = input;
@@ -70,29 +70,36 @@ $ const directory = {
         <marko-web-gam-display-ad id="gpt-ad-rail1" />
       </div>
       <div class="col-lg-8 mb-block">
-        <list-block alias=alias>
-          <@header>Featured Companies</@header>
-          <@query-params limit=3 option-name="Pinned" include-content-types=["Company"] />
-          <@list>
+        $ const queryParams = { alias, queryFragment, includeContentTypes: ["Company"], limit: 3, optionName: "Pinned" };
+        <marko-web-query|{ nodes }| name="website-scheduled-content" params=queryParams>
+          <refresh-theme-content-list-flow nodes=nodes inner-justified=false modifiers=["directory-featured-companies"]>
+            <@header>Featured Companies</@header>
             <@node image-position="left" with-teaser=true />
-          </@list>
-        </list-block>
+          </refresh-theme-content-list-flow>
+        </marko-web-query>
 
         <marko-web-query|{ nodes }| name="all-published-content" params={ contentTypes: ["Product"], limit: 5, queryFragment }>
-          <list-flow nodes=nodes inner-justified=false>
+          <refresh-theme-content-list-flow nodes=nodes inner-justified=false>
             <@header>Latest</@header>
             <@node image-position="left" with-teaser=true />
-          </list-flow>
+          </refresh-theme-content-list-flow>
         </marko-web-query>
       </div>
     </div>
   </@page>
 
   <@below-page>
-    <load-more name="list">
-      <@query-params content-types=["Product"] limit=18 skip=5 />
-      <@component-input inner-justified=false node={ imagePosition: "left", withTeaser: true } />
-    </load-more>
+    <refresh-theme-latest-content-load-more-block max-pages=4>
+      <@query
+        name="all-published-content"
+        params={ contentTypes: ["Product"], limit: 18, skip: 5 }
+      />
+      <@page for="website-section" id=id />
+      <@adunit
+        ...GAM.getAdUnit({ name: "infinite-interstitial" })
+        modifiers=["max-width-300", "margin-auto-x"]
+      />
+    </refresh-theme-latest-content-load-more-block>
   </@below-page>
 
 </marko-web-website-section-page-layout>

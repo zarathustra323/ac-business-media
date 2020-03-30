@@ -1,4 +1,14 @@
 {
+  "<refresh-theme-directory-layout>": {
+    "template": "./directory.marko",
+    "<directory>": {
+      "@facets": "array"
+    },
+    "@id": "string",
+    "@name": "string",
+    "@alias": "string",
+    "@page-node": "object"
+  },
   "<refresh-theme-published-content-layout>": {
     "template": "./published-content.marko",
     "<query>": {
