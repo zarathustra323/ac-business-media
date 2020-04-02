@@ -5,7 +5,13 @@ const videos = require('@ac-business-media/refresh-theme/templates/website-secti
 const contactUs = require('@ac-business-media/refresh-theme/templates/website-section/contact-us');
 const queryFragment = require('@ac-business-media/refresh-theme/graphql/fragments/website-section-page');
 
+const directory = require('../templates/website-section/directory');
+
 module.exports = (app) => {
+  app.get('/:alias(directory)', withWebsiteSection({
+    template: directory,
+    queryFragment,
+  }));
   app.get('/:alias(contact-us)', withWebsiteSection({
     template: contactUs,
     queryFragment,
