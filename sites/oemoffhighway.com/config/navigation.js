@@ -19,6 +19,7 @@ module.exports = {
       { href: '/events', label: 'Events' },
       { href: 'https://www.oemoffhighwaymediakit.com/', label: 'Advertise', target: '_blank' },
       { href: '/magazine', label: 'Magazine' },
+      { href: '/directory', label: 'Directory' },
     ],
   },
   tertiary: {

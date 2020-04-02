@@ -13,6 +13,7 @@ module.exports = {
       { href: '/contact-us', label: 'Contact Us' },
       { href: '/magazine', label: 'Magazine' },
       { href: '/advertise', label: 'Advertise' },
+      { href: '/directory', label: 'Directory' },
     ],
   },
   tertiary: {
