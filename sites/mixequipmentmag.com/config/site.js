@@ -17,6 +17,9 @@ module.exports = {
       ],
     },
   },
+  socialMediaLinks: [
+    { provider: 'facebook', href: 'https://www.facebook.com/AstecInc1', target: '_blank' },
+  ],
   gtm: {
     containerId: 'GTM-55P9PL4',
   },
