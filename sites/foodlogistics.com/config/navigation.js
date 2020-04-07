@@ -29,14 +29,14 @@ module.exports = {
     items: [
       {
         href: 'https://foodlogistics.dragonforms.com/Flnew&pk=FL',
-        label: 'Subscribe',
+        label: 'Magazine',
         icon: 'book',
         forceLabel: true,
         target: '_blank',
       },
       {
         href: 'https://acbm.dragonforms.com/loading.do?omedasite=FLOG_NL_signup',
-        label: 'Sign Up',
+        label: 'Newsletter',
         icon: 'mail',
         forceLabel: true,
         target: '_blank',
