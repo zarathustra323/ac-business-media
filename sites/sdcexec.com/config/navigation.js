@@ -84,6 +84,7 @@ module.exports = {
         { href: '/podcast', label: 'Podcasts' },
         { href: '/blogs', label: 'Expert Columnists' },
         { href: '/multimedia', label: 'Multimedia' },
+        { href: '/directory', label: 'Directory' },
       ],
     },
     {

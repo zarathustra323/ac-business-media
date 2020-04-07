@@ -9,7 +9,13 @@ const webinars = require('@ac-business-media/refresh-theme/templates/website-sec
 const whitepapers = require('@ac-business-media/refresh-theme/templates/website-section/whitepapers');
 const queryFragment = require('@ac-business-media/refresh-theme/graphql/fragments/website-section-page');
 
+const directory = require('../templates/website-section/directory');
+
 module.exports = (app) => {
+  app.get('/:alias(directory)', withWebsiteSection({
+    template: directory,
+    queryFragment,
+  }));
   app.get('/:alias(contact-us)', withWebsiteSection({
     template: contactUs,
     queryFragment,
