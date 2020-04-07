@@ -20,14 +20,14 @@ module.exports = {
     items: [
       {
         href: 'https://acbm.dragonforms.com/GIPROSnew&pk=GIP',
-        label: 'Subscribe',
+        label: 'Magazine (Subscribe)',
         icon: 'book',
         forceLabel: true,
         target: '_blank',
       },
       {
         href: 'https://acbm.dragonforms.com/loading.do?omedasite=GIP_NL_signup',
-        label: 'Sign Up',
+        label: 'Newsletter (Sign Up)',
         icon: 'mail',
         forceLabel: true,
         target: '_blank',
