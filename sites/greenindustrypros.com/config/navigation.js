@@ -18,6 +18,13 @@ module.exports = {
   tertiary: {
     items: [
       {
+        href: 'https://acbm.dragonforms.com/GIPROSnew&pk=GIP',
+        label: 'Subscribe',
+        icon: 'book',
+        forceLabel: true,
+        target: '_blank',
+      },
+      {
         href: 'https://acbm.dragonforms.com/loading.do?omedasite=GIP_NL_signup',
         label: 'Sign Up',
         icon: 'mail',

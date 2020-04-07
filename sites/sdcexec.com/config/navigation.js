@@ -27,6 +27,13 @@ module.exports = {
   tertiary: {
     items: [
       {
+        href: 'https://acbm.dragonforms.com/SDCEnew&pk=SDCE',
+        label: 'Subscribe',
+        icon: 'book',
+        forceLabel: true,
+        target: '_blank',
+      },
+      {
         href: 'https://acbm.dragonforms.com/loading.do?omedasite=SDCE_NL_signup',
         label: 'Sign Up',
         icon: 'mail',
