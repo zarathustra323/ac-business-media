@@ -26,14 +26,14 @@ module.exports = {
     items: [
       {
         href: 'https://oemoffhighway.dragonforms.com/OOH_new&pk=OEM',
-        label: 'Subscribe',
+        label: 'Magazine',
         icon: 'book',
         forceLabel: true,
         target: '_blank',
       },
       {
         href: 'https://www.dragonforms.com/loading.do?omedasite=OOH_prefs_ProgReg',
-        label: 'Sign Up',
+        label: 'Newsletter',
         icon: 'mail',
         forceLabel: true,
         target: '_blank',

@@ -28,14 +28,14 @@ module.exports = {
     items: [
       {
         href: 'https://acbm.dragonforms.com/SDCEnew&pk=SDCE',
-        label: 'Subscribe',
+        label: 'Magazine',
         icon: 'book',
         forceLabel: true,
         target: '_blank',
       },
       {
         href: 'https://acbm.dragonforms.com/loading.do?omedasite=SDCE_NL_signup',
-        label: 'Sign Up',
+        label: 'Newsletter',
         icon: 'mail',
         forceLabel: true,
         target: '_blank',
