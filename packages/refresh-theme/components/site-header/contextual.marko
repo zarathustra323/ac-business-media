@@ -39,22 +39,12 @@ $ const contextualItem = navigation.contextual.find(({ when }) => asArray(when).
         srcset=site.getAsArray("logos.navbar.srcset").join(",")
       />
     </default-theme-site-navbar-brand>
-    <if(contextualItem)>
-      <default-theme-site-navbar-items
-        items=navigation.primary
-        modifiers=["secondary"]
-        reg-enabled=input.regEnabled
-        has-user=input.hasUser
-      />
-    </if>
-    <else>
-      <default-theme-site-navbar-items
-        items=navigation.secondary
-        modifiers=["secondary"]
-        reg-enabled=input.regEnabled
-        has-user=input.hasUser
-      />
-    </else>
+    <default-theme-site-navbar-items
+      items=(contextualItem ? navigation.primary : navigation.secondary)
+      modifiers=["secondary"]
+      reg-enabled=input.regEnabled
+      has-user=input.hasUser
+    />
 
     <default-theme-site-navbar-items
       items=navigation.tertiary
@@ -65,23 +55,12 @@ $ const contextualItem = navigation.contextual.find(({ when }) => asArray(when).
   </default-theme-site-navbar>
 
   <default-theme-site-navbar modifiers=["primary"]>
-    <if(contextualItem)>
-      <default-theme-site-navbar-items
-        items=contextualItem.items
-        modifiers=["primary"]
-        reg-enabled=input.regEnabled
-        has-user=input.hasUser
-      />
-    </if>
-    <else>
-      <default-theme-site-navbar-items
-        items=navigation.primary
-        modifiers=["primary"]
-        reg-enabled=input.regEnabled
-        has-user=input.hasUser
-      />
-    </else>
-
+    <default-theme-site-navbar-items
+      items=(contextualItem ? contextualItem.items : navigation.primary)
+      modifiers=["primary"]
+      reg-enabled=input.regEnabled
+      has-user=input.hasUser
+    />
   </default-theme-site-navbar>
   <${input.belowNav} />
 </marko-web-block>
