@@ -56,7 +56,7 @@ module.exports = {
     to: 'jsage@acbusinessmedia.com',
   },
   inquiry: {
-    enabled: true,
+    enabled: false,
     directSend: true,
     sendTo: 'jsage@acbusinessmedia.com',
     sendFrom: 'Supply & Demand Chain Executive <noreply@baseplatform.io>',
