@@ -29,6 +29,13 @@ module.exports = {
     { provider: 'linkedin', href: 'https://www.linkedin.com/company/forconstructionpros', target: '_blank' },
     { provider: 'youtube', href: 'https://www.youtube.com/user/ForConstructionPros', target: '_blank' },
   ],
+  radix: {
+    enabled: true,
+    appId: '4448cfcb-e2da-40ff-8be6-671110964914',
+    submissionFieldIds: [
+      { name: 'comments', id: '580f6d056cdeea4730ddbb2c' },
+    ],
+  },
   gtm: {
     containerId: 'GTM-PNBSZL4',
   },

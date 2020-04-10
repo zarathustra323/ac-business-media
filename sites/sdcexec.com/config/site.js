@@ -26,6 +26,13 @@ module.exports = {
     { provider: 'twitter', href: 'http://www.twitter.com/sdcexec', target: '_blank' },
     { provider: 'linkedin', href: 'https://www.linkedin.com/company/supply-demand-chain-executive/', target: '_blank' },
   ],
+  radix: {
+    enabled: true,
+    appId: '8d348e1f-b6d0-4065-8260-e1ffd63c7ab9',
+    submissionFieldIds: [
+      { name: 'comments', id: '5a0dccab3bab46eb316cd352' },
+    ],
+  },
   gtm: {
     containerId: 'GTM-KK6K97N',
   },

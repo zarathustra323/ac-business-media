@@ -26,6 +26,13 @@ module.exports = {
     { provider: 'twitter', href: 'https://twitter.com/greenindpros', target: '_blank' },
     { provider: 'facebook', href: 'https://www.facebook.com/GreenIndustryPros', target: '_blank' },
   ],
+  radix: {
+    enabled: true,
+    appId: '436dd265-a7ac-4608-8331-d5ea70e65102',
+    submissionFieldIds: [
+      { name: 'comments', id: '5b99725a81284d4fc4e58233' },
+    ],
+  },
   gtm: {
     containerId: 'GTM-T2K6NQQ',
   },

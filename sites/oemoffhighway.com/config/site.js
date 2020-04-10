@@ -29,6 +29,13 @@ module.exports = {
     { provider: 'linkedin', href: 'https://www.linkedin.com/groups/1831755/profile', target: '_blank' },
     { provider: 'youtube', href: 'https://www.youtube.com/channel/UCuAwQzKyZOqJolRTNYa0ZyA', target: '_blank' },
   ],
+  radix: {
+    enabled: true,
+    appId: '3415bd29-da4c-463a-8c3f-fce02de88347',
+    submissionFieldIds: [
+      { name: 'comments', id: '580f6cc935ab46ff40b015b7' },
+    ],
+  },
   gtm: {
     containerId: 'GTM-KFFMFV4',
   },
