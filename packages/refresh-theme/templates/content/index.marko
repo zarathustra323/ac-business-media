@@ -192,7 +192,7 @@ $ const injectAds = ["article", "news", "press-release", "blog"].includes(type) 
                 />
               </if>
               <if(displayInquiry(content))>
-                <refresh-theme-inquiry-form node=content />
+                <marko-web-inquiry-form content=content />
               </if>
 
               <refresh-theme-related-content-block

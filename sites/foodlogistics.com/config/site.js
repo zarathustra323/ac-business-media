@@ -26,6 +26,13 @@ module.exports = {
     { provider: 'twitter', href: 'https://www.twitter.com/FoodLogistics', target: '_blank' },
     { provider: 'linkedin', href: 'https://www.linkedin.com/company/food-logistics-magazine/', target: '_blank' },
   ],
+  radix: {
+    enabled: true,
+    appId: 'e81ec2b6-d2c7-496f-8923-c2f7e2cd05e7',
+    submissionFieldIds: [
+      { name: 'comments', id: '5a0db6553bab46b3436cd382' },
+    ],
+  },
   gtm: {
     containerId: 'GTM-MQ68SRH',
   },

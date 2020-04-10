@@ -816,10 +816,10 @@
     moment "^2.24.0"
     moment-timezone "^0.5.26"
 
-"@base-cms/marko-web-gam@^1.25.0":
-  version "1.25.0"
-  resolved "https://registry.yarnpkg.com/@base-cms/marko-web-gam/-/marko-web-gam-1.25.0.tgz#f17be1d0b2ba6b785bd0bf5b94ef63b9b94c28f0"
-  integrity sha512-6Eo6w+zI+seFM1CUmb6er+FgPL4RvLInDz3jl2nbsqC9vejMrPhtkYxdIkFdyrTe6rLlyC4+hNE3lCPyyO6Z2A==
+"@base-cms/marko-web-gam@^1.25.10":
+  version "1.25.10"
+  resolved "https://registry.yarnpkg.com/@base-cms/marko-web-gam/-/marko-web-gam-1.25.10.tgz#f40f44f4d68ebab4c51d8ce0b42efc139bd618ee"
+  integrity sha512-QC2UaGQaozbrElM2mjaNpuEL+3ifKkRStOIv3/jn1yd4jVuUv6m8bbtfDOpNxEF0+66e6aFWVCnVOlqPwDjfxQ==
   dependencies:
     "@base-cms/object-path" "^1.25.0"
     "@base-cms/utils" "^1.25.0"
@@ -849,6 +849,24 @@
   resolved "https://registry.yarnpkg.com/@base-cms/marko-web-icons/-/marko-web-icons-1.24.0.tgz#f03f3afa456d9d1229a217f2c7efe15065fac02c"
   integrity sha512-hU6A/4nr/QmwO5ePCboe/oWl/NW6eCZcZVHKLMoYQ+tfO46BhwcKiUz5CAMZJorx5rveAwoAd8eT9g6f4SRVAw==
 
+"@base-cms/marko-web-inquiry@^1.26.0":
+  version "1.26.0"
+  resolved "https://registry.yarnpkg.com/@base-cms/marko-web-inquiry/-/marko-web-inquiry-1.26.0.tgz#a2e544245b17542e4ba8937c66ccf2f7f9eaa564"
+  integrity sha512-1BPcfUyGTHfg+yH31H9ZOyHNr4ZiG5PnvAWueQIAmBxTwDB+bdnFIK8A2yJ5pO/UZ+14YBB0gLmqShhR9tF2Rw==
+  dependencies:
+    "@base-cms/env" "^1.0.0"
+    "@base-cms/marko-core" "^1.25.5"
+    "@base-cms/marko-web" "^1.25.5"
+    "@base-cms/object-path" "^1.25.0"
+    "@base-cms/utils" "^1.25.0"
+    "@base-cms/web-common" "^1.25.5"
+    "@sendgrid/mail" "^6.4.0"
+    body-parser "^1.19.0"
+    express "^4.17.1"
+    graphql "^14.5.4"
+    graphql-tag "^2.10.1"
+    node-fetch "^2.6.0"
+
 "@base-cms/marko-web-native-x@^1.25.0":
   version "1.25.0"
   resolved "https://registry.yarnpkg.com/@base-cms/marko-web-native-x/-/marko-web-native-x-1.25.0.tgz#667a694b524361699adc984c58e8ebbbc0d6eb65"
@@ -866,6 +884,11 @@
     "@base-cms/image" "^1.6.3"
     "@base-cms/object-path" "^1.25.0"
     photoswipe "^4.1.3"
+
+"@base-cms/marko-web-radix@^1.26.0":
+  version "1.26.0"
+  resolved "https://registry.yarnpkg.com/@base-cms/marko-web-radix/-/marko-web-radix-1.26.0.tgz#3791a3367cffd0b58724fb016258baad8ff9aeb9"
+  integrity sha512-wXKbvlaRlkd4aIBwjs7n+7w6orcDnsBdcHIaSUqDDxvxbkySDFX0zAiV1rtnhOAcexiNpmPMVjAnuQnpQVPK/w==
 
 "@base-cms/marko-web-reveal-ad@^1.25.6":
   version "1.25.6"
