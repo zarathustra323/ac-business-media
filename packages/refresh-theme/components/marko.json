@@ -28,5 +28,8 @@
   "<refresh-theme-gam-media-fuse>": {
     "template": "./gam-media-fuse.marko",
     "@id" : "number"
+  },
+  "<refresh-theme-contextual-header>": {
+    "template": "./site-header/contextual.marko"
   }
 }
