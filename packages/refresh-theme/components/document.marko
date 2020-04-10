@@ -1,5 +1,8 @@
 $ const { site, req, nativeX } = out.global;
 
+$ const radix = site.getAsObject("radix");
+$ const isRadixEnabled = Boolean(radix.enabled && radix.appId);
+
 <marko-web-document ...input>
   <@head>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -19,6 +22,9 @@ $ const { site, req, nativeX } = out.global;
     <marko-web-browser-component name="TriggerScreenChangeEvent" />
     <marko-web-gtm-track-bus-event on="screen_change" />
     <marko-web-gtm-track-load-more />
+    <if(isRadixEnabled)>
+      <marko-web-radix-inquiry-listener app-id=radix.appId submission-field-ids=radix.submissionFieldIds />
+    </if>
     <refresh-theme-contextual-header />
     <default-theme-site-menu />
     <${input.aboveContainer} />
@@ -26,5 +32,8 @@ $ const { site, req, nativeX } = out.global;
   <@below-container>
     <${input.belowContainer} />
     <default-theme-site-footer />
+    <if(isRadixEnabled)>
+      <marko-web-radix-identity-detector app-id=radix.appId />
+    </if>
   </@below-container>
 </marko-web-document>

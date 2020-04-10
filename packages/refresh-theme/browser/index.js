@@ -7,6 +7,7 @@ import Common from '@ac-business-media/package-common/browser';
 import SocialSharing from '@base-cms/marko-web-social-sharing/browser';
 import PhotoSwipe from '@base-cms/marko-web-photoswipe/browser';
 import RevealAd from '@base-cms/marko-web-reveal-ad/browser';
+import Radix from '@base-cms/marko-web-radix/browser';
 
 export default (Browser) => {
   DefaultTheme(Browser);
@@ -18,4 +19,5 @@ export default (Browser) => {
   SocialSharing(Browser);
   PhotoSwipe(Browser);
   RevealAd(Browser);
+  Radix(Browser);
 };
