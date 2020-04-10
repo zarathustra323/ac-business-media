@@ -12,7 +12,6 @@
   "dependencies": {
     "@ac-business-media/package-common": "^1.12.0",
     "@ac-business-media/package-directory": "^1.12.0",
-    "@ac-business-media/package-inquiry": "^1.12.0",
     "@base-cms/marko-core": "^1.25.5",
     "@base-cms/marko-web": "^1.25.5",
     "@base-cms/marko-web-gam": "^1.25.10",

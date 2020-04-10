@@ -3,7 +3,7 @@ const { startServer } = require('@base-cms/marko-web');
 const { set, get, getAsObject } = require('@base-cms/object-path');
 const cleanResponse = require('@base-cms/marko-core/middleware/clean-marko-response');
 const contactUsHandler = require('@ac-business-media/package-common/contact-us');
-const loadInquiry = require('@ac-business-media/package-inquiry/load-from-config');
+const loadInquiry = require('@base-cms/marko-web-inquiry');
 const sharedRedirectHandler = require('./redirect-handler');
 
 const buildGAMConfig = require('./gam/build-config');
