@@ -16,6 +16,7 @@ $ const displayPrimaryImage = ["whitepaper", "media-gallery", "video"].includes(
 $ const displayPublishedDate = ["event", "webinar", "company", "contact"].includes(type) ? false : true;
 $ const displayRecommended = ["company", "product", "contact"].includes(type) ? false : true;
 $ const displayInquiry = (content) => {
+  if (site.get("inquiry.enabled") === false) return false;
   if (type === "company" && get(content, "enableRmi")) return true;
   if (type === "product" && get(content, "company.enableRmi")) return true;
   return false;
