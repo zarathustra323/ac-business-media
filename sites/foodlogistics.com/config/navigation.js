@@ -87,6 +87,7 @@ module.exports = {
         { href: '/webinars', label: 'Webinars' },
         { href: 'https://www.supplychainlearningcenter.com/', label: 'Learning Center', target: '_blank' },
         { href: '/directory', label: 'Directory' },
+        { href: '/multimedia', label: 'Multimedia' },
       ],
     },
     {
