@@ -1,0 +1,11 @@
+{
+  "<refresh-theme-parsely-page>": {
+    "template": "./page.marko",
+    "@headline": "string",
+    "@section": "object"
+  },
+  "<refresh-theme-parsely-content>": {
+    "template": "./content.marko",
+    "@content": "object"
+  }
+}
