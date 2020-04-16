@@ -11,6 +11,12 @@ $ const {
   pageNode,
 } = data;
 
+$ const excludeContentTypes = [
+  "Company",
+  "Contact",
+  "Promotion",
+];
+
 $ const adSlots = ({ aliases }) => ({
   "gpt-ad-lb1": GAM.getAdUnit({ name: "lb1", aliases }),
   "gpt-ad-lb2": GAM.getAdUnit({ name: "lb1", aliases }),
@@ -47,7 +53,7 @@ $ const adSlots = ({ aliases }) => ({
                 params={
                   sectionId: id,
                   optionName: "Pinned",
-                  excludeContentTypes: ["Company", "Contact"],
+                  excludeContentTypes,
                   limit: 6,
                   requiresImage: true,
                   queryFragment,
@@ -94,7 +100,7 @@ $ const adSlots = ({ aliases }) => ({
             <div class="col-lg-8">
               <marko-web-query|{ nodes }|
                 name="all-published-content"
-                params={ excludeContentTypes: ["Company", "Contact"], limit: 6, requiresImage: true, queryFragment }
+                params={ excludeContentTypes, limit: 6, requiresImage: true, queryFragment }
               >
                 <refresh-theme-latest-content-list-flow nodes=nodes with-header=true />
               </marko-web-query>
@@ -147,7 +153,7 @@ $ const adSlots = ({ aliases }) => ({
               <div class="col-lg-8 infinite-scroll-target">
                 <marko-web-query|{ nodes }|
                   name="all-published-content"
-                  params={ excludeContentTypes: ["Company", "Contact"], limit: 12, skip: 6, requiresImage: true, queryFragment: latestQueryFragment }
+                  params={ excludeContentTypes, limit: 12, skip: 6, requiresImage: true, queryFragment: latestQueryFragment }
                 >
                   <refresh-theme-latest-content-list-flow nodes=nodes with-header=false>
                     <@native-x index=0 name="default" aliases=aliases />
@@ -157,7 +163,7 @@ $ const adSlots = ({ aliases }) => ({
                 <refresh-theme-latest-content-load-more-block max-pages=1>
                   <@query
                     name="all-published-content"
-                    params={ excludeContentTypes: ["Company", "Contact"], limit: 12, skip: 18, requiresImage: true }
+                    params={ excludeContentTypes, limit: 12, skip: 18, requiresImage: true }
                   />
                   <@page for="website-section" id=id />
                   <@adunit
