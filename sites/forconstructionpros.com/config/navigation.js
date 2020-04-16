@@ -142,8 +142,6 @@ module.exports = {
         { href: '/directory', label: 'New Equipment Directory' },
         { href: '/asphalt-industry-directory', label: 'Asphalt Industry Directory' },
         { href: '/economics', label: 'Economics' },
-        { href: '/construction-technology', label: 'Technology' },
-        { href: '/business', label: 'Business' },
         { href: '/specguide', label: 'Spec Guides' },
         { href: '/video', label: 'Video Network' },
         { href: '/magazine', label: 'Magazine' },
