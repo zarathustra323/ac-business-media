@@ -3,6 +3,7 @@
     "./blocks/marko.json",
     "./flows/marko.json",
     "./layouts/marko.json",
+    "./leaders/marko.json",
     "./nodes/marko.json",
     "./parse.ly/marko.json"
   ],

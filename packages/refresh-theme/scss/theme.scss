@@ -175,6 +175,7 @@ $pswp__root-z-index: $theme-site-header-z-index + 1 !default;
 @import "../../node_modules/@ac-business-media/package-common/scss/contact-us-form";
 @import "../../node_modules/@ac-business-media/package-common/scss/directory";
 @import "../../node_modules/@ac-business-media/package-common/scss/spec-guide";
+@import "./leaders";
 
 $theme-related-content-bg-color: #f8f9fa;
 $theme-related-content-border-color: #dee2e6;

@@ -1,0 +1,14 @@
+{
+  "tags": {
+    "refresh-theme-leaders-all": {
+      "template": "./all.marko"
+    },
+    "refresh-theme-leaders-contextual": {
+      "template": "./contextual.marko",
+      "@content-id": "number"
+    },
+    "refresh-theme-leaders-home-page": {
+      "template": "./home-page.marko"
+    }
+  }
+}
