@@ -80,3 +80,11 @@ $website-section-colors: (
     color: $theme-item-title-color;
   }
 }
+
+.site-navbar {
+  &__items {
+    &--primary {
+      width: auto;
+    }
+  }
+}
