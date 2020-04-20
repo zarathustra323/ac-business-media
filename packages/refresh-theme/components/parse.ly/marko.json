@@ -3,8 +3,8 @@
     "template": "./page.marko",
     "@headline": "string"
   },
-  "<refresh-theme-parsely-section>": {
-    "template": "./section.marko",
+  "<refresh-theme-parsely-website-section>": {
+    "template": "./website-section.marko",
     "@section": "object"
   },
   "<refresh-theme-parsely-dynamic-page>": {

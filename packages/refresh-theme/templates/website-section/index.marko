@@ -25,7 +25,7 @@ $ const adSlots = ({ aliases }) => ({
       <marko-web-gtm-push data=context />
     </marko-web-gtm-website-section-context>
     <marko-web-resolve-page|{ data: section }| node=pageNode>
-      <refresh-theme-parsely-section section=section />
+      <refresh-theme-parsely-website-section section=section />
       $ const aliases = hierarchyAliases(section);
       <marko-web-gam-slots slots=adSlots({ aliases }) />
     </marko-web-resolve-page>
