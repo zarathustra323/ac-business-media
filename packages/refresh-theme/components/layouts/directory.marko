@@ -42,7 +42,7 @@ $ const directory = {
     </if>
     <else>
       <marko-web-resolve-page|{ data: section }| node=pageNode>
-        <refresh-theme-parsely-page headline=section.name section=section />
+        <refresh-theme-parsely-section section=section />
         $ const aliases = hierarchyAliases(section);
         <marko-web-gam-out-of-page-ad ...GAM.getAdUnit({ name: "reskin", aliases }) />
       </marko-web-resolve-page>

@@ -10,7 +10,7 @@ $ const { id, alias, pageNode } = data;
   <@above-container>
     <marko-web-gam-out-of-page-ad ...GAM.getAdUnit({ name: "reskin" }) />
     <marko-web-resolve-page|{ data: page }| node=pageNode>
-      <refresh-theme-parsely-page headline=page.name />
+      <refresh-theme-parsely-dynamic-page page=page />
     </marko-web-resolve-page>
   </@above-container>
   <@page>
