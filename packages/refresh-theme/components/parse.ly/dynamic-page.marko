@@ -1,13 +1,12 @@
 import { getAsObject, get } from "@base-cms/object-path";
 
-$ const { headline } = input;
-$ const req = get(out, "global.req")
-$ const url = `${req.protocol}://${req.headers.host}${req.originalUrl}`;
+$ const image = getAsObject(input, "page.primaryImage");
 $ const payload = {
   "@context": "http://schema.org",
   "@type": "WebPage",
-  headline,
-  url,
+  headline: get(input, "page.name"),
+  url: get(page, "siteContext.canonicalUrl"),
+  ...(image.src && { thumbnailUrl: image.src }),
 };
 
 <script type="application/ld+json">${JSON.stringify(payload)}</script>
