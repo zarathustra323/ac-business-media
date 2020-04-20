@@ -7,7 +7,6 @@ fragment ContentPageFragment on Content {
   teaser(input: { useFallback: false, maxLength: null })
   body
   published
-  publishedIso8601: publishedDate(input: { format: "Y-MM-DDTHH:mm:ssZ" })
   siteContext {
     path
     canonicalUrl
