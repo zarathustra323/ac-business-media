@@ -18,6 +18,9 @@ $ const adSlots = {
   </@head>
   <@above-container>
     <marko-web-gam-out-of-page-ad ...GAM.getAdUnit({ name: "reskin" }) />
+    <marko-web-resolve-page|{ data: issue }| node=pageNode>
+      <refresh-theme-parsely-magazine-issue issue=issue />
+    </marko-web-resolve-page>
   </@above-container>
   <@page>
     <marko-web-resolve-page|{ data: issue }| node=pageNode>

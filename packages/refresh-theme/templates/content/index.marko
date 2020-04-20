@@ -35,6 +35,7 @@ $ const injectAds = ["article", "news", "press-release", "blog"].includes(type) 
     </marko-web-gtm-content-context>
     <marko-web-gam-targeting key-values={ cont_id: id, cont_type: type } />
     <marko-web-resolve-page|{ data: content }| node=pageNode>
+      <refresh-theme-parsely-content content=content />
       $ const aliases = hierarchyAliases(content.primarySection);
       <marko-web-gam-slots slots=adSlots({ aliases }) />
     </marko-web-resolve-page>

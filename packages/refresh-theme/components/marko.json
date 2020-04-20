@@ -3,7 +3,8 @@
     "./blocks/marko.json",
     "./flows/marko.json",
     "./layouts/marko.json",
-    "./nodes/marko.json"
+    "./nodes/marko.json",
+    "./parse.ly/marko.json"
   ],
   "<refresh-theme-document>": {
     "template": "./document.marko",

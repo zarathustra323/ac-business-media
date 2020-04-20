@@ -30,6 +30,9 @@ $ delete loadMoreParams.queryFragment;
     </marko-web-gtm-default-context>
     <marko-web-gam-slots slots=adSlots() />
   </@head>
+  <@above-container>
+    <refresh-theme-parsely-page headline=title />
+  </@above-container>
   <@page>
     <!-- Refresh sticky, right-rail infinite scroll ad -->
     <marko-web-gam-refresh-ad on="load-more-in-view" slot-id="gpt-ad-rail-infinite" />

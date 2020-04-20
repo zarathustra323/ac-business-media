@@ -1,0 +1,21 @@
+import { getAsArray, getAsObject, get } from "@base-cms/object-path";
+
+$ const content = getAsObject(input, "content");
+$ const image = getAsObject(input, "content.primaryImage");
+$ const primarySection = getAsObject(input, "content.primarySection");
+$ const authors = getAsArray(content, "authors.edges").map(edge => get(edge, "node.name"));
+$ const taxonomy = getAsArray(content, "taxonomy.edges").map(edge => get(edge, "node.name"));
+$ const datePublished = (new Date(content.published)).toISOString()
+$ const payload = {
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  headline: content.name,
+  url: get(content, "siteContext.canonicalUrl"),
+  ...(image.src && { thumbnailUrl: image.src }),
+  datePublished,
+  articleSection: primarySection.name,
+  ...(authors.length && { creator: authors }),
+  ...(taxonomy.length && { keywords: taxonomy }),
+};
+
+<script type="application/ld+json">${JSON.stringify(payload)}</script>

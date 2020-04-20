@@ -9,6 +9,9 @@ $ const { id, pageNode } = data;
   </@head>
   <@above-container>
     <marko-web-gam-out-of-page-ad ...GAM.getAdUnit({ name: "reskin" }) />
+    <marko-web-resolve-page|{ data: publication }| node=pageNode>
+      <refresh-theme-parsely-magazine-publication publication=publication />
+    </marko-web-resolve-page>
   </@above-container>
   <@page>
     <marko-web-page-wrapper class="mb-block">

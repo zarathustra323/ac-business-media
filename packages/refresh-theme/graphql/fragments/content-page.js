@@ -9,6 +9,7 @@ fragment ContentPageFragment on Content {
   published
   siteContext {
     path
+    canonicalUrl
   }
   company {
     id
@@ -158,6 +159,14 @@ fragment ContentPageFragment on Content {
         caption
         credit
         isLogo
+      }
+    }
+  }
+  taxonomy {
+    edges {
+      node {
+        id
+        name
       }
     }
   }
