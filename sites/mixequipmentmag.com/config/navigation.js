@@ -12,6 +12,12 @@ module.exports = {
   secondary: {
     items: [
       { href: '/magazine/5dea77962231ca27128b45f9', label: 'Magazine' },
+      {
+        href: '/page/subscribe/newsletter',
+        label: 'Newsletter',
+        icon: 'mail',
+        forceLabel: true,
+      },
     ],
   },
   tertiary: {
