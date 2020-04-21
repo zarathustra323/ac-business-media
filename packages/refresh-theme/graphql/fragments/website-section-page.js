@@ -10,5 +10,9 @@ fragment WebsiteSectionPageFragment on WebsiteSection {
     alias
     name
   }
+  logo {
+    id
+    src
+  }
 }
 `;
