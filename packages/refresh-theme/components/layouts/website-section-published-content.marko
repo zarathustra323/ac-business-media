@@ -59,9 +59,15 @@ $ delete loadMoreParams.queryFragment;
         </@section>
         <@section>
           <div class="row">
-            <div class="col">
+            <div class="col-lg-8">
               <marko-web-website-section-name tag="h1" class="page-wrapper__title" obj=section />
               <marko-web-website-section-description class="page-wrapper__deck" obj=section />
+            </div>
+            <div class="col-lg-4">
+              <marko-web-page-image
+                obj={ src: resolved.get("logo.src"), alt: `${name} Logo` }
+                fluid=true
+              />
             </div>
           </div>
         </@section>
