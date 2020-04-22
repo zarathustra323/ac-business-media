@@ -37,6 +37,10 @@ fragment ContentPageFragment on Content {
       name
       alias
       canonicalPath
+      logo {
+        id
+        src
+      }
     }
   }
   primaryImage {

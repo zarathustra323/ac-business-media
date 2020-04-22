@@ -1,19 +1,25 @@
 import isActiveLink from "@base-cms/marko-web-theme-default/components/site-navbar/utils/is-active-link";
+import { getAsArray } from "@base-cms/object-path";
 import { asArray } from "@base-cms/utils";
 
 $ const { config, site, req } = out.global;
 
 $ const blockName = input.blockName || "site-header";
 
-$ const navigation = {
-  primary: site.getAsArray("navigation.primary.items"),
-  secondary: site.getAsArray("navigation.secondary.items"),
-  tertiary: site.getAsArray("navigation.tertiary.items"),
-  contextual: site.getAsArray("navigation.contextual.items"),
-  menu: site.getAsArray("navigation.menu"),
+$ const contexts = site.getAsArray("navigation.contexts");
+$ const contextualNav = contexts.find(({ when }) => asArray(when).some(path => isActiveLink(req.path, path)));
+
+$ const getNavItems = (key) => {
+  if (!contextualNav) return  site.getAsArray(`navigation.${key}`);
+  return getAsArray(contextualNav, key);
 };
 
-$ const contextualItem = navigation.contextual.find(({ when }) => asArray(when).some(path => isActiveLink(req.path, path)));
+$ const navigation = {
+  primary: getNavItems("primary.items"),
+  secondary: getNavItems("secondary.items"),
+  tertiary: getNavItems("tertiary.items"),
+  menu: site.getAsArray("navigation.menu"),
+};
 
 <marko-web-block
   name=blockName
@@ -40,7 +46,7 @@ $ const contextualItem = navigation.contextual.find(({ when }) => asArray(when).
       />
     </default-theme-site-navbar-brand>
     <default-theme-site-navbar-items
-      items=(contextualItem ? navigation.primary : navigation.secondary)
+      items=navigation.secondary
       modifiers=["secondary"]
       reg-enabled=input.regEnabled
       has-user=input.hasUser
@@ -56,7 +62,7 @@ $ const contextualItem = navigation.contextual.find(({ when }) => asArray(when).
 
   <default-theme-site-navbar modifiers=["primary"]>
     <default-theme-site-navbar-items
-      items=(contextualItem ? contextualItem.items : navigation.primary)
+      items=navigation.primary
       modifiers=["primary"]
       reg-enabled=input.regEnabled
       has-user=input.hasUser

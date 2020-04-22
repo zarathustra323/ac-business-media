@@ -28,5 +28,13 @@
   },
   "<refresh-theme-contextual-header>": {
     "template": "./site-header/contextual.marko"
+  },
+  "<refresh-theme-content-section-logo>": {
+    "template": "./content-section-logo.marko",
+    "<section>": {
+      "@name": "string",
+      "@hierarchy": "array"
+    },
+    "<image>": {}
   }
 }
