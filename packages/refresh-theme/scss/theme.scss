@@ -408,6 +408,10 @@ $theme-related-content-border-color: #dee2e6;
     margin-top: 0;
   }
 
+  &--section-logo {
+    margin-top: $marko-web-page-image-margin;
+  }
+
   // @todo keep in skin
   > :last-child:not(#{ $self }__wrapper) {
     border-bottom: none;
