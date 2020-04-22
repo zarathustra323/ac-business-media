@@ -362,6 +362,14 @@ $theme-related-content-border-color: #dee2e6;
     color: $primary;
   }
 
+  > div {
+    margin-left: .25rem;
+  }
+
+  > div:first-child {
+    margin-left: 0;
+  }
+
   div:last-child {
     margin-bottom: 0;
   }
