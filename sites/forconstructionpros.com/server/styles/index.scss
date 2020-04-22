@@ -11,8 +11,8 @@ $theme-site-navbar-logo-height: 45px;
 $theme-site-navbar-logo-height-sm: 30px;
 
 $theme-site-header-breakpoints: (
-  hide-primary: 854px,
-  hide-secondary: 1078px,
+  hide-primary: 780px,
+  hide-secondary: 1057px,
   small-logo: 375px,
   small-text-primary: 0,
   small-text-secondary: 0
@@ -29,6 +29,12 @@ $website-section-colors: (
   profit-matters: #e9a422,
   equipment-management: #98002e,
 );
+
+$theme-site-navbar-primary-font-size: 14px !default;
+$theme-site-navbar-primary-font-size-sm: 14px !default;
+
+$theme-site-navbar-secondary-font-size: 16px !default;
+$theme-site-navbar-secondary-font-size-sm: 16px !default;
 
 @import "../../node_modules/@ac-business-media/refresh-theme/scss/theme";
 
@@ -82,9 +88,18 @@ $website-section-colors: (
 }
 
 .site-navbar {
+  $self: &;
   &__items {
     &--primary {
       width: auto;
+      #{ $self } {
+        &__item {
+          padding: 8px 12px;
+        }
+      }
+    }
+    &--tertiary {
+      font-size: 13px;
     }
   }
 }

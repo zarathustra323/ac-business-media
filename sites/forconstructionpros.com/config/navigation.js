@@ -19,14 +19,33 @@ const resources = [
   { href: 'https://www.constructionnetworkmediakit.com/', label: 'Advertise', target: '_blank' },
 ];
 
-module.exports = {
-  primary: {
-    items: channels,
+const tertiaryItems = [
+  {
+    href: 'https://acbusiness.dragonforms.com/loading.do?omedasite=FCP_prefs_ProgReg',
+    label: 'Sign Up',
+    icon: 'mail',
+    forceLabel: true,
+    target: '_blank',
   },
-  contextual: {
-    items: [
-      {
-        when: ['/equipment', '/trucks'],
+  {
+    href: '/search',
+    label: 'Search',
+    icon: 'search',
+    forceLabel: true,
+  },
+];
+
+module.exports = {
+  secondary: { items: channels },
+  primary: { items: resources },
+  tertiary: { items: tertiaryItems },
+
+  contexts: [
+    {
+      when: ['/equipment', '/trucks'],
+      secondary: { items: channels },
+      tertiary: { items: tertiaryItems },
+      primary: {
         items: [
           { href: '/trucks', label: 'Trucks' },
           { href: '/equipment/earthmoving', label: 'Earthmoving' },
@@ -35,8 +54,12 @@ module.exports = {
           { href: '/equipment/compaction', label: 'Compaction' },
         ],
       },
-      {
-        when: ['/rental'],
+    },
+    {
+      when: ['/rental'],
+      secondary: { items: channels },
+      tertiary: { items: tertiaryItems },
+      primary: {
         items: [
           { href: '/rental/lifting-equipment', label: 'Lifting' },
           { href: '/rental/lifting-equipment/telescopic-handler', label: 'Telescopic Lifts' },
@@ -45,8 +68,12 @@ module.exports = {
           { href: '/rental/inventory', label: 'Inventory' },
         ],
       },
-      {
-        when: ['/concrete'],
+    },
+    {
+      when: ['/concrete'],
+      secondary: { items: channels },
+      tertiary: { items: tertiaryItems },
+      primary: {
         items: [
           { href: '/concrete/decorative', label: 'Decorative' },
           { href: '/concrete/equipment-products', label: 'Equipment & Products' },
@@ -55,8 +82,12 @@ module.exports = {
           { href: '/concrete/equipment-products/repair-rehabilitation-products', label: 'Repair' },
         ],
       },
-      {
-        when: ['/asphalt'],
+    },
+    {
+      when: ['/asphalt'],
+      secondary: { items: channels },
+      tertiary: { items: tertiaryItems },
+      primary: {
         items: [
           { href: '/asphalt/additives', label: 'Additives' },
           { href: '/asphalt/plants', label: 'Plants' },
@@ -65,8 +96,12 @@ module.exports = {
           { href: '/asphalt/material-transfer-vehicles', label: 'Vehicles' },
         ],
       },
-      {
-        when: ['/business'],
+    },
+    {
+      when: ['/business'],
+      secondary: { items: channels },
+      tertiary: { items: tertiaryItems },
+      primary: {
         items: [
           { href: '/business/business-services', label: 'Services' },
           { href: '/business/construction-safety', label: 'Safety' },
@@ -74,8 +109,12 @@ module.exports = {
           { href: '/business/labor-workforce-development', label: 'Labor' },
         ],
       },
-      {
-        when: ['/construction-technology'],
+    },
+    {
+      when: ['/construction-technology'],
+      secondary: { items: channels },
+      tertiary: { items: tertiaryItems },
+      primary: {
         items: [
           { href: '/construction-technology/apps', label: 'Apps' },
           { href: '/construction-technology/theft-prevention', label: 'Theft Prevention' },
@@ -84,36 +123,21 @@ module.exports = {
           { href: '/construction-technology/machine-grade-control-gps-laser-other', label: 'Machine Grade Control, GPS, Laser & Other' },
         ],
       },
-      {
-        when: ['/pavement-maintenance'],
+    },
+    {
+      when: ['/pavement-maintenance'],
+      secondary: { items: channels },
+      tertiary: { items: tertiaryItems },
+      primary: {
         items: [
           { href: '/pavement-maintenance/sweepers', label: 'Sweepers' },
           { href: '/pavement-maintenance/marking-striping', label: 'Marking & Striping' },
           { href: '/pavement-maintenance/preservation-maintenance', label: 'Preservation' },
         ],
       },
-    ],
-  },
-  secondary: {
-    items: resources,
-  },
-  tertiary: {
-    items: [
-      {
-        href: 'https://acbusiness.dragonforms.com/loading.do?omedasite=FCP_prefs_ProgReg',
-        label: 'Sign Up',
-        icon: 'mail',
-        forceLabel: true,
-        target: '_blank',
-      },
-      {
-        href: '/search',
-        label: 'Search',
-        icon: 'search',
-        forceLabel: true,
-      },
-    ],
-  },
+    },
+  ],
+
   footer: {
     items: [
       { href: '/contact-us', label: 'Contact Us' },
