@@ -1,15 +1,5 @@
 {
   "tags": {
-    "refresh-theme-leaders-all": {
-      "template": "./all.marko"
-    },
-    "refresh-theme-leaders-contextual": {
-      "template": "./contextual.marko",
-      "@content-id": "number"
-    },
-    "refresh-theme-leaders-home-page": {
-      "template": "./home-page.marko"
-    },
     "refresh-theme-leaders-company-overview": {
       "template": "./company/overview.marko",
       "@content": "object",
@@ -58,15 +48,6 @@
       "template": "./nodes/youtube-card.marko",
       "@node": "object",
       "@link-attrs": "object"
-    },
-    "refresh-theme-leaders-company-website-link": {
-      "template": "./company-website-link.marko",
-      "@company": "object"
-    },
-    "refresh-theme-leaders-company-social-link": {
-      "template": "./company-social-link.marko",
-      "@company": "object",
-      "@item": "object"
     }
   }
 }
