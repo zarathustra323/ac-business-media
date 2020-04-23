@@ -1,11 +1,17 @@
-$ const { GAM } = out.global;
+import { get } from "@base-cms/object-path";
+$ const { GAM, site } = out.global;
 $ const { id, type, pageNode } = data;
+$ const displayInquiry = (content) => {
+  if (site.get("inquiry.enabled") === false) return false;
+  if (type === "company" && get(content, "enableRmi")) return true;
+  console.log('bailing', content);
+  return false;
+};
 
 <marko-web-content-page-layout id=id type=type>
   <@page>
     <marko-web-resolve-page|{ data: content, resolved }| node=pageNode>
       $ const { socialLinks, ...contentSansSocial } = content;
-      $ console.log(content);
       <marko-web-page-wrapper class="mb-block">
         <@section>
           <div class="row">
@@ -73,11 +79,11 @@ $ const { id, type, pageNode } = data;
             class="mb-block"
           />
 
-          <if(resolved.get("enableRmi"))>
+          <if(displayInquiry(content))>
             <marko-web-node-list collapsible=false modifiers=["sticky-top"]>
               <@header>Request More Information</@header>
               <@body>
-                <marko-web-inquiry-form content=content with-header=false />
+                <marko-web-inquiry-form content=content with-header=false modifiers=["node-list"] />
               </@body>
             </marko-web-node-list>
           </if>

@@ -631,6 +631,11 @@ $theme-related-content-border-color: #dee2e6;
     }
   }
 
+  &--sticky-top {
+    position: sticky;
+    top: calc(95px + #{$block-spacer});
+  }
+
   &--flush-y {
     #{ $self } {
       &__header:first-child {
@@ -784,6 +789,11 @@ $theme-related-content-border-color: #dee2e6;
   margin-bottom: $block-spacer;
   background-color: #f8f9fa;
   border-top: 0;
+
+  &--node-list {
+    padding: 0;
+    background-color: inherit;
+  }
 
   &__header {
     @include overline-header();
