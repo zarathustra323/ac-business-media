@@ -14,6 +14,7 @@ module.exports = {
       { href: '/magazine', label: 'Magazine' },
       { href: '/advertise', label: 'Advertise' },
       { href: '/directory', label: 'Directory' },
+      { href: 'https://cms.megaphone.fm/channel/grassroots?selected=ACBMI1756535736', target: '_blank', label: 'Podcast' },
     ],
   },
   tertiary: {
