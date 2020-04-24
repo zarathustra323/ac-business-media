@@ -5,7 +5,6 @@ const channels = [
   { href: '/asphalt', label: 'Asphalt' },
   { href: '/business', label: 'Business' },
   { href: '/construction-technology', label: 'Technology' },
-  { href: '/pavement-maintenance', label: 'Pavement' },
   { href: '/profit-matters', label: 'Profit Matters' },
 ];
 
@@ -84,7 +83,7 @@ module.exports = {
       },
     },
     {
-      when: ['/asphalt'],
+      when: ['/asphalt', '/pavement-maintenance'],
       secondary: { items: channels },
       tertiary: { items: tertiaryItems },
       primary: {
@@ -94,6 +93,7 @@ module.exports = {
           { href: '/asphalt/recycling', label: 'Recycling' },
           { href: '/asphalt/pavers', label: 'Pavers' },
           { href: '/asphalt/material-transfer-vehicles', label: 'MTV\'s' },
+          { href: '/pavement-maintenance', label: 'Pavement Maintenance' },
         ],
       },
     },
@@ -124,18 +124,6 @@ module.exports = {
         ],
       },
     },
-    {
-      when: ['/pavement-maintenance'],
-      secondary: { items: channels },
-      tertiary: { items: tertiaryItems },
-      primary: {
-        items: [
-          { href: '/pavement-maintenance/sweepers', label: 'Sweepers' },
-          { href: '/pavement-maintenance/marking-striping', label: 'Marking & Striping' },
-          { href: '/pavement-maintenance/preservation-maintenance', label: 'Preservation' },
-        ],
-      },
-    },
   ],
 
   footer: {
@@ -156,7 +144,6 @@ module.exports = {
         { href: '/asphalt', label: 'Asphalt' },
         { href: '/business', label: 'Business' },
         { href: '/construction-technology', label: 'Technology' },
-        { href: '/pavement-maintenance', label: 'Pavement' },
         { href: '/profit-matters', label: 'Profit Matters' },
       ],
     },
