@@ -70,7 +70,7 @@ module.exports = {
     alias: 'leaders/2020',
     calloutValue: 'Leading Companies',
     header: {
-      imgSrc: 'https://img.sdcexec.com/files/base/acbm/sdce/image/static/logo/site_logo_og.png?h=45',
+      imgSrc: 'https://img.sdcexec.com/files/base/acbm/sdce/image/static/sdc-leaders.png?h=85',
     },
   },
 };
