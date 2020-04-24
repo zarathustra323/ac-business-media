@@ -93,7 +93,7 @@ module.exports = {
           { href: '/asphalt/plants', label: 'Plants' },
           { href: '/asphalt/recycling', label: 'Recycling' },
           { href: '/asphalt/pavers', label: 'Pavers' },
-          { href: '/asphalt/material-transfer-vehicles', label: 'Vehicles' },
+          { href: '/asphalt/material-transfer-vehicles', label: 'MTV\'s' },
         ],
       },
     },
