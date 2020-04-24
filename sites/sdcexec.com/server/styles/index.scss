@@ -29,4 +29,8 @@ $website-section-colors: (
   "3pl-4pl": #cea14c,
 );
 
+$leaders-primary-color: #212121;
+$leaders-primary-color-light: lighten($leaders-primary-color, 10%);
+$leaders-accent-color: #212121;
+
 @import "../../node_modules/@ac-business-media/refresh-theme/scss/theme";

@@ -1,0 +1,151 @@
+import hierarchyAliases from "@base-cms/marko-web/utils/hierarchy-aliases";
+import { get } from "@base-cms/object-path";
+
+$ const { GAM, site } = out.global;
+$ const { id, type, pageNode } = data;
+$ const displayInquiry = (content) => {
+  if (site.get("inquiry.enabled") === false) return false;
+  if (type === "company" && get(content, "enableRmi")) return true;
+  console.log('bailing', content);
+  return false;
+};
+
+<marko-web-content-page-layout id=id type=type>
+  <@page>
+    <marko-web-resolve-page|{ data: content, resolved }| node=pageNode>
+      $ const { socialLinks, ...contentSansSocial } = content;
+      <marko-web-page-wrapper class="mb-block">
+        <@section>
+          <div class="row">
+            <div class="col-md-9 col-sm-12 col-lg-10">
+              <div class="ldp">
+                <div class="ldp__logo">
+                  <refresh-theme-leaders-company-logo content=content />
+                </div>
+                <div class="ldp__title">
+                  <marko-web-content-name tag="h1" class="page-wrapper__title" obj=content />
+                  <marko-web-content-city-state-zip tag="p" class="text-small text-muted" obj=content />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 col-lg-2 col-sm-12 justify-content-center d-flex flex-column px-3 py-3">
+              <div class="ldp__social">
+                <leaders-company-website-link company=content />
+                <div class="mt-2 d-flex justify-content-around">
+                  <for|item| of=resolved.getAsArray("socialLinks")>
+                    <leaders-company-social-link company=content item=item />
+                  </for>
+                </div>
+              </div>
+            </div>
+          </div>
+        </@section>
+      </marko-web-page-wrapper>
+
+      <div class="row">
+        <div class="col-lg-8 mb-block">
+          <refresh-theme-leaders-company-overview content=content class="mb-block" />
+          <refresh-theme-leaders-company-details content=content class="mb-block" />
+
+          <refresh-theme-leaders-company-featured-videos
+            videos=resolved.getEdgeNodesFor("youtubeVideos")
+            href=resolved.get("youtube.url")
+            class="mb-block"
+          >
+            <@company id=id name=resolved.get("name") />
+          </refresh-theme-leaders-company-featured-videos>
+
+          <refresh-theme-company-content-list-block company-id=id>
+            <@header>Products & Press Releases</@header>
+            <@list class="mb-block" />
+            <@query-params include-content-types=["Product", "PressRelease"] />
+          </refresh-theme-company-content-list-block>
+
+          <refresh-theme-company-content-list-block company-id=id>
+            <@header>Articles & News</@header>
+            <@list class="mb-block" />
+            <@query-params include-content-types=["Article", "Blog", "News"] />
+          </refresh-theme-company-content-list-block>
+
+          <refresh-theme-company-content-list-block company-id=id>
+            <@header>Videos & Resources</@header>
+            <@list class="mb-block" />
+            <@query-params include-content-types=["Video", "Whitepaper", "Webinar", "Document", "MediaGallery", "Podcast"] />
+          </refresh-theme-company-content-list-block>
+
+        </div>
+
+        <div class="col-lg-4 mb-block page-rail">
+          <refresh-theme-leaders-company-key-contacts
+            contacts=resolved.getEdgeNodesFor("publicContacts")
+            class="mb-block"
+          />
+
+          <if(displayInquiry(content))>
+            <marko-web-node-list collapsible=false modifiers=["sticky-top"]>
+              <@header>Request More Information</@header>
+              <@body>
+                <marko-web-inquiry-form content=content with-header=false modifiers=["node-list"] />
+              </@body>
+            </marko-web-node-list>
+          </if>
+        </div>
+      </div>
+    </marko-web-resolve-page>
+  </@page>
+
+  <@below-page>
+    <marko-web-page-container for="content" tag="div" id=id type=type modifiers=["below"]>
+      <!-- Refresh sticky, right-rail infinite scroll ad -->
+      <marko-web-gam-refresh-ad on="load-more-in-view" slot-id="gpt-ad-rail-infinite" />
+
+      <marko-web-resolve-page|{ data: content, resolved }| node=pageNode>
+        $ const section = resolved.getAsObject("primarySection");
+        $ const aliases = hierarchyAliases(section);
+        $ const slots = {
+          "gpt-ad-lb2":   GAM.getAdUnit({ name: "lb1", aliases }),
+          "gpt-ad-rail-infinite": GAM.getAdUnit({ name: "infinite-rail", aliases }),
+        };
+        <marko-web-gam-slots slots=slots />
+        <marko-web-page-wrapper>
+          <@section>
+            <div class="row">
+              <div class="col">
+                <marko-web-gam-display-ad
+                  id="gpt-ad-lb2"
+                  slots=slots
+                  modifiers=["max-width-970", "center"]
+                />
+              </div>
+            </div>
+          </@section>
+
+          <@section>
+            <div class="row">
+              <div class="col-lg-8 infinite-scroll-target">
+                <refresh-theme-content-infinite-scroll-block
+                  id=id
+                  type=type
+                  name=content.name
+                  section-id=section.id
+                  aliases=aliases
+                  limit=12
+                  skip=0
+                />
+              </div>
+              <aside class="col-lg-4 page-rail">
+                <refresh-theme-follow-us-block />
+
+                <marko-web-gam-display-ad
+                  id="gpt-ad-rail-infinite"
+                  modifiers=["sticky-top", "max-width-300", "margin-auto-x-md"]
+                  slots=slots
+                />
+              </aside>
+            </div>
+          </@section>
+        </marko-web-page-wrapper>
+      </marko-web-resolve-page>
+    </marko-web-page-container>
+  </@below-page>
+</marko-web-content-page-layout>

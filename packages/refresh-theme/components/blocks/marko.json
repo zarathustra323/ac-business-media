@@ -66,5 +66,19 @@
       "@params": "object"
     },
     "@title": "string"
+  },
+  "<refresh-theme-company-content-list-block>": {
+    "template": "./company-content-list.marko",
+    "<list>": {
+      "<node>": {
+        "<attribution>": {}
+      }
+    },
+    "<query-params>": {},
+    "<header>": {},
+    "@company-id": {
+      "type": "string",
+      "required": true
+    }
   }
 }

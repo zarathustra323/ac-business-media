@@ -175,6 +175,8 @@ $pswp__root-z-index: $theme-site-header-z-index + 1 !default;
 @import "../../node_modules/@ac-business-media/package-common/scss/contact-us-form";
 @import "../../node_modules/@ac-business-media/package-common/scss/directory";
 @import "../../node_modules/@ac-business-media/package-common/scss/spec-guide";
+@import "./leaders";
+@import "./company-page";
 
 $theme-related-content-bg-color: #f8f9fa;
 $theme-related-content-border-color: #dee2e6;
@@ -519,6 +521,14 @@ $theme-related-content-border-color: #dee2e6;
     border: $image-border;
   }
 
+  &--image-headshot {
+    #{ $self } {
+      &__image {
+        border: none;
+      }
+    }
+  }
+
   &__upcoming-archived {
     font-weight: $font-weight-bold;
     color: #444;
@@ -619,6 +629,11 @@ $theme-related-content-border-color: #dee2e6;
         @include marko-web-node-list-border(border-top);
       }
     }
+  }
+
+  &--sticky-top {
+    position: sticky;
+    top: calc(95px + #{$block-spacer});
   }
 
   &--flush-y {
@@ -774,6 +789,11 @@ $theme-related-content-border-color: #dee2e6;
   margin-bottom: $block-spacer;
   background-color: #f8f9fa;
   border-top: 0;
+
+  &--node-list {
+    padding: 0;
+    background-color: inherit;
+  }
 
   &__header {
     @include overline-header();

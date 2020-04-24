@@ -3,6 +3,7 @@ import GTM from '@base-cms/marko-web-gtm/browser';
 import GAM from '@base-cms/marko-web-gam/browser';
 import GCSE from '@base-cms/marko-web-gcse/browser';
 import Inquiry from '@base-cms/marko-web-inquiry/browser';
+import Leaders from '@ac-business-media/package-leaders/browser';
 import Common from '@ac-business-media/package-common/browser';
 import SocialSharing from '@base-cms/marko-web-social-sharing/browser';
 import PhotoSwipe from '@base-cms/marko-web-photoswipe/browser';
@@ -11,6 +12,7 @@ import Radix from '@base-cms/marko-web-radix/browser';
 
 export default (Browser) => {
   DefaultTheme(Browser);
+  Leaders(Browser);
   GTM(Browser);
   GAM(Browser);
   GCSE(Browser);
