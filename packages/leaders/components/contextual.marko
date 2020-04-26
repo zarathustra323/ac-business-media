@@ -1,7 +1,9 @@
+import defaultValue from "@base-cms/marko-core/utils/default-value";
 $ const { site } = out.global;
 $ const { contentId } = input;
+$ const enabled = defaultValue(site.get("leaders.enabled"), false);
 
-<if(contentId)>
+<if(enabled && contentId)>
   <marko-web-leaders props={
     contentId,
     sectionAlias: site.get("leaders.alias"),
@@ -20,5 +22,5 @@ $ const { contentId } = input;
       { prop: "open", value: null, query: "(max-width: 991px)" },
       { prop: "columns", value: 1, query: "(max-width: 700px)" },
     ],
-  }/>
+  } />
 </if>
