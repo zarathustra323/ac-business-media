@@ -3,6 +3,7 @@ import queryFragment from "../../graphql/fragments/content-list";
 import latestQueryFragment from "../../graphql/fragments/content-latest";
 
 $ const { GAM } = out.global;
+$ const excludeContentTypes = ["Company", "Contact", "Promotion"];
 
 $ const {
   id,
@@ -53,7 +54,7 @@ $ const adSlots = ({ aliases }) => ({
                 params={
                   sectionId: id,
                   optionName: "Pinned",
-                  excludeContentTypes: ["Company", "Contact"],
+                  excludeContentTypes,
                   limit: 6,
                   requiresImage: true,
                   queryFragment,
@@ -100,7 +101,14 @@ $ const adSlots = ({ aliases }) => ({
             <div class="col-lg-8">
               <marko-web-query|{ nodes }|
                 name="website-scheduled-content"
-                params={ sectionId: id, limit: 6, skip: 9, requiresImage: true, queryFragment }
+                params={
+                  sectionId: id,
+                  excludeContentTypes,
+                  limit: 6,
+                  skip: 9,
+                  requiresImage: true,
+                  queryFragment,
+                }
               >
                 <refresh-theme-latest-content-list-flow nodes=nodes with-header=true />
               </marko-web-query>
@@ -145,7 +153,13 @@ $ const adSlots = ({ aliases }) => ({
               <div class="col-lg-8 infinite-scroll-target">
                 <marko-web-query|{ nodes }|
                   name="website-scheduled-content"
-                  params={ sectionId: id, limit: 12, skip: 15, queryFragment: latestQueryFragment }
+                  params={
+                    sectionId: id,
+                    excludeContentTypes,
+                    limit: 12,
+                    skip: 15,
+                    queryFragment: latestQueryFragment,
+                  }
                 >
                   <refresh-theme-latest-content-list-flow nodes=nodes with-header=false>
                     <@native-x index=0 name="default" aliases=aliases />
@@ -155,7 +169,12 @@ $ const adSlots = ({ aliases }) => ({
                 <refresh-theme-latest-content-load-more-block max-pages=4>
                   <@query
                     name="website-scheduled-content"
-                    params={ sectionId: id, limit: 12, skip: 27 }
+                    params={
+                      sectionId: id,
+                      limit: 12,
+                      excludeContentTypes,
+                      skip: 27,
+                    }
                   />
                   <@page for="website-section" id=id />
                   <@adunit

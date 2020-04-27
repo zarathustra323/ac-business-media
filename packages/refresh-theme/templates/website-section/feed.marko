@@ -8,9 +8,10 @@ $ const {
   context,
 } = data;
 
+$ const excludeContentTypes = ["Company", "Contact", "Promotion"];
 $ const query = getAsObject(context, "query");
 $ const queryName = query.name || "website-scheduled-content";
-$ const queryParams = query.params || { sectionId: id, limit: 12 };
+$ const queryParams = query.params || { sectionId: id, limit: 12, excludeContentTypes };
 
 <refresh-theme-website-section-published-content-layout
   id=id

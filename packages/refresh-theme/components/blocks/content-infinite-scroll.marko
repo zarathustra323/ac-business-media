@@ -13,6 +13,7 @@ $ const {
 $ const limit = defaultValue(input.limit, 12);
 $ const skip = defaultValue(input.skip, 0);
 $ const now = Date.now();
+$ const excludeContentTypes = ["Company", "Contact", "Promotion"];
 
 $ const createAttrs = () => {
   if (type === "company") {
@@ -60,7 +61,14 @@ $ const createAttrs = () => {
   return {
     header: "Latest",
     queryName: "website-scheduled-content",
-    queryParams: { sectionId, excludeContentIds: [id], limit, skip, queryFragment },
+    queryParams: {
+      sectionId,
+      excludeContentIds: [id],
+      limit,
+      skip,
+      queryFragment,
+      excludeContentTypes,
+    },
   };
 };
 $ const attrs = createAttrs();
