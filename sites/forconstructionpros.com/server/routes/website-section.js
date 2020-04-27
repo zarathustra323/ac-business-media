@@ -2,6 +2,7 @@ const { withWebsiteSection } = require('@base-cms/marko-web/middleware');
 const section = require('@ac-business-media/refresh-theme/templates/website-section');
 const contactUs = require('@ac-business-media/refresh-theme/templates/website-section/contact-us');
 const events = require('@ac-business-media/refresh-theme/templates/website-section/events');
+const podcasts = require('@ac-business-media/refresh-theme/templates/website-section/podcasts');
 const webinars = require('@ac-business-media/refresh-theme/templates/website-section/webinars');
 const queryFragment = require('@ac-business-media/refresh-theme/graphql/fragments/website-section-page');
 
@@ -15,6 +16,10 @@ module.exports = (app) => {
   }));
   app.get('/:alias(events)', withWebsiteSection({
     template: events,
+    queryFragment,
+  }));
+  app.get('/:alias(podcasts)', withWebsiteSection({
+    template: podcasts,
     queryFragment,
   }));
   app.get('/:alias(webinars)', withWebsiteSection({
