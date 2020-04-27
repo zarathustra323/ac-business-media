@@ -10,9 +10,9 @@
     "test": "yarn lint"
   },
   "dependencies": {
-    "@base-cms/marko-core": "^1.25.5",
-    "@base-cms/marko-web": "^1.25.5",
-    "@base-cms/marko-web-theme-default": "^1.25.4",
+    "@base-cms/marko-core": "^1.26.2",
+    "@base-cms/marko-web": "^1.26.2",
+    "@base-cms/marko-web-theme-default": "^1.26.1",
     "@base-cms/object-path": "^1.25.0"
   }
 }
