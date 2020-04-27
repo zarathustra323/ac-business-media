@@ -15,6 +15,7 @@ const resources = [
   { href: '/video', label: 'Video Network' },
   { href: '/magazine', label: 'Magazine' },
   { href: '/events', label: 'Events' },
+  { href: '/podcast', label: 'Podcasts' },
   { href: 'https://www.constructionnetworkmediakit.com/', label: 'Advertise', target: '_blank' },
 ];
 
