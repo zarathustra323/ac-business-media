@@ -15,7 +15,8 @@ $ const queryParams = {
     nodes=nodes
     header=input.header
   >
-    <@node image-position="left" with-teaser=true ...getAsObject(input, "list.node")>
+    <@node image-position="right" with-teaser=true ...getAsObject(input, "list.node")>
+      <@image use-placeholder=false />
       <@attribution display-company=false ...getAsObject(input, "list.node.attribution") />
     </@node>
   </refresh-theme-content-list-flow>
