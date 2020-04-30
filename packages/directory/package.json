@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@base-cms/marko-core": "^1.26.2",
-    "@base-cms/marko-web": "^1.26.2",
+    "@base-cms/marko-web": "^1.27.0",
     "@base-cms/marko-web-theme-default": "^1.26.1",
     "@base-cms/object-path": "^1.25.0"
   }

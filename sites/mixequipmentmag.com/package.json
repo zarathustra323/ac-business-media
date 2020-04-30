@@ -17,14 +17,14 @@
   "dependencies": {
     "@ac-business-media/package-common": "^1.17.3",
     "@base-cms/marko-core": "^1.26.2",
-    "@base-cms/marko-web": "^1.26.2",
+    "@base-cms/marko-web": "^1.27.0",
     "@base-cms/marko-web-gtm": "^1.25.0",
     "@base-cms/marko-web-icons": "^1.24.0",
     "@base-cms/marko-web-social-sharing": "^1.25.0",
     "@base-cms/marko-web-theme-default": "^1.26.1",
     "@base-cms/object-path": "^1.25.0",
     "@base-cms/utils": "^1.25.0",
-    "@base-cms/web-cli": "^1.26.2",
+    "@base-cms/web-cli": "^1.27.0",
     "graphql": "^14.5.4",
     "graphql-tag": "^2.10.1",
     "newrelic": "^5.11.0"
