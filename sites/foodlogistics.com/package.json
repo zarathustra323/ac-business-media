@@ -1,6 +1,6 @@
 {
   "name": "@ac-business-media/foodlogistics.com",
-  "version": "1.17.6",
+  "version": "1.18.0",
   "author": "Jacob Bare <jacob@limit0.io>",
   "repository": "https://github.com/base-cms-websites/ac-business-media/tree/master/sites/foodlogistics.com",
   "license": "MIT",
@@ -15,8 +15,8 @@
     "test": "yarn lint && yarn compile && yarn build"
   },
   "dependencies": {
-    "@ac-business-media/package-directory": "^1.17.3",
-    "@ac-business-media/refresh-theme": "^1.17.6",
+    "@ac-business-media/package-directory": "^1.18.0",
+    "@ac-business-media/refresh-theme": "^1.18.0",
     "@base-cms/marko-core": "^1.26.2",
     "@base-cms/marko-web": "^1.27.0",
     "@base-cms/object-path": "^1.25.0",
