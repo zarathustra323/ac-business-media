@@ -9,7 +9,8 @@ $ const isRadixEnabled = Boolean(radix.enabled && radix.appId);
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
-    <refresh-theme-gam-media-fuse id=site.get("mediaFuse.id") />
+    <!-- <refresh-theme-gam-media-fuse id=site.get("mediaFuse.id") /> -->
+    <marko-web-gam-init />
     <marko-web-gtm-init container-id=site.get("gtm.containerId") />
     <marko-web-native-x-init uri=nativeX.getUri() enabled=nativeX.isEnabled() />
     <${input.head} />
