@@ -100,11 +100,13 @@ $ const adSlots = ({ aliases }) => ({
           <div class="row">
             <div class="col-lg-8">
               <marko-web-query|{ nodes }|
-                name="website-scheduled-content"
+                name="website-optioned-content"
                 params={
                   sectionId: id,
+                  optionName: "Pinned",
                   excludeContentTypes,
                   limit: 6,
+                  skip: 6,
                   requiresImage: true,
                   queryFragment,
                 }
@@ -151,12 +153,13 @@ $ const adSlots = ({ aliases }) => ({
             <div class="row">
               <div class="col-lg-8 infinite-scroll-target">
                 <marko-web-query|{ nodes }|
-                  name="website-scheduled-content"
+                  name="website-optioned-content"
                   params={
                     sectionId: id,
+                    optionName: "Pinned",
                     excludeContentTypes,
                     limit: 12,
-                    skip: 6,
+                    skip: 12,
                     queryFragment: latestQueryFragment,
                   }
                 >
@@ -167,12 +170,13 @@ $ const adSlots = ({ aliases }) => ({
 
                 <refresh-theme-latest-content-load-more-block max-pages=4>
                   <@query
-                    name="website-scheduled-content"
+                    name="website-optioned-content"
                     params={
                       sectionId: id,
+                      optionName: "Pinned",
                       limit: 12,
                       excludeContentTypes,
-                      skip: 18,
+                      skip: 24,
                     }
                   />
                   <@page for="website-section" id=id />
