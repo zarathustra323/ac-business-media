@@ -159,6 +159,10 @@ fragment ContentPageFragment on Content {
         id
         src
         alt
+        source {
+          width
+          height
+        }
         displayName
         caption
         credit
