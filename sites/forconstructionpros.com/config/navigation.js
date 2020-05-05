@@ -163,7 +163,6 @@ module.exports = {
     {
       label: 'User Tools',
       items: [
-        { href: '/page/sitemap', label: 'Site Section Map' },
         { href: '#', label: 'Newsletters', target: '_blank' },
         { href: 'https://www.constructionnetworkmediakit.com/', label: 'Advertise', target: '_blank' },
         { href: '/magazine', label: 'Current Issue' },
