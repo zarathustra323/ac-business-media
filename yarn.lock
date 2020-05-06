@@ -795,10 +795,10 @@
   dependencies:
     inflected "^2.0.4"
 
-"@base-cms/leaders-program@^1.25.7":
-  version "1.25.7"
-  resolved "https://registry.yarnpkg.com/@base-cms/leaders-program/-/leaders-program-1.25.7.tgz#a0f86404ee46bf3fd958747399d02ff077866953"
-  integrity sha512-jRhSu9wtUjkpySjktco+aRZy5pwqh94NFbVwLryDqc28uQKwJLao3SOWmFhmIFccjCva1EwqVkXlRP7JxEcinA==
+"@base-cms/leaders-program@^1.27.5":
+  version "1.27.5"
+  resolved "https://registry.yarnpkg.com/@base-cms/leaders-program/-/leaders-program-1.27.5.tgz#ffe48eb613a7c31030285c018273b5af4e86cf1e"
+  integrity sha512-tKLNjTKaDpjwSfXLbdAmVu7AjKjahsh5CNt9YoCYjm3xg6Lemx6mCndSD1N7/qj0T3yZ0d73vKh9yswVZgoNGA==
   dependencies:
     core-js "^3.3.2"
     graphql "^14.5.4"
@@ -879,12 +879,12 @@
     graphql-tag "^2.10.1"
     node-fetch "^2.6.0"
 
-"@base-cms/marko-web-leaders@^1.25.7":
-  version "1.25.7"
-  resolved "https://registry.yarnpkg.com/@base-cms/marko-web-leaders/-/marko-web-leaders-1.25.7.tgz#99879de85b12d7a5f1411bbf8d9ebec91dcbe355"
-  integrity sha512-BR9BBJIxL4DJseQxcOk0XAi6JUeSxF+trfPqX86tnBf/xUGda6kFQ7BwzNVm9ULcJByDqzNmllCDz1pAvyu6MQ==
+"@base-cms/marko-web-leaders@^1.27.5":
+  version "1.27.5"
+  resolved "https://registry.yarnpkg.com/@base-cms/marko-web-leaders/-/marko-web-leaders-1.27.5.tgz#4ca0161b9f7f3bd7e19dd1bc7fa276af947e29de"
+  integrity sha512-K7uV2+XQhMsmz1/tpLZ0F4rSzeEsguNKaHTk5ewhH1shSW65s0JgiQTuqg+4SVuR8ft4bjuCsaJjTyzmAXhPIw==
   dependencies:
-    "@base-cms/leaders-program" "^1.25.7"
+    "@base-cms/leaders-program" "^1.27.5"
     graphql "^14.5.4"
     graphql-tag "^2.10.1"
 
