@@ -65,7 +65,7 @@ module.exports = {
     bgColor: '#ec131c',
   },
   leaders: {
-    enabled: false,
+    enabled: true,
     title: 'Supply Chain Leaders',
     alias: 'leaders/2020',
     calloutValue: 'Leading Companies',
