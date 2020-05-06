@@ -20,6 +20,12 @@ const resources = [
 
 const tertiaryItems = [
   {
+    href: '/magazinew',
+    label: 'Magazine',
+    icon: 'book',
+    forceLabel: true,
+  },
+  {
     href: 'https://acbusiness.dragonforms.com/loading.do?omedasite=FCP_prefs_ProgReg',
     label: 'Sign Up',
     icon: 'mail',
