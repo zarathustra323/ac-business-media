@@ -20,6 +20,12 @@ const resources = [
 
 const tertiaryItems = [
   {
+    href: '/magazine',
+    label: 'Magazine',
+    icon: 'book',
+    forceLabel: true,
+  },
+  {
     href: 'https://acbusiness.dragonforms.com/loading.do?omedasite=FCP_prefs_ProgReg',
     label: 'Sign Up',
     icon: 'mail',
@@ -163,7 +169,6 @@ module.exports = {
     {
       label: 'User Tools',
       items: [
-        { href: '/page/sitemap', label: 'Site Section Map' },
         { href: '#', label: 'Newsletters', target: '_blank' },
         { href: 'https://www.constructionnetworkmediakit.com/', label: 'Advertise', target: '_blank' },
         { href: '/magazine', label: 'Current Issue' },
