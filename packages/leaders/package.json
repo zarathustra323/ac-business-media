@@ -13,7 +13,7 @@
     "@base-cms/marko-core": "^1.26.2",
     "@base-cms/marko-web": "^1.27.3",
     "@base-cms/marko-web-icons": "^1.24.0",
-    "@base-cms/marko-web-leaders": "^1.25.7",
+    "@base-cms/marko-web-leaders": "^1.27.5",
     "@base-cms/object-path": "^1.25.0",
     "graphql-tag": "^2.10.1",
     "object-path": "^0.11.4"
