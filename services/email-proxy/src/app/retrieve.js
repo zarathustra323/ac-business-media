@@ -1,5 +1,6 @@
 const fetch = require('node-fetch');
 const moment = require('moment');
+const pretty = require('pretty');
 const httpError = require('../utils/http-error');
 const asyncRoute = require('../utils/async-route');
 const pkg = require('../../package.json');
@@ -23,5 +24,10 @@ module.exports = () => asyncRoute(async (req, res) => {
     headers: { 'user-agent': `${pkg.name}/${pkg.version}` },
   });
   const html = await response.text();
-  res.status(response.status).send(html);
+  res.status(response.status);
+  if (Object.hasOwnProperty.call(req.query, 'pretty')) {
+    res.send(pretty(html, { ocd: true }));
+  } else {
+    res.send(html);
+  }
 });
