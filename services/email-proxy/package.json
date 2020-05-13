@@ -16,7 +16,8 @@
     "moment": "^2.24.0",
     "nocache": "^2.1.0",
     "node-fetch": "^2.6.0",
-    "pretty": "^2.0.0"
+    "pretty": "^2.0.0",
+    "validator": "^13.0.0"
   },
   "devDependencies": {
     "gulp": "^4.0.2",
