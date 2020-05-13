@@ -5,6 +5,7 @@ const pkg = require('../../package.json');
 
 const app = express();
 
+app.disable('x-powered-by');
 app.use(noCache());
 
 app.get('/', (req, res) => {
