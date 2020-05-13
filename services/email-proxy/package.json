@@ -13,7 +13,8 @@
     "@base-cms/env": "^1.0.0",
     "@godaddy/terminus": "^4.4.1",
     "express": "^4.17.1",
-    "express-http-proxy": "^1.6.0"
+    "nocache": "^2.1.0",
+    "node-fetch": "^2.6.0"
   },
   "devDependencies": {
     "gulp": "^4.0.2",
