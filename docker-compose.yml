@@ -57,6 +57,17 @@ services:
     environment:
       <<: *env
 
+  email-proxy:
+    <<: *node
+    working_dir: /root/services/email-proxy
+    entrypoint: ["../../node_modules/.bin/gulp"]
+    environment:
+      <<: *env
+      PORT: 80
+      EXPOSED_PORT: 9610
+    ports:
+      - "9610:80"
+
   greenindustrypros.com:
     <<: *node
     <<: *site-cmd
