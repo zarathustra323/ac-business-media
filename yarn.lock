@@ -1142,6 +1142,14 @@
     es6-promisify "^6.0.0"
     stoppable "^1.0.5"
 
+"@godaddy/terminus@^4.4.1":
+  version "4.4.1"
+  resolved "https://registry.yarnpkg.com/@godaddy/terminus/-/terminus-4.4.1.tgz#0a54ba1363452a8199f46aed3f7931d55287c6b0"
+  integrity sha512-ZPwsG7xN+B2bvnEu6+o0rBPAFbXmm6Bk/RAR4b/nhjNOSJtbVFYTd+JSaJYL/jyESqcTcAyzlWO0dmbT4YsckQ==
+  dependencies:
+    es6-promisify "^6.0.2"
+    stoppable "^1.1.0"
+
 "@gulp-sourcemaps/identity-map@1.X":
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/@gulp-sourcemaps/identity-map/-/identity-map-1.0.2.tgz#1e6fe5d8027b1f285dc0d31762f566bccd73d5a9"
@@ -4699,6 +4707,11 @@ es6-promisify@^6.0.0:
   version "6.0.2"
   resolved "https://registry.yarnpkg.com/es6-promisify/-/es6-promisify-6.0.2.tgz#525c23725b8510f5f1f2feb5a1fbad93a93e29b4"
   integrity sha512-eO6vFm0JvqGzjWIQA6QVKjxpmELfhWbDUWHm1rPfIbn55mhKPiAa5xpLmQWJrNa629ZIeQ8ZvMAi13kvrjK6Mg==
+
+es6-promisify@^6.0.2:
+  version "6.1.1"
+  resolved "https://registry.yarnpkg.com/es6-promisify/-/es6-promisify-6.1.1.tgz#46837651b7b06bf6fff893d03f29393668d01621"
+  integrity sha512-HBL8I3mIki5C1Cc9QjKUenHtnG0A5/xA8Q/AllRcfiwl2CZFXGK7ddBiCoRwAix4i2KxcQfjtIVcrVbB3vbmwg==
 
 es6-symbol@^3.1.1, es6-symbol@~3.1.1:
   version "3.1.2"
@@ -10571,7 +10584,7 @@ stdout-stream@^1.4.0:
   dependencies:
     readable-stream "^2.0.1"
 
-stoppable@^1.0.5:
+stoppable@^1.0.5, stoppable@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/stoppable/-/stoppable-1.1.0.tgz#32da568e83ea488b08e4d7ea2c3bcc9d75015d5b"
   integrity sha512-KXDYZ9dszj6bzvnEMRYvxgeTHU74QBFL54XKtP3nyMuJ81CFYtABZ3bAzL2EdFUaEwJOBOgENyFj3R7oTzDyyw==

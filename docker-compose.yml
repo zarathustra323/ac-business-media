@@ -65,6 +65,8 @@ services:
       <<: *env
       PORT: 80
       EXPOSED_PORT: 9610
+      TERMINUS_TIMEOUT: 1000
+      TERMINUS_SHUTDOWN_DELAY: 0
     ports:
       - "9610:80"
 
