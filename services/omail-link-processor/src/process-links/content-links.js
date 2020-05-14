@@ -1,7 +1,7 @@
 const { createClient } = require('@base-cms/express-apollo');
 const gql = require('graphql-tag');
 const { getAsArray } = require('@base-cms/object-path');
-const { GRAPHQL_URI } = require('../../env');
+const { GRAPHQL_URI } = require('../env');
 
 const query = gql`
   query ProcessOmedaLinks($ids: [Int!]!) {

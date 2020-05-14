@@ -1,8 +1,8 @@
 {
-  "name": "@ac-business-media/email-proxy",
+  "name": "@ac-business-media/omail-link-processor",
   "version": "1.18.6",
-  "author": "Josh Worden <josh@limit0.io>",
-  "repository": "https://github.com/base-cms-websites/ac-business-media/tree/master/services/email-proxy",
+  "author": "Jacob Bare <jacob@limit0.io>",
+  "repository": "https://github.com/base-cms-websites/ac-business-media/tree/master/services/omail-link-processor",
   "license": "MIT",
   "private": true,
   "scripts": {

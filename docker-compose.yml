@@ -57,14 +57,12 @@ services:
     environment:
       <<: *env
 
-  email-proxy:
+  omail-link-processor:
     <<: *node
-    image: node:12.15-alpine
-    working_dir: /root/services/email-proxy
+    working_dir: /root/services/omail-link-processor
     entrypoint: ["../../node_modules/.bin/gulp"]
     environment:
       <<: *env
-      EMAILX_HOSTNAME: ${EMAILX_HOSTNAME-acbm.serve.email-x.io}
       GRAPHQL_URI: ${GRAPHQL_URI-https://caprica.graphql.base-cms.io}
       PORT: 80
       EXPOSED_PORT: 9610

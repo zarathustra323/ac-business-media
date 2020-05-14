@@ -4,7 +4,7 @@ const pretty = require('pretty');
 const httpError = require('../utils/http-error');
 const asyncRoute = require('../utils/async-route');
 const pkg = require('../../package.json');
-const processOmedaLinks = require('../hooks/process-omeda-links');
+const processOmedaLinks = require('../process-links');
 
 module.exports = () => asyncRoute(async (req, res) => {
   const {
@@ -13,9 +13,11 @@ module.exports = () => asyncRoute(async (req, res) => {
     alias,
     day,
     tenantKey,
+    exHost,
   } = req.query;
   if (!host || !alias) throw httpError(400, 'The `host` and `alias` parameters are required.');
   if (!tenantKey) throw httpError(400, 'The `tenantKey` parameter is required.');
+  if (!exHost) throw httpError(400, 'The `exHost` parameter is required.');
 
   let url = `${protocol}://${host}/${alias}`;
   if (day) {
@@ -30,6 +32,7 @@ module.exports = () => asyncRoute(async (req, res) => {
   const out = await processOmedaLinks({
     html: Object.hasOwnProperty.call(req.query, 'pretty') ? pretty(html, { ocd: true }) : html,
     tenantKey,
+    exHost,
   });
   res.status(response.status).send(out);
 });

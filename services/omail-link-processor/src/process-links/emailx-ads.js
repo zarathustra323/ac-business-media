@@ -1,9 +1,7 @@
 const fetch = require('node-fetch');
-const { EMAILX_HOSTNAME } = require('../../env');
 
-const pattern = new RegExp(`https://${EMAILX_HOSTNAME}/click/[a-f0-9]{24}.*`, 'i');
-
-module.exports = async ({ html, urls = [] }) => {
+module.exports = async ({ html, urls = [], exHost }) => {
+  const pattern = new RegExp(`https://${exHost}/click/[a-f0-9]{24}.*`, 'i');
   const appendedUrls = await Promise.all(urls.map(async (url) => {
     const match = pattern.exec(url.value);
     if (match && match[0]) {
