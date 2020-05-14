@@ -12,8 +12,10 @@ module.exports = () => asyncRoute(async (req, res) => {
     host,
     alias,
     day,
+    tenantKey,
   } = req.query;
-  if (!host || !alias) throw httpError(400, 'The host and alias parameters are required.');
+  if (!host || !alias) throw httpError(400, 'The `host` and `alias` parameters are required.');
+  if (!tenantKey) throw httpError(400, 'The `tenantKey` parameter is required.');
 
   let url = `${protocol}://${host}/${alias}`;
   if (day) {
@@ -25,11 +27,9 @@ module.exports = () => asyncRoute(async (req, res) => {
     headers: { 'user-agent': `${pkg.name}/${pkg.version}` },
   });
   const html = await response.text();
-  const out = await processOmedaLinks(html);
-  res.status(response.status);
-  if (Object.hasOwnProperty.call(req.query, 'pretty')) {
-    res.send(pretty(out, { ocd: true }));
-  } else {
-    res.send(out);
-  }
+  const out = await processOmedaLinks({
+    html: Object.hasOwnProperty.call(req.query, 'pretty') ? pretty(html, { ocd: true }) : html,
+    tenantKey,
+  });
+  res.status(response.status).send(out);
 });

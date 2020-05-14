@@ -2,6 +2,7 @@ const { createClient } = require('@base-cms/express-apollo');
 const gql = require('graphql-tag');
 const { getAsArray } = require('@base-cms/object-path');
 const extractUrls = require('./extract-urls');
+const { GRAPHQL_URI } = require('../../env');
 
 const query = gql`
   query ProcessOmedaLinks($ids: [Int!]!) {
@@ -23,10 +24,10 @@ const query = gql`
 
 const hashPattern = /#cid-(\d{8})/;
 
-module.exports = async (html) => {
+module.exports = async ({ html, tenantKey }) => {
   const urls = extractUrls(html);
-  const graphql = createClient('https://caprica.graphql.base-cms.io', {}, {
-    headers: { 'x-tenant-key': 'acbm_fcp' },
+  const graphql = createClient(GRAPHQL_URI, {}, {
+    headers: { 'x-tenant-key': tenantKey },
   });
 
   const contentUrls = urls.map((url) => {
