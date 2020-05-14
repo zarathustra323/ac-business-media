@@ -59,6 +59,7 @@ services:
 
   email-proxy:
     <<: *node
+    image: node:12.15-alpine
     working_dir: /root/services/email-proxy
     entrypoint: ["../../node_modules/.bin/gulp"]
     environment:
