@@ -4,6 +4,7 @@ const pretty = require('pretty');
 const httpError = require('../utils/http-error');
 const asyncRoute = require('../utils/async-route');
 const pkg = require('../../package.json');
+const processOmedaLinks = require('../hooks/process-omeda-links');
 
 module.exports = () => asyncRoute(async (req, res) => {
   const {
@@ -24,10 +25,11 @@ module.exports = () => asyncRoute(async (req, res) => {
     headers: { 'user-agent': `${pkg.name}/${pkg.version}` },
   });
   const html = await response.text();
+  const out = await processOmedaLinks(html);
   res.status(response.status);
   if (Object.hasOwnProperty.call(req.query, 'pretty')) {
-    res.send(pretty(html, { ocd: true }));
+    res.send(pretty(out, { ocd: true }));
   } else {
-    res.send(html);
+    res.send(out);
   }
 });
